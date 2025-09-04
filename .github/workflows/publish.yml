@@ -58,7 +58,7 @@ jobs:
             jsr.json
 
   publish-npm:
-  if: ${{ inputs.publish_target == 'npm' }}
+    if: ${{ inputs.publish_target == 'npm' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -81,7 +81,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-gpr:
-  if: ${{ inputs.publish_target == 'gpr' }}
+    if: ${{ inputs.publish_target == 'gpr' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -105,7 +105,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-jsr:
-  if: ${{ inputs.publish_target == 'jsr' }}
+    if: ${{ inputs.publish_target == 'jsr' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
