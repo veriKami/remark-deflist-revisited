@@ -151,5 +151,5 @@ jobs:
           node-version: 20
 
       - name: "Publish to JSR"
-        run: npx jsr publish
+        run: npx jsr publish --yes
     #: --------------------------------------
