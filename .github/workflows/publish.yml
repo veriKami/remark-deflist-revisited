@@ -1,6 +1,18 @@
 name: "Publish Package"
 
 on:
+  workflow_dispatch: # Umożliwia ręczne uruchomienie
+    inputs:
+      publish_target:
+        description: "What is The Point...?..."
+        type: choice
+        options:
+        - npm
+        - gpr
+        - jsr
+        # required: true
+      # message:
+      #   required: true
   push:
     tags:
       - "v*"
@@ -46,6 +58,7 @@ jobs:
             jsr.json
 
   publish-npm:
+  if: ${{ inputs.publish_target == 'npm' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -68,6 +81,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-gpr:
+  if: ${{ inputs.publish_target == 'gpr' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -91,6 +105,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-jsr:
+  if: ${{ inputs.publish_target == 'jsr' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
