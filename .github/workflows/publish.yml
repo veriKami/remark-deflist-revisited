@@ -54,7 +54,7 @@ jobs:
           path: |
             dist
             package.json
-            LICENSE.md
+            LICENSE
             README.md
             jsr.json
 
@@ -78,7 +78,7 @@ jobs:
 
       - name: "Publish to npm"
         # run: npm publish --access public
-        run: npm publish --access private
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -103,16 +103,42 @@ jobs:
 
       - name: "Publish to GitHub Packages"
         # run: npm publish --access public
-        run: npm publish --access private
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-jsr:
     if: ${{ inputs.publish_target == 'jsr' }}
     needs: build
+    #: --------------------------------------
+    # runs-on: ubuntu-latest
+    # permissions:
+    #   contents: read
+    # steps:
+    #   - name: "Download artifact"
+    #     uses: actions/download-artifact@v4
+    #     with:
+    #       name: package-artifact
+    #
+    #   - name: "Setup Node for JSR"
+    #     uses: actions/setup-node@v4
+    #     with:
+    #       node-version: 20
+    #
+    #   - name: "Publish to JSR"
+    #     run: npx jsr publish --yes --token ${{ secrets.JSR_TOKEN }}
+    #: --------------------------------------
+    #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
+    #: --------------------------------------
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write # The OIDC ID token is used for authentication with JSR.
+    #: --------------------------------------
+    # steps:
+    #   - uses: actions/checkout@v4
+    #   - run: npx jsr publish
+    #: --------------------------------------
     steps:
       - name: "Download artifact"
         uses: actions/download-artifact@v4
@@ -125,4 +151,5 @@ jobs:
           node-version: 20
 
       - name: "Publish to JSR"
-        run: npx jsr publish --yes --token ${{ secrets.JSR_TOKEN }}
+        run: npx jsr publish
+    #: --------------------------------------
