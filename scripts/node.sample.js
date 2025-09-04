@@ -13,7 +13,24 @@ Term
 `;
 
 /*
-  <dl><dt>Term</dt><dd>Definition</dd></dl>
+  <dl><dt>Term</dt><dd>* item A</dd></dl>
+*/
+output = await remark().use(deflist).use(html).process(markdown);
+console.log(String(output));
+
+markdown = `
+Term
+: * item A
+  * item B
+  * item C
+`;
+
+/*
+  <dl><dt>Term</dt><dd><ul>
+  <li>item A</li>
+  <li>item B</li>
+  <li>item C</li>
+  </ul></dd></dl>
 */
 output = await remark().use(deflist).use(html).process(markdown);
 console.log(String(output));

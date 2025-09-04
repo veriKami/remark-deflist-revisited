@@ -20,6 +20,28 @@ export default function deflistWithLists() {
     base(tree, file);
 
     //: ----------------------------------------------------
+    //: (0) Check Preconditions: first <dd> element is list
+    //: ----------------------------------------------------
+    visit(tree, ["descriptiondetails"], (dd) => {
+      const child = dd.children?.[0];
+      /*// DEV ------------------------------
+      if (child && child.children?.[0]) {
+        //: child.children[0].type //: paragraph
+        // const _ = child.children[0]?.children[0].value || "";
+        const _ = child.children[0]?.children[0].value
+          || child.children[0]?.children[0].type + ": " +
+          child.children[0]?.children[0]?.children[0]?.value;
+        // const $ = child.children[0]?.children?.[1]?.value || "";
+        // const $ = child.children[0]?.children?.[0] || "";
+        console.log("+", { _ });
+      }
+      //*/
+      if (!child || child.children?.[0]?.type !== "listItem") {
+        return;
+      }
+    });
+
+    //: ----------------------------------------------------
     //: (1) Scal sierotki <li> wewnątrz <dd>
     //: ----------------------------------------------------
     visit(tree, ["descriptiondetails"], (dd) => {

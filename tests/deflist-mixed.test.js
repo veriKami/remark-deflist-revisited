@@ -30,7 +30,8 @@ describe("remark-deflist mixed mode", () => {
     // "simple.md",
     // "nested.md",
     // "complex.md",
-    "list.md", //: <:--------------
+    "list.basic.md", //: <:--------
+    "list.prefix.md", //: <:-------
   ];
   for (const file of cases) {
     it(`AST + output porównanie: ${file}`, async () => {
