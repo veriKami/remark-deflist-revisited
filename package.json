@@ -46,7 +46,8 @@
   },
   "packageManager": "pnpm@10.15.0",
   "dependencies": {
-    "remark-deflist": "^1.0.0"
+    "remark-deflist": "^1.0.0",
+    "unist-util-visit": "^5.0.0"
   },
   "peerDependencies": {
     "remark": "^15",

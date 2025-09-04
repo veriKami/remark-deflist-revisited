@@ -11,6 +11,9 @@ importers:
       remark-deflist:
         specifier: ^1.0.0
         version: 1.0.0
+      unist-util-visit:
+        specifier: ^5.0.0
+        version: 5.0.0
     devDependencies:
       '@eslint/js':
         specifier: ^9.34.0
