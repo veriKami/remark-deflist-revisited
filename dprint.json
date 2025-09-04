@@ -1,0 +1,13 @@
+{
+  "includes": ["dist/*.{js,ts}", "demo/*.html"],
+  "excludes": ["!dist", "scripts/**", "**/node_modules"],
+  "typescript": {
+    "commentLine.forceSpaceAfterSlashes": false,
+  },
+  "markup": {
+  },
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.95.11.wasm",
+    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.23.3.wasm"
+  ]
+}

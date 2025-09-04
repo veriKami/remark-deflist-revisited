@@ -1,0 +1,67 @@
+{
+  "name": "@verikami/remark-deflist-patched",
+  "version": "0.1.0",
+  "description": "Remark plugin — poprawiona obsługa zagnieżdżonych definicji, fork remark-deflist",
+  "keywords": [
+    "remark",
+    "remark-plugin",
+    "astro",
+    "deflist",
+    "markdown"
+  ],
+  "author": "veriKami <verikami@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veriKami/remark-deflist-patched.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "_prebuild": "tsc --build --clean",
+    "build": "tsc && pnpm fmt:dist",
+    "build:t": "tsc",
+    "build:c": "rm -f dist/* && tsc && pnpm fmt:dist",
+    "build:list": "tsc --listFilesOnly",
+    "test": "vitest run",
+    "test:default": "vitest",
+    "test:watch": "vitest --watch",
+    "test:update": "vitest -u",
+    "d:c": "dprint output-resolved-config",
+    "d:f": "dprint output-file-paths",
+    "d:u": "dprint config update",
+    "fmt": "dprint fmt",
+    "fmt:dist": "dprint fmt dist/*.js",
+    "fmt:demo": "dprint fmt demo/*.html",
+    "demo": "node scripts/generate.html.js && pnpm fmt:demo"
+  },
+  "packageManager": "pnpm@10.15.0",
+  "dependencies": {
+    "remark-deflist": "^1.0.0"
+  },
+  "peerDependencies": {
+    "remark": "^15",
+    "remark-parse": "*",
+    "unified": "*"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@types/node": "^24.3.0",
+    "dprint": "^0.50.1",
+    "eslint": "^9.34.0",
+    "globals": "^16.3.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "remark-parse": "^10",
+    "typescript-eslint": "^8.42.0",
+    "unified": "^10",
+    "vitest": "^0.34"
+  }
+}

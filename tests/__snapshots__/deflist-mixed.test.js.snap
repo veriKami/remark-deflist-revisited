@@ -1,0 +1,1145 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`remark-deflist mixed mode > AST + output porównanie: list.md 1`] = `
+{
+  "input": "Term 1 (basic)
+: - Definition 1
+  - Definition 2
+  - Definition 3
+
+Term 1 (nested)
+: - Definition 1
+    - Sub 1
+    - Sub 2
+  - Definition 2
+  - Definition 3
+    - Sub 1
+    - Sub 2
+
+Term 1 (triple)
+: - Definition 1
+    - Sub 1
+      - Pub 1
+
+Term 2 (basic)
+: 1. Definition 1
+  2. Definition 2
+  3. Definition 3
+
+",
+  "original": {
+    "ast": {
+      "children": [
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 17,
+                  "line": 2,
+                  "offset": 31,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 1,
+                  "offset": 0,
+                },
+              },
+              "type": "text",
+              "value": "Term 1 (basic)
+: - Definition 1",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 17,
+              "line": 2,
+              "offset": 31,
+            },
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "checked": null,
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 17,
+                          "line": 3,
+                          "offset": 48,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 3,
+                          "offset": 36,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Definition 2",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 3,
+                      "offset": 48,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 3,
+                      "offset": 36,
+                    },
+                  },
+                  "type": "paragraph",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 17,
+                  "line": 3,
+                  "offset": 48,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 3,
+                  "offset": 34,
+                },
+              },
+              "spread": false,
+              "type": "listItem",
+            },
+            {
+              "checked": null,
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 17,
+                          "line": 4,
+                          "offset": 65,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 4,
+                          "offset": 53,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Definition 3",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 4,
+                      "offset": 65,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 4,
+                      "offset": 53,
+                    },
+                  },
+                  "type": "paragraph",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 17,
+                  "line": 4,
+                  "offset": 65,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 4,
+                  "offset": 51,
+                },
+              },
+              "spread": false,
+              "type": "listItem",
+            },
+          ],
+          "ordered": false,
+          "position": {
+            "end": {
+              "column": 17,
+              "line": 4,
+              "offset": 65,
+            },
+            "start": {
+              "column": 3,
+              "line": 3,
+              "offset": 34,
+            },
+          },
+          "spread": false,
+          "start": null,
+          "type": "list",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 12,
+                  "line": 9,
+                  "offset": 123,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 6,
+                  "offset": 67,
+                },
+              },
+              "type": "text",
+              "value": "Term 1 (nested)
+: - Definition 1
+- Sub 1
+- Sub 2",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 12,
+              "line": 9,
+              "offset": 123,
+            },
+            "start": {
+              "column": 1,
+              "line": 6,
+              "offset": 67,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "checked": null,
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 17,
+                          "line": 10,
+                          "offset": 140,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 10,
+                          "offset": 128,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Definition 2",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 10,
+                      "offset": 140,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 10,
+                      "offset": 128,
+                    },
+                  },
+                  "type": "paragraph",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 17,
+                  "line": 10,
+                  "offset": 140,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 10,
+                  "offset": 126,
+                },
+              },
+              "spread": false,
+              "type": "listItem",
+            },
+            {
+              "checked": null,
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 17,
+                          "line": 11,
+                          "offset": 157,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 11,
+                          "offset": 145,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Definition 3",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 11,
+                      "offset": 157,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 11,
+                      "offset": 145,
+                    },
+                  },
+                  "type": "paragraph",
+                },
+                {
+                  "children": [
+                    {
+                      "checked": null,
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "position": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 12,
+                                  "offset": 169,
+                                },
+                                "start": {
+                                  "column": 7,
+                                  "line": 12,
+                                  "offset": 164,
+                                },
+                              },
+                              "type": "text",
+                              "value": "Sub 1",
+                            },
+                          ],
+                          "position": {
+                            "end": {
+                              "column": 12,
+                              "line": 12,
+                              "offset": 169,
+                            },
+                            "start": {
+                              "column": 7,
+                              "line": 12,
+                              "offset": 164,
+                            },
+                          },
+                          "type": "paragraph",
+                        },
+                      ],
+                      "position": {
+                        "end": {
+                          "column": 12,
+                          "line": 12,
+                          "offset": 169,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 12,
+                          "offset": 162,
+                        },
+                      },
+                      "spread": false,
+                      "type": "listItem",
+                    },
+                    {
+                      "checked": null,
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "position": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 13,
+                                  "offset": 181,
+                                },
+                                "start": {
+                                  "column": 7,
+                                  "line": 13,
+                                  "offset": 176,
+                                },
+                              },
+                              "type": "text",
+                              "value": "Sub 2",
+                            },
+                          ],
+                          "position": {
+                            "end": {
+                              "column": 12,
+                              "line": 13,
+                              "offset": 181,
+                            },
+                            "start": {
+                              "column": 7,
+                              "line": 13,
+                              "offset": 176,
+                            },
+                          },
+                          "type": "paragraph",
+                        },
+                      ],
+                      "position": {
+                        "end": {
+                          "column": 12,
+                          "line": 13,
+                          "offset": 181,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 13,
+                          "offset": 174,
+                        },
+                      },
+                      "spread": false,
+                      "type": "listItem",
+                    },
+                  ],
+                  "ordered": false,
+                  "position": {
+                    "end": {
+                      "column": 12,
+                      "line": 13,
+                      "offset": 181,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 12,
+                      "offset": 162,
+                    },
+                  },
+                  "spread": false,
+                  "start": null,
+                  "type": "list",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 12,
+                  "line": 13,
+                  "offset": 181,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 11,
+                  "offset": 143,
+                },
+              },
+              "spread": false,
+              "type": "listItem",
+            },
+          ],
+          "ordered": false,
+          "position": {
+            "end": {
+              "column": 12,
+              "line": 13,
+              "offset": 181,
+            },
+            "start": {
+              "column": 3,
+              "line": 10,
+              "offset": 126,
+            },
+          },
+          "spread": false,
+          "start": null,
+          "type": "list",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 14,
+                  "line": 18,
+                  "offset": 241,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 15,
+                  "offset": 183,
+                },
+              },
+              "type": "text",
+              "value": "Term 1 (triple)
+: - Definition 1
+- Sub 1
+- Pub 1",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 14,
+              "line": 18,
+              "offset": 241,
+            },
+            "start": {
+              "column": 1,
+              "line": 15,
+              "offset": 183,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 18,
+                  "line": 23,
+                  "offset": 311,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 20,
+                  "offset": 243,
+                },
+              },
+              "type": "text",
+              "value": "Term 2 (basic)
+: 1. Definition 1
+2. Definition 2
+3. Definition 3",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 18,
+              "line": 23,
+              "offset": 311,
+            },
+            "start": {
+              "column": 1,
+              "line": 20,
+              "offset": 243,
+            },
+          },
+          "type": "paragraph",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 1,
+          "line": 25,
+          "offset": 313,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "root",
+    },
+    "output": "<dl><dt>Term 1 (basic)</dt><dd><li>Definition 1</li></dd></dl>
+<ul>
+<li>Definition 2</li>
+<li>Definition 3</li>
+</ul>
+<dl><dt>Term 1 (nested)</dt><dd><li>Definition 1
+- Sub 1
+- Sub 2</li></dd></dl>
+<ul>
+<li>Definition 2</li>
+<li>Definition 3
+<ul>
+<li>Sub 1</li>
+<li>Sub 2</li>
+</ul>
+</li>
+</ul>
+<dl><dt>Term 1 (triple)</dt><dd><li>Definition 1
+- Sub 1
+- Pub 1</li></dd><dt>Term 2 (basic)</dt><dd><li>Definition 1
+2. Definition 2
+3. Definition 3</li></dd></dl>
+",
+  },
+  "patched": {
+    "ast": {
+      "children": [
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 17,
+                  "line": 2,
+                  "offset": 31,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 1,
+                  "offset": 0,
+                },
+              },
+              "type": "text",
+              "value": "Term 1 (basic)
+: - Definition 1",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 17,
+              "line": 2,
+              "offset": 31,
+            },
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "checked": null,
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 17,
+                          "line": 3,
+                          "offset": 48,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 3,
+                          "offset": 36,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Definition 2",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 3,
+                      "offset": 48,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 3,
+                      "offset": 36,
+                    },
+                  },
+                  "type": "paragraph",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 17,
+                  "line": 3,
+                  "offset": 48,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 3,
+                  "offset": 34,
+                },
+              },
+              "spread": false,
+              "type": "listItem",
+            },
+            {
+              "checked": null,
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 17,
+                          "line": 4,
+                          "offset": 65,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 4,
+                          "offset": 53,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Definition 3",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 4,
+                      "offset": 65,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 4,
+                      "offset": 53,
+                    },
+                  },
+                  "type": "paragraph",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 17,
+                  "line": 4,
+                  "offset": 65,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 4,
+                  "offset": 51,
+                },
+              },
+              "spread": false,
+              "type": "listItem",
+            },
+          ],
+          "ordered": false,
+          "position": {
+            "end": {
+              "column": 17,
+              "line": 4,
+              "offset": 65,
+            },
+            "start": {
+              "column": 3,
+              "line": 3,
+              "offset": 34,
+            },
+          },
+          "spread": false,
+          "start": null,
+          "type": "list",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 12,
+                  "line": 9,
+                  "offset": 123,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 6,
+                  "offset": 67,
+                },
+              },
+              "type": "text",
+              "value": "Term 1 (nested)
+: - Definition 1
+- Sub 1
+- Sub 2",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 12,
+              "line": 9,
+              "offset": 123,
+            },
+            "start": {
+              "column": 1,
+              "line": 6,
+              "offset": 67,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "checked": null,
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 17,
+                          "line": 10,
+                          "offset": 140,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 10,
+                          "offset": 128,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Definition 2",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 10,
+                      "offset": 140,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 10,
+                      "offset": 128,
+                    },
+                  },
+                  "type": "paragraph",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 17,
+                  "line": 10,
+                  "offset": 140,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 10,
+                  "offset": 126,
+                },
+              },
+              "spread": false,
+              "type": "listItem",
+            },
+            {
+              "checked": null,
+              "children": [
+                {
+                  "children": [
+                    {
+                      "position": {
+                        "end": {
+                          "column": 17,
+                          "line": 11,
+                          "offset": 157,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 11,
+                          "offset": 145,
+                        },
+                      },
+                      "type": "text",
+                      "value": "Definition 3",
+                    },
+                  ],
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 11,
+                      "offset": 157,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 11,
+                      "offset": 145,
+                    },
+                  },
+                  "type": "paragraph",
+                },
+                {
+                  "children": [
+                    {
+                      "checked": null,
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "position": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 12,
+                                  "offset": 169,
+                                },
+                                "start": {
+                                  "column": 7,
+                                  "line": 12,
+                                  "offset": 164,
+                                },
+                              },
+                              "type": "text",
+                              "value": "Sub 1",
+                            },
+                          ],
+                          "position": {
+                            "end": {
+                              "column": 12,
+                              "line": 12,
+                              "offset": 169,
+                            },
+                            "start": {
+                              "column": 7,
+                              "line": 12,
+                              "offset": 164,
+                            },
+                          },
+                          "type": "paragraph",
+                        },
+                      ],
+                      "position": {
+                        "end": {
+                          "column": 12,
+                          "line": 12,
+                          "offset": 169,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 12,
+                          "offset": 162,
+                        },
+                      },
+                      "spread": false,
+                      "type": "listItem",
+                    },
+                    {
+                      "checked": null,
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "position": {
+                                "end": {
+                                  "column": 12,
+                                  "line": 13,
+                                  "offset": 181,
+                                },
+                                "start": {
+                                  "column": 7,
+                                  "line": 13,
+                                  "offset": 176,
+                                },
+                              },
+                              "type": "text",
+                              "value": "Sub 2",
+                            },
+                          ],
+                          "position": {
+                            "end": {
+                              "column": 12,
+                              "line": 13,
+                              "offset": 181,
+                            },
+                            "start": {
+                              "column": 7,
+                              "line": 13,
+                              "offset": 176,
+                            },
+                          },
+                          "type": "paragraph",
+                        },
+                      ],
+                      "position": {
+                        "end": {
+                          "column": 12,
+                          "line": 13,
+                          "offset": 181,
+                        },
+                        "start": {
+                          "column": 5,
+                          "line": 13,
+                          "offset": 174,
+                        },
+                      },
+                      "spread": false,
+                      "type": "listItem",
+                    },
+                  ],
+                  "ordered": false,
+                  "position": {
+                    "end": {
+                      "column": 12,
+                      "line": 13,
+                      "offset": 181,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 12,
+                      "offset": 162,
+                    },
+                  },
+                  "spread": false,
+                  "start": null,
+                  "type": "list",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 12,
+                  "line": 13,
+                  "offset": 181,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 11,
+                  "offset": 143,
+                },
+              },
+              "spread": false,
+              "type": "listItem",
+            },
+          ],
+          "ordered": false,
+          "position": {
+            "end": {
+              "column": 12,
+              "line": 13,
+              "offset": 181,
+            },
+            "start": {
+              "column": 3,
+              "line": 10,
+              "offset": 126,
+            },
+          },
+          "spread": false,
+          "start": null,
+          "type": "list",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 14,
+                  "line": 18,
+                  "offset": 241,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 15,
+                  "offset": 183,
+                },
+              },
+              "type": "text",
+              "value": "Term 1 (triple)
+: - Definition 1
+- Sub 1
+- Pub 1",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 14,
+              "line": 18,
+              "offset": 241,
+            },
+            "start": {
+              "column": 1,
+              "line": 15,
+              "offset": 183,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 18,
+                  "line": 23,
+                  "offset": 311,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 20,
+                  "offset": 243,
+                },
+              },
+              "type": "text",
+              "value": "Term 2 (basic)
+: 1. Definition 1
+2. Definition 2
+3. Definition 3",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 18,
+              "line": 23,
+              "offset": 311,
+            },
+            "start": {
+              "column": 1,
+              "line": 20,
+              "offset": 243,
+            },
+          },
+          "type": "paragraph",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 1,
+          "line": 25,
+          "offset": 313,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "root",
+    },
+    "output": "<dl><dt>Term 1 (basic)</dt><dd><ul>
+<li>Definition 1</li>
+<li>Definition 2</li>
+<li>Definition 3</li>
+</ul></dd><dt>Term 1 (nested)</dt><dd><ul>
+<li>Definition 1
+- Sub 1
+- Sub 2</li>
+<li>Definition 2</li>
+<li>Definition 3
+<ul>
+<li>Sub 1</li>
+<li>Sub 2</li>
+</ul>
+</li>
+</ul></dd><dt>Term 1 (triple)</dt><dd><ul>
+<li>Definition 1
+- Sub 1
+- Pub 1</li>
+</ul></dd><dt>Term 2 (basic)</dt><dd><ul>
+<li>Definition 1
+2. Definition 2
+3. Definition 3</li>
+</ul></dd></dl>
+",
+  },
+}
+`;
