@@ -1,4 +1,4 @@
-# EditorConfig: https://editorconfig.org
+#: EditorConfig: https://editorconfig.org
 
 root = true
 
@@ -27,6 +27,6 @@ trim_trailing_whitespace = false
 [Makefile]
 indent_style = tab
 
-[{package.json,.travis.yml}]
+[{package.json,jsr.json,dprint.json}]
 indent_style = space
 indent_size = 2
