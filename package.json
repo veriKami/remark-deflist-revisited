@@ -36,7 +36,7 @@
     "build:t": "tsc",
     "build:c": "rm -f dist/* && tsc && pnpm fmt:dist",
     "build:list": "tsc --listFilesOnly",
-    "make:bundle":"esbuild src/index.js --bundle --platform=node --format=esm --outfile=dist/index.js",
+    "make:bundle":"esbuild src/index.js --bundle --platform=node --packages=external --format=esm --outfile=dist/index.js",
     "make:types":" tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir dist",
     "build:jsr": "pnpm make:bundle && pnpm make:types",
     "test": "vitest run",
