@@ -11,6 +11,7 @@
       "!src/**/*",  // jawnie wyklucz src
       "!test/**/*",
       "!node_modules/**/*"
-    ]
+    ],
+    "exclude": ["!dist"]
   }
 }
