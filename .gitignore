@@ -1,3 +1,16 @@
+#: --------------------------------
+
+__*
+**/*.bak*
+**/*copy*
+ai
+
+**/•*
+*~
+Icon*
+
+#: --------------------------------
+
 # Logs
 logs
 *.log
@@ -80,7 +93,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist
+# !dist
 
 # Gatsby files
 .cache/
