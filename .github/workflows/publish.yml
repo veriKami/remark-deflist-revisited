@@ -9,7 +9,7 @@ on:
         options:
         - gpr
         - npm
-        # - jsr
+        - jsr
         # required: true
       # message:
       #   required: true
@@ -135,6 +135,20 @@ jobs:
   #       env:
   #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   #: -------------------------------------------------------
+
+  publish-jsr:
+  if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
+  # if: ${{ inputs.publish_target == 'jsr' }}
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write #: OIDC
+      contents: read
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+
+      - name: "Publish package"
+        run: npx jsr publish
 
   # publish-jsr:
   #   # if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}

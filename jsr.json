@@ -1,9 +1,7 @@
+
 {
   "name": "@verikami/remark-deflist-revisited",
-  "version": "0.1.0",
-  "exports": "./dist/index.js",
-  "dependencies": {
-    "npm:remark-deflist": "^1.0.0",
-    "npm:unist-util-visit": "^5.0.0"
-  }
+  "version": "0.1.2",
+  "license": "MIT",
+  "exports": "./dist/index.js"
 }
