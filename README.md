@@ -1,5 +1,8 @@
 # @verikami/remark-deflist-revisited
 
+[![GH Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/veriKami/remark-deflist-revisited)
+[![CI](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg)](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml)
+
 A wrapper around **remark-deflist** with improved support for nested definition lists.
 It preserves all the original functionality by installing **remark-deflist** as a dependency.
 
@@ -77,17 +80,16 @@ Term
   - item C
 `;
 
-/*
------------------------------------------
+output = await remark().use(deflist).use(html).process(markdown);
+console.log(String(output));
+
+/* ------------------------------------------
 <dl><dt>Term</dt><dd><ul>
 <li>item A</li>
 <li>item B</li>
 <li>item C</li>
 </ul></dd></dl>
------------------------------------------
-*/
-output = await remark().use(deflist).use(html).process(markdown);
-console.log(String(output));
+------------------------------------------ */
 
 markdown = `
 Term
@@ -96,17 +98,16 @@ Term
   - **item** C
 `;
 
-/*
------------------------------------------
+output = await remark().use(deflist).use(html).process(markdown);
+console.log(String(output));
+
+/* ------------------------------------------
 <dl><dt>Term</dt><dd><ul>
 <li><strong>item</strong> A</li>
 <li><strong>item</strong> B</li>
 <li><strong>item</strong> C</li>
 </ul></dd></dl>
------------------------------------------
-*/
-output = await remark().use(deflist).use(html).process(markdown);
-console.log(String(output));
+------------------------------------------ */
 
 
 ```
