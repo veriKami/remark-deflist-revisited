@@ -1,16 +1,14 @@
-# @verikami/remark-deflist-patched
+# @verikami/remark-deflist-revisited
 
-Nakładka na remark-deflist z poprawioną obsługą zagnieżdżonych list definicji. Zachowuje wszystkie funkcje oryginału instalując go jako dependency.
-
-**@verikami/remark-deflist-revisited**  
-**@verikami/remark-deflist-list**
+Nakładka na remark-deflist z poprawioną obsługą zagnieżdżonych list definicji.
+Zachowuje wszystkie funkcje oryginału instalując go jako dependency.
 
 ## Instalacja
 
 ```bash
-ツ npm i @verikami/remark-deflist-patched
-ツ pnpm add @verikami/remark-deflist-patched
-ツ pnpm add jsr:@verikami/remark-deflist-patched
+ツ npm i @verikami/remark-deflist-revisited
+ツ pnpm add @verikami/remark-deflist-revisited
+ツ pnpm add jsr:@verikami/remark-deflist-revisited
 ```
 
 ## Użycie
@@ -44,7 +42,7 @@ Term
 </ul>
 ```
 
-### Using `@verikami/remark-deflist-patched`
+### Using `@verikami/remark-deflist-revisited`
 
 ```
 <dl>
@@ -175,4 +173,4 @@ Wszelkie prawa do oryginału — MIT © Alex Shaw
 - [www.npmjs.com/package/remark-deflist](https://www.npmjs.com/package/remark-deflis)
 - [github.com/Symbitic/remark-plugins](https://github.com/Symbitic/remark-plugins)
 
-[MIT](LICENSE.md) © veriKami
+[MIT](LICENSE) © veriKami
