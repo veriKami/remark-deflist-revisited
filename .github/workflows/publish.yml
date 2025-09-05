@@ -28,9 +28,6 @@ jobs:
 
       - name: "Setup pnpm"
         uses: pnpm/action-setup@v4
-        # version pnpm@10.15.0 in the package.json
-        # with:
-        #   version: 10
 
       - name: "Setup Node"
         uses: actions/setup-node@v4
@@ -42,7 +39,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: "Run tests"
-        run: pnpm exec vitest run
+        run: pnpm vitest run
 
       - name: "Build"
         run: pnpm build
@@ -61,7 +58,6 @@ jobs:
 
   publish-gpr:
     if: ${{ inputs.publish_target == 'gpr' || github.event_name == 'push' }}
-    # if: ${{ inputs.publish_target == 'gpr' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -86,7 +82,6 @@ jobs:
 
   publish-npm:
     if: ${{ inputs.publish_target == 'npm' || github.event_name == 'push' }}
-    # if: ${{ inputs.publish_target == 'npm' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -111,46 +106,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  #: -------------------------------------------------------
-  # publish-npm:
-  #   if: ${{ inputs.publish_target == 'npm' }}
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: read
-  #   steps:
-  #     - name: "Download artifact"
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: package-artifact
-  #
-  #     - name: "Setup Node for npm"
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 20
-  #         registry-url: "https://registry.npmjs.org"
-  #
-  #     - name: "Publish to npm"
-  #       # run: npm publish --access public
-  #       run: npm publish
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  #: -------------------------------------------------------
-
-  # npm warn exec The following package was not found and will be installed: jsr@0.13.5
-  # Downloading JSR release binary...
-  # Download completed
-  # error: Could not find "unist-util-visit" in a node_modules folder. Deno expects the node_modules/ directory to be up to date. Did you forget to run `deno install`?
-  #     at file:///home/runner/work/remark-deflist-revisited/remark-deflist-revisited/dist/index.js:2:23
-  # Command: /home/runner/.npm/_npx/91d31d47806d2506/node_modules/jsr/.download/v2.3.7/linux/deno publish --unstable-bare-node-builtins --unstable-sloppy-imports --unstable-byonm --no-check
-  # CWD: /home/runner/work/remark-deflist-revisited/remark-deflist-revisited
-  # Output:
-  # Child process exited with: 1
-  # Error: Process completed with exit code 1.
-
   publish-jsr:
     if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
-    # if: ${{ inputs.publish_target == 'jsr' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -165,102 +122,5 @@ jobs:
         with:
           name: package-artifact
 
-      #: ------------------------------------
-      # - name: "Setup pnpm"
-      #   uses: pnpm/action-setup@v4
-      #   # version pnpm@10.15.0 in the package.json
-      #   # with:
-      #   #   version: 10
-      #
-      # - name: "Setup Node"
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 20
-      #     cache: "pnpm"
-      #
-      # - name: "Install dependencies"
-      #   run: pnpm install --frozen-lockfile
-      #
-      # - name: "Run tests"
-      #   run: pnpm exec vitest run
-      #
-      # - name: "Build"
-      #   run: pnpm build
-      #: ------------------------------------
-
       - name: "Publish package"
         run: npx jsr publish
-
-  # publish-jsr:
-  #   # if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
-  #   if: ${{ inputs.publish_target == 'jsr' }}
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     id-token: write
-  #     contents: read
-  #   steps:
-  #     - name: "Checkout code"
-  #       uses: actions/checkout@v4
-  #
-  #     - name: "Setup pnpm"
-  #       uses: pnpm/action-setup@v4
-  #
-  #     - name: "Setup Node"
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 20
-  #         cache: "pnpm"
-  #
-  #     - name: "Install dependencies"
-  #       run: pnpm install --frozen-lockfile
-  #
-  #     - name: "Build"
-  #       run: pnpm build:jsr
-  #
-  #     - name: "Publish to JSR"
-  #       run: npx jsr publish --allow-slow-types
-
-  #: ----------------------------------------
-  #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
-  #: ----------------------------------------
-  # publish-jsr:
-  #   # if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
-  #   if: ${{ inputs.publish_target == 'jsr' }}
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     id-token: write #: OIDC
-  #     contents: read
-  #   steps:
-  #     - name: "Download artifact"
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: package-artifact
-  #
-  #     - name: "Setup Node for JSR"
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 20
-  #
-  #     - name: "Publish to JSR"
-  #       # run: npx jsr publish --yes
-  #       run: npx jsr publish
-
-    #: --------------------------------------
-    # runs-on: ubuntu-latest
-    # permissions:
-    #   contents: read
-    # steps:
-    #   - name: "Download artifact"
-    #     uses: actions/download-artifact@v4
-    #     with:
-    #       name: package-artifact
-    #
-    #   - name: "Setup Node for JSR"
-    #     uses: actions/setup-node@v4
-    #     with:
-    #       node-version: 20
-    #
-    #   - name: "Publish to JSR"
-    #     run: npx jsr publish --yes --token ${{ secrets.JSR_TOKEN }}
-    #: --------------------------------------
