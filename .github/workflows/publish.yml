@@ -163,7 +163,7 @@ jobs:
         run: pnpm build
 
       - name: "Publish to JSR"
-        run: npx jsr publish --allow-slow-types
+        run: npx jsr publish --allow-slow-types --allow-excluded-modules
 
   #: ----------------------------------------
   #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions

@@ -1,5 +1,16 @@
 {
-  "name": "@verikami/remark-deflist-patched",
+  "name": "@verikami/remark-deflist-revisited",
   "version": "0.1.0",
-  "exports": "./dist/index.js"
+  "exports": "./dist/index.js",
+  "publish": {
+    "include": [
+      "dist/**/*",
+      "package.json",
+      "README.md",
+      "LICENSE",
+      "!src/**/*",  // jawnie wyklucz src
+      "!test/**/*",
+      "!node_modules/**/*"
+    ]
+  }
 }
