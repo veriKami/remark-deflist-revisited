@@ -162,12 +162,17 @@ jobs:
       - name: "Build"
         run: pnpm build
 
+      - name: "Debug JSR module graph"
+        run: |
+          # Sprawdź jakie moduły są importowane
+          npx jsr publish --dry-run --verbose
+
       - name: "Publish to JSR"
         run: npx jsr publish --allow-slow-types
         # run: |
         #   # Install dependencies specifically for Deno/JSR
-        #   npx jsr add remark-deflist
-        #   npx jsr add unist-util-visit
+        #   npx jsr add npm:remark-deflist
+        #   npx jsr add npm:unist-util-visit
         #   npx jsr publish --yes --allow-slow-types
 
   #: ----------------------------------------
