@@ -163,7 +163,12 @@ jobs:
         run: pnpm build
 
       - name: "Publish to JSR"
-        run: npx jsr publish --allow-slow-types --include-node-modules
+        # run: npx jsr publish --allow-slow-types
+        run: |
+          # Install dependencies specifically for Deno/JSR
+          npx jsr add remark-deflist
+          npx jsr add unist-util-visit
+          npx jsr publish --yes --allow-slow-types
 
   #: ----------------------------------------
   #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
