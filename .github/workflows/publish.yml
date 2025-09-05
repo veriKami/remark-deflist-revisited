@@ -89,7 +89,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      id-token: write #: OIDC
+      # id-token: write #: OIDC
       contents: read
     steps:
       - name: "Download artifact"
@@ -105,7 +105,10 @@ jobs:
           scope: "@verikami"
 
       - name: "Publish to npm"
-        run: npm publish
+        # run: npm publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   #: -------------------------------------------------------
   # publish-npm:
