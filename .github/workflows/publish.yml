@@ -56,6 +56,7 @@ jobs:
             package.json
             LICENSE
             README.md
+            node_modules
             jsr.json
 
   publish-gpr:
@@ -135,6 +136,17 @@ jobs:
   #       env:
   #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   #: -------------------------------------------------------
+
+  # npm warn exec The following package was not found and will be installed: jsr@0.13.5
+  # Downloading JSR release binary...
+  # Download completed
+  # error: Could not find "unist-util-visit" in a node_modules folder. Deno expects the node_modules/ directory to be up to date. Did you forget to run `deno install`?
+  #     at file:///home/runner/work/remark-deflist-revisited/remark-deflist-revisited/dist/index.js:2:23
+  # Command: /home/runner/.npm/_npx/91d31d47806d2506/node_modules/jsr/.download/v2.3.7/linux/deno publish --unstable-bare-node-builtins --unstable-sloppy-imports --unstable-byonm --no-check
+  # CWD: /home/runner/work/remark-deflist-revisited/remark-deflist-revisited
+  # Output:
+  # Child process exited with: 1
+  # Error: Process completed with exit code 1.
 
   publish-jsr:
     if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
@@ -252,4 +264,3 @@ jobs:
     #   - name: "Publish to JSR"
     #     run: npx jsr publish --yes --token ${{ secrets.JSR_TOKEN }}
     #: --------------------------------------
-
