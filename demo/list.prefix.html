@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>TEST @ list.prefix.md</title>
+    <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    dl { border: 1px solid #ccc; padding: 1rem; margin-bottom: 2rem; }
+    dt { font-weight: bold; margin-top: 1rem; }
+    dd { margin-left: 2rem; }
+    dd ul, dd ol { margin-left: 1.5rem; }
+    dd ul.nested-list, dd ol.nested-list { color: darkblue; }
+    </style>
+  </head>
+  <body>
+    <h2>@ list.prefix.md</h2>
+    <dl>
+      <dt>Term 1 (basic) with # -</dt>
+      <dd>
+        <ul>
+          <li>Definition 1 # -</li>
+          <li>Definition 2 # -</li>
+          <li>Definition 3 # -</li>
+        </ul>
+      </dd>
+      <dt>Term 1 (basic) with # - *x*</dt>
+      <dd>
+        <ul>
+          <li><em>Definition</em> 1 # -</li>
+          <li><em>Definition</em> 2 # -</li>
+          <li><em>Definition</em> 3 # -</li>
+        </ul>
+      </dd>
+    </dl>
+    <dl>
+      <dt>Term 2 (basic) with # *</dt>
+      <dd>* Definition 1 # *</dd>
+    </dl>
+    <dl>
+      <dt>Term 3 (basic) with # 1.</dt>
+      <dd>
+        <ul>
+          <li>
+            Definition 1 # 1. 2. Definition 2 # 2. 3. Definition 3 # 3.
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </body>
+</html>

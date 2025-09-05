@@ -5,6 +5,12 @@ export default function deflistWithLists() {
   return (tree, file) => {
     base(tree, file);
     visit(tree, ["descriptiondetails"], (dd) => {
+      const child = dd.children?.[0];
+      if (!child || child.children?.[0]?.type !== "listItem") {
+        return;
+      }
+    });
+    visit(tree, ["descriptiondetails"], (dd) => {
       const ulItems = [];
       const newChildren = [];
       for (const child of dd.children) {

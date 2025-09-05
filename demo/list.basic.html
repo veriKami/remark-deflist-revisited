@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>TEST @ list.basic.md</title>
+    <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    dl { border: 1px solid #ccc; padding: 1rem; margin-bottom: 2rem; }
+    dt { font-weight: bold; margin-top: 1rem; }
+    dd { margin-left: 2rem; }
+    dd ul, dd ol { margin-left: 1.5rem; }
+    dd ul.nested-list, dd ol.nested-list { color: darkblue; }
+    </style>
+  </head>
+  <body>
+    <h2>@ list.basic.md</h2>
+    <dl>
+      <dt>Term 1 (basic) with # -</dt>
+      <dd>
+        <ul>
+          <li>Definition 1 # -</li>
+          <li>Definition 2 # -</li>
+          <li>Definition 3 # -</li>
+        </ul>
+      </dd>
+      <dt>Term 1 (basic) with # - *x*</dt>
+      <dd>
+        <ul>
+          <li><em>Definition</em> 1 # -</li>
+          <li><em>Definition</em> 2 # -</li>
+          <li><em>Definition</em> 3 # -</li>
+        </ul>
+      </dd>
+    </dl>
+    <dl>
+      <dt>Term 1 (nested) with # -</dt>
+      <dd>
+        <ul>
+          <li>
+            Definition 1 # - - Sub 1 # - - Sub 2 # -
+          </li>
+          <li>
+            Definition 2 # -
+            <ul>
+              <li>Sub 1 # -</li>
+              <li>Sub 2 # -</li>
+            </ul>
+          </li>
+          <li>
+            Definition 3 # -
+            <ul>
+              <li>Sub 1 # -</li>
+              <li>Sub 2 # -</li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+      <dt>Term 1 (triple) with # -</dt>
+      <dd>
+        <ul>
+          <li>
+            Definition 1 # - - Sub 1 # - - Pub 1 # -
+          </li>
+          <li>
+            Definition 2 # -
+            <ul>
+              <li>
+                Sub 1 # -
+                <ul>
+                  <li>Pub 1 # -</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Definition 3 # -
+            <ul>
+              <li>
+                Sub 1 # -
+                <ul>
+                  <li>Pub 1 # -</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </body>
+</html>
