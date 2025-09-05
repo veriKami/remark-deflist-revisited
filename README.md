@@ -44,7 +44,7 @@ Term
 
 ### Using `@verikami/remark-deflist-revisited`
 
-```
+```html
 <dl>
 <dt>Term</dt>
 <dd>
@@ -63,7 +63,7 @@ Term
 
 ### Usage in node.js
 
-```
+```js
 import { remark } from "remark";
 import html from "remark-html";
 import deflist from "@verikami/remark-deflist-patched";
@@ -131,7 +131,7 @@ console.log(String(output));
 
 ### Usage in Astro
 
-```
+```js
 import remarkDeflist from "@verikami/remark-deflist-patched";
 
 export default defineConfig({
