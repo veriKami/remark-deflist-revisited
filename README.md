@@ -1,23 +1,22 @@
 # @verikami/remark-deflist-revisited
 
-Nakładka na remark-deflist z poprawioną obsługą zagnieżdżonych list definicji.
-Zachowuje wszystkie funkcje oryginału instalując go jako dependency.
+A wrapper around **remark-deflist** with improved support for nested definition lists.
+It preserves all the original functionality by installing **remark-deflist** as a dependency.
 
-## Instalacja
+## Installation
 
 ```bash
 ツ npm i @verikami/remark-deflist-revisited
 ツ pnpm add @verikami/remark-deflist-revisited
-ツ pnpm add jsr:@verikami/remark-deflist-revisited
 ```
 
-## Użycie
+## Usage
 
-### Problem with `remark-deflist` plugin
+### The problem with `remark-deflist`
 
-jest taki, że renderuje niepoprawnie elementy listy zagnieżdżone w `<dd>`
+The plugin renders nested list items inside `<dd>` incorrectly.
 
-### Markdown
+**Markdown**
 
 ```markdown
 Term
@@ -26,7 +25,7 @@ Term
   - item C
 ```
 
-### Using `remark-deflist`
+**With `remark-deflist`**
 
 ```html
 <dl>
@@ -42,7 +41,7 @@ Term
 </ul>
 ```
 
-### Using `@verikami/remark-deflist-revisited`
+**With `@verikami/remark-deflist-revisited`**
 
 ```html
 <dl>
@@ -56,12 +55,12 @@ Term
 </dl>
 ```
 
-### UWAGI:
+### Notes
 
-1. Użycie `: *` jako znacznika listy (w szczególności) w pierwszym elemencie powoduje błąd
-2. Użycie `: - *x*` lub `: - **x**` jest również problematyczne
+1. Using `: *` as a list marker (especially for the first item) is still causing errors.
+2. Using `: - *x*` or `: - **x**` is not problematic.
 
-### Usage in node.js
+### Usage in Node.js
 
 ```js
 import { remark } from "remark";
@@ -70,23 +69,6 @@ import deflist from "@verikami/remark-deflist-patched";
 
 let markdown;
 let output;
-
-markdown = `
-Term
-: Definition
-  - item A
-  - item B
-`;
-
-/*
------------------------------------------
-TODO: first item is not list item
------------------------------------------
-<dl><dt>Term</dt><dd>Definition</dd></dl>
------------------------------------------
-*/
-output = await remark().use(deflist).use(html).process(markdown);
-console.log(String(output));
 
 markdown = `
 Term
@@ -139,38 +121,36 @@ export default defineConfig({
     remarkPlugins: [
       remarkDeflist
     ]
+  }
 });
-
 ```
 
-## Flow działania
-```
+## Processing Flow
 
+```
 Markdown
    │
 Plugin (patched deflist)
    │
-HTML / AST
+HTML // AST
    │
-Snapshoty (Vitest)
+Snapshots (Vitest)
    │
-Build (dist/)
+Build (dist)
    │
 CI/CD (GitHub Actions)
    │
 ┌───────────┬──────────────┬───────────────┐
 │   npm     │ GitHub       │  JSR          │
-│           │ Packages     │ (opcjonalnie) │
+│           │ Packages     │ (optional)    │
 └───────────┴──────────────┴───────────────┘
-
-
 ```
 
-## Licencja
+## License
 
-Wszelkie prawa do oryginału — MIT © Alex Shaw
+Original work — MIT © Alex Shaw
 
-- [www.npmjs.com/package/remark-deflist](https://www.npmjs.com/package/remark-deflis)
-- [github.com/Symbitic/remark-plugins](https://github.com/Symbitic/remark-plugins)
+* [gh: Symbitic/remark-plugins](https://github.com/Symbitic/remark-plugins)
+* [npm: remark-deflist](https://www.npmjs.com/package/remark-deflist)
 
 [MIT](LICENSE) © veriKami
