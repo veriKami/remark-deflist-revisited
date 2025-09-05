@@ -2,6 +2,7 @@
   "name": "@verikami/remark-deflist-revisited",
   "version": "0.1.0",
   "description": "Remark plugin — poprawiona obsługa zagnieżdżonych definicji, fork remark-deflist",
+  "private": true,
   "keywords": [
     "remark",
     "remark-plugin",
