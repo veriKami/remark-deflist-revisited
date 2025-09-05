@@ -136,31 +136,60 @@ jobs:
   #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   #: -------------------------------------------------------
 
-  #: ----------------------------------------
-  #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
-  #: ----------------------------------------
   publish-jsr:
     # if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
     if: ${{ inputs.publish_target == 'jsr' }}
-    needs: build
     runs-on: ubuntu-latest
     permissions:
-      id-token: write #: OIDC
+      id-token: write
       contents: read
     steps:
-      - name: "Download artifact"
-        uses: actions/download-artifact@v4
-        with:
-          name: package-artifact
+      - name: "Checkout code"
+        uses: actions/checkout@v4
 
-      - name: "Setup Node for JSR"
+      - name: "Setup pnpm"
+        uses: pnpm/action-setup@v4
+
+      - name: "Setup Node"
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "pnpm"
+
+      - name: "Install dependencies"
+        run: pnpm install --frozen-lockfile
+
+      - name: "Build"
+        run: pnpm build
 
       - name: "Publish to JSR"
-        # run: npx jsr publish --yes
         run: npx jsr publish
+
+  #: ----------------------------------------
+  #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
+  #: ----------------------------------------
+  # publish-jsr:
+  #   # if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
+  #   if: ${{ inputs.publish_target == 'jsr' }}
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     id-token: write #: OIDC
+  #     contents: read
+  #   steps:
+  #     - name: "Download artifact"
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: package-artifact
+
+  #     - name: "Setup Node for JSR"
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+
+  #     - name: "Publish to JSR"
+  #       # run: npx jsr publish --yes
+  #       run: npx jsr publish
 
     #: --------------------------------------
     # runs-on: ubuntu-latest
@@ -180,3 +209,4 @@ jobs:
     #   - name: "Publish to JSR"
     #     run: npx jsr publish --yes --token ${{ secrets.JSR_TOKEN }}
     #: --------------------------------------
+
