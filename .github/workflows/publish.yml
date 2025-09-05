@@ -139,6 +139,7 @@ jobs:
   publish-jsr:
     if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
     # if: ${{ inputs.publish_target == 'jsr' }}
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       id-token: write #: OIDC
