@@ -15,12 +15,10 @@
     "astro",
     "parser"
   ],
-  "author": "veriKami <verikami@gmail.com>",
+  "author": "veriKami <verikami@gmail.com> (https://verikami.com/)",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/veriKami/remark-deflist-revisited.git"
-  },
+  "repository": "github:veriKami/remark-deflist-revisited",
+  "homepage": "https://github.com/veriKami/remark-deflist-revisited#readme",
   "publishConfig": {
     "access": "public"
   },
@@ -30,6 +28,11 @@
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      ".": "./dist/index.js"
+  },
   "scripts": {
     "_prebuild": "tsc --build --clean",
     "build": "tsc && pnpm fmt:dist",
