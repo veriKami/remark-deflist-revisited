@@ -1,7 +1,7 @@
 name: "Publish Package"
 
 on:
-  workflow_dispatch: # Umożliwia ręczne uruchomienie
+  workflow_dispatch:
     inputs:
       publish_target:
         description: "What is The Point...?..."
@@ -58,54 +58,9 @@ jobs:
             README.md
             jsr.json
 
-  # publish-npm:
-  #   if: ${{ inputs.publish_target == 'npm' }}
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: read
-  #   steps:
-  #     - name: "Download artifact"
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: package-artifact
-
-  #     - name: "Setup Node for npm"
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 20
-  #         registry-url: "https://registry.npmjs.org"
-
-  #     - name: "Publish to npm"
-  #       # run: npm publish --access public
-  #       run: npm publish
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  publish-npm:
-    if: ${{ inputs.publish_target == 'npm' }}
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write # Required for OIDC
-    steps:
-      - name: "Download artifact"
-        uses: actions/download-artifact@v4
-        with:
-          name: package-artifact
-
-      - name: "Setup Node for npm"
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          registry-url: "https://registry.npmjs.org"
-
-      - name: "Publish to npm"
-        run: npm publish
-
   publish-gpr:
-    if: ${{ inputs.publish_target == 'gpr' }}
+    if: ${{ inputs.publish_target == 'gpr' || github.event_name == 'push' }}
+    # if: ${{ inputs.publish_target == 'gpr' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -124,14 +79,85 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
 
       - name: "Publish to GitHub Packages"
-        # run: npm publish --access public
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  publish-npm:
+    if: ${{ inputs.publish_target == 'npm' || github.event_name == 'push' }}
+    # if: ${{ inputs.publish_target == 'npm' }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write #: OIDC
+      contents: read
+    steps:
+      - name: "Download artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: package-artifact
+
+      - name: "Setup Node for npm"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
+
+      - name: "Publish to npm"
+        run: npm publish
+
+  #: -------------------------------------------------------
+  # publish-npm:
+  #   if: ${{ inputs.publish_target == 'npm' }}
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: read
+  #   steps:
+  #     - name: "Download artifact"
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: package-artifact
+  #
+  #     - name: "Setup Node for npm"
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #         registry-url: "https://registry.npmjs.org"
+  #
+  #     - name: "Publish to npm"
+  #       # run: npm publish --access public
+  #       run: npm publish
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  #: -------------------------------------------------------
+
+  #: ----------------------------------------
+  #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
+  #: ----------------------------------------
   publish-jsr:
+    # if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
     if: ${{ inputs.publish_target == 'jsr' }}
     needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write #: OIDC
+      contents: read
+    steps:
+      - name: "Download artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: package-artifact
+
+      - name: "Setup Node for JSR"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: "Publish to JSR"
+        # run: npx jsr publish --yes
+        run: npx jsr publish
+
     #: --------------------------------------
     # runs-on: ubuntu-latest
     # permissions:
@@ -149,29 +175,4 @@ jobs:
     #
     #   - name: "Publish to JSR"
     #     run: npx jsr publish --yes --token ${{ secrets.JSR_TOKEN }}
-    #: --------------------------------------
-    #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
-    #: --------------------------------------
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write # The OIDC ID token is used for authentication with JSR.
-    #: --------------------------------------
-    # steps:
-    #   - uses: actions/checkout@v4
-    #   - run: npx jsr publish
-    #: --------------------------------------
-    steps:
-      - name: "Download artifact"
-        uses: actions/download-artifact@v4
-        with:
-          name: package-artifact
-
-      - name: "Setup Node for JSR"
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: "Publish to JSR"
-        run: npx jsr publish --yes
     #: --------------------------------------
