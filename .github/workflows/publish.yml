@@ -160,20 +160,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: "Build"
-        run: pnpm build
-
-      - name: "Debug JSR module graph"
-        run: |
-          # Sprawdź jakie moduły są importowane
-          npx jsr publish --dry-run --verbose
+        run: pnpm build:jsr
 
       - name: "Publish to JSR"
         run: npx jsr publish --allow-slow-types
-        # run: |
-        #   # Install dependencies specifically for Deno/JSR
-        #   npx jsr add npm:remark-deflist
-        #   npx jsr add npm:unist-util-visit
-        #   npx jsr publish --yes --allow-slow-types
 
   #: ----------------------------------------
   #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
