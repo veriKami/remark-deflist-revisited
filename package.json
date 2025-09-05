@@ -1,8 +1,7 @@
 {
-  "name": "@verikami/remark-deflist-patched",
+  "name": "@verikami/remark-deflist-revisited",
   "version": "0.1.0",
   "description": "Remark plugin — poprawiona obsługa zagnieżdżonych definicji, fork remark-deflist",
-  "private": true,
   "keywords": [
     "remark",
     "remark-plugin",
@@ -14,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/veriKami/remark-deflist-patched.git"
+    "url": "git+https://github.com/veriKami/remark-deflist-revisited.git"
   },
   "publishConfig": {
     "access": "public"
