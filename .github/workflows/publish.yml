@@ -9,7 +9,7 @@ on:
         options:
         - gpr
         - npm
-        - jsr
+        # - jsr
         # required: true
       # message:
       #   required: true
@@ -89,7 +89,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      # id-token: write #: OIDC
+      # id-token: write #: OIDC (not working...)
       contents: read
     steps:
       - name: "Download artifact"
@@ -136,34 +136,34 @@ jobs:
   #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   #: -------------------------------------------------------
 
-  publish-jsr:
-    # if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
-    if: ${{ inputs.publish_target == 'jsr' }}
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v4
-
-      - name: "Setup pnpm"
-        uses: pnpm/action-setup@v4
-
-      - name: "Setup Node"
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "pnpm"
-
-      - name: "Install dependencies"
-        run: pnpm install --frozen-lockfile
-
-      - name: "Build"
-        run: pnpm build:jsr
-
-      - name: "Publish to JSR"
-        run: npx jsr publish --allow-slow-types
+  # publish-jsr:
+  #   # if: ${{ inputs.publish_target == 'jsr' || github.event_name == 'push' }}
+  #   if: ${{ inputs.publish_target == 'jsr' }}
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     id-token: write
+  #     contents: read
+  #   steps:
+  #     - name: "Checkout code"
+  #       uses: actions/checkout@v4
+  #
+  #     - name: "Setup pnpm"
+  #       uses: pnpm/action-setup@v4
+  #
+  #     - name: "Setup Node"
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #         cache: "pnpm"
+  #
+  #     - name: "Install dependencies"
+  #       run: pnpm install --frozen-lockfile
+  #
+  #     - name: "Build"
+  #       run: pnpm build:jsr
+  #
+  #     - name: "Publish to JSR"
+  #       run: npx jsr publish --allow-slow-types
 
   #: ----------------------------------------
   #: https://jsr.io/docs/publishing-packages#publishing-from-github-actions
@@ -181,12 +181,12 @@ jobs:
   #       uses: actions/download-artifact@v4
   #       with:
   #         name: package-artifact
-
+  #
   #     - name: "Setup Node for JSR"
   #       uses: actions/setup-node@v4
   #       with:
   #         node-version: 20
-
+  #
   #     - name: "Publish to JSR"
   #       # run: npx jsr publish --yes
   #       run: npx jsr publish
