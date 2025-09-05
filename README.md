@@ -65,7 +65,7 @@ Term
 ```js
 import { remark } from "remark";
 import html from "remark-html";
-import deflist from "@verikami/remark-deflist-patched";
+import deflist from "@verikami/remark-deflist-revisited";
 
 let markdown;
 let output;
@@ -114,7 +114,7 @@ console.log(String(output));
 ### Usage in Astro
 
 ```js
-import remarkDeflist from "@verikami/remark-deflist-patched";
+import remarkDeflist from "@verikami/remark-deflist-revisited";
 
 export default defineConfig({
   markdown: {
