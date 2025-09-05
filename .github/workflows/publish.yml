@@ -7,8 +7,8 @@ on:
         description: "What is The Point...?..."
         type: choice
         options:
-        - npm
         - gpr
+        - npm
         - jsr
         # required: true
       # message:
@@ -58,12 +58,37 @@ jobs:
             README.md
             jsr.json
 
+  # publish-npm:
+  #   if: ${{ inputs.publish_target == 'npm' }}
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: read
+  #   steps:
+  #     - name: "Download artifact"
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: package-artifact
+
+  #     - name: "Setup Node for npm"
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
+  #         registry-url: "https://registry.npmjs.org"
+
+  #     - name: "Publish to npm"
+  #       # run: npm publish --access public
+  #       run: npm publish
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
   publish-npm:
     if: ${{ inputs.publish_target == 'npm' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write # Required for OIDC
     steps:
       - name: "Download artifact"
         uses: actions/download-artifact@v4
@@ -77,10 +102,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: "Publish to npm"
-        # run: npm publish --access public
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-gpr:
     if: ${{ inputs.publish_target == 'gpr' }}
