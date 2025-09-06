@@ -41,6 +41,9 @@ jobs:
       - name: "Build"
         run: pnpm build
 
+      - name: "Build (jsr)"
+        run: pnpm build:jsr
+
       - name: "Upload artifact"
         uses: actions/upload-artifact@v4
         with:
@@ -52,6 +55,7 @@ jobs:
             README.md
             node_modules
             jsr.json
+            lib
 
   publish-gpr:
     if: ${{ inputs.publish_target == 'gpr' || github.event_name == 'push' }}
