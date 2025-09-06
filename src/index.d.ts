@@ -10,10 +10,12 @@
  * import deflistWithLists from './deflistWithLists';
  * import type { DescriptionList } from './deflistWithLists';
  */
+//: --------------------------------------------------------
 
 import type { Plugin } from "unified";
 import type { Node, Parent } from "unist";
 
+//: --------------------------------------------------------
 /**
  * Top-level plugin function.
  * Can be used in `remark().use(deflistWithLists)`.

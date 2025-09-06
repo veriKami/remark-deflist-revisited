@@ -57,11 +57,13 @@ import deflist from "remark-deflist";
  * @returns {import('unified').Transformer} A remark plugin transformer that post-processes `remark-deflist`.
  *
  * @example
+ * ```ts
  * import { remark } from "remark";
  * import html from "remark-html";
  * import deflistWithLists from "./index.ts";
  *
  * remark().use(deflistWithLists).use(html)
+ * ```
  */
 const deflistWithLists: Plugin<[], Node> = () => {
   //: ---------------------------------------
