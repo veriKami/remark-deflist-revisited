@@ -54,7 +54,11 @@
     "fmt:dist": "dprint fmt dist/*.js",
     "fmt:demo": "dprint fmt demo/*.html",
     "sample": "node scripts/node.sample.js",
-    "demo": "node scripts/generate.html.js && pnpm fmt:demo"
+    "demo": "node scripts/generate.html.js && pnpm fmt:demo",
+    "bump:dry": "node scripts/bump.js --dry-run",
+    "bump:nop": "node scripts/bump.js --no-push",
+    "bump": "node scripts/bump.js",
+    "release": "pnpm bump"
   },
   "packageManager": "pnpm@10.15.0",
   "dependencies": {
