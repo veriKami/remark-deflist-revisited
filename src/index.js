@@ -8,7 +8,7 @@ import { visit } from "unist-util-visit";
 /**
  * Remark plugin: poprawiona obsługa zagnieżdżonych list w <dd>
  */
-export default function deflistWithLists() {
+const deflistWithLists = () => {
   //: -----------------------------
 
   /** inject oryginal module */
@@ -17,7 +17,7 @@ export default function deflistWithLists() {
   return (tree, file) => {
     //: ---------------------------
 
-    base(tree, file);
+    base(tree, file, () => {});
 
     //: ----------------------------------------------------
     //: (0) Check Preconditions: first <dd> element is list
@@ -129,4 +129,6 @@ export default function deflistWithLists() {
       root.children = newChildren;
     });
   };
-}
+};
+
+export default deflistWithLists;
