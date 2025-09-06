@@ -1,7 +1,9 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
-  // "include": ["src/**/*", "tests/**/*"],
-  "include": ["src/**/*"],
+  //*/// :><: toggle :>
+  "include": ["src/index.js"], /*/
+  "include": ["src/index.ts", "src/index.d.ts"],
+  //*/// :><: toggle :>
   "exclude": ["node_modules"],
   // "files": [
   //   "src/**/*"
