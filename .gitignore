@@ -1,13 +1,14 @@
 #: --------------------------------
+#: JSR ignors global_gitignore
+
+**/•*
+*~
+Icon*
 
 __*
 **/*.bak*
 **/*copy*
 ai
-
-**/•*
-*~
-Icon*
 
 *.command
 
