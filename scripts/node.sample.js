@@ -1,9 +1,10 @@
 import { remark } from "remark";
 import html from "remark-html";
 // import deflist from "@verikami/remark-deflist-revisited";
-import deflist from "../dist/index.js";
+import deflist from "../src/index.js";
 
-let markdown, output;
+let markdown;
+let output;
 
 markdown = `
 Term
