@@ -11,8 +11,8 @@ It preserves all the original functionality by installing this module as a depen
 ## Installation
 
 ```bash
-ツ npm i @verikami/remark-deflist-revisited
 ツ pnpm add @verikami/remark-deflist-revisited
+ツ npm i @verikami/remark-deflist-revisited
 ```
 
 ## Usage
