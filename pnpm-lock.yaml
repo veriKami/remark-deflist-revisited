@@ -21,6 +21,9 @@ importers:
       '@types/node':
         specifier: ^24.3.0
         version: 24.3.1
+      '@types/unist':
+        specifier: ^3.0.3
+        version: 3.0.3
       dedent:
         specifier: ^1.7.0
         version: 1.7.0
