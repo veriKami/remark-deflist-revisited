@@ -6,7 +6,7 @@
 [![JSR Repo](https://jsr.io/badges/@verikami/remark-deflist-revisited)](https://jsr.io/@verikami/remark-deflist-revisited)
 
 A wrapper around **remark-deflist** with improved support for nested definition lists.
-It preserves all the original functionality by installing **remark-deflist** as a dependency.
+It preserves all the original functionality by installing this module as a dependency.
 
 ## Installation
 
