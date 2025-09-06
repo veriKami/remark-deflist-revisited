@@ -31,7 +31,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      ".": "./dist/index.js"
+      "import": "./dist/index.js"
     }
   },
   "scripts": {
@@ -84,6 +84,6 @@
     "remark-parse": "^10",
     "typescript-eslint": "^8.42.0",
     "unified": "^10",
-    "vitest": "^0.34"
+    "vitest": "^3.2.4"
   }
 }
