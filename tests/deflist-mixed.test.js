@@ -6,7 +6,9 @@ import { remark } from "remark";
 import remarkHtml from "remark-html";
 import remarkParse from "remark-parse";
 import deflist from "remark-deflist";
-import myDeflist from "../src/index.js";
+// import myDeflist from "../src/index.js";
+// import myDeflist from "../src/index.ts";
+import myDeflist from "../dist/index.js";
 
 function loadFixture(name) {
   return readFileSync(join(__dirname, "fixtures", name), "utf8");
