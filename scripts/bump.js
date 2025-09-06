@@ -50,7 +50,7 @@ writeFileSync("jsr.json", JSON.stringify(jsr, null, 2) + "\n");
 //: commit + tag
 //: -----------------------------------------
 execSync(`git add package.json jsr.json`, { stdio: "inherit" });
-execSync(`git commit -m "chore: bump version to v${v}"`, { stdio: "inherit" });
+execSync(`git commit -m "v${v}"`, { stdio: "inherit" });
 execSync(`git tag v${v}`, { stdio: "inherit" });
 
 //: push if not --no-push
@@ -58,7 +58,8 @@ execSync(`git tag v${v}`, { stdio: "inherit" });
 if (noPush) {
   console.log(`✓ Release v${v} prepared locally (no push)`);
 } else {
-  execSync(`git push && git push --tags`, { stdio: "inherit" });
+  execSync(`git push origin HEAD`, { stdio: "inherit" });
+  execSync(`git push origin v${v}`, { stdio: "inherit" });
   console.log(`✓ Release v${v} pushed`);
 }
 
