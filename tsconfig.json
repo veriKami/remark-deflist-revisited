@@ -1,11 +1,11 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
-  //*/// :><: toggle :>
+  /*/// :><: toggle :>
   "include": ["src/index.js"], /*/
   "include": ["src/index.ts", "src/index.d.ts"],
   //*/// :><: toggle :>
   "exclude": ["node_modules"],
-  // "files": ["src/**/*"]
+  // "files": ["src/**/*"],
   "compilerOptions": {
     //: ---------------------------
     "rootDir": "./src",
