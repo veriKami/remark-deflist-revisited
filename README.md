@@ -2,7 +2,7 @@
 
 [![GH Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/veriKami/remark-deflist-revisited)
 [![CI](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg)](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml)
-[![NPM Repo](https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?labelColor=maroon&color=black)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
+[![NPM Repo](https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?labelColor=blue&color=black)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
 [![JSR Repo](https://jsr.io/badges/@verikami/remark-deflist-revisited)](https://jsr.io/@verikami/remark-deflist-revisited)
 
 A wrapper around **remark-deflist** with improved support for nested definition lists.
