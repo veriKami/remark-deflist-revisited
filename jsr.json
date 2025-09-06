@@ -2,12 +2,12 @@
   "name": "@verikami/remark-deflist-revisited",
   "version": "0.2.0",
   "license": "MIT",
-  "exports": "./dist/index.js",
+  "exports": "./lib/index.ts",
   "publish": {
     "include": [
       "LICENSE",
       "README.md",
-      "dist/*"
+      "lib/*"
     ],
     "exclude": [
       "!dist"
