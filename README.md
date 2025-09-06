@@ -128,6 +128,19 @@ export default defineConfig({
 });
 ```
 
+## API
+
+### `deflistWithLists()`
+
+#### Returns
+- `Transformer` — a unified transformer function
+
+#### Example
+```ts
+function deflistWithLists(): Transformer
+remark().use(deflistWithLists)
+```
+
 ## Processing Flow
 
 ```
