@@ -6,7 +6,27 @@ import { visit } from "unist-util-visit";
 //: MAIN
 //: --------------------------------------------------------
 /**
- * Remark plugin: poprawiona obsługa zagnieżdżonych list w <dd>
+ * Remark plugin that extends `remark-deflist` to handle nested lists inside
+ * `<dd>` elements.
+ *
+ * Features:
+ * - merges paragraph children containing list items into proper lists
+ * - merges descriptionlist nodes with following lists
+ * - groups multiple descriptionlist nodes into a single node
+ *
+ * Nodes handled:
+ * - `descriptionlist` (`<dl>`)
+ * - `descriptionterm` (`<dt>`)
+ * - `descriptiondetails` (`<dd>`)
+ *
+ * @returns {import('unified').Transformer} A remark plugin transformer that post-processes `remark-deflist`.
+ *
+ * @example
+ * import { remark } from "remark";
+ * import html from "remark-html";
+ * import deflistWithLists from "./index.ts";
+ *
+ * remark().use(deflistWithLists).use(html)
  */
 const deflistWithLists = () => {
   //: -----------------------------
