@@ -41,20 +41,21 @@ const deflistWithLists = () => {
   const base = deflist();
   return (tree, file) => {
     base(tree, file, () => {});
-    visit(tree, ["descriptiondetails"], (dd) => {
+    visit(tree, "descriptiondetails", (dd) => {
       const child = dd.children?.[0];
       if (!child || child.children?.[0]?.type !== "listItem") {
         return;
       }
     });
-    visit(tree, ["descriptiondetails"], (dd) => {
+    visit(tree, "descriptiondetails", (dd) => {
       const ulItems = [];
       const newChildren = [];
       for (const child of dd.children) {
-        if (child.type === "paragraph" && child.children?.[0]?.type === "listItem") {
-          ulItems.push(child.children[0]);
-        } else if (child.type === "listItem") {
-          ulItems.push(child);
+        const c = child;
+        if (c.type === "paragraph" && c.children?.[0]?.type === "listItem") {
+          ulItems.push(c.children[0]);
+        } else if (c.type === "listItem") {
+          ulItems.push(c);
         } else {
           if (ulItems.length) {
             newChildren.push({
@@ -65,7 +66,7 @@ const deflistWithLists = () => {
             });
             ulItems.length = 0;
           }
-          newChildren.push(child);
+          newChildren.push(c);
         }
       }
       if (ulItems.length) {
@@ -85,7 +86,7 @@ const deflistWithLists = () => {
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
         const lastDd = dl.children[dl.children.length - 1];
-        if (lastDd.type === "descriptiondetails" && lastDd.children[0]?.type === "list") {
+        if (lastDd.type === "descriptiondetails" && lastDd.children[0].type === "list") {
           lastDd.children[0].children.push(...nextNode.children);
         }
         parent.children.splice(index + 1, 1);

@@ -1,2 +1,4 @@
+import type { Plugin } from "unified";
+import type { Node } from "unist";
+declare const deflistWithLists: Plugin<[], Node>;
 export default deflistWithLists;
-declare function deflistWithLists(): (tree: any, file: any) => void;
