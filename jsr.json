@@ -1,6 +1,6 @@
 {
   "name": "@verikami/remark-deflist-revisited",
-  "version": "0.2.0",
+  "version": "0.1.8",
   "license": "MIT",
   "exports": "./dist/index.js",
   "publish": {
