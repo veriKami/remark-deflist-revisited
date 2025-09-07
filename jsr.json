@@ -3,7 +3,6 @@
   "version": "0.2.2",
   "license": "MIT",
   "exports": "./lib/index.ts",
-  // "imports": "./import_map.json",
   "publish": {
     "include": [
       "LICENSE",
