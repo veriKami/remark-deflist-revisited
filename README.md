@@ -161,14 +161,14 @@ HTML // AST
    │
 Snapshots (Vitest)
    │
-Build (dist)
+Build (npm) ./dist + (jsr) ./lib
    │
 CI/CD (GitHub Actions)
    │
-┌────────────┬─────────┬─────────┐
-│ GitHub     │   NPM   │   JSR   │
-│ Packages   │         │         │
-└────────────┴─────────┴─────────┘
+┌───────────┬─────────┬─────────┐
+│ GitHub    │   NPM   │   JSR   │
+│ Packages  │         │         │
+└───────────┴─────────┴─────────┘
 ```
 
 ## License
@@ -178,4 +178,4 @@ Original work — MIT © Alex Shaw
 * [gh: Symbitic/remark-plugins](https://github.com/Symbitic/remark-plugins)
 * [npm: remark-deflist](https://www.npmjs.com/package/remark-deflist)
 
-MIT © veriKami °// Weronika Kami
+MIT © [veriKami](https://verikami.com) °// Weronika Kami
