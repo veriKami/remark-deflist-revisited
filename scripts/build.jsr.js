@@ -52,6 +52,7 @@ for (const file of libFiles) {
 
 //: 4. Transform imports for JSR
 //: --------------------------------------------------------
+/*/
 const pkgJsonPath = path.resolve("package.json");
 const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
 const deps = { ...pkgJson.dependencies, ...pkgJson.devDependencies, ...pkgJson.peerDependencies };
@@ -73,6 +74,7 @@ for (const file of libFiles) {
   );
   fs.writeFileSync(file, content, "utf8");
 }
+//*/
 
 //: 5. dprint format
 //: --------------------------------------------------------
