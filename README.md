@@ -111,6 +111,16 @@ console.log(String(output));
 </ul></dd></dl>
 ------------------------------------------ */
 
+```
+
+### Usage in Deno
+
+```js
+import { remark } from "npm:remark";
+import html from "npm:remark-html";
+import deflist from "npm:@verikami/remark-deflist-revisited";
+
+// (...) same code as above 
 
 ```
 
@@ -126,6 +136,7 @@ export default defineConfig({
     ]
   }
 });
+
 ```
 
 ## API
