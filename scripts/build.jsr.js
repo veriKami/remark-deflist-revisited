@@ -1,17 +1,23 @@
+#!/usr/bin/env node
+//: --------------------------------------------------------
+//: scripts/build.jsr.js
+//: --------------------------------------------------------
 import fs from "node:fs";
 import path from "node:path";
-// import { execSync } from "child_process";
+// import { execSync } from "node:child_process";
 import fg from "fast-glob";
 
-// katalogi
+//: katalogi
+//: --------------------------------------------------------
 const srcDir = path.resolve("src");
 const libDir = path.resolve("lib");
 
-// tablica wzorców do kopiowania
-// const patterns = ["modules/**/*.ts", "utils/**/*.ts"];
+//: tablica wzorców do kopiowania
+//: --------------------------------------------------------
 const patterns = ["index.*ts", "mdast*.*ts"];
 
-// funkcja kopiująca plik i tworząca foldery docelowe
+//: funkcja kopiująca plik i tworząca foldery docelowe
+//: --------------------------------------------------------
 function copyFileToLib(srcFile) {
   const relative = path.relative(srcDir, srcFile);
   const destFile = path.join(libDir, relative);
@@ -21,27 +27,55 @@ function copyFileToLib(srcFile) {
   return destFile;
 }
 
-// 1. znajdź wszystkie pliki wg wzorców
+//: 1. znajdź wszystkie pliki wg wzorców
+//: --------------------------------------------------------
 const files = await fg(patterns, { cwd: srcDir, absolute: true });
 
-// 2. kopiuj do lib
+//: 2. kopiuj do lib
+//: --------------------------------------------------------
 const libFiles = files.map(copyFileToLib);
 
-// 3. usuń zwykłe komentarze, zostaw JSDoc
+//: 3. usuń zwykłe komentarze, zostaw JSDoc
+//: --------------------------------------------------------
+const singleLineComment = new RegExp("//.*$", "gm");
+const multiLineComment = new RegExp("/\\*(?!\\*).*?\\*/", "gs");
+
 for (const file of libFiles) {
   const code = fs.readFileSync(file, "utf8");
-  // 1) usuwa // ... do końca linii
-  // 2) usuwa /* ... */ jeśli nie zaczyna się od /**
-  // 3) usuwa puste linie
   const cleaned = code
-    .replace(/\/\/.*$/gm, "")
-    .replace(/\/\*(?!\*).*?\*\//gs, "")
+    .replace(singleLineComment, "")
+    .replace(multiLineComment, "");
     //.replace(/^\s*$(?:\r?\n)?/gm, "");
 
   fs.writeFileSync(file, cleaned, "utf8");
 }
 
-// 4. dprint format
+//: 4. Transform imports for JSR
+//: --------------------------------------------------------
+const pkgJsonPath = path.resolve("package.json");
+const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
+const deps = { ...pkgJson.dependencies, ...pkgJson.devDependencies, ...pkgJson.peerDependencies };
+
+const replacements = {
+  "remark-deflist": `npm:remark-deflist@${deps["remark-deflist"]}`,
+  "unified": `npm:unified@${deps["unified"]}`,
+  "unist": `npm:@types/unist@${deps["@types/unist"]}`,
+  "unist-util-visit": `npm:unist-util-visit@${deps["unist-util-visit"]}`
+};
+
+const importRegex = new RegExp('from "(remark-deflist|unified|unist|unist-util-visit)";', 'g');
+
+for (const file of libFiles) {
+  let content = fs.readFileSync(file, "utf8");
+  content = content.replace(
+    importRegex,
+    (match, pkgName) => `from "${replacements[pkgName]}";`
+  );
+  fs.writeFileSync(file, content, "utf8");
+}
+
+//: 5. dprint format
+//: --------------------------------------------------------
 // execSync("dprint fmt lib/**/*.ts", { stdio: "inherit" });
 
 console.log("Build complete:", libFiles.length, "files processed.");
