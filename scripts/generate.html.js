@@ -1,3 +1,6 @@
+//: --------------------------------------------------------
+//: scripts/generate.html.js
+//: --------------------------------------------------------
 import fs from "node:fs";
 import path from "node:path";
 import dedent from "dedent";

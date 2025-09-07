@@ -1,3 +1,6 @@
+//: --------------------------------------------------------
+//: scripts/node.sample.js
+//: --------------------------------------------------------
 import { remark } from "remark";
 import html from "remark-html";
 // import deflist from "@verikami/remark-deflist-revisited";
