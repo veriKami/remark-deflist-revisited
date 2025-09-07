@@ -1,8 +1,9 @@
 {
   "name": "@verikami/remark-deflist-revisited",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "exports": "./lib/index.ts",
+  "imports": "./import_map.json",
   "publish": {
     "include": [
       "LICENSE",
