@@ -31,10 +31,10 @@
  * ```
  */
 
-import deflist from "remark-deflist";
-import type { Plugin } from "unified";
-import type { Node, Parent } from "unist";
-import { visit } from "unist-util-visit";
+import type { Node, Parent } from "npm:@types/unist@^3.0.3";
+import deflist from "npm:remark-deflist@^1.0.0";
+import type { Plugin } from "npm:unified@*";
+import { visit } from "npm:unist-util-visit@^5.0.0";
 
 /**
  * Remark plugin that extends `remark-deflist` to handle nested lists inside

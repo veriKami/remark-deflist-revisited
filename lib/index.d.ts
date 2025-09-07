@@ -11,8 +11,8 @@
  * import type { DescriptionList } from './deflistWithLists';
  */
 
-import type { Plugin } from "unified";
-import type { Node, Parent } from "unist";
+import type { Node, Parent } from "npm:@types/unist@^3.0.3";
+import type { Plugin } from "npm:unified@*";
 
 /**
  * Top-level plugin function.
