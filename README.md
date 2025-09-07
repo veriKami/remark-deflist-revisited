@@ -17,9 +17,7 @@ It preserves all the original functionality by installing this module as a depen
 
 ## Usage
 
-### The problem with `remark-deflist`
-
-The plugin renders nested list items inside `<dd>` incorrectly.
+**The problem** with **`remark-deflist`** is that the plugin renders nested list items inside `<dd>` incorrectly.
 
 **Markdown**
 
@@ -120,7 +118,7 @@ import { remark } from "npm:remark";
 import html from "npm:remark-html";
 import deflist from "npm:@verikami/remark-deflist-revisited";
 
-// (...) same code as above 
+// (...) same code as above
 
 ```
 
@@ -167,10 +165,10 @@ Build (dist)
    │
 CI/CD (GitHub Actions)
    │
-┌─────────┬────────────┬─────────┐
-│   NPM   │ GitHub     │   JSR   │
-│         │ Packages   │         │
-└─────────┴────────────┴─────────┘
+┌────────────┬─────────┬─────────┐
+│ GitHub     │   NPM   │   JSR   │
+│ Packages   │         │         │
+└────────────┴─────────┴─────────┘
 ```
 
 ## License
@@ -180,4 +178,4 @@ Original work — MIT © Alex Shaw
 * [gh: Symbitic/remark-plugins](https://github.com/Symbitic/remark-plugins)
 * [npm: remark-deflist](https://www.npmjs.com/package/remark-deflist)
 
-[MIT](LICENSE) © veriKami
+MIT © veriKami °// Weronika Kami
