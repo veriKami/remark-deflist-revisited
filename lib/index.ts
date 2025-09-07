@@ -33,7 +33,7 @@
 
 import type { Node, Parent } from "npm:@types/unist@^3.0.3";
 import deflist from "npm:remark-deflist@^1.0.0";
-import type { Plugin } from "npm:unified@*";
+import type { Plugin } from "npm:unified@^11";
 import { visit } from "npm:unist-util-visit@^5.0.0";
 
 /**

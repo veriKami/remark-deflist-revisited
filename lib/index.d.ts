@@ -12,7 +12,7 @@
  */
 
 import type { Node, Parent } from "npm:@types/unist@^3.0.3";
-import type { Plugin } from "npm:unified@*";
+import type { Plugin } from "npm:unified@^11";
 
 /**
  * Top-level plugin function.
