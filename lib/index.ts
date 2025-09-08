@@ -16,8 +16,8 @@
  *
  * Usage:
  * ```ts
- * import { remark } from "remark";
- * import html from "remark-html";
+ * import { remark } from "npm:remark@^15";
+ * import html from "npm:remark-html@^16.0.1";
  * import deflistWithLists from "./index.ts";
  *
  * const markdown = `
@@ -54,21 +54,17 @@ import { visit } from "npm:unist-util-visit@^5.0.0";
  *
  * @example
  * ```ts
- * import { remark } from "remark";
- * import html from "remark-html";
+ * import { remark } from "npm:remark@^15";
+ * import html from "npm:remark-html@^16.0.1";
  * import deflistWithLists from "./index.ts";
  *
  * remark().use(deflistWithLists).use(html)
  * ```
  */
 const deflistWithLists: Plugin<[], Node> = () => {
-  /** inject oryginal plugin
-   */
   const base = deflist();
 
   return (tree: Node, file: any) => {
-    /** it demands 3 args
-     */
     base(tree as any, file, () => {});
 
     visit(tree, "descriptiondetails", (dd: Parent) => {
@@ -113,7 +109,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
     });
 
     visit(tree, "descriptionlist", (dl: Parent, index: number, parent: Parent | undefined) => {
-      if (index === undefined || !parent) return;
+      if (index === undefined || !parent || dl.children.length === 0) return;
 
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {

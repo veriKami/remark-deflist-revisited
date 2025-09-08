@@ -15,8 +15,8 @@ import type { Node, Parent } from "npm:@types/unist@^3.0.3";
 import type { Plugin } from "npm:unified@^11";
 
 /**
- * Top-level plugin function.
- * Can be used in `remark().use(deflistWithLists)`.
+ * Top-level plugin function
+ * Can be used in `remark().use(deflistWithLists)`
  */
 declare const deflistWithLists: Plugin<[], Node>;
 export default deflistWithLists;
