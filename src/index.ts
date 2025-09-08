@@ -98,19 +98,22 @@ const deflistWithLists: Plugin<[], Node> = () => {
       const ulItems: Node[] = [];
       const newChildren: Node[] = [];
 
-      //: TODO @ DRY
-      // Funkcja pomocnicza do tworzenia węzła listy
-      // const createListNode = (children: Node[]): Parent => ({
+      const createNode = (children: Node[]): Parent => ({
+        type: "list",
+        ordered: false, //: TODO ? <ol>
+        spread: false,
+        children,
+      } as Parent);
+      //: --------------------------------------------------
+      //: TODO ? @type @ mdast
+      // import type { List } from 'mdast'; // <-- DODAJ TEN IMPORT
+      // const createListNode = (children: Node[]): List => ({ // <-- ZMIANA TUTAJ
       //   type: "list",
-      //   ordered: false, // <-- Zobacz punkt 4!
+      //   ordered: false,
       //   spread: false,
       //   children,
       // });
-      // W kroku (1) można jej użyć tak:
-      // if (ulItems.length) {
-      //   newChildren.push(createListNode(ulItems));
-      //   // ulItems.length = 0; // Już niepotrzebne, jeśli przekazujesz kopię
-      // }
+      //: --------------------------------------------------
 
       for (const child of dd.children as Parent[]) {
         const c = child as Parent;
@@ -120,25 +123,14 @@ const deflistWithLists: Plugin<[], Node> = () => {
           ulItems.push(c);
         } else {
           if (ulItems.length) {
-            newChildren.push({
-              type: "list",
-              ordered: false, //: TODO ? <ol>
-              spread: false,
-              children: ulItems,
-            } as Parent);
-            ulItems.length = 0;
+            newChildren.push(createNode(ulItems));
           }
           newChildren.push(c);
         }
       }
 
       if (ulItems.length) {
-        newChildren.push({
-          type: "list",
-          ordered: false, //: ^^^^^^^^^^^^^^^
-          spread: false,
-          children: ulItems,
-        } as Parent);
+        newChildren.push(createNode(ulItems));
       }
 
       dd.children = newChildren;
@@ -150,13 +142,10 @@ const deflistWithLists: Plugin<[], Node> = () => {
     //: ----------------------------------------------------
     visit(tree, "descriptionlist", (dl: Parent, index: number, parent: Parent | undefined) => {
       if (index === undefined || !parent || dl.children.length === 0) return;
-      //: g :// if (index === undefined || !parent) return;
 
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
-        // Użycie .at(-1) jest bardziej nowoczesne i czytelne
-        // const lastDd = dl.children.at(-1) as Parent;
-        const lastDd = dl.children[dl.children.length - 1] as Parent;
+        const lastDd = dl.children.at(-1) as Parent;
         if (lastDd.type === "descriptiondetails" && (lastDd.children[0] as Parent).type === "list") {
           (lastDd.children[0] as Parent).children.push(...(nextNode as Parent).children);
         }
@@ -172,16 +161,18 @@ const deflistWithLists: Plugin<[], Node> = () => {
       const newChildren: Node[] = [];
       let allDlChildren: Node[] = [];
 
+      const createList = (children: Node[]): Parent => ({
+        type: "descriptionlist",
+        data: { hName: "dl" },
+        children,
+      } as Parent);
+
       for (const child of root.children as Parent[]) {
         if (child.type === "descriptionlist") {
           allDlChildren.push(...(child.children as Node[]));
         } else {
           if (allDlChildren.length > 0) {
-            newChildren.push({
-              type: "descriptionlist",
-              data: { hName: "dl" },
-              children: allDlChildren,
-            } as Parent);
+            newChildren.push(createList(allDlChildren));
             allDlChildren = [];
           }
           newChildren.push(child);
@@ -189,11 +180,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
       }
 
       if (allDlChildren.length > 0) {
-        newChildren.push({
-          type: "descriptionlist",
-          data: { hName: "dl" },
-          children: allDlChildren,
-        } as Parent);
+        newChildren.push(createList(allDlChildren));
       }
 
       root.children = newChildren;
