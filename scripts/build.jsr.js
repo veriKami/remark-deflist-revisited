@@ -27,14 +27,17 @@ function copyFileToLib(srcFile) {
   return destFile;
 }
 
+//: --------------------------------------------------------
 //: 1. znajdź wszystkie pliki wg wzorców
 //: --------------------------------------------------------
 const files = await fg(patterns, { cwd: srcDir, absolute: true });
 
+//: --------------------------------------------------------
 //: 2. kopiuj do lib
 //: --------------------------------------------------------
 const libFiles = files.map(copyFileToLib);
 
+//: --------------------------------------------------------
 //: 3. usuń zwykłe komentarze, zostaw JSDoc
 //: --------------------------------------------------------
 const singleLineComment = new RegExp("//.*$", "gm");
@@ -50,21 +53,29 @@ for (const file of libFiles) {
   fs.writeFileSync(file, cleaned, "utf8");
 }
 
+//: --------------------------------------------------------
 //: 4. Transform imports for JSR
 //: --------------------------------------------------------
-//*/
+//: NOTE: not use * in peerDependencies -> "unified": "^11"
+//: because it breaks further jsr imports...
+//: --------------------------------------------------------
 const pkgJsonPath = path.resolve("package.json");
 const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
 const deps = { ...pkgJson.dependencies, ...pkgJson.devDependencies, ...pkgJson.peerDependencies };
 
 const replacements = {
+  //: main ------------------------
   "remark-deflist": `npm:remark-deflist@${deps["remark-deflist"]}`,
   "unified": `npm:unified@${deps["unified"]}`,
   "unist": `npm:@types/unist@${deps["@types/unist"]}`,
-  "unist-util-visit": `npm:unist-util-visit@${deps["unist-util-visit"]}`
+  "unist-util-visit": `npm:unist-util-visit@${deps["unist-util-visit"]}`,
+  //: doc -------------------------
+  "remark": `npm:remark@${deps["remark"]}`,
+  "remark-html": `npm:remark-html@${deps["remark-html"]}`,
 };
 
-const importRegex = new RegExp('from "(remark-deflist|unified|unist|unist-util-visit)";', 'g');
+const importKeys = Object.keys(replacements).join("|");
+const importRegex = new RegExp(`from "(${importKeys})";`, 'g');
 
 for (const file of libFiles) {
   let content = fs.readFileSync(file, "utf8");
@@ -74,8 +85,8 @@ for (const file of libFiles) {
   );
   fs.writeFileSync(file, content, "utf8");
 }
-//*/
 
+//: --------------------------------------------------------
 //: 5. dprint format
 //: --------------------------------------------------------
 // execSync("dprint fmt lib/**/*.ts", { stdio: "inherit" });
