@@ -58,7 +58,7 @@
     "fmt:dist": "dprint fmt dist/*.js",
     "fmt:lib": "dprint fmt lib/*.ts",
     "sample": "node scripts/node.sample.js",
-    "demo": "node scripts/generate.html.js && pnpm fmt:demo",
+    "demo": "node scripts/make.html.js && pnpm fmt:demo",
     "deno": "deno run --allow-read",
     "p:jsr:dry": "jsr publish --allow-dirty --dry-run",
     "p:jsr": "jsr publish --allow-dirty",
