@@ -16,7 +16,7 @@
  *
  * Usage:
  * ```ts
- * import { remark } from "npm:remark@^15";
+ * import { remark } from "npm:remark@^15.0.1";
  * import html from "npm:remark-html@^16.0.1";
  * import deflistWithLists from "./index.ts";
  *
@@ -33,7 +33,7 @@
 
 import type { Node, Parent } from "npm:@types/unist@^3.0.3";
 import deflist from "npm:remark-deflist@^1.0.0";
-import type { Plugin } from "npm:unified@^11";
+import type { Plugin } from "npm:unified@^11.0.5";
 import { visit } from "npm:unist-util-visit@^5.0.0";
 
 /**
@@ -54,7 +54,7 @@ import { visit } from "npm:unist-util-visit@^5.0.0";
  *
  * @example
  * ```ts
- * import { remark } from "npm:remark@^15";
+ * import { remark } from "npm:remark@^15.0.1";
  * import html from "npm:remark-html@^16.0.1";
  * import deflistWithLists from "./index.ts";
  *
