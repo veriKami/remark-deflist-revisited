@@ -1,7 +1,7 @@
 {
   "imports": {
     "remark-deflist": "npm:remark-deflist@^1.0.0",
-    "unified": "npm:unified@*",
+    "unified": "npm:unified@^11.0.5",
     "unist": "npm:@types/unist@^3.0.3",
     "unist-util-visit": "npm:unist-util-visit@^5.0.0"
   }
