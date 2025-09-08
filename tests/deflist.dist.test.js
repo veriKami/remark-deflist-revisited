@@ -5,8 +5,8 @@ import { unified } from "unified";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
 import remarkParse from "remark-parse";
+//: -----------------------------------------
 import deflist from "remark-deflist";
-// import deflistWithLists from "../src/index.ts";
 import deflistWithLists from "../dist/index.js";
 
 function loadFixture(name) {

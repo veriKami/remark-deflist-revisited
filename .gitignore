@@ -9,6 +9,7 @@ __*
 **/*.bak*
 **/*copy*
 ai
+deno
 
 *.command
 
