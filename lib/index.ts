@@ -76,6 +76,13 @@ const deflistWithLists: Plugin<[], Node> = () => {
       const ulItems: Node[] = [];
       const newChildren: Node[] = [];
 
+      const createNode = (children: Node[]): Parent => ({
+        type: "list",
+        ordered: false,
+        spread: false,
+        children,
+      } as Parent);
+
       for (const child of dd.children as Parent[]) {
         const c = child as Parent;
         if (c.type === "paragraph" && (c.children?.[0] as Node)?.type === "listItem") {
@@ -84,25 +91,14 @@ const deflistWithLists: Plugin<[], Node> = () => {
           ulItems.push(c);
         } else {
           if (ulItems.length) {
-            newChildren.push({
-              type: "list",
-              ordered: false,
-              spread: false,
-              children: ulItems,
-            } as Parent);
-            ulItems.length = 0;
+            newChildren.push(createNode(ulItems));
           }
           newChildren.push(c);
         }
       }
 
       if (ulItems.length) {
-        newChildren.push({
-          type: "list",
-          ordered: false,
-          spread: false,
-          children: ulItems,
-        } as Parent);
+        newChildren.push(createNode(ulItems));
       }
 
       dd.children = newChildren;
@@ -113,7 +109,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
 
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
-        const lastDd = dl.children[dl.children.length - 1] as Parent;
+        const lastDd = dl.children.at(-1) as Parent;
         if (lastDd.type === "descriptiondetails" && (lastDd.children[0] as Parent).type === "list") {
           (lastDd.children[0] as Parent).children.push(...(nextNode as Parent).children);
         }
@@ -125,16 +121,18 @@ const deflistWithLists: Plugin<[], Node> = () => {
       const newChildren: Node[] = [];
       let allDlChildren: Node[] = [];
 
+      const createList = (children: Node[]): Parent => ({
+        type: "descriptionlist",
+        data: { hName: "dl" },
+        children,
+      } as Parent);
+
       for (const child of root.children as Parent[]) {
         if (child.type === "descriptionlist") {
           allDlChildren.push(...(child.children as Node[]));
         } else {
           if (allDlChildren.length > 0) {
-            newChildren.push({
-              type: "descriptionlist",
-              data: { hName: "dl" },
-              children: allDlChildren,
-            } as Parent);
+            newChildren.push(createList(allDlChildren));
             allDlChildren = [];
           }
           newChildren.push(child);
@@ -142,11 +140,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
       }
 
       if (allDlChildren.length > 0) {
-        newChildren.push({
-          type: "descriptionlist",
-          data: { hName: "dl" },
-          children: allDlChildren,
-        } as Parent);
+        newChildren.push(createList(allDlChildren));
       }
 
       root.children = newChildren;

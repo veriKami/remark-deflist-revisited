@@ -50,6 +50,12 @@ const deflistWithLists = () => {
     visit(tree, "descriptiondetails", (dd) => {
       const ulItems = [];
       const newChildren = [];
+      const createNode = (children) => ({
+        type: "list",
+        ordered: false,
+        spread: false,
+        children,
+      });
       for (const child of dd.children) {
         const c = child;
         if (c.type === "paragraph" && c.children?.[0]?.type === "listItem") {
@@ -58,34 +64,23 @@ const deflistWithLists = () => {
           ulItems.push(c);
         } else {
           if (ulItems.length) {
-            newChildren.push({
-              type: "list",
-              ordered: false,
-              spread: false,
-              children: ulItems,
-            });
-            ulItems.length = 0;
+            newChildren.push(createNode(ulItems));
           }
           newChildren.push(c);
         }
       }
       if (ulItems.length) {
-        newChildren.push({
-          type: "list",
-          ordered: false,
-          spread: false,
-          children: ulItems,
-        });
+        newChildren.push(createNode(ulItems));
       }
       dd.children = newChildren;
     });
     visit(tree, "descriptionlist", (dl, index, parent) => {
-      if (index === undefined || !parent) {
+      if (index === undefined || !parent || dl.children.length === 0) {
         return;
       }
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
-        const lastDd = dl.children[dl.children.length - 1];
+        const lastDd = dl.children.at(-1);
         if (lastDd.type === "descriptiondetails" && lastDd.children[0].type === "list") {
           lastDd.children[0].children.push(...nextNode.children);
         }
@@ -95,27 +90,24 @@ const deflistWithLists = () => {
     visit(tree, "root", (root) => {
       const newChildren = [];
       let allDlChildren = [];
+      const createList = (children) => ({
+        type: "descriptionlist",
+        data: { hName: "dl" },
+        children,
+      });
       for (const child of root.children) {
         if (child.type === "descriptionlist") {
           allDlChildren.push(...child.children);
         } else {
           if (allDlChildren.length > 0) {
-            newChildren.push({
-              type: "descriptionlist",
-              data: { hName: "dl" },
-              children: allDlChildren,
-            });
+            newChildren.push(createList(allDlChildren));
             allDlChildren = [];
           }
           newChildren.push(child);
         }
       }
       if (allDlChildren.length > 0) {
-        newChildren.push({
-          type: "descriptionlist",
-          data: { hName: "dl" },
-          children: allDlChildren,
-        });
+        newChildren.push(createList(allDlChildren));
       }
       root.children = newChildren;
     });
