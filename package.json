@@ -67,7 +67,7 @@
     "bump": "node scripts/bump.js",
     "release": "pnpm bump"
   },
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.15.1",
   "dependencies": {
     "remark-deflist": "^1.0.0",
     "unist-util-visit": "^5.0.0"

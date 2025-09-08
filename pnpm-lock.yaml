@@ -64,6 +64,18 @@ importers:
         specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@24.3.1)(tsx@4.20.5)
 
+  __test_042:
+    dependencies:
+      '@verikami/remark-deflist-revisited':
+        specifier: npm:@jsr/verikami__remark-deflist-revisited@^0.2.4
+        version: '@jsr/verikami__remark-deflist-revisited@0.2.4'
+
+  __test_jsr:
+    dependencies:
+      '@verikami/remark-deflist-revisited':
+        specifier: npm:@jsr/verikami__remark-deflist-revisited@^0.2.4
+        version: '@jsr/verikami__remark-deflist-revisited@0.2.4'
+
 packages:
 
   '@dprint/darwin-arm64@0.50.1':
@@ -323,6 +335,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
+
+  '@jsr/verikami__remark-deflist-revisited@0.2.4':
+    resolution: {integrity: sha512-DLsve4FsdJW1yAS9RL8niqcnHxZ8Z+5ni2YxlRlA+NlSHEA4/v57uU7PCCrT/ZA4v8P3Teup6P565i4M9ewKSg==, tarball: https://npm.jsr.io/~/11/@jsr/verikami__remark-deflist-revisited/0.2.4.tgz}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1631,6 +1646,15 @@ snapshots:
   '@humanwhocodes/retry@0.4.3': {}
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
+
+  '@jsr/verikami__remark-deflist-revisited@0.2.4':
+    dependencies:
+      '@types/unist': 3.0.3
+      remark-deflist: 1.0.0
+      unified: 11.0.5
+      unist-util-visit: 5.0.0
+    transitivePeerDependencies:
+      - supports-color
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
