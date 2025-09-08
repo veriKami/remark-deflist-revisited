@@ -13,7 +13,8 @@
     "deflist",
     "unist",
     "astro",
-    "parser"
+    "parser",
+    "wrapper"
   ],
   "author": "veriKami <verikami@gmail.com> (https://verikami.com/)",
   "license": "MIT",
