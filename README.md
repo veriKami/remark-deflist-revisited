@@ -114,8 +114,8 @@ console.log(String(output));
 ### Usage in Deno
 
 ```js
-import { remark } from "npm:remark";
-import html from "npm:remark-html";
+import { remark } from "npm:remark@^15";
+import html from "npm:remark-html@^16";
 import deflist from "npm:@verikami/remark-deflist-revisited";
 
 // (...) same code as above
