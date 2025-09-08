@@ -16,14 +16,15 @@ import type { Plugin } from "unified";
 import type { Node, Parent } from "unist";
 
 //: --------------------------------------------------------
+
 /**
- * Top-level plugin function.
- * Can be used in `remark().use(deflistWithLists)`.
+ * Top-level plugin function
+ * Can be used in `remark().use(deflistWithLists)`
  */
 declare const deflistWithLists: Plugin<[], Node>;
 export default deflistWithLists;
 
-//: --- AST node types -------------------------------------
+//: --------------------------------------------------------
 
 /**
  * Description list node

@@ -66,19 +66,24 @@ import deflist from "remark-deflist";
  * ```
  */
 const deflistWithLists: Plugin<[], Node> = () => {
-  //: ---------------------------------------
-  /** inject oryginal plugin
-   */
+  //: ------------------------------------------------------
+  //: Inject the original plugin
+
   const base = deflist();
 
-  return (tree: Node, file: any) => {
-    //: -------------------------------------
-    /** it demands 3 args
-     */
-    base(tree as any, file, () => {});
+  return (tree: Node, file: any) => { // eslint-disable-line
+    //: ----------------------------------------------------
+    //: Using `as any` here intentionally. The original
+    //: `remark-deflist` plugin does not ship with detailed
+    //: type definitions for the custom nodes it creates.
+    //: This cast is a pragmatic bridge between my type-aware
+    //: wrapper and the loosely-typed nature of the plugin.
+    //: ----------------------------------------------------
+    base(tree as any, file, () => {}); // eslint-disable-line
 
     //: ----------------------------------------------------
-    //: (0) Check Preconditions: first <dd> element is list
+    //: (0) Precondition: check if the first element inside
+    //: <dd> is a list - No Additional Work !!!
     //: ----------------------------------------------------
     visit(tree, "descriptiondetails", (dd: Parent) => {
       const child = dd.children?.[0] as Parent | undefined;
@@ -86,12 +91,26 @@ const deflistWithLists: Plugin<[], Node> = () => {
     });
 
     //: ----------------------------------------------------
-    //: (1) Scal sierotki <li> wewnątrz <dd>
-    //: scalanie paragrafów zawierających listItem
+    //: (1) Merge orphaned <li> items inside <dd>
+    //: paragraphs that contain listItems
     //: ----------------------------------------------------
     visit(tree, "descriptiondetails", (dd: Parent) => {
       const ulItems: Node[] = [];
       const newChildren: Node[] = [];
+
+      //: TODO @ DRY
+      // Funkcja pomocnicza do tworzenia węzła listy
+      // const createListNode = (children: Node[]): Parent => ({
+      //   type: "list",
+      //   ordered: false, // <-- Zobacz punkt 4!
+      //   spread: false,
+      //   children,
+      // });
+      // W kroku (1) można jej użyć tak:
+      // if (ulItems.length) {
+      //   newChildren.push(createListNode(ulItems));
+      //   // ulItems.length = 0; // Już niepotrzebne, jeśli przekazujesz kopię
+      // }
 
       for (const child of dd.children as Parent[]) {
         const c = child as Parent;
@@ -103,7 +122,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
           if (ulItems.length) {
             newChildren.push({
               type: "list",
-              ordered: false,
+              ordered: false, //: TODO ? <ol>
               spread: false,
               children: ulItems,
             } as Parent);
@@ -116,7 +135,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
       if (ulItems.length) {
         newChildren.push({
           type: "list",
-          ordered: false,
+          ordered: false, //: ^^^^^^^^^^^^^^^
           spread: false,
           children: ulItems,
         } as Parent);
@@ -126,14 +145,17 @@ const deflistWithLists: Plugin<[], Node> = () => {
     });
 
     //: ----------------------------------------------------
-    //: (2) Przenieś listy występujące bezpośrednio po <dd> do środka <dd>
-    //: scalanie descriptionlist + list
+    //: (2) Move lists that appear directly after a <dd>
+    //: inside it - merging descriptionlist + list
     //: ----------------------------------------------------
     visit(tree, "descriptionlist", (dl: Parent, index: number, parent: Parent | undefined) => {
-      if (index === undefined || !parent) return;
+      if (index === undefined || !parent || dl.children.length === 0) return;
+      //: g :// if (index === undefined || !parent) return;
 
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
+        // Użycie .at(-1) jest bardziej nowoczesne i czytelne
+        // const lastDd = dl.children.at(-1) as Parent;
         const lastDd = dl.children[dl.children.length - 1] as Parent;
         if (lastDd.type === "descriptiondetails" && (lastDd.children[0] as Parent).type === "list") {
           (lastDd.children[0] as Parent).children.push(...(nextNode as Parent).children);
@@ -143,8 +165,8 @@ const deflistWithLists: Plugin<[], Node> = () => {
     });
 
     //: ----------------------------------------------------
-    //: (3) Scal wszystkie DL w jeden, jeśli są rozdzielone
-    //: grupowanie wielu descriptionlist w jeden
+    //: (3) Merge all DL nodes into one if they are separated
+    //: grouping multiple descriptionlists into one
     //: ----------------------------------------------------
     visit(tree, "root", (root: Parent) => {
       const newChildren: Node[] = [];
