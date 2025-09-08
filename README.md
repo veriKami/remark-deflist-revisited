@@ -155,7 +155,7 @@ remark().use(deflistWithLists)
 ```
 Markdown
    │
-Plugin (patched deflist)
+Plugin (wrapped deflist)
    │
 HTML // AST
    │
