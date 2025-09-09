@@ -39,8 +39,8 @@ jobs:
       - name: "Run Sample"
         run: bun run sample
 
-      # - name: "Run Test"
-      #   run: bun run test
+      - name: "Run Test"
+        run: bun run test
 
       # - name: "Run Test"
       #   run: bun run vitest run
