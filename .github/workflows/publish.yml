@@ -86,7 +86,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      # id-token: write #: OIDC (not working)
+      id-token: write #: OIDC (not working)
       contents: read
     steps:
       - name: "Download artifact"
