@@ -1,0 +1,23 @@
+# test-bun.yml
+name: "Test Bun"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: "Test Bun"
+    runs-on: ubuntu-latest
+    steps:
+      # ...
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+
+      # run any `bun` or `bunx` command
+      - run: bun install
+
+      # - run: bun index.ts
+      - run: bun run build
+      - run: bun run build:jsr
+      - run: bun run test
+      - run: bun run sample
