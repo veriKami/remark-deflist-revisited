@@ -7,7 +7,7 @@ import remarkHtml from "remark-html";
 import remarkParse from "remark-parse";
 //: -----------------------------------------
 import deflist from "remark-deflist";
-import deflistWithLists from "../dist/index.js";
+import deflistWithLists from "../src/index.ts";
 
 //: --------------------------------------------------------
 //: HELPERS
