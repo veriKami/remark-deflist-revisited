@@ -14,10 +14,24 @@ jobs:
       - uses: oven-sh/setup-bun@v2
 
       # run any `bun` or `bunx` command
-      - run: bun install
-
+      # - run: bun install
       # - run: bun index.ts
-      - run: bun run build
-      - run: bun run build:jsr
+      # - run: bun run build #: pnpm
+      # - run: bun run build:jsr #: pnpm
+
+      - name: "Install Bun"
+        run: bun install
+
       - run: bun run test
       - run: bun run sample
+
+      - name: "Build (npm)"
+        run: |
+          bun run tsc
+          bun run fmt:dist
+          bun run add:doc
+
+      - name: "Build (npm)"
+        run: |
+          bun run ./scripts/build.jsr.js
+          bun run fmt:lib
