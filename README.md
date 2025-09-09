@@ -158,10 +158,7 @@ export default defineConfig({
         el.innerHTML += String(output);
       };
 
-      let markdown;
-      let output;
-
-      markdown = dedent`
+      let markdown = dedent`
         Term
         : - item A
           - item B
