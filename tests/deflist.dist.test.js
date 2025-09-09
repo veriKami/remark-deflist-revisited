@@ -10,7 +10,10 @@ import deflist from "remark-deflist";
 import deflistWithLists from "../dist/index.js";
 
 function loadFixture(name) {
-  return readFileSync(join(__dirname, "fixtures", name), "utf8");
+  // return readFileSync(join(__dirname, "fixtures", name), "utf8");
+  const content = readFileSync(join(__dirname, "fixtures", name), "utf8");
+  // Znormalizuj znaki nowej linii do LF
+  return content.replace(/\r\n/g, "\n");
 }
 
 async function runAST(markdown, plugin) {
