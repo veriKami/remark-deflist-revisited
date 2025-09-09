@@ -41,3 +41,14 @@ jobs:
 
       - name: "Run Test"
         run: bun run test
+
+      - name: "Run Test"
+        run: bun run vitest run
+
+      - name: "Run Test"
+        run: bun run vitest -u
+
+      - name: "Run Test"
+        run: bun run test
+
+
