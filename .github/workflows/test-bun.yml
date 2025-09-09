@@ -9,7 +9,6 @@ jobs:
     name: "Test Bun"
     runs-on: ubuntu-latest
     steps:
-      # ...
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
 
@@ -22,9 +21,6 @@ jobs:
       - name: "Install Bun"
         run: bun install
 
-      - run: bun run test
-      - run: bun run sample
-
       - name: "Build (npm)"
         run: |
           bun run tsc
@@ -35,3 +31,9 @@ jobs:
         run: |
           bun run ./scripts/build.jsr.js
           bun run fmt:lib
+
+      - name: "Run Test"
+        run: bun run test
+
+      - name: "Run Sample"
+        run: bun run sample
