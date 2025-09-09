@@ -6,6 +6,8 @@
 Icon*
 
 __*
+!__snapshots__
+
 **/*.bak*
 **/*copy*
 ai
