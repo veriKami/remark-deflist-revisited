@@ -137,6 +137,57 @@ export default defineConfig({
 
 ```
 
+### Usage in html
+
+```html
+<html>
+  <head>
+    <script type="module">
+      import { remark } from "https://esm.sh/remark@15";
+      import html from "https://esm.sh/remark-html@16";
+      import dedent from "https://esm.sh/dedent@1";
+      import deflist from "https://esm.sh/@verikami/remark-deflist-revisited";
+
+      const render = async (markdown) => (
+        await remark().use(deflist).use(html).process(markdown)
+      );
+
+      const append = async (markdown) => {
+        const output = await render(markdown);
+        const el = document.getElementById("markdown");
+        el.innerHTML += String(output);
+      };
+
+      let markdown;
+      let output;
+
+      markdown = dedent`
+        Term
+        : - item A
+          - item B
+          - item C
+      `;
+
+      document.body.onload = append(markdown);
+
+      markdown = dedent`
+        Term
+        : - **item** A
+          - **item** B
+          - **item** C
+      `;
+
+      document.body.onload = append(markdown);
+
+    </script>
+  </head>
+  <body>
+    <div id="markdown"></div>
+  </body>
+</html>
+
+```
+
 ## API
 
 ### `deflistWithLists()`
