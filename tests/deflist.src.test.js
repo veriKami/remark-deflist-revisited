@@ -18,7 +18,10 @@ function loadFixture(name) {
 }
 
 async function runAST(markdown, plugin) {
-  return unified().use(remarkParse).use(plugin).parse(markdown);
+  return await unified()
+    .use(remarkParse)
+    .use(plugin)
+    .parse(markdown);
 }
 
 async function runOutput(markdown, plugin) {
