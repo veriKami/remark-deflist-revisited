@@ -1,11 +1,11 @@
 /**
  * Type definitions for deflistWithLists
- * 
+ *
  * Provides full TypeScript support for AST nodes:
  * - descriptionlist
  * - descriptionterm
  * - descriptiondetails
- * 
+ *
  * Usage:
  * import deflistWithLists from './deflistWithLists';
  * import type { DescriptionList } from './deflistWithLists';
