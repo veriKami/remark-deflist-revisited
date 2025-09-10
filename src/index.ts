@@ -2,17 +2,10 @@
  * @module deflistWithLists
  * @description
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
- * descriptiondetails. It first runs the original `remark-deflist` plugin and
- * then performs additional processing:
+ * description details. It elegantly solves issues where lists are direct
+ * children of `<dd>` tags by performing post-processing transformations.
  *
- * - merges paragraph children containing list items into proper lists
- * - merges descriptionlist nodes with following lists
- * - groups multiple descriptionlist nodes into a single node
- *
- * Nodes handled:
- * - descriptionlist (dl)
- * - descriptionterm (dt)
- * - descriptiondetails (dd)
+ * For detailed functionality, see the {@link deflistWithLists} function documentation.
  *
  * Usage:
  * ```ts
@@ -26,8 +19,7 @@
  *   - item B
  * `;
  *
- * const output = await remark().use(deflistWithLists).use(html).process(markdown);
- * console.log(String(output));
+ * remark().use(deflistWithLists).use(html).process(markdown);
  * ```
  */
 //: --------------------------------------------------------
@@ -42,7 +34,8 @@ import deflist from "remark-deflist";
 //: --------------------------------------------------------
 /**
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
- * `<dd>` elements.
+ * descriptiondetails. It first runs the original `remark-deflist` plugin and
+ * then performs additional processing.
  *
  * Features:
  * - merges paragraph children containing list items into proper lists
@@ -50,9 +43,9 @@ import deflist from "remark-deflist";
  * - groups multiple descriptionlist nodes into a single node
  *
  * Nodes handled:
- * - `descriptionlist` (`<dl>`)
- * - `descriptionterm` (`<dt>`)
- * - `descriptiondetails` (`<dd>`)
+ * - `descriptionlist` (<dl>)
+ * - `descriptionterm` (<dt>)
+ * - `descriptiondetails` (<dd>)
  *
  * @returns {import('unified').Transformer} A remark plugin transformer that post-processes `remark-deflist`.
  *
@@ -62,7 +55,18 @@ import deflist from "remark-deflist";
  * import html from "remark-html";
  * import deflistWithLists from "./index.ts";
  *
- * remark().use(deflistWithLists).use(html)
+ * const markdown = `
+ * Term
+ * : - item A
+ *   - item B
+ * `;
+ *
+ * const output = await remark()
+ *   .use(deflistWithLists)
+ *   .use(html)
+ *   .process(markdown);
+ *
+ * console.log(String(output));
  * ```
  */
 const deflistWithLists: Plugin<[], Node> = () => {
