@@ -47,8 +47,7 @@ describe("remark-deflist mixed mode", () => {
   beforeAll(() => {
     let exists = true;
     const tests = readdirSync("tests")
-      // .filter(f => f.endsWith("test.js"));
-      .filter(f => f.endsWith("dist.test.js") || f.endsWith("src.test.js"));
+      .filter(f => f.endsWith("dist.test.js"));
     for (const file of tests) {
       const snapshot = join("__snapshots__", `${file}.snap`);
       exists = existsSync(join("tests", snapshot));

@@ -1,4 +1,4 @@
-// esbuild.config.js
+//: esbuild.config.js
 import { build } from "esbuild";
 
 build({
