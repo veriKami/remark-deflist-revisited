@@ -100,12 +100,13 @@ const deflistWithLists: Plugin<[], Node> = () => {
 
       const createNode = (children: Node[]): Parent => ({
         type: "list",
-        ordered: false, //: TODO ? <ol>
+        ordered: false, // TODO ? <ol>
         spread: false,
         children,
       } as Parent);
-      //: --------------------------------------------------
-      //: TODO ? @type @ mdast
+      // ---------------------------------------------------
+      // TODO ? @type @ mdast
+      // --------------------------
       // import type { List } from 'mdast'; // <-- DODAJ TEN IMPORT
       // const createListNode = (children: Node[]): List => ({ // <-- ZMIANA TUTAJ
       //   type: "list",
@@ -113,7 +114,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
       //   spread: false,
       //   children,
       // });
-      //: --------------------------------------------------
+      // ---------------------------------------------------
 
       for (const child of dd.children as Parent[]) {
         const c = child as Parent;

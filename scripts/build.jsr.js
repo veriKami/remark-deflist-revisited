@@ -40,15 +40,18 @@ const libFiles = files.map(copyFileToLib);
 //: --------------------------------------------------------
 //: 3. usuń zwykłe komentarze, zostaw JSDoc
 //: --------------------------------------------------------
-const singleLineComment = new RegExp("//.*$", "gm");
-const multiLineComment = new RegExp("/\\*(?!\\*).*?\\*/", "gs");
+//: single Lines without //:
+// const singleLineComment = new RegExp("\\/\\/(?!:).*?(?=$|\\n)", "gm");
+const singleLineComment = new RegExp("\\/\\/.*$", "gm");
+const multiLineComment = new RegExp("\\/\\*[\\s\\S]*?\\*\\/", "g");
+const multiSpace = new RegExp("^\\s*$\\r?\\n", "gm");
 
 for (const file of libFiles) {
   const code = fs.readFileSync(file, "utf8");
   const cleaned = code
     .replace(singleLineComment, "")
-    .replace(multiLineComment, "");
-    //.replace(/^\s*$(?:\r?\n)?/gm, "");
+    //.replace(multiLineComment, "")
+    .replace(multiSpace, "");
 
   fs.writeFileSync(file, cleaned, "utf8");
 }
@@ -80,8 +83,7 @@ const importRegex = new RegExp(`from "(${importKeys})";`, 'g');
 for (const file of libFiles) {
   let content = fs.readFileSync(file, "utf8");
   content = content.replace(
-    importRegex,
-    (match, pkgName) => `from "${replacements[pkgName]}";`
+    importRegex, (match, pkgName) => `from "${replacements[pkgName]}";`
   );
   fs.writeFileSync(file, content, "utf8");
 }
