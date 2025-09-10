@@ -1,10 +1,10 @@
 //: --------------------------------------------------------
-//: scripts/node.sample.js
+//: scripts/sample.deno.js
 //: --------------------------------------------------------
-import { remark } from "remark";
-import html from "remark-html";
-// import deflist from "@verikami/remark-deflist-revisited";
-import deflist from "../dist/index.js";
+import { remark } from "npm:remark@^15";
+import html from "npm:remark-html@^16";
+// import deflist from "npm:@verikami/remark-deflist-revisited";
+import deflist from "../lib/index.ts";
 
 let markdown;
 let output;
@@ -20,7 +20,7 @@ output = await remark().use(deflist).use(html).process(markdown);
 console.log(String(output));
 
 /* ------------------------------------------
-  <dl><dt>Term</dt><dd>* item A</dd></dl>
+  <dl><dt>Term</dt><dd>Definition</dd></dl>
 ------------------------------------------ */
 
 markdown = `
@@ -34,11 +34,7 @@ output = await remark().use(deflist).use(html).process(markdown);
 console.log(String(output));
 
 /* ------------------------------------------
-  <dl><dt>Term</dt><dd><ul>
-  <li>item A</li>
-  <li>item B</li>
-  <li>item C</li>
-  </ul></dd></dl>
+  <dl><dt>Term</dt><dd>* item A</dd></dl>
 ------------------------------------------ */
 
 markdown = `
