@@ -51,6 +51,7 @@
     "test:w": "vitest --watch",
     "test:u": "vitest -u",
     "test:c": "vitest run --coverage",
+    "test:r": "vitest run --reporter=junit --outputFile=test-report.junit.xml",
     "test:bun": "bun run test && bun run sample",
     "d:c": "dprint output-resolved-config",
     "d:f": "dprint output-file-paths",
