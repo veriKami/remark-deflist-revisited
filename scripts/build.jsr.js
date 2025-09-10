@@ -40,18 +40,18 @@ const libFiles = files.map(copyFileToLib);
 //: --------------------------------------------------------
 //: 3. usuń zwykłe komentarze, zostaw JSDoc
 //: --------------------------------------------------------
+// const multiLineComment = new RegExp("\\/\\*[\\s\\S]*?\\*\\/", "g");
 //: single Lines without //:
 // const singleLineComment = new RegExp("\\/\\/(?!:).*?(?=$|\\n)", "gm");
 const singleLineComment = new RegExp("\\/\\/.*$", "gm");
-const multiLineComment = new RegExp("\\/\\*[\\s\\S]*?\\*\\/", "g");
 const multiSpace = new RegExp("^\\s*$\\r?\\n", "gm");
 
 for (const file of libFiles) {
   const code = fs.readFileSync(file, "utf8");
   const cleaned = code
-    .replace(singleLineComment, "")
     // .replace(multiLineComment, "")
-    // .replace(multiSpace, "");
+    .replace(singleLineComment, "")
+    .replace(multiSpace, "\n");
 
   fs.writeFileSync(file, cleaned, "utf8");
 }

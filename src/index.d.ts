@@ -12,8 +12,8 @@
  */
 //: --------------------------------------------------------
 
-import type { Plugin } from "unified";
 import type { Node, Parent } from "unist";
+import type { Plugin } from "unified";
 
 //: --------------------------------------------------------
 

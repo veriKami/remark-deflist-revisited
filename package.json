@@ -36,10 +36,11 @@
     }
   },
   "scripts": {
-    "add:doc": "node scripts/add.jsdoc.js",
-    "build": "tsc && pnpm fmt:dist && pnpm add:doc",
+    "_:npm": "node scripts/build.npm.js",
+    "_:jsr": "node scripts/build.jsr.js",
+    "build": "tsc && cp src/index.d.ts dist/index.d.ts && pnpm _:npm && pnpm fmt:dist",
+    "build:jsr": "pnpm _:jsr && pnpm fmt:lib",
     "build:c": "rm -f dist/* && tsc && pnpm fmt:dist",
-    "build:jsr": "node scripts/build.jsr.js && pnpm fmt:lib",
     "build:bundle": "pnpm make:bundle && pnpm make:types",
     "make:bundle": "esbuild src/index.ts --bundle --platform=node --packages=external --format=esm --outfile=dist/index.js",
     "make:types": "tsc src/index.ts --lib es2022 --declaration --emitDeclarationOnly --outDir dist",
