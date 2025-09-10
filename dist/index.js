@@ -2,17 +2,10 @@
  * @module deflistWithLists
  * @description
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
- * descriptiondetails. It first runs the original `remark-deflist` plugin and
- * then performs additional processing:
+ * description details. It elegantly solves issues where lists are direct
+ * children of `<dd>` tags by performing post-processing transformations.
  *
- * - merges paragraph children containing list items into proper lists
- * - merges descriptionlist nodes with following lists
- * - groups multiple descriptionlist nodes into a single node
- *
- * Nodes handled:
- * - descriptionlist (dl)
- * - descriptionterm (dt)
- * - descriptiondetails (dd)
+ * For detailed functionality, see the {@link deflistWithLists} function documentation.
  *
  * Usage:
  * ```ts
@@ -26,8 +19,7 @@
  *   - item B
  * `;
  *
- * const output = await remark().use(deflistWithLists).use(html).process(markdown);
- * console.log(String(output));
+ * remark().use(deflistWithLists).use(html).process(markdown);
  * ```
  */
 
@@ -35,8 +27,9 @@ import deflist from "remark-deflist";
 import { visit } from "unist-util-visit";
 
 /**
- * Remark plugin that extends `remark-deflist` to handle nested lists
- * inside description details (`dd` nodes).
+ * Remark plugin that extends `remark-deflist` to handle nested lists inside
+ * descriptiondetails. It first runs the original `remark-deflist` plugin and
+ * then performs additional processing.
  *
  * Features:
  * - merges paragraph children containing list items into proper lists
@@ -44,9 +37,9 @@ import { visit } from "unist-util-visit";
  * - groups multiple descriptionlist nodes into a single node
  *
  * Nodes handled:
- * - `descriptionlist` (`<dl>`)
- * - `descriptionterm` (`<dt>`)
- * - `descriptiondetails` (`<dd>`)
+ * - `descriptionlist` (<dl>)
+ * - `descriptionterm` (<dt>)
+ * - `descriptiondetails` (<dd>)
  *
  * @returns A remark plugin transformer that post-processes `remark-deflist`.
  *
@@ -68,7 +61,6 @@ import { visit } from "unist-util-visit";
  *   .process(markdown);
  *
  * console.log(String(output));
- *
  * ```
  */
 const deflistWithLists = () => {
