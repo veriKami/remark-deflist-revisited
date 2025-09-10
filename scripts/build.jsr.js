@@ -50,8 +50,8 @@ for (const file of libFiles) {
   const code = fs.readFileSync(file, "utf8");
   const cleaned = code
     .replace(singleLineComment, "")
-    //.replace(multiLineComment, "")
-    .replace(multiSpace, "");
+    // .replace(multiLineComment, "")
+    // .replace(multiSpace, "");
 
   fs.writeFileSync(file, cleaned, "utf8");
 }
