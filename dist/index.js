@@ -37,9 +37,9 @@ import { visit } from "unist-util-visit";
  * - groups multiple descriptionlist nodes into a single node
  *
  * Nodes handled:
- * - `descriptionlist` (<dl>)
- * - `descriptionterm` (<dt>)
- * - `descriptiondetails` (<dd>)
+ * - `descriptionlist` (`<dl>`)
+ * - `descriptionterm` (`<dt>`)
+ * - `descriptiondetails` (`<dd>`)
  *
  * @returns A remark plugin transformer that post-processes `remark-deflist`.
  *

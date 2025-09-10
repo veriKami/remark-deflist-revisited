@@ -43,9 +43,9 @@ import deflist from "remark-deflist";
  * - groups multiple descriptionlist nodes into a single node
  *
  * Nodes handled:
- * - `descriptionlist` (<dl>)
- * - `descriptionterm` (<dt>)
- * - `descriptiondetails` (<dd>)
+ * - `descriptionlist` (`<dl>`)
+ * - `descriptionterm` (`<dt>`)
+ * - `descriptiondetails` (`<dd>`)
  *
  * @returns {import('unified').Transformer} A remark plugin transformer that post-processes `remark-deflist`.
  *
