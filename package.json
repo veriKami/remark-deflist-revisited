@@ -1,6 +1,6 @@
 {
   "name": "@verikami/remark-deflist-revisited",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A patched version of remark-deflist with proper support for nested definition lists. Drop-in replacement for remark-deflist.",
   "keywords": [
     "remark",
