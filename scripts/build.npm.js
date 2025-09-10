@@ -6,8 +6,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 let file;
 
-// : MODULE
-// : --------------------------------------------------------
+//: MODULE
+//: --------------------------------------------------------
 const docModule = `
 /**
  * @module deflistWithLists
@@ -100,6 +100,7 @@ writeFileSync("dist/index.js", file);
 // const multiLineComment = new RegExp("\\/\\*[\\s\\S]*?\\*\\/", "g");
 //: single Lines without //:
 // const singleLineComment = new RegExp("\\/\\/(?!:).*?(?=$|\\n)", "gm");
+//: --------------------------------------------------------
 const singleLineComment = new RegExp("\\/\\/.*$", "gm");
 const multiSpace = new RegExp("^\\s*$\\r?\\n", "gm");
 
@@ -112,6 +113,12 @@ file = file
 
 writeFileSync("dist/index.d.ts", file);
 
+//: --------------------------------------------------------
+//: DONE
+
+console.log("⛺️ Build complete:", 2, "files processed.");
+
+//: --------------------------------------------------------
 //: TYPES (deprecated) -> using the original file
 //: --------------------------------------------------------
 //: @ TS version

@@ -4,7 +4,6 @@
 //: --------------------------------------------------------
 import fs from "node:fs";
 import path from "node:path";
-// import { execSync } from "node:child_process";
 import fg from "fast-glob";
 
 //: katalogi
@@ -43,6 +42,7 @@ const libFiles = files.map(copyFileToLib);
 // const multiLineComment = new RegExp("\\/\\*[\\s\\S]*?\\*\\/", "g");
 //: single Lines without //:
 // const singleLineComment = new RegExp("\\/\\/(?!:).*?(?=$|\\n)", "gm");
+//: --------------------------------------------------------
 const singleLineComment = new RegExp("\\/\\/.*$", "gm");
 const multiSpace = new RegExp("^\\s*$\\r?\\n", "gm");
 
@@ -59,12 +59,13 @@ for (const file of libFiles) {
 //: --------------------------------------------------------
 //: 4. Transform imports for JSR
 //: --------------------------------------------------------
-//: NOTE: not use * in peerDependencies -> "unified": "^11"
-//: because it breaks further jsr imports...
-//: --------------------------------------------------------
 const pkgJsonPath = path.resolve("package.json");
 const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
-const deps = { ...pkgJson.dependencies, ...pkgJson.peerDependencies, ...pkgJson.devDependencies };
+const deps = {
+  ...pkgJson.dependencies,
+  ...pkgJson.peerDependencies,
+  ...pkgJson.devDependencies
+};
 
 const replacements = {
   //: main ------------------------
@@ -89,8 +90,6 @@ for (const file of libFiles) {
 }
 
 //: --------------------------------------------------------
-//: 5. dprint format
-//: --------------------------------------------------------
-// execSync("dprint fmt lib/**/*.ts", { stdio: "inherit" });
+//: DONE
 
-console.log("Build complete:", libFiles.length, "files processed.");
+console.log("⛺️ Build complete:", libFiles.length, "files processed.");
