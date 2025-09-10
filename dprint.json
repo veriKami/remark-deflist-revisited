@@ -1,8 +1,8 @@
 {
-  "includes": ["dist/*.{js,ts}", "lib/*.{js,ts}", "demo/*.html"],
+  "includes": ["dist/*.js", "lib/*.{js,ts}", "demo/*.html"],
   "excludes": ["!dist", "scripts/**", "**/node_modules"],
   "typescript": {
-    "commentLine.forceSpaceAfterSlashes": false,
+    "commentLine.forceSpaceAfterSlashes": false
   },
   "markup": {
   },
