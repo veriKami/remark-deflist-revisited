@@ -9,5 +9,15 @@ export default defineConfig({
       "tests/**/*.dist.{test,spec}.?(c|m)[jt]s?(x)",
     ],
     reporters: "verbose",
+    coverage: {
+      // enabled: true,
+      include: [
+        // "dist/index.js",
+        "src/index.ts",
+      ],
+      exclude: [
+        "**/*.d.ts",
+      ],
+    },
   },
 });
