@@ -2,13 +2,13 @@
   "setupTasks": [
     {
       "name": "Install Dependencies",
-      "command": "npm install"
+      "command": "pnpm install"
     }
   ],
   "tasks": {
     "test": {
       "name": "Run Tests",
-      "command": "npm test",
+      "command": "pnpm test",
       "runAtStart": false
     }
   }
