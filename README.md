@@ -5,9 +5,9 @@
 [![NPM Repo](https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=blue&color=black)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
 [![JSR Repo](https://jsr.io/badges/@verikami/remark-deflist-revisited)](https://jsr.io/@verikami/remark-deflist-revisited)
 
-**[Remark]** plugin. A wrapper around **[remark-deflist]** with improved support for nested definition lists.  
-It preserves all the original functionality by installing this module as a dependency.  
-Deno and Cloudflare Workers compatibility. Works in Astro.  
+**[Remark]** plugin. A wrapper around **[remark-deflist]** with improved support for nested definition lists.
+It preserves all the original functionality by installing this module as a dependency.
+**[Deno]** and **[Cloudflare Workers]** compatibility. Works in **[Astro]**.
 
 ## Installation
 
@@ -230,4 +230,7 @@ Original work — MIT © Alex Shaw
 MIT © [veriKami](https://verikami.com) °// Weronika Kami
 
 [Remark]: https://github.com/remarkjs/remark
+[Deno]: https://github.com/denoland/deno
+[Cloudflare Workers]: https://workers.cloudflare.com
+[Astro]: https://astro.build
 [remark-deflist]: https://www.npmjs.com/package/remark-deflist
