@@ -1,7 +1,7 @@
 {
   "name": "@verikami/remark-deflist-revisited",
   "version": "0.3.3",
-  "description": "Remark plugin. A wrapper around `remark-deflist` with improved support for nested definition lists. Deno and Cloudflare Workers compatibility.",
+  "description": "Remark plugin. A wrapper around `remark-deflist` with improved support for nested definition lists. Bun, Deno and Cloudflare Workers compatibility.",
   "keywords": [
     "remark",
     "remark-plugin",
