@@ -1,7 +1,0 @@
-{
-  "name": "remark-deflist-revisited",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "postCreateCommand": "pnpm install"
-}
