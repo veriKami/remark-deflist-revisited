@@ -1,5 +1,6 @@
+#!/usr/bin/env node
 //: --------------------------------------------------------
-//: scripts/generate.html.js
+//: scripts/make.html.js
 //: --------------------------------------------------------
 import fs from "node:fs";
 import path from "node:path";

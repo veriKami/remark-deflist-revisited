@@ -12,5 +12,10 @@
     "exclude": [
       "!dist"
     ]
+  },
+  "compatibilityDate": "2025-09-11",
+  "environment": "browser",
+  "compilerOptions": {
+    "lib": ["ES2022"]
   }
 }
