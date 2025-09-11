@@ -13,8 +13,8 @@ import deflistWithLists from "../dist/index.js";
 //: HELPERS
 
 function loadFixture(name) {
-  // const content = readFileSync(join(import.meta.dirname, "fixtures", name), "utf8");
-  const content = readFileSync(join(process.cwd(), "tests", "fixtures", name), "utf8");
+  // const content = readFileSync(join(process.cwd(), "tests", "fixtures", name), "utf8");
+  const content = readFileSync(join(import.meta.dirname, "fixtures", name), "utf8");
   return content.replace(/\r\n/g, "\n"); //: EOL Normalization
 }
 
