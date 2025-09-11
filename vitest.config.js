@@ -14,6 +14,9 @@ export default defineConfig({
     define: {
       "import.meta.vitest": "undefined"
     },
+    transformMode: {
+      web: [/\.[jt]sx?$/]
+    },
     //: @ codesandbox
     coverage: {
       // enabled: true,
