@@ -1,16 +1,7 @@
 {
   "name": "remark-deflist-revisited",
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "npm.packageManager": "pnpm"
-      },
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "ms-vscode.vscode-typescript-next"
-      ]
-    }
+  "build": {
+    "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "pnpm install",
-  "runArgs": ["sleep", "infinity"]
+  "postCreateCommand": "pnpm install"
 }
