@@ -6,7 +6,8 @@
 [![JSR Repo](https://jsr.io/badges/@verikami/remark-deflist-revisited)](https://jsr.io/@verikami/remark-deflist-revisited)
 
 A wrapper around **[remark-deflist](https://www.npmjs.com/package/remark-deflist)** with improved support for nested definition lists.  
-It preserves all the original functionality by installing this module as a dependency. Deno and Cloudflare Workers compatibility.
+It preserves all the original functionality by installing this module as a dependency.  
+Deno and Cloudflare Workers compatibility.
 
 ## Installation
 
