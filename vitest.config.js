@@ -12,11 +12,12 @@ export default defineConfig({
     environment: "node",
     globals: true,
     define: {
-      "import.meta.vitest": "undefined"
+      "import.meta.vitest": "undefined",
+      "import.meta.env": "{}"
     },
-    transformMode: {
-      web: [/\.[jt]sx?$/]
-    },
+    // transformMode: {
+    //   web: [/\.[jt]sx?$/]
+    // },
     //: @ codesandbox
     coverage: {
       // enabled: true,

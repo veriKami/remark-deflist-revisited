@@ -1,5 +1,5 @@
-import { readFileSync, readdirSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { readFileSync, readdirSync, existsSync } from "fs";
+import { join } from "path";
 import { describe, it, expect, beforeAll } from "vitest";
 import { unified } from "unified";
 import { remark } from "remark";
@@ -19,8 +19,8 @@ import deflistWithLists from "../src/index.ts";
 //: Could not find dependency: 'node:fs' relative to '/tests/deflist.src.test.js'
 
 function loadFixture(name) {
-  const content = readFileSync(join(import.meta.dirname, "fixtures", name), "utf8");
-  // const content = readFileSync(join(process.cwd(), "tests", "fixtures", name), "utf8");
+  // const content = readFileSync(join(import.meta.dirname, "fixtures", name), "utf8");
+  const content = readFileSync(join(process.cwd(), "tests", "fixtures", name), "utf8");
   return content.replace(/\r\n/g, "\n"); //: EOL Normalization
 }
 
