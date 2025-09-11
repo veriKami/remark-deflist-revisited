@@ -204,7 +204,7 @@ remark().use(deflistWithLists)
 ```
 Markdown
    │
-Plugin (wrapped deflist)
+Plugin (wrapped remark-deflist)
    │
 HTML // AST
    │
