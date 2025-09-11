@@ -12,9 +12,15 @@ import deflistWithLists from "../src/index.ts";
 //: --------------------------------------------------------
 //: HELPERS
 
+/// const content = readFileSync(join(import.meta.dirname, "fixtures", name), "utf8");
+//: Cannot use 'import.meta' outside a module
+
+/// const content = readFileSync(join(process.cwd(), "tests", "fixtures", name), "utf8");
+//: Could not find dependency: 'node:fs' relative to '/tests/deflist.src.test.js'
+
 function loadFixture(name) {
-  // const content = readFileSync(join(import.meta.dirname, "fixtures", name), "utf8");
-  const content = readFileSync(join(process.cwd(), "tests", "fixtures", name), "utf8");
+  const content = readFileSync(join(import.meta.dirname, "fixtures", name), "utf8");
+  // const content = readFileSync(join(process.cwd(), "tests", "fixtures", name), "utf8");
   return content.replace(/\r\n/g, "\n"); //: EOL Normalization
 }
 

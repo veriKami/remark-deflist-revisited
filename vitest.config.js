@@ -8,6 +8,10 @@ export default defineConfig({
       "tests/**/*.dist.{test,spec}.?(c|m)[jt]s?(x)",
     ],
     reporters: "verbose",
+    //: @ codesandbox
+    environment: "node",
+    globals: true,
+    //: @ codesandbox
     coverage: {
       // enabled: true,
       include: [
