@@ -7,7 +7,7 @@
 
 A wrapper around **[remark-deflist](https://www.npmjs.com/package/remark-deflist)** with improved support for nested definition lists.  
 It preserves all the original functionality by installing this module as a dependency.  
-Deno and Cloudflare Workers compatibility.
+Deno and Cloudflare Workers compatibility. Works in Astro.  
 
 ## Installation
 
