@@ -1,4 +1,3 @@
-# test-bun.yml
 name: "Test Bun"
 
 on:
@@ -21,12 +20,13 @@ jobs:
       - name: "Build (npm)"
         run: |
           bun run tsc
+          bun run _:tsc
+          bun run _:npm
           bun run fmt:dist
-          bun run add:doc
 
       - name: "Build (jsr)"
         run: |
-          bun run ./scripts/build.jsr.js
+          bun run _:jsr
           bun run fmt:lib
 
       - name: "Run Test"

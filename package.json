@@ -38,7 +38,8 @@
   "scripts": {
     "_:npm": "node scripts/build.npm.js",
     "_:jsr": "node scripts/build.jsr.js",
-    "build": "tsc && cp src/index.d.ts dist/index.d.ts && pnpm _:npm && pnpm fmt:dist",
+    "_:tsc": "cp src/index.d.ts dist/index.d.ts",
+    "build": "tsc && pnpm _:tsc && pnpm _:npm && pnpm fmt:dist",
     "build:jsr": "pnpm _:jsr && pnpm fmt:lib",
     "build:all": "pnpm build && pnpm build:jsr",
     "build:clean": "rm -f dist/* && tsc && pnpm fmt:dist",
