@@ -11,6 +11,9 @@ export default defineConfig({
     //: @ codesandbox
     environment: "node",
     globals: true,
+    define: {
+      "import.meta.vitest": "undefined"
+    },
     //: @ codesandbox
     coverage: {
       // enabled: true,
