@@ -11,5 +11,6 @@
       ]
     }
   },
-  "postCreateCommand": "pnpm install"
+  "postCreateCommand": "pnpm install",
+  "runArgs": ["sleep", "infinity"]
 }
