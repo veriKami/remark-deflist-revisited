@@ -8,7 +8,7 @@ export default defineConfig({
       "tests/**/*.dist.{test,spec}.?(c|m)[jt]s?(x)",
     ],
     reporters: "verbose",
-    //: @ codesandbox
+    //: @ codesandbox -------------
     environment: "node",
     globals: true,
     define: {
@@ -18,7 +18,7 @@ export default defineConfig({
     // transformMode: {
     //   web: [/\.[jt]sx?$/]
     // },
-    //: @ codesandbox
+    //: @ codesandbox -------------
     coverage: {
       // enabled: true,
       include: [

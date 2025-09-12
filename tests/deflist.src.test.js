@@ -44,6 +44,7 @@ describe("remark-deflist mixed mode", () => {
   const cases = [
     "list.basic.md",
     "list.prefix.md",
+    "list.strange.md",
   ];
 
   //: CHECK

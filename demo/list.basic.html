@@ -7,78 +7,85 @@
     body { font-family: sans-serif; padding: 2rem; }
     dl { border: 1px solid #ccc; padding: 1rem; margin-bottom: 2rem; }
     dt { font-weight: bold; margin-top: 1rem; }
-    dd { margin-left: 2rem; }
-    dd ul, dd ol { margin-left: 1.5rem; }
+    dd { margin-left: 1rem; color: gray; }
+    dd ul, dd ol { margin-left: 1rem; color: darkblue; }
+    ul, ol { margin-left: 1rem; color: red; }
     dd ul.nested-list, dd ol.nested-list { color: darkblue; }
+    a, a:visited { color: blue; text-decoration: none;}
     </style>
   </head>
   <body>
+    <a href="_complex.html">_complex</a> | <a href="_nested.html">_nested</a> |
+    <a href="_simple.html">_simple</a> | <a href="list.basic.html"
+    >list.basic</a> | <a href="list.prefix.html">list.prefix</a> | <a
+      href="list.strange.html"
+    >list.strange</a>
     <h2>@ list.basic.md</h2>
     <dl>
-      <dt>Term 1 (basic) with # -</dt>
+      <dt>Term 1 (basic) with: -</dt>
       <dd>
         <ul>
-          <li>Definition 1 # -</li>
-          <li>Definition 2 # -</li>
-          <li>Definition 3 # -</li>
+          <li>Definition 1 with: -</li>
+          <li>Definition 2 with: -</li>
+          <li>Definition 3 with: -</li>
         </ul>
       </dd>
-      <dt>Term 1 (basic) with # - *x*</dt>
+      <dt>Term 2 (basic) with: - *...* (emphasis)</dt>
       <dd>
         <ul>
-          <li><em>Definition</em> 1 # -</li>
-          <li><em>Definition</em> 2 # -</li>
-          <li><em>Definition</em> 3 # -</li>
+          <li><em>Definition</em> 1 with: -</li>
+          <li><em>Definition</em> 2 with: -</li>
+          <li><em>Definition</em> 3 with: -</li>
         </ul>
       </dd>
     </dl>
     <dl>
-      <dt>Term 1 (nested) with # -</dt>
+      <dt>Term 3 (nested) with: -</dt>
       <dd>
         <ul>
           <li>
-            Definition 1 # - - Sub 1 # - - Sub 2 # -
+            Definition 1 with: - - Sub 1 with: - - Sub 2 with: -
           </li>
           <li>
-            Definition 2 # -
+            Definition 2 with: -
             <ul>
-              <li>Sub 1 # -</li>
-              <li>Sub 2 # -</li>
+              <li>Sub 1 with: -</li>
+              <li>Sub 2 with: -</li>
             </ul>
           </li>
           <li>
-            Definition 3 # -
+            Definition 3 with: -
             <ul>
-              <li>Sub 1 # -</li>
-              <li>Sub 2 # -</li>
+              <li>Sub 1 with: -</li>
+              <li>Sub 2 with: -</li>
             </ul>
           </li>
         </ul>
       </dd>
-      <dt>Term 1 (triple) with # -</dt>
+      <dt>Term 4 (triple) with: -</dt>
       <dd>
         <ul>
           <li>
-            Definition 1 # - - Sub 1 # - - Pub 1 # -
+            Definition 1 with: - - Sub 1 with: - - Pub 1 with: -
           </li>
           <li>
-            Definition 2 # -
+            Definition 2 with: -
             <ul>
               <li>
-                Sub 1 # -
+                Sub 1 with: -
                 <ul>
-                  <li>Pub 1 # -</li>
+                  <li>Pub 1 with: -</li>
                 </ul>
               </li>
             </ul>
           </li>
           <li>
-            Definition 3 # -
+            Definition 3 with: -
             <ul>
               <li>
-                Sub 1 # -
+                Sub 1 with: -
                 <ul>
-                  <li>Pub 1 # -</li>
+                  <li>Pub 1 with: -</li>
                 </ul>
               </li>
             </ul>

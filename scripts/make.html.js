@@ -16,6 +16,14 @@ if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
 const files = fs.readdirSync(fixturesDir).filter(f => f.endsWith(".md"));
 
+const menu = files.reduce((acc, file) => {
+  const name = file.replace(".md", ".html");
+  acc.push(`<a href="${name}">${name.replace(".html", "")}</a>`);
+  return acc;
+}, []).join(" | ");
+
+console.log(menu);
+
 files.forEach(file => {
   const input = fs.readFileSync(path.join(fixturesDir, file), "utf8");
   const html = remark()
@@ -34,12 +42,15 @@ files.forEach(file => {
     body { font-family: sans-serif; padding: 2rem; }
     dl { border: 1px solid #ccc; padding: 1rem; margin-bottom: 2rem; }
     dt { font-weight: bold; margin-top: 1rem; }
-    dd { margin-left: 2rem; }
-    dd ul, dd ol { margin-left: 1.5rem; }
+    dd { margin-left: 1rem; color: gray; }
+    dd ul, dd ol { margin-left: 1rem; color: darkblue; }
+    ul, ol { margin-left: 1rem; color: red; }
     dd ul.nested-list, dd ol.nested-list { color: darkblue; }
+    a, a:visited { color: blue; text-decoration: none;}
     </style>
     </head>
     <body>
+    ${menu}
     ${html}
     </body>
     </html>`;
