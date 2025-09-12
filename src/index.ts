@@ -127,9 +127,11 @@ const deflistWithLists: Plugin<[], Node> = () => {
         } else if (c.type === "listItem") {
           ulItems.push(c);
         } else {
-          if (ulItems.length) {
-            newChildren.push(createNode(ulItems));
-          }
+          // never used --------------------
+          // if (ulItems.length) {
+          //   newChildren.push(createNode(ulItems));
+          // }
+          // never used --------------------
           newChildren.push(c);
         }
       }

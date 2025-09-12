@@ -89,9 +89,6 @@ const deflistWithLists = () => {
         } else if (c.type === "listItem") {
           ulItems.push(c);
         } else {
-          if (ulItems.length) {
-            newChildren.push(createNode(ulItems));
-          }
           newChildren.push(c);
         }
       }
