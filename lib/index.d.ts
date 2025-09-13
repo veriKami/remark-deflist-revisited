@@ -11,6 +11,7 @@
  * import type { DescriptionList } from './deflistWithLists';
  */
 
+import type { List, Paragraph, Text } from "npm:@types/mdast@^4.0.4";
 import type { Node, Parent } from "npm:@types/unist@^3.0.3";
 import type { Plugin } from "npm:unified@^11.0.5";
 
@@ -44,5 +45,5 @@ export interface DescriptionTerm extends Parent {
  */
 export interface DescriptionDetails extends Parent {
   type: "descriptiondetails";
-  children: (Parent & { type: "paragraph" | "list" })[];
+  children: (List | Paragraph | Text)[];
 }

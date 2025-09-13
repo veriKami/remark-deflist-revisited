@@ -76,24 +76,44 @@ const deflistWithLists = () => {
     visit(tree, "descriptiondetails", (dd) => {
       const ulItems = [];
       const newChildren = [];
-      const createNode = (children) => ({
+      const createListNode = (children) => ({
         type: "list",
         ordered: false,
         spread: false,
-        children,
+        children: children,
       });
+      const createListItemPatch = (textNode) => {
+        const value = textNode.value.replace(/^\*\s/, "").replace(/^\s*\d+\.\s/, "");
+        const paragraph = { type: "paragraph", children: [{ type: "text", value }] };
+        return {
+          type: "listItem",
+          spread: false,
+          checked: null,
+          children: [paragraph],
+        };
+      };
       for (const child of dd.children) {
-        const c = child;
-        if (c.type === "paragraph" && c.children?.[0]?.type === "listItem") {
-          ulItems.push(c.children[0]);
-        } else if (c.type === "listItem") {
-          ulItems.push(c);
+        if (child.type === "listItem") {
+          const firstChild = child.children?.[0];
+          if (firstChild && firstChild.type === "paragraph" && firstChild.children?.[0]?.type === "text") {
+            const textNode = firstChild.children[0];
+            const lines = textNode.value.split("\n");
+            if (lines.length > 1) {
+              textNode.value = lines.shift();
+              const remainingItems = lines.map(value => createListItemPatch({ type: "text", value }));
+              ulItems.push(child, ...remainingItems);
+              continue;
+            }
+          }
+          ulItems.push(child);
+        } else if (child.type === "text" && child.value.startsWith("* ")) {
+          ulItems.push(createListItemPatch(child));
         } else {
-          newChildren.push(c);
+          newChildren.push(child);
         }
       }
       if (ulItems.length) {
-        newChildren.push(createNode(ulItems));
+        newChildren.push(createListNode(ulItems));
       }
       dd.children = newChildren;
     });
@@ -104,7 +124,7 @@ const deflistWithLists = () => {
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
         const lastDd = dl.children.at(-1);
-        if (lastDd.type === "descriptiondetails" && lastDd.children[0].type === "list") {
+        if (lastDd.type === "descriptiondetails" && lastDd.children?.[0]?.type === "list") {
           lastDd.children[0].children.push(...nextNode.children);
         }
         parent.children.splice(index + 1, 1);
