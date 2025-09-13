@@ -22,10 +22,10 @@
  * remark().use(deflistWithLists).use(html).process(markdown);
  * ```
  */
-//: --------------------------------------------------------
 
-import type { Plugin } from "unified";
+import type { List, ListItem, Paragraph, Text } from "mdast";
 import type { Node, Parent } from "unist";
+import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 import deflist from "remark-deflist";
 
@@ -87,7 +87,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
 
     //: ----------------------------------------------------
     //: (0) Precondition: check if the first element inside
-    //: <dd> is a list - No Additional Work !!!
+    //: `<dd>` is a list - No Additional Work !!!
     //: ----------------------------------------------------
     visit(tree, "descriptiondetails", (dd: Parent) => {
       const child = dd.children?.[0] as Parent | undefined;
@@ -95,49 +95,54 @@ const deflistWithLists: Plugin<[], Node> = () => {
     });
 
     //: ----------------------------------------------------
-    //: (1) Merge orphaned <li> items inside <dd>
+    //: (1) Merge orphaned `<li>` items inside `<dd>`
     //: paragraphs that contain listItems
     //: ----------------------------------------------------
     visit(tree, "descriptiondetails", (dd: Parent) => {
       const ulItems: Node[] = [];
       const newChildren: Node[] = [];
 
-      const createNode = (children: Node[]): Parent => ({
+      const createListNode = (children: Node[]): List => ({
         type: "list",
-        ordered: false, // TODO ? <ol>
+        ordered: false,
         spread: false,
-        children,
-      } as Parent);
-      // ---------------------------------------------------
-      // TODO ? @type @ mdast
-      // --------------------------
-      // import type { List } from 'mdast'; // <-- DODAJ TEN IMPORT
-      // const createListNode = (children: Node[]): List => ({ // <-- ZMIANA TUTAJ
-      //   type: "list",
-      //   ordered: false,
-      //   spread: false,
-      //   children,
-      // });
-      // ---------------------------------------------------
+        children: children as ListItem[],
+      });
 
-      for (const child of dd.children as Parent[]) {
-        const c = child as Parent;
-        if (c.type === "paragraph" && (c.children?.[0] as Node)?.type === "listItem") {
-          ulItems.push(c.children![0]);
-        } else if (c.type === "listItem") {
-          ulItems.push(c);
+      const createListItemPatch = (textNode: Text): ListItem => {
+        const value = textNode.value.replace(/^\*\s/, "").replace(/^\s*\d+\.\s/, "");
+        const paragraph: Paragraph = { type: "paragraph", children: [{ type: "text", value }] };
+        return {
+          type: "listItem",
+          spread: false,
+          checked: null,
+          children: [paragraph],
+        };
+      };
+
+      for (const child of dd.children) {
+        if (child.type === "listItem") {
+          const firstChild = (child as Parent).children?.[0];
+          if (firstChild && firstChild.type === 'paragraph' && (firstChild as Parent).children?.[0]?.type === 'text') {
+            const textNode = (firstChild as Parent).children[0] as Text;
+            const lines = textNode.value.split("\n");
+            if (lines.length > 1) {
+              textNode.value = lines.shift() as string;
+              const remainingItems = lines.map(value => createListItemPatch({ type: "text", value }));
+              ulItems.push(child, ...remainingItems);
+              continue;
+            }
+          }
+          ulItems.push(child);
+        } else if (child.type === "text" && (child as Text).value.startsWith("* ")) {
+          ulItems.push(createListItemPatch(child as Text));
         } else {
-          // never used --------------------
-          // if (ulItems.length) {
-          //   newChildren.push(createNode(ulItems));
-          // }
-          // never used --------------------
-          newChildren.push(c);
+          newChildren.push(child);
         }
       }
 
       if (ulItems.length) {
-        newChildren.push(createNode(ulItems));
+        newChildren.push(createListNode(ulItems));
       }
 
       dd.children = newChildren;
@@ -153,7 +158,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
         const lastDd = dl.children.at(-1) as Parent;
-        if (lastDd.type === "descriptiondetails" && (lastDd.children[0] as Parent).type === "list") {
+        if (lastDd.type === "descriptiondetails" && (lastDd.children?.[0] as Parent)?.type === "list") {
           (lastDd.children[0] as Parent).children.push(...(nextNode as Parent).children);
         }
         parent.children.splice(index + 1, 1);

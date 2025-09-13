@@ -72,6 +72,7 @@ const replacements = {
   "remark-deflist": `npm:remark-deflist@${deps["remark-deflist"]}`,
   "unified": `npm:unified@${deps["unified"]}`,
   "unist": `npm:@types/unist@${deps["@types/unist"]}`,
+  "mdast": `npm:@types/mdast@${deps["@types/mdast"]}`,
   "unist-util-visit": `npm:unist-util-visit@${deps["unist-util-visit"]}`,
   //: doc -------------------------
   "remark": `npm:remark@${deps["remark"]}`,
