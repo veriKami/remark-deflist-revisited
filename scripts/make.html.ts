@@ -7,7 +7,7 @@ import path from "node:path";
 import dedent from "dedent";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
-import patchedDeflist from "../dist/index.js";
+import patchedDeflist from "../src/index.ts";
 
 const fixturesDir = path.resolve("tests/fixtures");
 const outputDir = path.resolve("demo");
