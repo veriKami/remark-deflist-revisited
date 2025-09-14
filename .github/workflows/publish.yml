@@ -11,17 +11,14 @@ on:
         - gpr
         - npm
         - jsr
-      deploy_gh_page:
-        description: "Deploy Page...?..."
-        required: false
-        default: false
-        type: boolean
+        - page
   push:
     tags:
       - "v*"
 
 jobs:
   build:
+    if: ${{ inputs.publish_target != 'page' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -84,9 +81,7 @@ jobs:
             lib
 
   deploy:
-    if: |
-      (github.event_name == 'workflow_dispatch' && inputs.deploy_gh_page == 'true') ||
-      github.event_name == 'push'
+    if: ${{ inputs.publish_target == 'page' || github.event_name == 'push' }}
     # needs: build
     environment:
       name: github-pages
@@ -111,6 +106,9 @@ jobs:
 
       - name: "Install dependencies"
         run: pnpm install --frozen-lockfile
+
+      - name: "Build"
+        run: pnpm build
 
       - name: "Make demo"
         run: pnpm demo
