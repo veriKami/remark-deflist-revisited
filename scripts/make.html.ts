@@ -63,10 +63,13 @@ const makeHtml = (file, mode, menuOriginal, menuRevisited, html) => {
 //: --------------------------------------------------------
 const makeMenu = (mode = "revisited") => {
   return files.reduce((acc, file) => {
-    const name = file.replace(".md", ".html");
-    acc.push(`<a href="${mode}.${name}">${name.replace(".html", "")}</a>`);
-    return acc;
-  }, []).join("</td><td>");
+      const name = file.replace(".md", ".html");
+      acc.push([name, `<a href="${mode}.${name}">${name.replace(".html", "")}</a>`]);
+      return acc;
+    }, [])
+    .sort((a, b) => a[0].startsWith("_") - b[0].startsWith("_"))
+    .map((item) => item[1])
+    .join("</td><td>");
 };
 
 //: FILES
