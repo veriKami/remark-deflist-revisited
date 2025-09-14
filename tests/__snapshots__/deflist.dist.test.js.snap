@@ -2083,8 +2083,22 @@ Term Z
 : Single-line definition
 </code></pre>
 <dl><dt>Term 1</dt><dd>Definition 1</dd><dt>Term 2</dt><dd>Definition 2</dd></dl>
-<dl><dt>Term A</dt><dd>Definition A</dd><dt>Term B</dt><dd>Definition B</dd></dl>
-<dl><dt>Term X</dt><dd>This is a paragraph describing Term X.</dd><dt>Term Y</dt><dd>Another paragraph</dd><dt>Term Z</dt><dd>Single-line definition</dd></dl>
+<dl><dt>Term A</dt><dd>Definition A<ul>
+<li>item 1</li>
+<li>item 2</li>
+</ul></dd><dt>Term B</dt><dd>Definition B<ol>
+<li>first</li>
+<li>second</li>
+</ol></dd></dl>
+<dl><dt>Term X</dt><dd>This is a paragraph describing Term X.<ul>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ul></dd><dt>Term Y</dt><dd>Another paragraph<ol>
+<li>Step one</li>
+<li>Step two</li>
+<li>Step three</li>
+</ol></dd><dt>Term Z</dt><dd>Single-line definition</dd></dl>
 ",
   },
 }

@@ -86,15 +86,6 @@ const deflistWithLists: Plugin<[], Node> = () => {
     base(tree as any, file, () => {}); // eslint-disable-line
 
     //: ----------------------------------------------------
-    //: (0) Precondition: check if the first element inside
-    //: `<dd>` is a list - No Additional Work !!!
-    //: ----------------------------------------------------
-    visit(tree, "descriptiondetails", (dd: Parent) => {
-      const child = dd.children?.[0] as Parent | undefined;
-      if (!child || (child.children?.[0] as Node)?.type !== "listItem") return;
-    });
-
-    //: ----------------------------------------------------
     //: (1) Merge orphaned `<li>` items inside `<dd>`
     //: paragraphs that contain listItems
     //: ----------------------------------------------------
@@ -109,7 +100,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
         children: children as ListItem[],
       });
 
-      const createListItemPatch = (textNode: Text): ListItem => {
+      const patchListItem = (textNode: Text): ListItem => {
         const value = textNode.value.replace(/^\*\s/, "").replace(/^\s*\d+\.\s/, "");
         const paragraph: Paragraph = { type: "paragraph", children: [{ type: "text", value }] };
         return {
@@ -128,14 +119,14 @@ const deflistWithLists: Plugin<[], Node> = () => {
             const lines = textNode.value.split("\n");
             if (lines.length > 1) {
               textNode.value = lines.shift() as string;
-              const remainingItems = lines.map(value => createListItemPatch({ type: "text", value }));
+              const remainingItems = lines.map(value => patchListItem({ type: "text", value }));
               ulItems.push(child, ...remainingItems);
               continue;
             }
           }
           ulItems.push(child);
         } else if (child.type === "text" && (child as Text).value.startsWith("* ")) {
-          ulItems.push(createListItemPatch(child as Text));
+          ulItems.push(patchListItem(child as Text));
         } else {
           newChildren.push(child);
         }
@@ -158,10 +149,15 @@ const deflistWithLists: Plugin<[], Node> = () => {
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
         const lastDd = dl.children.at(-1) as Parent;
-        if (lastDd.type === "descriptiondetails" && (lastDd.children?.[0] as Parent)?.type === "list") {
-          (lastDd.children[0] as Parent).children.push(...(nextNode as Parent).children);
+        if (lastDd && lastDd.type === "descriptiondetails") {
+          const ddList = lastDd.children.find((c) => c.type === "list");
+          if (ddList) {
+            (ddList as Parent).children.push(...(nextNode as Parent).children);
+          } else {
+            lastDd.children.push(nextNode);
+          }
+          parent.children.splice(index + 1, 1);
         }
-        parent.children.splice(index + 1, 1);
       }
     });
 

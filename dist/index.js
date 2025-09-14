@@ -68,12 +68,6 @@ const deflistWithLists = () => {
   return (tree, file) => {
     base(tree, file, () => {});
     visit(tree, "descriptiondetails", (dd) => {
-      const child = dd.children?.[0];
-      if (!child || child.children?.[0]?.type !== "listItem") {
-        return;
-      }
-    });
-    visit(tree, "descriptiondetails", (dd) => {
       const ulItems = [];
       const newChildren = [];
       const createListNode = (children) => ({
@@ -82,7 +76,7 @@ const deflistWithLists = () => {
         spread: false,
         children: children,
       });
-      const createListItemPatch = (textNode) => {
+      const patchListItem = (textNode) => {
         const value = textNode.value.replace(/^\*\s/, "").replace(/^\s*\d+\.\s/, "");
         const paragraph = { type: "paragraph", children: [{ type: "text", value }] };
         return {
@@ -100,14 +94,14 @@ const deflistWithLists = () => {
             const lines = textNode.value.split("\n");
             if (lines.length > 1) {
               textNode.value = lines.shift();
-              const remainingItems = lines.map(value => createListItemPatch({ type: "text", value }));
+              const remainingItems = lines.map(value => patchListItem({ type: "text", value }));
               ulItems.push(child, ...remainingItems);
               continue;
             }
           }
           ulItems.push(child);
         } else if (child.type === "text" && child.value.startsWith("* ")) {
-          ulItems.push(createListItemPatch(child));
+          ulItems.push(patchListItem(child));
         } else {
           newChildren.push(child);
         }
@@ -124,10 +118,15 @@ const deflistWithLists = () => {
       const nextNode = parent.children[index + 1];
       if (nextNode && nextNode.type === "list") {
         const lastDd = dl.children.at(-1);
-        if (lastDd.type === "descriptiondetails" && lastDd.children?.[0]?.type === "list") {
-          lastDd.children[0].children.push(...nextNode.children);
+        if (lastDd && lastDd.type === "descriptiondetails") {
+          const ddList = lastDd.children.find((c) => c.type === "list");
+          if (ddList) {
+            ddList.children.push(...nextNode.children);
+          } else {
+            lastDd.children.push(nextNode);
+          }
+          parent.children.splice(index + 1, 1);
         }
-        parent.children.splice(index + 1, 1);
       }
     });
     visit(tree, "root", (root) => {
