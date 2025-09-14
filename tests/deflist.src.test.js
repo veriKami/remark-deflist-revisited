@@ -42,9 +42,11 @@ describe("remark-deflist mixed mode", () => {
   //: SETUP
   //: ---------------------------------------
   const cases = [
+    "_basic.md",
+    "_original_module.md",
     "list.basic.md",
     "list.nested.md",
-    "list.strange.md",
+    "list.strange.md"
   ];
 
   //: CHECK

@@ -1,5 +1,26 @@
-## \_complex.md
+<!-- ## \_basic.md ---------------------- -->
+
 ```
+Term 1
+: Definition 1
+
+Term 2
+: Definition 2
+
+─────
+
+Term A
+: Definition A
+  - item 1
+  - item 2
+
+Term B
+: Definition B
+  1. first
+  2. second
+
+─────
+
 Term X
 : This is a paragraph describing Term X.
   - First item
@@ -15,6 +36,26 @@ Term Y
 Term Z
 : Single-line definition
 ```
+
+Term 1
+: Definition 1
+
+Term 2
+: Definition 2
+
+<br>
+
+Term A
+: Definition A
+  - item 1
+  - item 2
+
+Term B
+: Definition B
+  1. first
+  2. second
+
+<br>
 
 Term X
 : This is a paragraph describing Term X.
