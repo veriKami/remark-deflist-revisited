@@ -7,6 +7,7 @@ on:
         description: "What is The Point...?..."
         type: choice
         options:
+        - ———
         - gpr
         - npm
         - jsr
@@ -84,7 +85,7 @@ jobs:
 
   deploy:
     if: ${{ inputs.deploy_gh_page == 'true' || github.event_name == 'push' }}
-    needs: build
+    # needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
