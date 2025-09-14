@@ -10,6 +10,11 @@ on:
         - gpr
         - npm
         - jsr
+      deploy_gh_page:
+        description: "Deploy Page...?..."
+        required: false
+        default: false
+        type: boolean
   push:
     tags:
       - "v*"
@@ -76,6 +81,48 @@ jobs:
             node_modules
             jsr.json
             lib
+
+  deploy:
+    if: ${{ inputs.deploy_gh_page == 'true' || github.event_name == 'push' }}
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Setup pnpm"
+        uses: pnpm/action-setup@v4
+
+      - name: "Setup Node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: "Install dependencies"
+        run: pnpm install --frozen-lockfile
+
+      - name: "Make demo"
+        run: pnpm demo
+
+      - name: "Setup Pages"
+        uses: actions/configure-pages@v5
+
+      - name: "Upload artifact"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./demo"
+
+      - name: "Deploy to GitHub Pages"
+        id: deployment
+        uses: actions/deploy-pages@v4
 
   publish-gpr:
     if: ${{ inputs.publish_target == 'gpr' || github.event_name == 'push' }}

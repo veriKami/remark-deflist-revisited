@@ -4,8 +4,9 @@
 name: "Publish Package @ npm"
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+  # release:
+  #   types: [created]
 
 jobs:
   build:
