@@ -61,7 +61,7 @@ Term
 
 ### Notes
 
-1. Using `: *` as a list marker (especially for the first item) is still causing errors.
+1. Using `: *` as a list marker (especially for the first item) is resolved from v0.4.0.
 2. Using `: - *x*` or `: - **x**` is not problematic.
 
 ### Usage in Node.js
@@ -138,6 +138,35 @@ export default defineConfig({
 
 ```
 
+### Usage in Cloudflare Worker
+
+```js
+import { remark } from "remark";
+import html from "remark-html";
+import dedent from "dedent";
+import deflist from "@verikami/remark-deflist-revisited";
+
+export default {
+  async fetch(request, env, ctx) {
+
+    const markdown = dedent`
+      Term
+      :  - item A
+         - item B
+         - item C
+    `;
+
+    const output = await remark().use(deflist).use(html).process(markdown);
+    const htmlOutput = String(output);
+
+    return new Response(htmlOutput, {
+      headers: { "Content-Type": "text/html; charset=utf-8" }
+    });
+  }
+};
+
+```
+
 ### Usage in html
 
 ```html
@@ -159,20 +188,11 @@ export default defineConfig({
         el.innerHTML += String(output);
       };
 
-      let markdown = dedent`
+      const markdown = dedent`
         Term
         : - item A
           - item B
           - item C
-      `;
-
-      document.body.onload = append(markdown);
-
-      markdown = dedent`
-        Term
-        : - **item** A
-          - **item** B
-          - **item** C
       `;
 
       document.body.onload = append(markdown);
@@ -186,6 +206,7 @@ export default defineConfig({
 
 ```
 
+<!--
 ## API
 
 ### `deflistWithLists()`
@@ -197,6 +218,32 @@ export default defineConfig({
 ```ts
 function deflistWithLists(): Transformer
 remark().use(deflistWithLists)
+```
+-->
+
+## Development
+
+To see sample html output in terminal run
+
+```bash
+# (node): scripts/sample.node.js
+ツ pnpm sample
+
+# (bun): scripts/sample.node.js
+ツ pnpm sample:bun
+
+# (deno): scripts/sample.deno.js
+ツ pnpm sample:deno
+```
+
+To regenerate `demo/generated/*` html files run 
+
+```bash
+# (node): dist/index.js
+ツ pnpm demo
+
+# (tsx): src/index.ts
+ツ pnpm demo:ts
 ```
 
 ## Processing Flow
@@ -211,18 +258,18 @@ Markdown
    │
 Plugin (wrapped remark-deflist)
    │
-HTML // AST
+AST // HTML
    │
-Snapshots (Vitest)
+Snapshots (vitest)
    │
 Build (npm) ./dist + (jsr) ./lib
    │
 CI/CD (GitHub Actions)
    │
-┌───────────┬─────────┬─────────┐
-│ GitHub    │   NPM   │   JSR   │
-│ Packages  │         │         │
-└───────────┴─────────┴─────────┘
+┌──────────┬─────────┬─────────┐
+│ GitHub   │   NPM   │   JSR   │
+│ Packages │         │         │
+└──────────┴─────────┴─────────┘
 ```
 
 ## License
