@@ -41,9 +41,6 @@ jobs:
       - name: "Run tests"
         run: pnpm vitest run --coverage
 
-      #: ------------------------------------
-      #: Codecov
-
       - name: "Codecov: Run tests (report)"
         run: pnpm vitest run --reporter=junit --outputFile=test-report.junit.xml
 
@@ -57,9 +54,6 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      #: Codecov
-      #: ------------------------------------
 
       - name: "Build"
         run: pnpm build
@@ -82,7 +76,6 @@ jobs:
 
   deploy:
     if: ${{ inputs.publish_target == 'page' || github.event_name == 'push' }}
-    # needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -170,7 +163,6 @@ jobs:
           scope: "@verikami"
 
       - name: "Publish to npm"
-        # run: npm publish --access public
         run: npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
