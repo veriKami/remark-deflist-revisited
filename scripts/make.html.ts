@@ -68,7 +68,7 @@ const makeMenu = (mode = "revisited") => {
       return acc;
     }, [])
     .sort((a, b) => a[0].startsWith("_") - b[0].startsWith("_"))
-    .map((item) => item[1])
+    .map(item => item[1])
     .join("</td><td>");
 };
 

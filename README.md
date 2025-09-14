@@ -62,7 +62,7 @@ Term
 
 ### Notes
 
-1. Using `: *` as a list marker (especially for the first item) is resolved from v0.4.0.
+1. Using `: *` as a list marker (especially for the first item) is resolved in v0.4.0.
 2. Using `: - *x*` or `: - **x**` is not problematic.
 
 ### Usage in Node.js
