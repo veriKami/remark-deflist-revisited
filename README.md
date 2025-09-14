@@ -1,6 +1,7 @@
 # @verikami/remark-deflist-revisited
 
 [![GH Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/veriKami/remark-deflist-revisited)
+[![CC](https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI)](https://codecov.io/github/veriKami/remark-deflist-revisited)
 [![CI](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg)](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml)
 [![NPM Repo](https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=blue&color=black)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
 [![JSR Repo](https://jsr.io/badges/@verikami/remark-deflist-revisited)](https://jsr.io/@verikami/remark-deflist-revisited)
@@ -71,44 +72,19 @@ import { remark } from "remark";
 import html from "remark-html";
 import deflist from "@verikami/remark-deflist-revisited";
 
-let markdown;
-let output;
-
-markdown = `
+const markdown = `
 Term
 : - item A
   - item B
   - item C
 `;
 
-output = await remark().use(deflist).use(html).process(markdown);
+const output = await remark()
+  .use(deflist)
+  .use(html)
+  .process(markdown);
+
 console.log(String(output));
-
-/* ------------------------------------------
-<dl><dt>Term</dt><dd><ul>
-<li>item A</li>
-<li>item B</li>
-<li>item C</li>
-</ul></dd></dl>
------------------------------------------- */
-
-markdown = `
-Term
-: - **item** A
-  - **item** B
-  - **item** C
-`;
-
-output = await remark().use(deflist).use(html).process(markdown);
-console.log(String(output));
-
-/* ------------------------------------------
-<dl><dt>Term</dt><dd><ul>
-<li><strong>item</strong> A</li>
-<li><strong>item</strong> B</li>
-<li><strong>item</strong> C</li>
-</ul></dd></dl>
------------------------------------------- */
 
 ```
 
@@ -156,10 +132,12 @@ export default {
          - item C
     `;
 
-    const output = await remark().use(deflist).use(html).process(markdown);
-    const htmlOutput = String(output);
+    const output = await remark()
+      .use(deflist)
+      .use(html)
+      .process(markdown);
 
-    return new Response(htmlOutput, {
+    return new Response(String(output), {
       headers: { "Content-Type": "text/html; charset=utf-8" }
     });
   }
@@ -179,7 +157,10 @@ export default {
       import deflist from "https://esm.sh/@verikami/remark-deflist-revisited";
 
       const render = async (markdown) => (
-        await remark().use(deflist).use(html).process(markdown)
+        await remark()
+          .use(deflist)
+          .use(html)
+          .process(markdown)
       );
 
       const append = async (markdown) => {
@@ -248,6 +229,7 @@ To regenerate `demo/generated/*` html files run
 
 ## Processing Flow
 
+[![GH Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/veriKami/remark-deflist-revisited)
 [![CC](https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI)](https://codecov.io/github/veriKami/remark-deflist-revisited)
 [![CI](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg)](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml)
 [![NPM Repo](https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=blue&color=black)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
