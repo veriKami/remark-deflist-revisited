@@ -7,7 +7,7 @@ on:
         description: "What is The Point...?..."
         type: choice
         options:
-        - ———
+        -
         - gpr
         - npm
         - jsr
@@ -84,7 +84,9 @@ jobs:
             lib
 
   deploy:
-    if: ${{ inputs.deploy_gh_page == 'true' || github.event_name == 'push' }}
+    if: ${{ (github.event_name == 'workflow_dispatch' && inputs.deploy_gh_page == 'true') ||
+      github.event_name == 'push'
+    }}
     # needs: build
     environment:
       name: github-pages
