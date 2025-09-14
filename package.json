@@ -57,7 +57,7 @@
     "d:f": "dprint output-file-paths",
     "d:u": "dprint config update",
     "fmt": "dprint fmt",
-    "fmt:demo": "dprint fmt demo/*.html",
+    "fmt:demo": "dprint fmt demo/**/* demo/*",
     "fmt:dist": "dprint fmt dist/*.js",
     "fmt:lib": "dprint fmt lib/*.ts",
     "sample": "node scripts/sample.node.js",

@@ -123,7 +123,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
       for (const child of dd.children) {
         if (child.type === "listItem") {
           const firstChild = (child as Parent).children?.[0];
-          if (firstChild && firstChild.type === 'paragraph' && (firstChild as Parent).children?.[0]?.type === 'text') {
+          if (firstChild && firstChild.type === "paragraph" && (firstChild as Parent).children?.[0]?.type === "text") {
             const textNode = (firstChild as Parent).children[0] as Text;
             const lines = textNode.value.split("\n");
             if (lines.length > 1) {

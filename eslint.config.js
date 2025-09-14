@@ -14,6 +14,7 @@ export default defineConfig([
         "demo/",
         "deno/",
         "**/__*",
+        "**/*copy*",
     ],
   },
   {
@@ -23,6 +24,11 @@ export default defineConfig([
     languageOptions: {
       globals: globals.node
     },
+    rules: {
+      "no-empty": "warn",
+      "no-unused-vars": "warn",
+      "quotes": ["warn", "double"],
+    }
   },
   tseslint.configs.recommended,
 ]);

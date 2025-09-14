@@ -80,7 +80,7 @@ const replacements = {
 };
 
 const importKeys = Object.keys(replacements).join("|");
-const importRegex = new RegExp(`from "(${importKeys})";`, 'g');
+const importRegex = new RegExp(`from "(${importKeys})";`, "g");
 
 for (const file of libFiles) {
   let content = fs.readFileSync(file, "utf8");

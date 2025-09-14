@@ -1,10 +1,12 @@
 {
-  "includes": ["dist/*.js", "lib/*.{js,ts}", "demo/*.html"],
+  "includes": ["dist/*.js", "lib/*.{js,ts}", "demo/**/*"],
   "excludes": ["!dist", "scripts/**", "**/node_modules"],
   "typescript": {
     "commentLine.forceSpaceAfterSlashes": false
   },
   "markup": {
+    "scriptIndent": true,
+    "styleIndent": true
   },
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.95.11.wasm",
