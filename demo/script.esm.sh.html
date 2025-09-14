@@ -4,54 +4,60 @@
     <meta charset="UTF-8">
     <title>TEST @ browser</title>
     <style>
-    body { font-family: sans-serif; padding: 2rem; }
-    dl { border: 1px solid #ccc; padding: 1rem; margin-bottom: 2rem; }
-    dt { font-weight: bold; margin-top: 1rem; }
-    dd { margin-left: 2rem; }
-    dd ul, dd ol { margin-left: 1.5rem; }
-    dd ul.nested-list, dd ol.nested-list { color: darkblue; }
+      body { font-family: sans-serif; padding: 2rem; }
+      hr { margin: 0 0 2rem; height: 1px; border-width: 0; background-color: #ccc; }
+      dl { border: 1px solid #ccc; padding: 1rem; margin-bottom: 2rem; }
+      dt { font-weight: bold; margin-top: 1rem; }
+      dd { margin-left: 2rem; }
+      dd ul, dd ol { margin-left: 1.5rem; }
+      dd ul.nested-list, dd ol.nested-list { color: darkblue; }
+      a, a:visited { color: blue; text-decoration: none; }
+      a:hover { color: blue; text-decoration: underline; }
+      h1 a, h1 a:hover { text-decoration: none; }
     </style>
     <script type="module">
-    import deflist from "https://esm.sh/@verikami/remark-deflist-revisited";
-    import dedent from "https://esm.sh/dedent@1";
-    import html from "https://esm.sh/remark-html@16";
-    import { remark } from "https://esm.sh/remark@15";
+      import deflist from "https://esm.sh/@verikami/remark-deflist-revisited";
+      import dedent from "https://esm.sh/dedent@1";
+      import html from "https://esm.sh/remark-html@16";
+      import { remark } from "https://esm.sh/remark@15";
 
-    const render = async (markdown) => (
-      await remark()
-        .use(deflist)
-        .use(html)
-        .process(markdown)
-    );
+      const render = async (markdown) => (
+        await remark()
+          .use(deflist)
+          .use(html)
+          .process(markdown)
+      );
 
-    const append = async (markdown) => {
-      const output = await render(markdown);
-      const el = document.getElementById("markdown");
-      el.innerHTML += String(output);
-    };
+      const append = async (markdown) => {
+        const output = await render(markdown);
+        const el = document.getElementById("markdown");
+        el.innerHTML += String(output);
+      };
 
-    let markdown;
+      let markdown;
 
-    markdown = dedent`
-      Term
-      : - item A
-        - item B
-        - item C
-    `;
+      markdown = dedent`
+        Term
+        : - item A
+          - item B
+          - item C
+      `;
 
-    document.body.onload = append(markdown);
+      document.body.onload = append(markdown);
 
-    markdown = dedent`
-      Term
-      : - **item** A
-        - **item** B
-        - **item** C
-    `;
+      markdown = dedent`
+        Term
+        : - **item** A
+          - **item** B
+          - **item** C
+      `;
 
-    document.body.onload = append(markdown);
+      document.body.onload = append(markdown);
     </script>
   </head>
   <body>
+    <h1><a href="index.html">🔘</a> veriKami/remark-deflist-revisited</h1>
+    <hr>
     <div id="markdown"></div>
   </body>
 </html>
