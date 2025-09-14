@@ -84,9 +84,9 @@ jobs:
             lib
 
   deploy:
-    if: ${{ (github.event_name == 'workflow_dispatch' && inputs.deploy_gh_page == 'true') ||
+    if: |
+      (github.event_name == 'workflow_dispatch' && inputs.deploy_gh_page == 'true') ||
       github.event_name == 'push'
-    }}
     # needs: build
     environment:
       name: github-pages
