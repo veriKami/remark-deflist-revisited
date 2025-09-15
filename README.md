@@ -1,10 +1,10 @@
 # @verikami/remark-deflist-revisited
 
-[![GH Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/veriKami/remark-deflist-revisited)
-[![CC](https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI)](https://codecov.io/github/veriKami/remark-deflist-revisited)
-[![CI](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg)](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml)
-[![NPM Repo](https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=blue&color=black)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
-[![JSR Repo](https://jsr.io/badges/@verikami/remark-deflist-revisited)](https://jsr.io/@verikami/remark-deflist-revisited)
+[![GH][GH Badge]][GH]
+[![CC][CC Badge]][CC]
+[![CI][CI Badge]][CI]
+[![NPM][NPM Badge]][NPM]
+[![JSR][JSR Badge]][JSR]
 
 **[Remark]** plugin. A wrapper around **[remark-deflist]** with improved support for nested definition lists.
 It preserves all the original functionality and performs additional processing.
@@ -229,11 +229,11 @@ To regenerate `demo/generated/*` html files run
 
 ## Processing Flow
 
-[![GH Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/veriKami/remark-deflist-revisited)
-[![CC](https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI)](https://codecov.io/github/veriKami/remark-deflist-revisited)
-[![CI](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg)](https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml)
-[![NPM Repo](https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=blue&color=black)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
-[![JSR Repo](https://jsr.io/badges/@verikami/remark-deflist-revisited)](https://jsr.io/@verikami/remark-deflist-revisited)
+[![GH][GH Badge]][GH]
+[![CC][CC Badge]][CC]
+[![CI][CI Badge]][CI]
+[![NPM][NPM Badge]][NPM]
+[![JSR][JSR Badge]][JSR]
 
 ```
 Markdown
@@ -262,6 +262,21 @@ Original work — MIT © Alex Shaw
 * [npm: remark-deflist](https://www.npmjs.com/package/remark-deflist)
 
 MIT © [veriKami](https://verikami.com) °// Weronika Kami
+
+[GH]: https://github.com/veriKami/remark-deflist-revisited
+[GH Badge]: https://img.shields.io/badge/GitHub-Repository-blue?logo=github
+
+[CC]: https://codecov.io/github/veriKami/remark-deflist-revisited
+[CC Badge]: https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI
+
+[CI]: https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml
+[CI Badge]: https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg
+
+[NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
+[NPM Badge]: https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=blue&color=black
+
+[JSR]: https://jsr.io/@verikami/remark-deflist-revisited
+[JSR Badge]: https://jsr.io/badges/@verikami/remark-deflist-revisited
 
 [Remark]: https://github.com/remarkjs/remark
 [remark-deflist]: https://www.npmjs.com/package/remark-deflist

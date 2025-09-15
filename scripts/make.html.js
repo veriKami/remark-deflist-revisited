@@ -110,9 +110,22 @@ const makeFiles = (mode = "revisited") => {
       fs.writeFileSync(outputPath, htmlPage, "utf8");
       console.log(`Generated: ${outputFileName}`);
     } catch (err) {
-      console.error(`Error processing file ${file}:`, err.message);
+      console.error(`Error processing: ${file}`, err.message);
     }
   });
+};
+
+//: INDEX
+//: --------------------------------------------------------
+const makeIndex = ($ = "revisited.list.basic.html") => {
+  const sourcePath = path.join(outputDir, $);
+  const targetPath = path.join(outputDir, "index.html");
+  try {
+      fs.copyFileSync(sourcePath, targetPath);
+      console.log(`\nIndex via: ${$}`);
+    } catch (err) {
+      console.error(`Error processing: ${$}`, err.message);
+    }
 };
 
 //: --------------------------------------------------------
@@ -120,3 +133,5 @@ const makeFiles = (mode = "revisited") => {
 
 makeFiles("original");
 makeFiles("revisited");
+
+makeIndex();
