@@ -269,3 +269,8 @@ MIT © [veriKami](https://verikami.com) °// Weronika Kami
 [Deno]: https://deno.com
 [Cloudflare Workers]: https://workers.cloudflare.com
 [Astro]: https://astro.build
+
+<!--
+[![Downloads](https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
+[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https://raw.githubusercontent.com/verikami/remark-deflist-revisited/master/package.json)](https://github.com/verikami/remark-deflist-revisited)
+-->
