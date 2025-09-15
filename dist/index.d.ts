@@ -16,13 +16,5 @@ export interface DescriptionDetails extends Parent {
   type: "descriptiondetails";
   children: (List | Paragraph | Text | Node)[];
 }
-declare module "mdast" {
-  interface RootContentMap {
-    descriptionList: DescriptionList;
-  }
-  interface ListItemContentMap {
-    descriptionList: DescriptionList;
-  }
-}
 declare const deflistWithLists: Plugin<[], Root>;
 export default deflistWithLists;

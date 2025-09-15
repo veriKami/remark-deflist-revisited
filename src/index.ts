@@ -23,6 +23,8 @@
  * ```
  */
 
+/// <reference types="./mdast.d.ts" />
+
 import type { List, ListItem, Paragraph, Root, RootContent, Text } from "mdast";
 import type { Node, Parent } from "unist";
 import type { Plugin } from "unified";
@@ -58,22 +60,6 @@ export interface DescriptionTerm extends Parent {
 export interface DescriptionDetails extends Parent {
   type: "descriptiondetails";
   children: (List | Paragraph | Text | Node)[];
-}
-
-//: --------------------------------------------------------
-//: Type Augmentation
-//: --------------------------------------------------------
-
-/**
- * Type Augmentation
- */
-declare module "mdast" {
-  interface RootContentMap {
-    descriptionList: DescriptionList;
-  }
-  interface ListItemContentMap {
-    descriptionList: DescriptionList;
-  }
 }
 
 //: --------------------------------------------------------

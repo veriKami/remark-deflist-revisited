@@ -57,18 +57,6 @@ export interface DescriptionDetails extends Parent {
 }
 
 /**
- * Type Augmentation
- */
-declare module "mdast" {
-  interface RootContentMap {
-    descriptionList: DescriptionList;
-  }
-  interface ListItemContentMap {
-    descriptionList: DescriptionList;
-  }
-}
-
-/**
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
  * descriptiondetails. It first runs the original `remark-deflist` plugin and
  * then performs additional processing.

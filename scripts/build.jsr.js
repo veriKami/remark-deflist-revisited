@@ -43,7 +43,7 @@ const libFiles = files.map(copyFileToLib);
 //: single Lines without //:
 // const singleLineComment = new RegExp("\\/\\/(?!:).*?(?=$|\\n)", "gm");
 //: --------------------------------------------------------
-const singleLineComment = new RegExp("\\/\\/.*$", "gm");
+const singleLineComment = new RegExp("(?<!\\/)\\/\\/.*$", "gm");
 const multiSpace = new RegExp("^\\s*$\\r?\\n", "gm");
 
 for (const file of libFiles) {
