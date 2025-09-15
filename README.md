@@ -64,6 +64,7 @@ Term
 
 1. Using `: *` as a list marker (especially for the first item) is resolved in v0.4.0.
 2. Using `: - *x*` or `: - **x**` is not problematic.
+3. See [generated examples][generated] for real life test.
 
 ### Usage in Node.js
 
@@ -187,6 +188,8 @@ export default {
 
 ```
 
+<!-- See live example @ **[script.esm.sh.html][inline]** -->
+
 <!--
 ## API
 
@@ -284,6 +287,10 @@ MIT © [veriKami](https://verikami.com) °// Weronika Kami
 [Deno]: https://deno.com
 [Cloudflare Workers]: https://workers.cloudflare.com
 [Astro]: https://astro.build
+
+[page]: https://verikami.github.io/remark-deflist-revisited
+[inline]: https://verikami.github.io/remark-deflist-revisited/script.esm.sh.html
+[generated]: https://verikami.github.io/remark-deflist-revisited/generated
 
 <!--
 [![Downloads](https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
