@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>TEST @ list.nested.md (revisited)</title>
+    <title>TEST @ list.error.md (original)</title>
     <style>
       body { font-family: sans-serif; font-size: 1rem; padding: 2rem; background: #fff; }
       hr { margin: 0 0 1rem; height: 1px; border-width: 0; background-color: #ccc; }
@@ -24,7 +24,7 @@
     </style>
   </head>
   <body>
-    <h1><a href="../index.html">🔘</a> list.nested.md (revisited)</h1>
+    <h1><a href="../index.html">🔘</a> list.error.md (original)</h1>
     <hr>
     <table>
       <tr>
@@ -46,80 +46,54 @@
         <td><a href="original._original_module.html">_original_module</a></td>
       </tr>
     </table>
-    <pre><code>Term 1 (nested) with: -
-: - Definition 1 with: -
-    - Sub 1 with: -
-    - Sub 2 with: -
-  - Definition 2 with: -
-    - Sub 1 with: -
-    - Sub 2 with: -
-  - Definition 3 with: -
-    - Sub 1 with: -
-    - Sub 2 with: -
+    <pre><code>Term 1 (error)
+: - Definition 1
+  Text 1
+  Text 2
 
-Term 2 (nested) with: -
-: - Definition 1 with: -
-    - Sub 1 with: -
-      - Pub 1 with: -
-  - Definition 2 with: -
-    - Sub 1 with: -
-      - Pub 1 with: -
-  - Definition 3 with: -
-    - Sub 1 with: -
-      - Pub 1 with: -
+Term 2 (error)
+: - Definition 1
+  **Text 1** plain
+  **Text 2** plain
+
+Term 3 (ok)
+: - **Definition** 1
+  Text 1
+  Text 2
+
+Term 4 (ok)
+: - **Definition** 1
+  **Text 1** plain
+  **Text 2** plain
 </code></pre>
     <dl>
-      <dt>Term 1 (nested) with: -</dt>
+      <dt>Term 1 (error)</dt>
       <dd>
-        <ul>
-          <li>Definition 1 with: -</li>
-          <li>- Sub 1 with: -</li>
-          <li>- Sub 2 with: -</li>
-          <li>
-            Definition 2 with: -
-            <ul>
-              <li>Sub 1 with: -</li>
-              <li>Sub 2 with: -</li>
-            </ul>
-          </li>
-          <li>
-            Definition 3 with: -
-            <ul>
-              <li>Sub 1 with: -</li>
-              <li>Sub 2 with: -</li>
-            </ul>
-          </li>
-        </ul>
+        <li>
+          Definition 1 Text 1 Text 2
+        </li>
       </dd>
-      <dt>Term 2 (nested) with: -</dt>
+      <dt>Term 2 (error)</dt>
       <dd>
-        <ul>
-          <li>Definition 1 with: -</li>
-          <li>- Sub 1 with: -</li>
-          <li>- Pub 1 with: -</li>
-          <li>
-            Definition 2 with: -
-            <ul>
-              <li>
-                Sub 1 with: -
-                <ul>
-                  <li>Pub 1 with: -</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            Definition 3 with: -
-            <ul>
-              <li>
-                Sub 1 with: -
-                <ul>
-                  <li>Pub 1 with: -</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
+        <li>
+          Definition 1
+          <strong>Text 1</strong> plain
+          <strong>Text 2</strong> plain
+        </li>
+      </dd>
+      <dt>Term 3 (ok)</dt>
+      <dd>
+        <li>
+          <strong>Definition</strong> 1 Text 1 Text 2
+        </li>
+      </dd>
+      <dt>Term 4 (ok)</dt>
+      <dd>
+        <li>
+          <strong>Definition</strong> 1
+          <strong>Text 1</strong> plain
+          <strong>Text 2</strong> plain
+        </li>
       </dd>
     </dl>
   </body>

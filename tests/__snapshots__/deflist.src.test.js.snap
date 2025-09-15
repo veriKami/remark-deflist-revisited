@@ -6581,6 +6581,1141 @@ Term 4 (basic) with: 1.
 }
 `;
 
+exports[`remark-deflist mixed mode > AST + output porównanie: list.error.md 1`] = `
+{
+  "input": "<!-- ## list.error.md ------------------- -->
+
+\`\`\`
+Term 1 (error)
+: - Definition 1
+  Text 1
+  Text 2
+
+Term 2 (error)
+: - Definition 1
+  **Text 1** plain
+  **Text 2** plain
+
+Term 3 (ok)
+: - **Definition** 1
+  Text 1
+  Text 2
+
+Term 4 (ok)
+: - **Definition** 1
+  **Text 1** plain
+  **Text 2** plain
+\`\`\`
+
+Term 1 (error)
+: - Definition 1
+  Text 1
+  Text 2
+
+Term 2 (error)
+: - Definition 1
+  **Text 1** plain
+  **Text 2** plain
+
+Term 3 (ok)
+: - **Definition** 1
+  Text 1
+  Text 2
+
+Term 4 (ok)
+: - **Definition** 1
+  **Text 1** plain
+  **Text 2** plain
+",
+  "original": {
+    "ast": {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 46,
+              "line": 1,
+              "offset": 45,
+            },
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "html",
+          "value": "<!-- ## list.error.md ------------------- -->",
+        },
+        {
+          "lang": null,
+          "meta": null,
+          "position": {
+            "end": {
+              "column": 4,
+              "line": 23,
+              "offset": 299,
+            },
+            "start": {
+              "column": 1,
+              "line": 3,
+              "offset": 47,
+            },
+          },
+          "type": "code",
+          "value": "Term 1 (error)
+: - Definition 1
+  Text 1
+  Text 2
+
+Term 2 (error)
+: - Definition 1
+  **Text 1** plain
+  **Text 2** plain
+
+Term 3 (ok)
+: - **Definition** 1
+  Text 1
+  Text 2
+
+Term 4 (ok)
+: - **Definition** 1
+  **Text 1** plain
+  **Text 2** plain",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 9,
+                  "line": 28,
+                  "offset": 350,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 25,
+                  "offset": 301,
+                },
+              },
+              "type": "text",
+              "value": "Term 1 (error)
+: - Definition 1
+Text 1
+Text 2",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 9,
+              "line": 28,
+              "offset": 350,
+            },
+            "start": {
+              "column": 1,
+              "line": 25,
+              "offset": 301,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 1,
+                  "line": 32,
+                  "offset": 384,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 30,
+                  "offset": 352,
+                },
+              },
+              "type": "text",
+              "value": "Term 2 (error)
+: - Definition 1
+",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 11,
+                      "line": 32,
+                      "offset": 394,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 32,
+                      "offset": 388,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Text 1",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 32,
+                  "offset": 396,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 32,
+                  "offset": 386,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 1,
+                  "line": 33,
+                  "offset": 403,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 32,
+                  "offset": 396,
+                },
+              },
+              "type": "text",
+              "value": " plain
+",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 11,
+                      "line": 33,
+                      "offset": 413,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 33,
+                      "offset": 407,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Text 2",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 33,
+                  "offset": 415,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 33,
+                  "offset": 405,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 19,
+                  "line": 33,
+                  "offset": 421,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 33,
+                  "offset": 415,
+                },
+              },
+              "type": "text",
+              "value": " plain",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 19,
+              "line": 33,
+              "offset": 421,
+            },
+            "start": {
+              "column": 1,
+              "line": 30,
+              "offset": 352,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 5,
+                  "line": 36,
+                  "offset": 439,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 35,
+                  "offset": 423,
+                },
+              },
+              "type": "text",
+              "value": "Term 3 (ok)
+: - ",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 36,
+                      "offset": 451,
+                    },
+                    "start": {
+                      "column": 7,
+                      "line": 36,
+                      "offset": 441,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Definition",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 19,
+                  "line": 36,
+                  "offset": 453,
+                },
+                "start": {
+                  "column": 5,
+                  "line": 36,
+                  "offset": 439,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 9,
+                  "line": 38,
+                  "offset": 473,
+                },
+                "start": {
+                  "column": 19,
+                  "line": 36,
+                  "offset": 453,
+                },
+              },
+              "type": "text",
+              "value": " 1
+Text 1
+Text 2",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 9,
+              "line": 38,
+              "offset": 473,
+            },
+            "start": {
+              "column": 1,
+              "line": 35,
+              "offset": 423,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 5,
+                  "line": 41,
+                  "offset": 491,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 40,
+                  "offset": 475,
+                },
+              },
+              "type": "text",
+              "value": "Term 4 (ok)
+: - ",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 41,
+                      "offset": 503,
+                    },
+                    "start": {
+                      "column": 7,
+                      "line": 41,
+                      "offset": 493,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Definition",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 19,
+                  "line": 41,
+                  "offset": 505,
+                },
+                "start": {
+                  "column": 5,
+                  "line": 41,
+                  "offset": 491,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 1,
+                  "line": 42,
+                  "offset": 508,
+                },
+                "start": {
+                  "column": 19,
+                  "line": 41,
+                  "offset": 505,
+                },
+              },
+              "type": "text",
+              "value": " 1
+",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 11,
+                      "line": 42,
+                      "offset": 518,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 42,
+                      "offset": 512,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Text 1",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 42,
+                  "offset": 520,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 42,
+                  "offset": 510,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 1,
+                  "line": 43,
+                  "offset": 527,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 42,
+                  "offset": 520,
+                },
+              },
+              "type": "text",
+              "value": " plain
+",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 11,
+                      "line": 43,
+                      "offset": 537,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 43,
+                      "offset": 531,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Text 2",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 43,
+                  "offset": 539,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 43,
+                  "offset": 529,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 19,
+                  "line": 43,
+                  "offset": 545,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 43,
+                  "offset": 539,
+                },
+              },
+              "type": "text",
+              "value": " plain",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 19,
+              "line": 43,
+              "offset": 545,
+            },
+            "start": {
+              "column": 1,
+              "line": 40,
+              "offset": 475,
+            },
+          },
+          "type": "paragraph",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 1,
+          "line": 44,
+          "offset": 546,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "root",
+    },
+    "output": "<pre><code>Term 1 (error)
+: - Definition 1
+  Text 1
+  Text 2
+
+Term 2 (error)
+: - Definition 1
+  **Text 1** plain
+  **Text 2** plain
+
+Term 3 (ok)
+: - **Definition** 1
+  Text 1
+  Text 2
+
+Term 4 (ok)
+: - **Definition** 1
+  **Text 1** plain
+  **Text 2** plain
+</code></pre>
+<dl><dt>Term 1 (error)</dt><dd><li>Definition 1
+Text 1
+Text 2</li></dd><dt>Term 2 (error)</dt><dd><li>Definition 1
+<strong>Text 1</strong> plain
+<strong>Text 2</strong> plain</li></dd><dt>Term 3 (ok)</dt><dd><li><strong>Definition</strong> 1
+Text 1
+Text 2</li></dd><dt>Term 4 (ok)</dt><dd><li><strong>Definition</strong> 1
+<strong>Text 1</strong> plain
+<strong>Text 2</strong> plain</li></dd></dl>
+",
+  },
+  "patched": {
+    "ast": {
+      "children": [
+        {
+          "position": {
+            "end": {
+              "column": 46,
+              "line": 1,
+              "offset": 45,
+            },
+            "start": {
+              "column": 1,
+              "line": 1,
+              "offset": 0,
+            },
+          },
+          "type": "html",
+          "value": "<!-- ## list.error.md ------------------- -->",
+        },
+        {
+          "lang": null,
+          "meta": null,
+          "position": {
+            "end": {
+              "column": 4,
+              "line": 23,
+              "offset": 299,
+            },
+            "start": {
+              "column": 1,
+              "line": 3,
+              "offset": 47,
+            },
+          },
+          "type": "code",
+          "value": "Term 1 (error)
+: - Definition 1
+  Text 1
+  Text 2
+
+Term 2 (error)
+: - Definition 1
+  **Text 1** plain
+  **Text 2** plain
+
+Term 3 (ok)
+: - **Definition** 1
+  Text 1
+  Text 2
+
+Term 4 (ok)
+: - **Definition** 1
+  **Text 1** plain
+  **Text 2** plain",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 9,
+                  "line": 28,
+                  "offset": 350,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 25,
+                  "offset": 301,
+                },
+              },
+              "type": "text",
+              "value": "Term 1 (error)
+: - Definition 1
+Text 1
+Text 2",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 9,
+              "line": 28,
+              "offset": 350,
+            },
+            "start": {
+              "column": 1,
+              "line": 25,
+              "offset": 301,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 1,
+                  "line": 32,
+                  "offset": 384,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 30,
+                  "offset": 352,
+                },
+              },
+              "type": "text",
+              "value": "Term 2 (error)
+: - Definition 1
+",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 11,
+                      "line": 32,
+                      "offset": 394,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 32,
+                      "offset": 388,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Text 1",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 32,
+                  "offset": 396,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 32,
+                  "offset": 386,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 1,
+                  "line": 33,
+                  "offset": 403,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 32,
+                  "offset": 396,
+                },
+              },
+              "type": "text",
+              "value": " plain
+",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 11,
+                      "line": 33,
+                      "offset": 413,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 33,
+                      "offset": 407,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Text 2",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 33,
+                  "offset": 415,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 33,
+                  "offset": 405,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 19,
+                  "line": 33,
+                  "offset": 421,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 33,
+                  "offset": 415,
+                },
+              },
+              "type": "text",
+              "value": " plain",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 19,
+              "line": 33,
+              "offset": 421,
+            },
+            "start": {
+              "column": 1,
+              "line": 30,
+              "offset": 352,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 5,
+                  "line": 36,
+                  "offset": 439,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 35,
+                  "offset": 423,
+                },
+              },
+              "type": "text",
+              "value": "Term 3 (ok)
+: - ",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 36,
+                      "offset": 451,
+                    },
+                    "start": {
+                      "column": 7,
+                      "line": 36,
+                      "offset": 441,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Definition",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 19,
+                  "line": 36,
+                  "offset": 453,
+                },
+                "start": {
+                  "column": 5,
+                  "line": 36,
+                  "offset": 439,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 9,
+                  "line": 38,
+                  "offset": 473,
+                },
+                "start": {
+                  "column": 19,
+                  "line": 36,
+                  "offset": 453,
+                },
+              },
+              "type": "text",
+              "value": " 1
+Text 1
+Text 2",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 9,
+              "line": 38,
+              "offset": 473,
+            },
+            "start": {
+              "column": 1,
+              "line": 35,
+              "offset": 423,
+            },
+          },
+          "type": "paragraph",
+        },
+        {
+          "children": [
+            {
+              "position": {
+                "end": {
+                  "column": 5,
+                  "line": 41,
+                  "offset": 491,
+                },
+                "start": {
+                  "column": 1,
+                  "line": 40,
+                  "offset": 475,
+                },
+              },
+              "type": "text",
+              "value": "Term 4 (ok)
+: - ",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 17,
+                      "line": 41,
+                      "offset": 503,
+                    },
+                    "start": {
+                      "column": 7,
+                      "line": 41,
+                      "offset": 493,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Definition",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 19,
+                  "line": 41,
+                  "offset": 505,
+                },
+                "start": {
+                  "column": 5,
+                  "line": 41,
+                  "offset": 491,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 1,
+                  "line": 42,
+                  "offset": 508,
+                },
+                "start": {
+                  "column": 19,
+                  "line": 41,
+                  "offset": 505,
+                },
+              },
+              "type": "text",
+              "value": " 1
+",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 11,
+                      "line": 42,
+                      "offset": 518,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 42,
+                      "offset": 512,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Text 1",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 42,
+                  "offset": 520,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 42,
+                  "offset": 510,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 1,
+                  "line": 43,
+                  "offset": 527,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 42,
+                  "offset": 520,
+                },
+              },
+              "type": "text",
+              "value": " plain
+",
+            },
+            {
+              "children": [
+                {
+                  "position": {
+                    "end": {
+                      "column": 11,
+                      "line": 43,
+                      "offset": 537,
+                    },
+                    "start": {
+                      "column": 5,
+                      "line": 43,
+                      "offset": 531,
+                    },
+                  },
+                  "type": "text",
+                  "value": "Text 2",
+                },
+              ],
+              "position": {
+                "end": {
+                  "column": 13,
+                  "line": 43,
+                  "offset": 539,
+                },
+                "start": {
+                  "column": 3,
+                  "line": 43,
+                  "offset": 529,
+                },
+              },
+              "type": "strong",
+            },
+            {
+              "position": {
+                "end": {
+                  "column": 19,
+                  "line": 43,
+                  "offset": 545,
+                },
+                "start": {
+                  "column": 13,
+                  "line": 43,
+                  "offset": 539,
+                },
+              },
+              "type": "text",
+              "value": " plain",
+            },
+          ],
+          "position": {
+            "end": {
+              "column": 19,
+              "line": 43,
+              "offset": 545,
+            },
+            "start": {
+              "column": 1,
+              "line": 40,
+              "offset": 475,
+            },
+          },
+          "type": "paragraph",
+        },
+      ],
+      "position": {
+        "end": {
+          "column": 1,
+          "line": 44,
+          "offset": 546,
+        },
+        "start": {
+          "column": 1,
+          "line": 1,
+          "offset": 0,
+        },
+      },
+      "type": "root",
+    },
+    "output": "<pre><code>Term 1 (error)
+: - Definition 1
+  Text 1
+  Text 2
+
+Term 2 (error)
+: - Definition 1
+  **Text 1** plain
+  **Text 2** plain
+
+Term 3 (ok)
+: - **Definition** 1
+  Text 1
+  Text 2
+
+Term 4 (ok)
+: - **Definition** 1
+  **Text 1** plain
+  **Text 2** plain
+</code></pre>
+<dl><dt>Term 1 (error)</dt><dd><ul>
+<li>Definition 1</li>
+<li>Text 1</li>
+<li>Text 2</li>
+</ul></dd><dt>Term 2 (error)</dt><dd><ul>
+<li>Definition 1<strong>Text 1</strong> plain
+<strong>Text 2</strong> plain</li>
+<li></li>
+</ul></dd><dt>Term 3 (ok)</dt><dd><ul>
+<li><strong>Definition</strong> 1
+Text 1
+Text 2</li>
+</ul></dd><dt>Term 4 (ok)</dt><dd><ul>
+<li><strong>Definition</strong> 1
+<strong>Text 1</strong> plain
+<strong>Text 2</strong> plain</li>
+</ul></dd></dl>
+",
+  },
+}
+`;
+
 exports[`remark-deflist mixed mode > AST + output porównanie: list.nested.md 1`] = `
 {
   "input": "<!-- ## list.nested.md ------------------ -->

@@ -45,6 +45,7 @@ describe("remark-deflist mixed mode", () => {
     "_basic.md",
     "_original_module.md",
     "list.basic.md",
+    "list.error.md",
     "list.nested.md",
     "list.strange.md"
   ];
