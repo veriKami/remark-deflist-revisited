@@ -23,11 +23,50 @@
  * ```
  */
 
-import type { List, ListItem, Paragraph, Text } from "npm:@types/mdast@^4.0.4";
+import type { List, ListItem, Paragraph, Root, RootContent, Text } from "npm:@types/mdast@^4.0.4";
 import type { Node, Parent } from "npm:@types/unist@^3.0.3";
 import deflist from "npm:remark-deflist@^1.0.0";
 import type { Plugin } from "npm:unified@^11.0.5";
 import { visit } from "npm:unist-util-visit@^5.0.0";
+import type { VFile } from "npm:vfile@^6.0.3";
+
+/**
+ * Description list node (the "dl" part)
+ */
+export interface DescriptionList extends Parent {
+  type: "descriptionlist";
+  data?: { hName?: string };
+  children: (DescriptionTerm | DescriptionDetails)[];
+}
+
+/**
+ * Description term node (the "dt" part)
+ */
+export interface DescriptionTerm extends Parent {
+  type: "descriptionterm";
+  children: Node[];
+}
+
+/**
+ * Description details node (the "dd" part)
+ * Children are either paragraph or list
+ */
+export interface DescriptionDetails extends Parent {
+  type: "descriptiondetails";
+  children: (List | Paragraph | Text | Node)[];
+}
+
+/**
+ * Type Augmentation
+ */
+declare module "mdast" {
+  interface RootContentMap {
+    descriptionList: DescriptionList;
+  }
+  interface ListItemContentMap {
+    descriptionList: DescriptionList;
+  }
+}
 
 /**
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
@@ -66,13 +105,13 @@ import { visit } from "npm:unist-util-visit@^5.0.0";
  * console.log(String(output));
  * ```
  */
-const deflistWithLists: Plugin<[], Node> = () => {
+const deflistWithLists: Plugin<[], Root> = () => {
   const base = deflist();
 
-  return (tree: Node, file: any) => {
-    base(tree as any, file, () => {});
+  return (tree: Root, file: VFile) => {
+    base(tree, file, () => {});
 
-    visit(tree, "descriptiondetails", (dd: Parent) => {
+    visit(tree, "descriptiondetails", (dd: DescriptionDetails) => {
       const ulItems: Node[] = [];
       const newChildren: Node[] = [];
 
@@ -97,7 +136,10 @@ const deflistWithLists: Plugin<[], Node> = () => {
       for (const child of dd.children) {
         if (child.type === "listItem") {
           const firstChild = (child as Parent).children?.[0];
-          if (firstChild && firstChild.type === "paragraph" && (firstChild as Parent).children?.[0]?.type === "text") {
+          if (
+            firstChild && firstChild.type === "paragraph"
+            && (firstChild as Parent).children?.[0]?.type === "text"
+          ) {
             const textNode = (firstChild as Parent).children[0] as Text;
             const lines = textNode.value.split("\n");
             if (lines.length > 1) {
@@ -108,7 +150,10 @@ const deflistWithLists: Plugin<[], Node> = () => {
             }
           }
           ulItems.push(child);
-        } else if (child.type === "text" && (child as Text).value.startsWith("* ")) {
+        } else if (
+          child.type === "text"
+          && (child as Text).value.startsWith("* ")
+        ) {
           ulItems.push(patchListItem(child as Text));
         } else {
           newChildren.push(child);
@@ -122,39 +167,44 @@ const deflistWithLists: Plugin<[], Node> = () => {
       dd.children = newChildren;
     });
 
-    visit(tree, "descriptionlist", (dl: Parent, index: number, parent: Parent | undefined) => {
-      if (index === undefined || !parent || dl.children.length === 0) return;
+    visit(
+      tree,
+      "descriptionlist",
+      (dl: DescriptionList, index: number, parent: Parent | undefined) => {
+        if (index === undefined || !parent || dl.children.length === 0) return;
 
-      const nextNode = parent.children[index + 1];
-      if (nextNode && nextNode.type === "list") {
-        const lastDd = dl.children.at(-1) as Parent;
-        if (lastDd && lastDd.type === "descriptiondetails") {
-          const ddList = lastDd.children.find((c) => c.type === "list");
-          if (ddList) {
-            (ddList as Parent).children.push(...(nextNode as Parent).children);
-          } else {
-            lastDd.children.push(nextNode);
+        const nextNode = parent.children[index + 1];
+
+        if (nextNode && nextNode.type === "list") {
+          const lastDd = dl.children.at(-1);
+          if (lastDd && lastDd.type === "descriptiondetails") {
+            const ddList = (lastDd as DescriptionDetails).children.find(c => c.type === "list");
+            if (ddList) {
+              (ddList as List).children.push(...(nextNode as List).children);
+            } else {
+              (lastDd as DescriptionDetails).children.push(nextNode);
+            }
+            parent.children.splice(index + 1, 1);
           }
-          parent.children.splice(index + 1, 1);
         }
-      }
-    });
+      },
+    );
 
-    visit(tree, "root", (root: Parent) => {
-      const newChildren: Node[] = [];
+    visit(tree, "root", (root: Root) => {
+      const newChildren: RootContent[] = [];
       let allDlChildren: Node[] = [];
 
-      const createList = (children: Node[]): Parent => ({
+      const createList = (children: Node[]): DescriptionList => ({
         type: "descriptionlist",
         data: { hName: "dl" },
-        children,
-      } as Parent);
+        children: children as (DescriptionTerm | DescriptionDetails)[],
+      });
 
-      for (const child of root.children as Parent[]) {
+      for (const child of root.children) {
         if (child.type === "descriptionlist") {
-          allDlChildren.push(...(child.children as Node[]));
+          allDlChildren.push(...child.children);
         } else {
-          if (allDlChildren.length > 0) {
+          if (allDlChildren.length) {
             newChildren.push(createList(allDlChildren));
             allDlChildren = [];
           }
@@ -162,7 +212,7 @@ const deflistWithLists: Plugin<[], Node> = () => {
         }
       }
 
-      if (allDlChildren.length > 0) {
+      if (allDlChildren.length) {
         newChildren.push(createList(allDlChildren));
       }
 

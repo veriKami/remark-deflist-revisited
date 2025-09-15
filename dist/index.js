@@ -89,7 +89,10 @@ const deflistWithLists = () => {
       for (const child of dd.children) {
         if (child.type === "listItem") {
           const firstChild = child.children?.[0];
-          if (firstChild && firstChild.type === "paragraph" && firstChild.children?.[0]?.type === "text") {
+          if (
+            firstChild && firstChild.type === "paragraph"
+            && firstChild.children?.[0]?.type === "text"
+          ) {
             const textNode = firstChild.children[0];
             const lines = textNode.value.split("\n");
             if (lines.length > 1) {
@@ -100,7 +103,10 @@ const deflistWithLists = () => {
             }
           }
           ulItems.push(child);
-        } else if (child.type === "text" && child.value.startsWith("* ")) {
+        } else if (
+          child.type === "text"
+          && child.value.startsWith("* ")
+        ) {
           ulItems.push(patchListItem(child));
         } else {
           newChildren.push(child);
@@ -119,7 +125,7 @@ const deflistWithLists = () => {
       if (nextNode && nextNode.type === "list") {
         const lastDd = dl.children.at(-1);
         if (lastDd && lastDd.type === "descriptiondetails") {
-          const ddList = lastDd.children.find((c) => c.type === "list");
+          const ddList = lastDd.children.find(c => c.type === "list");
           if (ddList) {
             ddList.children.push(...nextNode.children);
           } else {
@@ -135,20 +141,20 @@ const deflistWithLists = () => {
       const createList = (children) => ({
         type: "descriptionlist",
         data: { hName: "dl" },
-        children,
+        children: children,
       });
       for (const child of root.children) {
         if (child.type === "descriptionlist") {
           allDlChildren.push(...child.children);
         } else {
-          if (allDlChildren.length > 0) {
+          if (allDlChildren.length) {
             newChildren.push(createList(allDlChildren));
             allDlChildren = [];
           }
           newChildren.push(child);
         }
       }
-      if (allDlChildren.length > 0) {
+      if (allDlChildren.length) {
         newChildren.push(createList(allDlChildren));
       }
       root.children = newChildren;

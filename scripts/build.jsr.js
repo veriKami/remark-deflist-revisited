@@ -74,6 +74,7 @@ const replacements = {
   "unist": `npm:@types/unist@${deps["@types/unist"]}`,
   "mdast": `npm:@types/mdast@${deps["@types/mdast"]}`,
   "unist-util-visit": `npm:unist-util-visit@${deps["unist-util-visit"]}`,
+  "vfile": `npm:vfile@${deps["vfile"]}`,
   //: doc -------------------------
   "remark": `npm:remark@${deps["remark"]}`,
   "remark-html": `npm:remark-html@${deps["remark-html"]}`,
