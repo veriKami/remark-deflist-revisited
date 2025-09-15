@@ -11,6 +11,8 @@ import remarkHtml from "remark-html";
 import originalDeflist from "remark-deflist";
 import revisitedDeflist from "../dist/index.js";
 
+//: SETUP
+//: -----------------------------------------
 const fixturesDir = path.resolve("tests/fixtures");
 const outputDir = path.resolve("demo/generated");
 
@@ -20,13 +22,13 @@ const files = fs.readdirSync(fixturesDir).filter(f => f.endsWith(".md"));
 
 //: HTML
 //: --------------------------------------------------------
-const makeHtml = (file, mode, menuOriginal, menuRevisited, html) => {
+const makeHtml = ($ = {}) => {
   return dedent.withOptions({ alignValues: true })`
     <!DOCTYPE html>
     <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <title>TEST @ ${file} (${mode})</title>
+    <title>TEST @ ${$?.file} (${$?.mode})</title>
     <style>
     body { font-family: sans-serif; font-size: 1rem; padding: 2rem; background: #fff; }
     hr { margin: 0 0 1rem; height: 1px; border-width: 0; background-color: #ccc; }
@@ -48,13 +50,13 @@ const makeHtml = (file, mode, menuOriginal, menuRevisited, html) => {
     </style>
     </head>
     <body>
-    <h1><a href="../index.html">🔘</a> ${file} (${mode})</h1>
+    <h1><a href="../index.html">🔘</a> ${$?.file} (${$?.mode})</h1>
     <hr>
     <table>
-    <tr><td>revisited</td><td>${menuRevisited}</td></tr>
-    <tr><td>original module</td><td>${menuOriginal}</td></tr>
+    <tr><td>revisited</td><td>${$?.menuRevisited}</td></tr>
+    <tr><td>original module</td><td>${$?.menuOriginal}</td></tr>
     </table>
-    ${html}
+    ${$?.html}
     </body>
     </html>`;
 };
@@ -94,7 +96,13 @@ const makeFiles = (mode = "revisited") => {
       const menuOriginal = makeMenu("original");
       const menuRevisited = makeMenu("revisited");
 
-      const htmlPage = makeHtml(file, mode, menuOriginal, menuRevisited, html);
+      const htmlPage = makeHtml({
+        file,
+        mode,
+        menuOriginal,
+        menuRevisited,
+        html
+      });
 
       const outputFileName = `${mode}.${file.replace(".md", ".html")}`;
       const outputPath = path.join(outputDir, outputFileName);
