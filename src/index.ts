@@ -22,7 +22,7 @@
  * remark().use(deflistWithLists).use(html).process(markdown);
  * ```
  */
-
+//: --------------------------------------------------------
 /// <reference types="./mdast.d.ts" />
 
 import type { List, ListItem, Paragraph, Root, RootContent, Text } from "mdast";
