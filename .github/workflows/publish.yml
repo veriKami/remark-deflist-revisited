@@ -173,7 +173,7 @@ jobs:
           name: npm-artifact
 
       - name: "Restore executable permission"
-        run: chmod +x .bin/cli.worker.js
+        run: chmod +x bin/cli.worker.js
 
       - name: "Setup Node for npm"
         uses: actions/setup-node@v4
