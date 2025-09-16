@@ -36,7 +36,9 @@
     "dist",
     ".bin"
   ],
-  "bin": "./.bin/cli.worker.js",
+  "bin": {
+    "remark-deflist-revisited": "./.bin/cli.worker.js"
+  },
   "scripts": {
     "_:npm": "node scripts/build.npm.js",
     "_:jsr": "node scripts/build.jsr.js",
