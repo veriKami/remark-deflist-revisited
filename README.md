@@ -17,6 +17,20 @@ It preserves all the original functionality and performs additional processing.
 ツ npm i @verikami/remark-deflist-revisited
 ```
 
+TypeScript version
+
+```
+ツ pnpm add jsr:@verikami/remark-deflist-revisited
+ツ npx jsr add @verikami/remark-deflist-revisited
+```
+
+Cloudflare Worker demo
+
+```
+ツ npx @verikami/remark-deflist-revisited@latest
+ツ npx @verikami/remark-deflist-revisited --help
+```
+
 ## Usage
 
 **The problem** with **`remark-deflist`** is that the plugin renders nested list items inside `<dd>` incorrectly.
