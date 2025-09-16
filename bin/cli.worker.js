@@ -115,7 +115,7 @@ function createWorkerExample(targetDir) {
       deploy: "wrangler deploy"
     },
     dependencies: {
-      "@verikami/remark-deflist-revisited":"`^0.5.15",
+      "@verikami/remark-deflist-revisited":"^0.5.15",
       "remark": "^15.0.1",
       "remark-html": "^16.0.1",
       "dedent": "^1.7.0"
@@ -335,10 +335,10 @@ function createWorkerExample(targetDir) {
   //: ------------------------------------------------------
   //: INFO
 
-  console.log("✅ Remark Deflist Worker example created!");
+  console.log("✅ Remark Deflist Worker example created");
   console.log("📁 Location:", targetDir);
   console.log("");
-  console.log("📦 Next steps:");
+  console.log("👄 Next steps:");
   console.log("   cd", targetDir);
   console.log("   npm install");
   console.log("   npm run dev");
