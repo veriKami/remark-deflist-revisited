@@ -25,9 +25,50 @@ function showHelp() {
 
 //: DEDENT
 //: --------------------------------------------------------
+//: simplest version (without interpolation)
+//: --------------------------------------------------------
+// function dedent(str) {
+//   if (str == null) return "";
+//   if (typeof str !== "string") str = String(str);
+//   if (str.trim() === "") return str;
+//
+//   const lines = str.split("\n");
+//   let minIndent = Infinity;
+//
+//   for (const line of lines) {
+//     if (line.trim().length === 0) continue;
+//     const indent = line.match(/^\s*/)[0].length;
+//     if (indent < minIndent) {
+//       minIndent = indent;
+//     }
+//   }
+//
+//   if (minIndent === Infinity) return str;
+//
+//   return lines
+//     .map(line => line.slice(minIndent))
+//     .join("\n")
+//     .trim();
+// }
+//: --------------------------------------------------------
+//: with interpolation: date @ wrangler.toml
+//: --------------------------------------------------------
 function dedent(str) {
-  if (str == null) return "";
-  if (typeof str !== "string") str = String(str);
+  if (typeof str !== "string") {
+    if (Array.isArray(str)) {
+      let result = "";
+      for (let i = 0; i < str.length; i++) {
+        result += str[i];
+        if (i < arguments.length - 1) {
+          result += arguments[i + 1];
+        }
+      }
+      str = result;
+    } else {
+      str = String(str);
+    }
+  }
+
   if (str.trim() === "") return str;
 
   const lines = str.split("\n");
@@ -222,9 +263,10 @@ function createWorkerExample(targetDir) {
 
   //: wrangler.toml
   //: ------------------------------------------------------
+  const dateToday = new Date().toISOString().split("T")[0];
   const wranglerConfig = dedent`
     name = "remark-deflist-worker-example"
-    compatibility_date = "${new Date().toISOString().split("T")[0]}"
+    compatibility_date = "${dateToday}"
     compatibility_flags = ["nodejs_compat"]
     main = "src/index.js"
   ` + "\n";
