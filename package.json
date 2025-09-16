@@ -37,7 +37,7 @@
     ".bin"
   ],
   "bin": {
-    "remark-deflist-revisited-worker": "./.bin/cli.worker.js"
+    "remark-deflist-revisited": "./.bin/cli.worker.js"
   },
   "scripts": {
     "_:npm": "node scripts/build.npm.js",
