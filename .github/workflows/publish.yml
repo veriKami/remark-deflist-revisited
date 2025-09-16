@@ -145,6 +145,9 @@ jobs:
         with:
           name: npm-artifact
 
+      - name: "Restore executable permission"
+        run: chmod +x .bin/cli.worker.js
+
       - name: "Setup Node for GPR"
         uses: actions/setup-node@v4
         with:
@@ -168,6 +171,9 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: npm-artifact
+
+      - name: "Restore executable permission"
+        run: chmod +x .bin/cli.worker.js
 
       - name: "Setup Node for npm"
         uses: actions/setup-node@v4
