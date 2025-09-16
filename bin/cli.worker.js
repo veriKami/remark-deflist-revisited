@@ -31,8 +31,8 @@ function dedent(str) {
   if (str.trim() === "") return str;
 
   const lines = str.split("\n");
-
   let minIndent = Infinity;
+
   for (const line of lines) {
     if (line.trim().length === 0) continue;
     const indent = line.match(/^\s*/)[0].length;
@@ -46,7 +46,7 @@ function dedent(str) {
   return lines
     .map(line => line.slice(minIndent))
     .join("\n")
-    .trimEnd();
+    .trim();
 }
 
 //: MAIN
