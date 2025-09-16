@@ -51,7 +51,7 @@ function showHelp() {
 //     .trim();
 // }
 //: --------------------------------------------------------
-//: with interpolation @ package.json + wrangler.toml
+//: with interpolation @ wrangler.toml
 //: --------------------------------------------------------
 function dedent(str) {
   if (typeof str !== "string") {
@@ -106,18 +106,6 @@ function createWorkerExample(targetDir) {
 
   //: package.json
   //: ------------------------------------------------------
-  function getPackageVersion() {
-    const packageJson = path.join(process.cwd(), "package.json");
-    try {
-      return JSON.parse(fs.readFileSync(packageJson, "utf8")).version;
-    } catch {
-      console.warn("Could not read version, using fallback");
-      return "0.5.0"; // fallback
-    }
-  }
-  //: ------------------------------------------------------
-  const packageVersion = getPackageVersion();
-  //: ------------------------------------------------------
   const packageJson = {
     name: "remark-deflist-worker-example",
     version: "0.1.0",
@@ -127,7 +115,7 @@ function createWorkerExample(targetDir) {
       deploy: "wrangler deploy"
     },
     dependencies: {
-      "@verikami/remark-deflist-revisited": `^${packageVersion}`,
+      "@verikami/remark-deflist-revisited":"`^0.5.15",
       "remark": "^15.0.1",
       "remark-html": "^16.0.1",
       "dedent": "^1.7.0"
