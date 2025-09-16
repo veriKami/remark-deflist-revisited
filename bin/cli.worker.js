@@ -51,7 +51,7 @@ function showHelp() {
 //     .trim();
 // }
 //: --------------------------------------------------------
-//: with interpolation: date @ wrangler.toml
+//: with interpolation @ package.json + wrangler.toml
 //: --------------------------------------------------------
 function dedent(str) {
   if (typeof str !== "string") {
@@ -106,6 +106,17 @@ function createWorkerExample(targetDir) {
 
   //: package.json
   //: ------------------------------------------------------
+  function getPackageVersion() {
+    try {
+      return JSON.parse(fs.readFileSync("package.json", "utf8")).version;
+    } catch {
+      console.warn("Could not read version, using fallback");
+      return "0.5.0"; // fallback
+    }
+  }
+  //: ------------------------------------------------------
+  const packageVersion = getPackageVersion();
+  //: ------------------------------------------------------
   const packageJson = {
     name: "remark-deflist-worker-example",
     version: "0.1.0",
@@ -115,7 +126,7 @@ function createWorkerExample(targetDir) {
       deploy: "wrangler deploy"
     },
     dependencies: {
-      "@verikami/remark-deflist-revisited": "^0.5.0",
+      "@verikami/remark-deflist-revisited": `^${packageVersion}`,
       "remark": "^15.0.1",
       "remark-html": "^16.0.1",
       "dedent": "^1.7.0"
@@ -264,6 +275,7 @@ function createWorkerExample(targetDir) {
   //: wrangler.toml
   //: ------------------------------------------------------
   const dateToday = new Date().toISOString().split("T")[0];
+  //: ------------------------------------------------------
   const wranglerConfig = dedent`
     name = "remark-deflist-worker-example"
     compatibility_date = "${dateToday}"
