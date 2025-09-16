@@ -31,7 +31,7 @@ jobs:
           name: debug-package-artifact
           path: |
             dist
-            .bin/**
+            .bin/cli.worker.js
             package.json
             LICENSE
             README.md
