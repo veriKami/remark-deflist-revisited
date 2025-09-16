@@ -34,7 +34,7 @@
   },
   "files": [
     "dist",
-    "bin"
+    ".bin"
   ],
   "bin": "./bin/cli.worker.js",
   "scripts": {
