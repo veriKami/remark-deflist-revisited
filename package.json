@@ -26,20 +26,18 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     }
   },
+  "files": [
+    "dist",
+    ".bin"
+  ],
   "bin": {
     "remark-deflist-revisited-worker": "./.bin/cli.worker.js"
-  },
-  "directories": {
-    "bin": ".bin"
   },
   "scripts": {
     "_:npm": "node scripts/build.npm.js",
