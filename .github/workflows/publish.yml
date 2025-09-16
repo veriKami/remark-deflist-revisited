@@ -71,7 +71,6 @@ jobs:
             package.json
             LICENSE
             README.md
-            node_modules
             jsr.json
             lib
 
