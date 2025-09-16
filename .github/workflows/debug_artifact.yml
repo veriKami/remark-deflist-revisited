@@ -31,7 +31,7 @@ jobs:
           name: debug-package-artifact
           path: |
             dist
-            .bin
+            .bin/**
             package.json
             LICENSE
             README.md
