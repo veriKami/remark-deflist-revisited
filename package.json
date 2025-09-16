@@ -35,6 +35,12 @@
       "import": "./dist/index.js"
     }
   },
+  "bin": {
+    "remark-deflist-revisited-worker": "./.bin/cli.worker.js"
+  },
+  "directories": {
+    "bin": ".bin"
+  },
   "scripts": {
     "_:npm": "node scripts/build.npm.js",
     "_:jsr": "node scripts/build.jsr.js",
