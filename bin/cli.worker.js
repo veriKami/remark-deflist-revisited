@@ -14,12 +14,12 @@ function showHelp() {
     Options:
       --help, -h     Show this help message
       --version, -v  Show version
-      --dir <path>   Specify custom directory (default: remark-deflist-worker-example)
+      --dir <path>   Specify custom directory (default: remark-deflist-revisited-worker)
 
     Examples:
       npx @verikami/remark-deflist-revisited
       npx @verikami/remark-deflist-revisited --dir my-worker
-      npx remark-deflist-revisited-worker --help
+      npx remark-deflist-revisited --help
     `);
 }
 
@@ -93,7 +93,7 @@ function dedent(str) {
 //: MAIN
 //: --------------------------------------------------------
 function createWorkerExample(targetDir) {
-  if (!targetDir) targetDir = "remark-deflist-worker-example"
+  if (!targetDir) targetDir = "remark-deflist-revisited-worker"
   const projectDir = path.join(process.cwd(), targetDir);
   
   if (fs.existsSync(projectDir)) {
@@ -107,7 +107,7 @@ function createWorkerExample(targetDir) {
   //: package.json
   //: ------------------------------------------------------
   const packageJson = {
-    name: "remark-deflist-worker-example",
+    name: "remark-deflist-revisited-worker",
     version: "0.1.0",
     type: "module",
     scripts: {
@@ -147,7 +147,7 @@ function createWorkerExample(targetDir) {
     export default {
       async fetch(request, env, ctx) {
         const markdown = dedent\`
-          # Remark Deflist Revisited Example
+          # Remark Deflist Revisited Worker Example
 
           Cloudflare Worker
           : Serverless platform on the edge
@@ -190,7 +190,7 @@ function createWorkerExample(targetDir) {
               <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Remark Deflist Revisited Demo</title>
+                <title>Remark Deflist Revisited Worker Example</title>
                 <meta name="author" content="veriKami °// Weronika Kami">
                 <style>
                   body {
@@ -266,9 +266,10 @@ function createWorkerExample(targetDir) {
   const dateToday = new Date().toISOString().split("T")[0];
   //: ------------------------------------------------------
   const wranglerConfig = dedent`
-    name = "remark-deflist-worker-example"
+    name = "remark-deflist-revisited-worker"
     compatibility_date = "${dateToday}"
     compatibility_flags = ["nodejs_compat"]
+    workers_dev = true
     main = "src/index.js"
   ` + "\n";
 
@@ -335,7 +336,7 @@ function createWorkerExample(targetDir) {
   //: ------------------------------------------------------
   //: INFO
 
-  console.log("✅ Remark Deflist Worker example created");
+  console.log("✅ Remark Deflist Revisited Worker created");
   console.log("📁 Location:", targetDir);
   console.log("");
   console.log("👄 Next steps:");
@@ -356,7 +357,14 @@ if (args.includes("--help") || args.includes("-h")) {
 }
 
 if (args.includes("--version") || args.includes("-v")) {
-  console.log("remark-deflist-worker v1.0.0");
+  const pkg = "@verikami/remark-deflist-revisited";
+  const version = await fetch(`https://registry.npmjs.org/${pkg}/latest`)
+    .then(response => response.json())
+    .then(data => data.version)
+    .catch(() => "0.5.0"); // fallback
+
+  // console.log("remark-deflist-worker v1.0.0");
+  console.log(`remark-deflist-revisited-worker v${version}`);
   process.exit(0);
 }
 
