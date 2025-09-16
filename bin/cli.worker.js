@@ -23,6 +23,17 @@ function showHelp() {
     `);
 }
 
+//: VERSION
+//: --------------------------------------------------------
+async function showVersion() {
+  const pkg = "@verikami/remark-deflist-revisited";
+  const version = await fetch(`https://registry.npmjs.org/${pkg}/latest`)
+    .then(response => response.json())
+    .then(data => data.version)
+    .catch(() => "0.5.15"); //: fallback
+  console.log(`remark-deflist-revisited-worker v${version}`);
+}
+
 //: DEDENT
 //: --------------------------------------------------------
 //: simplest version (without interpolation)
@@ -154,9 +165,9 @@ function createWorkerExample(targetDir) {
           : Runs code close to users worldwide
 
           Remark Deflist Revisited
+          : Compatible with Bun, Deno and Cloudflare Workers
           : Enhanced definition lists support
           : Supports nested lists
-          : Compatible with Bun, Deno and Cloudflare Workers
 
           Markdown
           : Lightweight markup language
@@ -173,9 +184,9 @@ function createWorkerExample(targetDir) {
           Compatibility
           : Works with modern runtimes
           : - Cloudflare Workers
-            - Bun
-            - Deno
             - Node.js
+            - Deno
+            - Bun
         \`;
 
         try {
@@ -347,8 +358,9 @@ function createWorkerExample(targetDir) {
   console.log("🌐 Learn more: https://github.com/veriKami/remark-deflist-revisited");
 }
 
-//: Parse command line arguments
 //: --------------------------------------------------------
+//: COMMAND LINE
+
 const args = process.argv.slice(2);
 
 if (args.includes("--help") || args.includes("-h")) {
@@ -357,14 +369,7 @@ if (args.includes("--help") || args.includes("-h")) {
 }
 
 if (args.includes("--version") || args.includes("-v")) {
-  const pkg = "@verikami/remark-deflist-revisited";
-  const version = await fetch(`https://registry.npmjs.org/${pkg}/latest`)
-    .then(response => response.json())
-    .then(data => data.version)
-    .catch(() => "0.5.0"); // fallback
-
-  // console.log("remark-deflist-worker v1.0.0");
-  console.log(`remark-deflist-revisited-worker v${version}`);
+  await showVersion();
   process.exit(0);
 }
 
