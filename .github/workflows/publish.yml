@@ -67,6 +67,7 @@ jobs:
           name: package-artifact
           path: |
             dist
+            .bin
             package.json
             LICENSE
             README.md
