@@ -67,7 +67,7 @@ jobs:
           name: npm-artifact
           path: |
             dist
-            .bin/cli.worker.js
+            bin/cli.worker.js
             package.json
             LICENSE
             README.md
@@ -80,7 +80,7 @@ jobs:
           name: jsr-artifact
           path: |
             dist
-            .bin/cli.worker.js
+            bin/cli.worker.js
             package.json
             LICENSE
             README.md

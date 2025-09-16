@@ -24,8 +24,8 @@
     "access": "public"
   },
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -34,10 +34,10 @@
   },
   "files": [
     "dist",
-    ".bin"
+    "bin"
   ],
   "bin": {
-    "remark-deflist-revisited": ".bin/cli.worker.js"
+    "remark-deflist-revisited": "./bin/cli.worker.js"
   },
   "scripts": {
     "_:npm": "node scripts/build.npm.js",
