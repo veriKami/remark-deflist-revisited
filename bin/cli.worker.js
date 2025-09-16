@@ -107,8 +107,9 @@ function createWorkerExample(targetDir) {
   //: package.json
   //: ------------------------------------------------------
   function getPackageVersion() {
+    const packageJson = path.join(process.cwd(), "package.json");
     try {
-      return JSON.parse(fs.readFileSync("package.json", "utf8")).version;
+      return JSON.parse(fs.readFileSync(packageJson, "utf8")).version;
     } catch {
       console.warn("Could not read version, using fallback");
       return "0.5.0"; // fallback
