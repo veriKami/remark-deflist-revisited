@@ -4,7 +4,6 @@
 //: --------------------------------------------------------
 import fs from "node:fs";
 import path from "node:path";
-import dedent from "dedent";
 
 //: HELP
 //: --------------------------------------------------------
@@ -22,6 +21,32 @@ function showHelp() {
       npx @verikami/remark-deflist-revisited --dir my-worker
       npx remark-deflist-revisited-worker --help
     `);
+}
+
+//: DEDENT
+//: --------------------------------------------------------
+function dedent(str) {
+  if (str == null) return "";
+  if (typeof str !== "string") str = String(str);
+  if (str.trim() === "") return str;
+
+  const lines = str.split("\n");
+
+  let minIndent = Infinity;
+  for (const line of lines) {
+    if (line.trim().length === 0) continue;
+    const indent = line.match(/^\s*/)[0].length;
+    if (indent < minIndent) {
+      minIndent = indent;
+    }
+  }
+
+  if (minIndent === Infinity) return str;
+
+  return lines
+    .map(line => line.slice(minIndent))
+    .join("\n")
+    .trimEnd();
 }
 
 //: MAIN
