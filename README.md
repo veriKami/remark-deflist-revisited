@@ -8,7 +8,7 @@
 
 **[Remark]** plugin. A wrapper around **[remark-deflist]** with improved support for nested definition lists.
 It preserves all the original functionality and performs additional processing.
-**[Bun]**, **[Deno]** and **[Cloudflare Workers]** compatibility. Also works in **[Astro]** and web browser.
+**[Deno]**, **[Bun]** and **[Cloudflare Workers]** compatibility. Also works in **[Astro]** and web browser.
 
 ## Installation
 
@@ -19,14 +19,14 @@ It preserves all the original functionality and performs additional processing.
 
 TypeScript version
 
-```
+```bash
 ツ pnpm add jsr:@verikami/remark-deflist-revisited
 ツ npx jsr add @verikami/remark-deflist-revisited
 ```
 
 Cloudflare Worker demo
 
-```
+```bash
 ツ npx @verikami/remark-deflist-revisited@latest
 ツ npx @verikami/remark-deflist-revisited --help
 ```
@@ -160,6 +160,15 @@ export default {
 
 ```
 
+Automatic installation of Cloudflare Worker Demo is available from version v0.5.20
+    
+  ```bash
+  ツ npx @verikami/remark-deflist-revisited
+  ```
+  ```bash
+   ツ npx @verikami/remark-deflist-revisited --help
+  ``` 
+
 ### Usage in html
 
 ```html
@@ -220,6 +229,19 @@ remark().use(deflistWithLists)
 -->
 
 ## Development
+
+Automatic installation of Cloudflare Worker Demo is available from version v0.5.20
+    
+```bash
+# installer
+ツ npx @verikami/remark-deflist-revisited
+
+# latest version
+ツ npx @verikami/remark-deflist-revisited@latest
+
+# how to use 
+ツ npx @verikami/remark-deflist-revisited --help
+``` 
 
 To see sample html output in terminal run
 
