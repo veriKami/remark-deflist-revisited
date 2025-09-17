@@ -160,15 +160,6 @@ export default {
 
 ```
 
-Automatic installation of Cloudflare Worker Demo is available from version v0.5.20
-    
-  ```bash
-  ツ npx @verikami/remark-deflist-revisited
-  ```
-  ```bash
-   ツ npx @verikami/remark-deflist-revisited --help
-  ``` 
-
 ### Usage in html
 
 ```html
