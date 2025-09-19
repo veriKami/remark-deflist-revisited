@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 //: --------------------------------------------------------
-// bin/cli.js
+//: bin/cli.js
 //: --------------------------------------------------------
 import fs from "node:fs";
 import path from "node:path";
+import pkg from "../package.json" with { type: "json" };
 
 //: HELP
 //: --------------------------------------------------------
@@ -25,13 +26,8 @@ function showHelp() {
 
 //: VERSION
 //: --------------------------------------------------------
-async function showVersion() {
-  const pkg = "@verikami/remark-deflist-revisited";
-  const version = await fetch(`https://registry.npmjs.org/${pkg}/latest`)
-    .then(response => response.json())
-    .then(data => data.version)
-    .catch(() => "0.5.15"); //: fallback
-  console.log(`remark-deflist-revisited-worker v${version}`);
+function showVersion() {
+  console.log(`remark-deflist-revisited-worker v${pkg.version}`);
 }
 
 //: DEDENT
@@ -369,7 +365,7 @@ if (args.includes("--help") || args.includes("-h")) {
 }
 
 if (args.includes("--version") || args.includes("-v")) {
-  await showVersion();
+  showVersion();
   process.exit(0);
 }
 
