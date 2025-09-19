@@ -8,7 +8,7 @@
 
 **[Remark]** plugin. A wrapper around **[remark-deflist]** with improved support for nested definition lists.
 It preserves all the original functionality and performs additional processing.
-**[Deno]**, **[Bun]** and **[Cloudflare Workers]** compatibility. Also works in **[Astro]** and web browser.
+**[Bun]**, **[Deno]** and **[Cloudflare Workers]** compatibility. Also works in **[Astro]** and web browser.
 
 ## Installation
 
@@ -203,21 +203,6 @@ export default {
 ```
 
 <!-- See live example @ **[script.esm.sh.html][inline]** -->
-
-<!--
-## API
-
-### `deflistWithLists()`
-
-#### Returns
-- `Transformer` — a unified transformer function
-
-#### Example
-```ts
-function deflistWithLists(): Transformer
-remark().use(deflistWithLists)
-```
--->
 
 ## Development
 
