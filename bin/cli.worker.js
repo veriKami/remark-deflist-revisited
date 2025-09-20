@@ -122,10 +122,10 @@ function createWorkerExample(targetDir) {
       deploy: "wrangler deploy"
     },
     dependencies: {
-      "@verikami/remark-deflist-revisited":"^0.5.15",
-      "remark": "^15.0.1",
-      "remark-html": "^16.0.1",
-      "dedent": "^1.7.0"
+      "@verikami/remark-deflist-revisited": `^${pkg.version}`,
+      "remark": pkg.devDependencies["remark"],
+      "remark-html": pkg.devDependencies["remark-html"],
+      "dedent": pkg.devDependencies["dedent"]
     },
     devDependencies: {
       "wrangler": "^4.37.0"
