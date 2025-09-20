@@ -111,8 +111,11 @@ const deflistWithLists: Plugin<[], Root> = () => {
       });
 
       const patchListItem = (textNode: Text): ListItem => {
-        const value = textNode.value.replace(/^\*\s/, "").replace(/^\s*\d+\.\s/, "");
-        const paragraph: Paragraph = { type: "paragraph", children: [{ type: "text", value }] };
+        const value = textNode.value.replace(/^\*\s/, "");
+        const paragraph: Paragraph = {
+          type: "paragraph",
+          children: [{ type: "text", value }],
+        };
         return {
           type: "listItem",
           spread: false,
@@ -131,9 +134,16 @@ const deflistWithLists: Plugin<[], Root> = () => {
             const textNode = (firstChild as Parent).children[0] as Text;
             const lines = textNode.value.split("\n");
             if (lines.length > 1) {
+              const listItems: ListItem[] = [];
               textNode.value = lines.shift() as string;
-              const remainingItems = lines.map(value => patchListItem({ type: "text", value }));
-              ulItems.push(child, ...remainingItems);
+              for (const line of lines) {
+                if (/^\d+\.\s/.test(line)) {
+                  listItems.push(patchListItem({ type: "text", value: line }));
+                } else {
+                  textNode.value += " " + line;
+                }
+              }
+              ulItems.push(child, ...listItems);
               continue;
             }
           }
@@ -159,8 +169,6 @@ const deflistWithLists: Plugin<[], Root> = () => {
       tree,
       "descriptionlist",
       (dl: DescriptionList, index: number, parent: Parent | undefined) => {
-        if (index === undefined || !parent || dl.children.length === 0) return;
-
         const nextNode = parent.children[index + 1];
 
         if (nextNode && nextNode.type === "list") {
@@ -177,6 +185,33 @@ const deflistWithLists: Plugin<[], Root> = () => {
         }
       },
     );
+
+    visit(tree, "list", (list: List, index: number, parent: Parent | undefined) => {
+      if (parent?.type !== "descriptiondetails") return;
+
+      const getFirstTextNode = (item: ListItem): Text | null => {
+        const para = item.children[0];
+        if (para?.type === "paragraph") {
+          const text = para.children[0];
+          if (text?.type === "text") {
+            return text;
+          }
+        }
+        return null;
+      };
+
+      list.ordered = list.children
+        .map(getFirstTextNode)
+        .filter((n): n is Text => n !== null)
+        .some(node => /^\d+\.\s/.test(node.value));
+
+      for (const item of list.children) {
+        const textNode = getFirstTextNode(item);
+        if (textNode) {
+          textNode.value = textNode.value.replace(/^\s*\d+\.\s/, "");
+        }
+      }
+    });
 
     visit(tree, "root", (root: Root) => {
       const newChildren: RootContent[] = [];
