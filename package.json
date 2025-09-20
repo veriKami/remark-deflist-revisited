@@ -14,7 +14,8 @@
     "unist",
     "astro",
     "parser",
-    "wrapper"
+    "wrapper",
+    "veriKami"
   ],
   "author": "veriKami <verikami@gmail.com> (https://verikami.com/)",
   "license": "MIT",
