@@ -2086,19 +2086,19 @@ Term Z
 <dl><dt>Term A</dt><dd>Definition A<ul>
 <li>item 1</li>
 <li>item 2</li>
-</ul></dd><dt>Term B</dt><dd>Definition B<ol>
+</ul></dd><dt>Term B</dt><dd>Definition B<ul>
 <li>first</li>
 <li>second</li>
-</ol></dd></dl>
+</ul></dd></dl>
 <dl><dt>Term X</dt><dd>This is a paragraph describing Term X.<ul>
 <li>First item</li>
 <li>Second item</li>
 <li>Third item</li>
-</ul></dd><dt>Term Y</dt><dd>Another paragraph<ol>
+</ul></dd><dt>Term Y</dt><dd>Another paragraph<ul>
 <li>Step one</li>
 <li>Step two</li>
 <li>Step three</li>
-</ol></dd><dt>Term Z</dt><dd>Single-line definition</dd></dl>
+</ul></dd><dt>Term Z</dt><dd>Single-line definition</dd></dl>
 ",
   },
 }
@@ -6571,58 +6571,58 @@ Term 4 (basic) with: 1.
 <li>Definition 1 with: *</li>
 <li>Definition 2 with: *</li>
 <li>Definition 3 with: *</li>
-</ul></dd><dt>Term 4 (basic) with: 1.</dt><dd><ul>
+</ul></dd><dt>Term 4 (basic) with: 1.</dt><dd><ol>
 <li>Definition 1 with: 1.</li>
 <li>Definition 2 with: 2.</li>
 <li>Definition 3 with: 3.</li>
-</ul></dd></dl>
+</ol></dd></dl>
 ",
   },
 }
 `;
 
-exports[`remark-deflist mixed mode > AST + output porównanie: list.error.md 1`] = `
+exports[`remark-deflist mixed mode > AST + output porównanie: list.flat.md 1`] = `
 {
-  "input": "<!-- ## list.error.md ------------------- -->
+  "input": "<!-- ## list.flat.md -------------------- -->
 
 \`\`\`
-Term 1 (error)
+Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
 
-Term 2 (error)
+Term 2 (flat)
 : - Definition 1
   **Text 1** plain
   **Text 2** plain
 
-Term 3 (ok)
+Term 3 (flat)
 : - **Definition** 1
   Text 1
   Text 2
 
-Term 4 (ok)
+Term 4 (flat)
 : - **Definition** 1
   **Text 1** plain
   **Text 2** plain
 \`\`\`
 
-Term 1 (error)
+Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
 
-Term 2 (error)
+Term 2 (flat)
 : - Definition 1
   **Text 1** plain
   **Text 2** plain
 
-Term 3 (ok)
+Term 3 (flat)
 : - **Definition** 1
   Text 1
   Text 2
 
-Term 4 (ok)
+Term 4 (flat)
 : - **Definition** 1
   **Text 1** plain
   **Text 2** plain
@@ -6644,7 +6644,7 @@ Term 4 (ok)
             },
           },
           "type": "html",
-          "value": "<!-- ## list.error.md ------------------- -->",
+          "value": "<!-- ## list.flat.md -------------------- -->",
         },
         {
           "lang": null,
@@ -6653,7 +6653,7 @@ Term 4 (ok)
             "end": {
               "column": 4,
               "line": 23,
-              "offset": 299,
+              "offset": 301,
             },
             "start": {
               "column": 1,
@@ -6662,22 +6662,22 @@ Term 4 (ok)
             },
           },
           "type": "code",
-          "value": "Term 1 (error)
+          "value": "Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
 
-Term 2 (error)
+Term 2 (flat)
 : - Definition 1
   **Text 1** plain
   **Text 2** plain
 
-Term 3 (ok)
+Term 3 (flat)
 : - **Definition** 1
   Text 1
   Text 2
 
-Term 4 (ok)
+Term 4 (flat)
 : - **Definition** 1
   **Text 1** plain
   **Text 2** plain",
@@ -6689,16 +6689,16 @@ Term 4 (ok)
                 "end": {
                   "column": 9,
                   "line": 28,
-                  "offset": 350,
+                  "offset": 351,
                 },
                 "start": {
                   "column": 1,
                   "line": 25,
-                  "offset": 301,
+                  "offset": 303,
                 },
               },
               "type": "text",
-              "value": "Term 1 (error)
+              "value": "Term 1 (flat)
 : - Definition 1
 Text 1
 Text 2",
@@ -6708,12 +6708,12 @@ Text 2",
             "end": {
               "column": 9,
               "line": 28,
-              "offset": 350,
+              "offset": 351,
             },
             "start": {
               "column": 1,
               "line": 25,
-              "offset": 301,
+              "offset": 303,
             },
           },
           "type": "paragraph",
@@ -6730,11 +6730,11 @@ Text 2",
                 "start": {
                   "column": 1,
                   "line": 30,
-                  "offset": 352,
+                  "offset": 353,
                 },
               },
               "type": "text",
-              "value": "Term 2 (error)
+              "value": "Term 2 (flat)
 : - Definition 1
 ",
             },
@@ -6847,7 +6847,7 @@ Text 2",
             "start": {
               "column": 1,
               "line": 30,
-              "offset": 352,
+              "offset": 353,
             },
           },
           "type": "paragraph",
@@ -6859,7 +6859,7 @@ Text 2",
                 "end": {
                   "column": 5,
                   "line": 36,
-                  "offset": 439,
+                  "offset": 441,
                 },
                 "start": {
                   "column": 1,
@@ -6868,7 +6868,7 @@ Text 2",
                 },
               },
               "type": "text",
-              "value": "Term 3 (ok)
+              "value": "Term 3 (flat)
 : - ",
             },
             {
@@ -6878,12 +6878,12 @@ Text 2",
                     "end": {
                       "column": 17,
                       "line": 36,
-                      "offset": 451,
+                      "offset": 453,
                     },
                     "start": {
                       "column": 7,
                       "line": 36,
-                      "offset": 441,
+                      "offset": 443,
                     },
                   },
                   "type": "text",
@@ -6894,12 +6894,12 @@ Text 2",
                 "end": {
                   "column": 19,
                   "line": 36,
-                  "offset": 453,
+                  "offset": 455,
                 },
                 "start": {
                   "column": 5,
                   "line": 36,
-                  "offset": 439,
+                  "offset": 441,
                 },
               },
               "type": "strong",
@@ -6909,12 +6909,12 @@ Text 2",
                 "end": {
                   "column": 9,
                   "line": 38,
-                  "offset": 473,
+                  "offset": 475,
                 },
                 "start": {
                   "column": 19,
                   "line": 36,
-                  "offset": 453,
+                  "offset": 455,
                 },
               },
               "type": "text",
@@ -6927,7 +6927,7 @@ Text 2",
             "end": {
               "column": 9,
               "line": 38,
-              "offset": 473,
+              "offset": 475,
             },
             "start": {
               "column": 1,
@@ -6944,16 +6944,16 @@ Text 2",
                 "end": {
                   "column": 5,
                   "line": 41,
-                  "offset": 491,
+                  "offset": 495,
                 },
                 "start": {
                   "column": 1,
                   "line": 40,
-                  "offset": 475,
+                  "offset": 477,
                 },
               },
               "type": "text",
-              "value": "Term 4 (ok)
+              "value": "Term 4 (flat)
 : - ",
             },
             {
@@ -6963,12 +6963,12 @@ Text 2",
                     "end": {
                       "column": 17,
                       "line": 41,
-                      "offset": 503,
+                      "offset": 507,
                     },
                     "start": {
                       "column": 7,
                       "line": 41,
-                      "offset": 493,
+                      "offset": 497,
                     },
                   },
                   "type": "text",
@@ -6979,12 +6979,12 @@ Text 2",
                 "end": {
                   "column": 19,
                   "line": 41,
-                  "offset": 505,
+                  "offset": 509,
                 },
                 "start": {
                   "column": 5,
                   "line": 41,
-                  "offset": 491,
+                  "offset": 495,
                 },
               },
               "type": "strong",
@@ -6994,12 +6994,12 @@ Text 2",
                 "end": {
                   "column": 1,
                   "line": 42,
-                  "offset": 508,
+                  "offset": 512,
                 },
                 "start": {
                   "column": 19,
                   "line": 41,
-                  "offset": 505,
+                  "offset": 509,
                 },
               },
               "type": "text",
@@ -7013,12 +7013,12 @@ Text 2",
                     "end": {
                       "column": 11,
                       "line": 42,
-                      "offset": 518,
+                      "offset": 522,
                     },
                     "start": {
                       "column": 5,
                       "line": 42,
-                      "offset": 512,
+                      "offset": 516,
                     },
                   },
                   "type": "text",
@@ -7029,12 +7029,12 @@ Text 2",
                 "end": {
                   "column": 13,
                   "line": 42,
-                  "offset": 520,
+                  "offset": 524,
                 },
                 "start": {
                   "column": 3,
                   "line": 42,
-                  "offset": 510,
+                  "offset": 514,
                 },
               },
               "type": "strong",
@@ -7044,12 +7044,12 @@ Text 2",
                 "end": {
                   "column": 1,
                   "line": 43,
-                  "offset": 527,
+                  "offset": 531,
                 },
                 "start": {
                   "column": 13,
                   "line": 42,
-                  "offset": 520,
+                  "offset": 524,
                 },
               },
               "type": "text",
@@ -7063,12 +7063,12 @@ Text 2",
                     "end": {
                       "column": 11,
                       "line": 43,
-                      "offset": 537,
+                      "offset": 541,
                     },
                     "start": {
                       "column": 5,
                       "line": 43,
-                      "offset": 531,
+                      "offset": 535,
                     },
                   },
                   "type": "text",
@@ -7079,12 +7079,12 @@ Text 2",
                 "end": {
                   "column": 13,
                   "line": 43,
-                  "offset": 539,
+                  "offset": 543,
                 },
                 "start": {
                   "column": 3,
                   "line": 43,
-                  "offset": 529,
+                  "offset": 533,
                 },
               },
               "type": "strong",
@@ -7094,12 +7094,12 @@ Text 2",
                 "end": {
                   "column": 19,
                   "line": 43,
-                  "offset": 545,
+                  "offset": 549,
                 },
                 "start": {
                   "column": 13,
                   "line": 43,
-                  "offset": 539,
+                  "offset": 543,
                 },
               },
               "type": "text",
@@ -7110,12 +7110,12 @@ Text 2",
             "end": {
               "column": 19,
               "line": 43,
-              "offset": 545,
+              "offset": 549,
             },
             "start": {
               "column": 1,
               "line": 40,
-              "offset": 475,
+              "offset": 477,
             },
           },
           "type": "paragraph",
@@ -7125,7 +7125,7 @@ Text 2",
         "end": {
           "column": 1,
           "line": 44,
-          "offset": 546,
+          "offset": 550,
         },
         "start": {
           "column": 1,
@@ -7135,33 +7135,33 @@ Text 2",
       },
       "type": "root",
     },
-    "output": "<pre><code>Term 1 (error)
+    "output": "<pre><code>Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
 
-Term 2 (error)
+Term 2 (flat)
 : - Definition 1
   **Text 1** plain
   **Text 2** plain
 
-Term 3 (ok)
+Term 3 (flat)
 : - **Definition** 1
   Text 1
   Text 2
 
-Term 4 (ok)
+Term 4 (flat)
 : - **Definition** 1
   **Text 1** plain
   **Text 2** plain
 </code></pre>
-<dl><dt>Term 1 (error)</dt><dd><li>Definition 1
+<dl><dt>Term 1 (flat)</dt><dd><li>Definition 1
 Text 1
-Text 2</li></dd><dt>Term 2 (error)</dt><dd><li>Definition 1
+Text 2</li></dd><dt>Term 2 (flat)</dt><dd><li>Definition 1
 <strong>Text 1</strong> plain
-<strong>Text 2</strong> plain</li></dd><dt>Term 3 (ok)</dt><dd><li><strong>Definition</strong> 1
+<strong>Text 2</strong> plain</li></dd><dt>Term 3 (flat)</dt><dd><li><strong>Definition</strong> 1
 Text 1
-Text 2</li></dd><dt>Term 4 (ok)</dt><dd><li><strong>Definition</strong> 1
+Text 2</li></dd><dt>Term 4 (flat)</dt><dd><li><strong>Definition</strong> 1
 <strong>Text 1</strong> plain
 <strong>Text 2</strong> plain</li></dd></dl>
 ",
@@ -7183,7 +7183,7 @@ Text 2</li></dd><dt>Term 4 (ok)</dt><dd><li><strong>Definition</strong> 1
             },
           },
           "type": "html",
-          "value": "<!-- ## list.error.md ------------------- -->",
+          "value": "<!-- ## list.flat.md -------------------- -->",
         },
         {
           "lang": null,
@@ -7192,7 +7192,7 @@ Text 2</li></dd><dt>Term 4 (ok)</dt><dd><li><strong>Definition</strong> 1
             "end": {
               "column": 4,
               "line": 23,
-              "offset": 299,
+              "offset": 301,
             },
             "start": {
               "column": 1,
@@ -7201,22 +7201,22 @@ Text 2</li></dd><dt>Term 4 (ok)</dt><dd><li><strong>Definition</strong> 1
             },
           },
           "type": "code",
-          "value": "Term 1 (error)
+          "value": "Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
 
-Term 2 (error)
+Term 2 (flat)
 : - Definition 1
   **Text 1** plain
   **Text 2** plain
 
-Term 3 (ok)
+Term 3 (flat)
 : - **Definition** 1
   Text 1
   Text 2
 
-Term 4 (ok)
+Term 4 (flat)
 : - **Definition** 1
   **Text 1** plain
   **Text 2** plain",
@@ -7228,16 +7228,16 @@ Term 4 (ok)
                 "end": {
                   "column": 9,
                   "line": 28,
-                  "offset": 350,
+                  "offset": 351,
                 },
                 "start": {
                   "column": 1,
                   "line": 25,
-                  "offset": 301,
+                  "offset": 303,
                 },
               },
               "type": "text",
-              "value": "Term 1 (error)
+              "value": "Term 1 (flat)
 : - Definition 1
 Text 1
 Text 2",
@@ -7247,12 +7247,12 @@ Text 2",
             "end": {
               "column": 9,
               "line": 28,
-              "offset": 350,
+              "offset": 351,
             },
             "start": {
               "column": 1,
               "line": 25,
-              "offset": 301,
+              "offset": 303,
             },
           },
           "type": "paragraph",
@@ -7269,11 +7269,11 @@ Text 2",
                 "start": {
                   "column": 1,
                   "line": 30,
-                  "offset": 352,
+                  "offset": 353,
                 },
               },
               "type": "text",
-              "value": "Term 2 (error)
+              "value": "Term 2 (flat)
 : - Definition 1
 ",
             },
@@ -7386,7 +7386,7 @@ Text 2",
             "start": {
               "column": 1,
               "line": 30,
-              "offset": 352,
+              "offset": 353,
             },
           },
           "type": "paragraph",
@@ -7398,7 +7398,7 @@ Text 2",
                 "end": {
                   "column": 5,
                   "line": 36,
-                  "offset": 439,
+                  "offset": 441,
                 },
                 "start": {
                   "column": 1,
@@ -7407,7 +7407,7 @@ Text 2",
                 },
               },
               "type": "text",
-              "value": "Term 3 (ok)
+              "value": "Term 3 (flat)
 : - ",
             },
             {
@@ -7417,12 +7417,12 @@ Text 2",
                     "end": {
                       "column": 17,
                       "line": 36,
-                      "offset": 451,
+                      "offset": 453,
                     },
                     "start": {
                       "column": 7,
                       "line": 36,
-                      "offset": 441,
+                      "offset": 443,
                     },
                   },
                   "type": "text",
@@ -7433,12 +7433,12 @@ Text 2",
                 "end": {
                   "column": 19,
                   "line": 36,
-                  "offset": 453,
+                  "offset": 455,
                 },
                 "start": {
                   "column": 5,
                   "line": 36,
-                  "offset": 439,
+                  "offset": 441,
                 },
               },
               "type": "strong",
@@ -7448,12 +7448,12 @@ Text 2",
                 "end": {
                   "column": 9,
                   "line": 38,
-                  "offset": 473,
+                  "offset": 475,
                 },
                 "start": {
                   "column": 19,
                   "line": 36,
-                  "offset": 453,
+                  "offset": 455,
                 },
               },
               "type": "text",
@@ -7466,7 +7466,7 @@ Text 2",
             "end": {
               "column": 9,
               "line": 38,
-              "offset": 473,
+              "offset": 475,
             },
             "start": {
               "column": 1,
@@ -7483,16 +7483,16 @@ Text 2",
                 "end": {
                   "column": 5,
                   "line": 41,
-                  "offset": 491,
+                  "offset": 495,
                 },
                 "start": {
                   "column": 1,
                   "line": 40,
-                  "offset": 475,
+                  "offset": 477,
                 },
               },
               "type": "text",
-              "value": "Term 4 (ok)
+              "value": "Term 4 (flat)
 : - ",
             },
             {
@@ -7502,12 +7502,12 @@ Text 2",
                     "end": {
                       "column": 17,
                       "line": 41,
-                      "offset": 503,
+                      "offset": 507,
                     },
                     "start": {
                       "column": 7,
                       "line": 41,
-                      "offset": 493,
+                      "offset": 497,
                     },
                   },
                   "type": "text",
@@ -7518,12 +7518,12 @@ Text 2",
                 "end": {
                   "column": 19,
                   "line": 41,
-                  "offset": 505,
+                  "offset": 509,
                 },
                 "start": {
                   "column": 5,
                   "line": 41,
-                  "offset": 491,
+                  "offset": 495,
                 },
               },
               "type": "strong",
@@ -7533,12 +7533,12 @@ Text 2",
                 "end": {
                   "column": 1,
                   "line": 42,
-                  "offset": 508,
+                  "offset": 512,
                 },
                 "start": {
                   "column": 19,
                   "line": 41,
-                  "offset": 505,
+                  "offset": 509,
                 },
               },
               "type": "text",
@@ -7552,12 +7552,12 @@ Text 2",
                     "end": {
                       "column": 11,
                       "line": 42,
-                      "offset": 518,
+                      "offset": 522,
                     },
                     "start": {
                       "column": 5,
                       "line": 42,
-                      "offset": 512,
+                      "offset": 516,
                     },
                   },
                   "type": "text",
@@ -7568,12 +7568,12 @@ Text 2",
                 "end": {
                   "column": 13,
                   "line": 42,
-                  "offset": 520,
+                  "offset": 524,
                 },
                 "start": {
                   "column": 3,
                   "line": 42,
-                  "offset": 510,
+                  "offset": 514,
                 },
               },
               "type": "strong",
@@ -7583,12 +7583,12 @@ Text 2",
                 "end": {
                   "column": 1,
                   "line": 43,
-                  "offset": 527,
+                  "offset": 531,
                 },
                 "start": {
                   "column": 13,
                   "line": 42,
-                  "offset": 520,
+                  "offset": 524,
                 },
               },
               "type": "text",
@@ -7602,12 +7602,12 @@ Text 2",
                     "end": {
                       "column": 11,
                       "line": 43,
-                      "offset": 537,
+                      "offset": 541,
                     },
                     "start": {
                       "column": 5,
                       "line": 43,
-                      "offset": 531,
+                      "offset": 535,
                     },
                   },
                   "type": "text",
@@ -7618,12 +7618,12 @@ Text 2",
                 "end": {
                   "column": 13,
                   "line": 43,
-                  "offset": 539,
+                  "offset": 543,
                 },
                 "start": {
                   "column": 3,
                   "line": 43,
-                  "offset": 529,
+                  "offset": 533,
                 },
               },
               "type": "strong",
@@ -7633,12 +7633,12 @@ Text 2",
                 "end": {
                   "column": 19,
                   "line": 43,
-                  "offset": 545,
+                  "offset": 549,
                 },
                 "start": {
                   "column": 13,
                   "line": 43,
-                  "offset": 539,
+                  "offset": 543,
                 },
               },
               "type": "text",
@@ -7649,12 +7649,12 @@ Text 2",
             "end": {
               "column": 19,
               "line": 43,
-              "offset": 545,
+              "offset": 549,
             },
             "start": {
               "column": 1,
               "line": 40,
-              "offset": 475,
+              "offset": 477,
             },
           },
           "type": "paragraph",
@@ -7664,7 +7664,7 @@ Text 2",
         "end": {
           "column": 1,
           "line": 44,
-          "offset": 546,
+          "offset": 550,
         },
         "start": {
           "column": 1,
@@ -7674,39 +7674,36 @@ Text 2",
       },
       "type": "root",
     },
-    "output": "<pre><code>Term 1 (error)
+    "output": "<pre><code>Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
 
-Term 2 (error)
+Term 2 (flat)
 : - Definition 1
   **Text 1** plain
   **Text 2** plain
 
-Term 3 (ok)
+Term 3 (flat)
 : - **Definition** 1
   Text 1
   Text 2
 
-Term 4 (ok)
+Term 4 (flat)
 : - **Definition** 1
   **Text 1** plain
   **Text 2** plain
 </code></pre>
-<dl><dt>Term 1 (error)</dt><dd><ul>
-<li>Definition 1</li>
-<li>Text 1</li>
-<li>Text 2</li>
-</ul></dd><dt>Term 2 (error)</dt><dd><ul>
-<li>Definition 1<strong>Text 1</strong> plain
+<dl><dt>Term 1 (flat)</dt><dd><ul>
+<li>Definition 1 Text 1 Text 2</li>
+</ul></dd><dt>Term 2 (flat)</dt><dd><ul>
+<li>Definition 1 <strong>Text 1</strong> plain
 <strong>Text 2</strong> plain</li>
-<li></li>
-</ul></dd><dt>Term 3 (ok)</dt><dd><ul>
+</ul></dd><dt>Term 3 (flat)</dt><dd><ul>
 <li><strong>Definition</strong> 1
 Text 1
 Text 2</li>
-</ul></dd><dt>Term 4 (ok)</dt><dd><ul>
+</ul></dd><dt>Term 4 (flat)</dt><dd><ul>
 <li><strong>Definition</strong> 1
 <strong>Text 1</strong> plain
 <strong>Text 2</strong> plain</li>
@@ -9709,9 +9706,7 @@ Term 2 (nested) with: -
       - Pub 1 with: -
 </code></pre>
 <dl><dt>Term 1 (nested) with: -</dt><dd><ul>
-<li>Definition 1 with: -</li>
-<li>- Sub 1 with: -</li>
-<li>- Sub 2 with: -</li>
+<li>Definition 1 with: - - Sub 1 with: - - Sub 2 with: -</li>
 <li>Definition 2 with: -
 <ul>
 <li>Sub 1 with: -</li>
@@ -9725,9 +9720,7 @@ Term 2 (nested) with: -
 </ul>
 </li>
 </ul></dd><dt>Term 2 (nested) with: -</dt><dd><ul>
-<li>Definition 1 with: -</li>
-<li>- Sub 1 with: -</li>
-<li>- Pub 1 with: -</li>
+<li>Definition 1 with: - - Sub 1 with: - - Pub 1 with: -</li>
 <li>Definition 2 with: -
 <ul>
 <li>Sub 1 with: -

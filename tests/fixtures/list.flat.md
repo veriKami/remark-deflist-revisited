@@ -1,43 +1,43 @@
-<!-- ## list.error.md ------------------- -->
+<!-- ## list.flat.md -------------------- -->
 
 ```
-Term 1 (error)
+Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
 
-Term 2 (error)
+Term 2 (flat)
 : - Definition 1
   **Text 1** plain
   **Text 2** plain
 
-Term 3 (ok)
+Term 3 (flat)
 : - **Definition** 1
   Text 1
   Text 2
 
-Term 4 (ok)
+Term 4 (flat)
 : - **Definition** 1
   **Text 1** plain
   **Text 2** plain
 ```
 
-Term 1 (error)
+Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
 
-Term 2 (error)
+Term 2 (flat)
 : - Definition 1
   **Text 1** plain
   **Text 2** plain
 
-Term 3 (ok)
+Term 3 (flat)
 : - **Definition** 1
   Text 1
   Text 2
 
-Term 4 (ok)
+Term 4 (flat)
 : - **Definition** 1
   **Text 1** plain
   **Text 2** plain
