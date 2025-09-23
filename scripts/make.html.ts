@@ -11,6 +11,8 @@ import remarkHtml from "remark-html";
 import originalDeflist from "remark-deflist";
 import revisitedDeflist from "../src/index.ts";
 
+//: SETUP
+//: -----------------------------------------
 const fixturesDir = path.resolve("tests/fixtures");
 const outputDir = path.resolve("demo/generated");
 
@@ -107,8 +109,23 @@ const makeFiles = (mode = "revisited") => {
   });
 };
 
+//: INDEX
+//: --------------------------------------------------------
+const makeIndex = ($ = "revisited.list.basic.html") => {
+  const sourcePath = path.join(outputDir, $);
+  const targetPath = path.join(outputDir, "index.html");
+  try {
+      fs.copyFileSync(sourcePath, targetPath);
+      console.log(`\nIndex via: ${$}`);
+    } catch (err) {
+      console.error(`👄 Error processing: ${$}`, err.message);
+    }
+};
+
 //: --------------------------------------------------------
 //: ACTION
 
 makeFiles("original");
 makeFiles("revisited");
+
+makeIndex();

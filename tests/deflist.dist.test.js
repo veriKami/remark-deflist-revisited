@@ -1,3 +1,6 @@
+//: --------------------------------------------------------
+//: tests/deflist.dist.test.js
+//: --------------------------------------------------------
 import { readFileSync, readdirSync, existsSync } from "fs";
 import { join } from "path";
 import { describe, it, expect, beforeAll } from "vitest";
@@ -46,6 +49,7 @@ describe("remark-deflist mixed mode", () => {
     "_original_module.md",
     "list.basic.md",
     "list.flat.md",
+    "list.multi.md",
     "list.nested.md",
     "list.strange.md"
   ];
@@ -55,7 +59,7 @@ describe("remark-deflist mixed mode", () => {
   beforeAll(() => {
     let exists = true;
     const tests = readdirSync("tests")
-      .filter(f => f.endsWith("dist.test.js"));
+      .filter(f => f.endsWith("deflist.dist.test.js"));
     for (const file of tests) {
       const snapshot = join("__snapshots__", `${file}.snap`);
       exists = existsSync(join("tests", snapshot));

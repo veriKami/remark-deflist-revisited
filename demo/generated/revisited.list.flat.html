@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>TEST @ list.flat.md (revisited)</title>
     <style>
-      body { font-family: sans-serif; font-size: 1rem; padding: 2rem; background: #fff; }
+      body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
       hr { margin: 0 0 1rem; height: 1px; border-width: 0; background-color: #ccc; }
       pre, dl { border: 1px solid #ccc; margin: 1rem 0; padding: 1rem; background: #fff; }
       pre { background: #f8f8f8; font-size: .85rem; }
@@ -31,6 +31,7 @@
         <td>revisited</td>
         <td><a href="revisited.list.basic.html">list.basic</a></td>
         <td><a href="revisited.list.flat.html">list.flat</a></td>
+        <td><a href="revisited.list.multi.html">list.multi</a></td>
         <td><a href="revisited.list.nested.html">list.nested</a></td>
         <td><a href="revisited.list.strange.html">list.strange</a></td>
         <td><a href="revisited._basic.html">_basic</a></td>
@@ -40,13 +41,15 @@
         <td>original module</td>
         <td><a href="original.list.basic.html">list.basic</a></td>
         <td><a href="original.list.flat.html">list.flat</a></td>
+        <td><a href="original.list.multi.html">list.multi</a></td>
         <td><a href="original.list.nested.html">list.nested</a></td>
         <td><a href="original.list.strange.html">list.strange</a></td>
         <td><a href="original._basic.html">_basic</a></td>
         <td><a href="original._original_module.html">_original_module</a></td>
       </tr>
     </table>
-    <pre><code>Term 1 (flat)
+    <!-- ## list.flat.md -------------------- -->
+    <pre><code class="language-markdown">Term 1 (flat)
 : - Definition 1
   Text 1
   Text 2
@@ -70,14 +73,17 @@ Term 4 (flat)
       <dt>Term 1 (flat)</dt>
       <dd>
         <ul>
-          <li>Definition 1 Text 1 Text 2</li>
+          <li>
+            Definition 1 Text 1 Text 2
+          </li>
         </ul>
       </dd>
       <dt>Term 2 (flat)</dt>
       <dd>
         <ul>
           <li>
-            Definition 1 <strong>Text 1</strong> plain
+            Definition 1
+            <strong>Text 1</strong> plain
             <strong>Text 2</strong> plain
           </li>
         </ul>

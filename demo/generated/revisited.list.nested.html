@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>TEST @ list.nested.md (revisited)</title>
     <style>
-      body { font-family: sans-serif; font-size: 1rem; padding: 2rem; background: #fff; }
+      body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
       hr { margin: 0 0 1rem; height: 1px; border-width: 0; background-color: #ccc; }
       pre, dl { border: 1px solid #ccc; margin: 1rem 0; padding: 1rem; background: #fff; }
       pre { background: #f8f8f8; font-size: .85rem; }
@@ -31,6 +31,7 @@
         <td>revisited</td>
         <td><a href="revisited.list.basic.html">list.basic</a></td>
         <td><a href="revisited.list.flat.html">list.flat</a></td>
+        <td><a href="revisited.list.multi.html">list.multi</a></td>
         <td><a href="revisited.list.nested.html">list.nested</a></td>
         <td><a href="revisited.list.strange.html">list.strange</a></td>
         <td><a href="revisited._basic.html">_basic</a></td>
@@ -40,13 +41,15 @@
         <td>original module</td>
         <td><a href="original.list.basic.html">list.basic</a></td>
         <td><a href="original.list.flat.html">list.flat</a></td>
+        <td><a href="original.list.multi.html">list.multi</a></td>
         <td><a href="original.list.nested.html">list.nested</a></td>
         <td><a href="original.list.strange.html">list.strange</a></td>
         <td><a href="original._basic.html">_basic</a></td>
         <td><a href="original._original_module.html">_original_module</a></td>
       </tr>
     </table>
-    <pre><code>Term 1 (nested) with: -
+    <!-- ## list.nested.md ------------------ -->
+    <pre><code class="language-markdown">Term 1 (nested) with: -
 : - Definition 1 with: -
     - Sub 1 with: -
     - Sub 2 with: -
@@ -72,16 +75,22 @@ Term 2 (nested) with: -
       <dt>Term 1 (nested) with: -</dt>
       <dd>
         <ul>
-          <li>Definition 1 with: - - Sub 1 with: - - Sub 2 with: -</li>
           <li>
-            Definition 2 with: -
+            Definition 1 with
             <ul>
               <li>Sub 1 with: -</li>
               <li>Sub 2 with: -</li>
             </ul>
           </li>
           <li>
-            Definition 3 with: -
+            Definition 2 with
+            <ul>
+              <li>Sub 1 with: -</li>
+              <li>Sub 2 with: -</li>
+            </ul>
+          </li>
+          <li>
+            Definition 3 with
             <ul>
               <li>Sub 1 with: -</li>
               <li>Sub 2 with: -</li>
@@ -92,7 +101,79 @@ Term 2 (nested) with: -
       <dt>Term 2 (nested) with: -</dt>
       <dd>
         <ul>
-          <li>Definition 1 with: - - Sub 1 with: - - Pub 1 with: -</li>
+          <li>
+            Definition 1 with
+            <ul>
+              <li>
+                Sub 1 with: -
+                <ul>
+                  <li>Pub 1 with: -</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Definition 2 with
+            <ul>
+              <li>
+                Sub 1 with: -
+                <ul>
+                  <li>Pub 1 with: -</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Definition 3 with
+            <ul>
+              <li>
+                Sub 1 with: -
+                <ul>
+                  <li>Pub 1 with: -</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+    <br>
+    <pre><code class="language-markdown">Term 2 (nested) with: -
+: Definition @ 1
+  - Definition 1 with: -
+    - Sub 1 with: -
+      - Pub 1 with: -
+
+  Definition @ 2
+  - Definition 2 with: -
+    - Sub 1 with: -
+      - Pub 1 with: -
+
+  Definition @ 3
+  - Definition 3 with: -
+    - Sub 1 with: -
+      - Pub 1 with: -
+</code></pre>
+    <dl>
+      <dt>Term 2 (nested) with: -</dt>
+      <dd>
+        Definition @ 1<ul>
+          <li>
+            Definition 1 with
+            <ul>
+              <li>
+                Sub 1 with: -
+                <ul>
+                  <li>Pub 1 with: -</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+      <dd>
+        <p>Definition @ 2</p>
+        <ul>
           <li>
             Definition 2 with: -
             <ul>
@@ -104,8 +185,70 @@ Term 2 (nested) with: -
               </li>
             </ul>
           </li>
+        </ul>
+        <p>Definition @ 3</p>
+        <ul>
           <li>
             Definition 3 with: -
+            <ul>
+              <li>
+                Sub 1 with: -
+                <ul>
+                  <li>Pub 1 with: -</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+    <h3>🔘 <span style="color:maroon">Unresolved</span> (by design)</h3>
+    <pre><code class="language-markdown">Term 2 (nested) with: -
+: Definition @ 1
+  - Definition 1 with: -
+    - Sub 1 with: -
+      - Pub 1 with: -
+  Definition @ 2
+  - Definition 2 with: -
+    - Sub 1 with: -
+      - Pub 1 with: -
+  Definition @ 3
+  - Definition 3 with: -
+    - Sub 1 with: -
+      - Pub 1 with: -
+</code></pre>
+    <dl>
+      <dt>Term 2 (nested) with: -</dt>
+      <dd>
+        Definition @ 1<ul>
+          <li>
+            Definition 1 with
+            <ul>
+              <li>
+                Sub 1 with: -
+                <ul>
+                  <li>
+                    Pub 1 with: - Definition @ 2
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Definition 2 with
+            <ul>
+              <li>
+                Sub 1 with: -
+                <ul>
+                  <li>
+                    Pub 1 with: - Definition @ 3
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Definition 3 with
             <ul>
               <li>
                 Sub 1 with: -

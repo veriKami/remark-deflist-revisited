@@ -50,9 +50,10 @@ const multiSpace = new RegExp("^\\s*$\\r?\\n", "gm");
 for (const file of libFiles) {
   const code = fs.readFileSync(file, "utf8");
   const cleaned = code
+    .replace("/* c8 ignore next */", "")
     // .replace(multiLineComment, "")
     .replace(singleLineComment, "")
-    .replace(multiSpace, "\n");
+    .replace(multiSpace, "");
 
   fs.writeFileSync(file, cleaned, "utf8");
 }
@@ -63,9 +64,9 @@ for (const file of libFiles) {
 const pkgJsonPath = path.resolve("package.json");
 const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf8"));
 const deps = {
-  ...pkgJson.dependencies,
   ...pkgJson.peerDependencies,
-  ...pkgJson.devDependencies
+  ...pkgJson.devDependencies,
+  ...pkgJson.dependencies
 };
 
 const replacements = {
@@ -74,6 +75,7 @@ const replacements = {
   "unified": `npm:unified@${deps["unified"]}`,
   "unist": `npm:@types/unist@${deps["@types/unist"]}`,
   "mdast": `npm:@types/mdast@${deps["@types/mdast"]}`,
+  "unist-util-remove": `npm:unist-util-remove@${deps["unist-util-remove"]}`,
   "unist-util-visit": `npm:unist-util-visit@${deps["unist-util-visit"]}`,
   "vfile": `npm:vfile@${deps["vfile"]}`,
   //: doc -------------------------

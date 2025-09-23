@@ -1,6 +1,6 @@
 <!-- ## \_basic.md ---------------------- -->
 
-```
+```markdown
 Term 1
 : Definition 1
 

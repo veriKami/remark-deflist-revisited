@@ -1,6 +1,6 @@
 <!-- ## list.flat.md -------------------- -->
 
-```
+```markdown
 Term 1 (flat)
 : - Definition 1
   Text 1

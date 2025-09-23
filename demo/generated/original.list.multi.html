@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>TEST @ list.multi.md (original)</title>
+    <style>
+      body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
+      hr { margin: 0 0 1rem; height: 1px; border-width: 0; background-color: #ccc; }
+      pre, dl { border: 1px solid #ccc; margin: 1rem 0; padding: 1rem; background: #fff; }
+      pre { background: #f8f8f8; font-size: .85rem; }
+      dt { font-weight: bold; margin-bottom: .5rem; }
+      dd { margin: 0 1rem .5rem; color: gray; }
+      dd ul, dd ol { margin-left: 0; color: darkblue; }
+      ul, ol { margin-left: 2rem; color: red; }
+      ul li ul, ol li ol { margin-left: 0; }
+      table { border-collapse: collapse; background: #fff; }
+      tr:nth-child(2) td:first-child { color: #aaa; font-weight: normal; }
+      tr:nth-child(2) a { color: darkTurquoise; }
+      td { padding: .3rem .5rem; border: 1px solid #ddd; }
+      td:first-child { text-align: right; font-weight: bold; }
+      a, a:visited { color: blue; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      h1 a, h1 a:hover { text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <h1><a href="../index.html">🔘</a> list.multi.md (original)</h1>
+    <hr>
+    <table>
+      <tr>
+        <td>revisited</td>
+        <td><a href="revisited.list.basic.html">list.basic</a></td>
+        <td><a href="revisited.list.flat.html">list.flat</a></td>
+        <td><a href="revisited.list.multi.html">list.multi</a></td>
+        <td><a href="revisited.list.nested.html">list.nested</a></td>
+        <td><a href="revisited.list.strange.html">list.strange</a></td>
+        <td><a href="revisited._basic.html">_basic</a></td>
+        <td><a href="revisited._original_module.html">_original_module</a></td>
+      </tr>
+      <tr>
+        <td>original module</td>
+        <td><a href="original.list.basic.html">list.basic</a></td>
+        <td><a href="original.list.flat.html">list.flat</a></td>
+        <td><a href="original.list.multi.html">list.multi</a></td>
+        <td><a href="original.list.nested.html">list.nested</a></td>
+        <td><a href="original.list.strange.html">list.strange</a></td>
+        <td><a href="original._basic.html">_basic</a></td>
+        <td><a href="original._original_module.html">_original_module</a></td>
+      </tr>
+    </table>
+    <!-- ## list.wrapped.md ----------------- -->
+    <pre><code class="language-markdown">Term with wrapped list item
+
+: * This is the first line.
+  This is the second line of the same item.
+: * This is a second, separate item.
+  This is the second line of the same item.
+: * This is a third, separate item.
+  This is the third line of the same item.
+</code></pre>
+    <dl>
+      <dt>Term with wrapped list item</dt>
+      <dd>
+        * This is the first line. This is the second line of the same item.
+      </dd>
+      <dd>
+        * This is a second, separate item. This is the second line of the same item.
+      </dd>
+      <dd>
+        * This is a third, separate item. This is the third line of the same item.
+      </dd>
+    </dl>
+    <pre><code class="language-markdown">Term with wrapped list item
+
+: * This is the first line.
+  This is the second line of the same item.
+
+: * This is a second, separate item.
+  This is the second line of the same item.
+
+: * This is a third, separate item.
+  This is the third line of the same item.
+</code></pre>
+    <dl>
+      <dt>Term with wrapped list item</dt>
+      <dd>
+        * This is the first line. This is the second line of the same item.
+      </dd>
+    </dl>
+    <p>
+      : * This is a second, separate item. This is the second line of the same item.
+    </p>
+    <p>
+      : * This is a third, separate item. This is the third line of the same item.
+    </p>
+    <pre><code class="language-markdown">Term with wrapped list item
+
+: * This is X separate item.
+    This is the X line of the same item.
+  * This is Y separate item.
+    This is the Y line of the same item.
+  * This is Z separate item.
+    This is the Z line of the same item.
+
+: * This is X separate item.
+    This is the X line of the same item.
+  * This is Y separate item.
+    This is the Y line of the same item.
+  * This is Z separate item.
+    This is the Z line of the same item.
+</code></pre>
+    <dl>
+      <dt>Term with wrapped list item</dt>
+      <dd>
+        * This is X separate item. This is the X line of the same item.
+      </dd>
+    </dl>
+    <ul>
+      <li>
+        This is Y separate item. This is the Y line of the same item.
+      </li>
+      <li>
+        This is Z separate item. This is the Z line of the same item.
+      </li>
+    </ul>
+    <p>
+      : * This is X separate item. This is the X line of the same item.
+    </p>
+    <ul>
+      <li>
+        This is Y separate item. This is the Y line of the same item.
+      </li>
+      <li>
+        This is Z separate item. This is the Z line of the same item.
+      </li>
+    </ul>
+    <pre><code class="language-markdown">Term with wrapped list item
+
+: Definition A
+  * This is A separate item.
+  This is the A line of the same item.
+: Definition B
+  * This is B separate item.
+  This is the B line of the same item.
+: Definition C
+  * This is C separate item.
+  This is the C line of the same item.
+</code></pre>
+    <dl>
+      <dt>Term with wrapped list item</dt>
+      <dd>Definition A</dd>
+    </dl>
+    <ul>
+      <li>
+        This is A separate item. This is the A line of the same item. : Definition B
+      </li>
+      <li>
+        This is B separate item. This is the B line of the same item. : Definition C
+      </li>
+      <li>
+        This is C separate item. This is the C line of the same item.
+      </li>
+    </ul>
+    <pre><code class="language-markdown">Term with wrapped list item
+
+: Definition A
+
+  - This is A separate item.
+    This is the A line of the same item.
+  - This is A separate item.
+    This is the A line of the same item.
+
+: Definition B
+
+  - This is B separate item.
+    This is the B line of the same item.
+  - This is B separate item.
+    This is the B line of the same item.
+
+: Definition C
+
+  - This is C separate item.
+    This is the C line of the same item.
+  - This is C separate item.
+    This is the C line of the same item.
+</code></pre>
+    <dl>
+      <dt>Term with wrapped list item</dt>
+      <dd>Definition A</dd>
+    </dl>
+    <ul>
+      <li>
+        This is A separate item. This is the A line of the same item.
+      </li>
+      <li>
+        This is A separate item. This is the A line of the same item.
+      </li>
+    </ul>
+    <p>: Definition B</p>
+    <ul>
+      <li>
+        This is B separate item. This is the B line of the same item.
+      </li>
+      <li>
+        This is B separate item. This is the B line of the same item.
+      </li>
+    </ul>
+    <p>: Definition C</p>
+    <ul>
+      <li>
+        This is C separate item. This is the C line of the same item.
+      </li>
+      <li>
+        This is C separate item. This is the C line of the same item.
+      </li>
+    </ul>
+  </body>
+</html>
