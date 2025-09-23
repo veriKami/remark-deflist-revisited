@@ -17,18 +17,18 @@ It preserves all the original functionality and performs additional processing.
 ツ npm i @verikami/remark-deflist-revisited
 ```
 
-TypeScript version
-
-```bash
-ツ pnpm add jsr:@verikami/remark-deflist-revisited
-ツ npx jsr add @verikami/remark-deflist-revisited
-```
-
 Cloudflare Worker demo
 
 ```bash
 ツ npx @verikami/remark-deflist-revisited@latest
 ツ npx @verikami/remark-deflist-revisited --help
+```
+
+TypeScript version
+
+```bash
+ツ pnpm add jsr:@verikami/remark-deflist-revisited
+ツ npx jsr add @verikami/remark-deflist-revisited
 ```
 
 ## Usage
@@ -244,11 +244,11 @@ To regenerate `demo/generated/*` html files run
 
 ## Processing Flow
 
-[![GH][GH Badge]][GH]
 [![CC][CC Badge]][CC]
 [![CI][CI Badge]][CI]
 [![NPM][NPM Badge]][NPM]
 [![JSR][JSR Badge]][JSR]
+[![Socket][Socket Badge]][Socket]
 
 ```
 Markdown
@@ -268,6 +268,11 @@ CI/CD (GitHub Actions)
 │ Packages │         │         │
 └──────────┴─────────┴─────────┘
 ```
+
+<!--
+[![Downloads][Downloads Badge]][Downloads]
+[![Socket][Socket Badge]][Socket]
+-->
 
 ## License
 
@@ -293,6 +298,12 @@ MIT © [veriKami](https://verikami.com) °// Weronika Kami
 [JSR]: https://jsr.io/@verikami/remark-deflist-revisited
 [JSR Badge]: https://jsr.io/badges/@verikami/remark-deflist-revisited
 
+[Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
+[Downloads Badge]: https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg
+
+[Socket]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23
+[Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23
+
 [Remark]: https://github.com/remarkjs/remark
 [remark-deflist]: https://www.npmjs.com/package/remark-deflist
 [Bun]: https://bun.sh
@@ -305,6 +316,5 @@ MIT © [veriKami](https://verikami.com) °// Weronika Kami
 [generated]: https://verikami.github.io/remark-deflist-revisited/generated
 
 <!--
-[![Downloads](https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg)](https://www.npmjs.com/package/@verikami/remark-deflist-revisited)
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https://raw.githubusercontent.com/verikami/remark-deflist-revisited/master/package.json)](https://github.com/verikami/remark-deflist-revisited)
 -->

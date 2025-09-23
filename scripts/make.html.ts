@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 //: --------------------------------------------------------
-//: scripts/make.html.js
+//: scripts/make.html.ts
 //: --------------------------------------------------------
 import fs from "node:fs";
 import path from "node:path";
@@ -28,7 +28,7 @@ const makeHtml = (file, mode, menuOriginal, menuRevisited, html) => {
     <meta charset="UTF-8">
     <title>TEST @ ${file} (${mode})</title>
     <style>
-    body { font-family: sans-serif; font-size: 1rem; padding: 2rem; background: #fff; }
+    body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
     hr { margin: 0 0 1rem; height: 1px; border-width: 0; background-color: #ccc; }
     pre, dl { border: 1px solid #ccc; margin: 1rem 0; padding: 1rem; background: #fff; }
     pre { background: #f8f8f8; font-size: .85rem; }
@@ -87,7 +87,7 @@ const makeFiles = (mode = "revisited") => {
       const input = fs.readFileSync(path.join(fixturesDir, file), "utf8");
       const html = remark()
         .use(deflist)
-        .use(remarkHtml)
+        .use(remarkHtml, { sanitize: false })
         .processSync(input)
         .toString();
 
@@ -102,7 +102,7 @@ const makeFiles = (mode = "revisited") => {
       fs.writeFileSync(outputPath, htmlPage, "utf8");
       console.log(`Generated: ${outputFileName}`);
     } catch (err) {
-      console.error(`Error processing file ${file}:`, err.message);
+      console.error(`👄 Error processing file ${file}:`, err.message);
     }
   });
 };

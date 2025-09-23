@@ -7,6 +7,7 @@ export default defineConfig({
       "tests/**/*.src.{test,spec}.?(c|m)[jt]s?(x)",
       "tests/**/*.dist.{test,spec}.?(c|m)[jt]s?(x)",
     ],
+    // includeSource: ["src/**/*.{js,ts}"],
     reporters: "verbose",
     //: @ codesandbox -------------
     environment: "node",
@@ -15,9 +16,6 @@ export default defineConfig({
       "import.meta.vitest": "undefined",
       "import.meta.env": "{}"
     },
-    // transformMode: {
-    //   web: [/\.[jt]sx?$/]
-    // },
     //: @ codesandbox -------------
     coverage: {
       // enabled: true,
