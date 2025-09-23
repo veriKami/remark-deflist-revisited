@@ -301,7 +301,7 @@ MIT © [veriKami](https://verikami.com) °// Weronika Kami
 [Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 [Downloads Badge]: https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg
 
-[Socket]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23
+[Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
 [Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23
 
 [Remark]: https://github.com/remarkjs/remark
