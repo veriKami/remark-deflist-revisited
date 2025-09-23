@@ -23,7 +23,9 @@
  * ```
  */
 
+import { remark } from "remark";
 import deflist from "remark-deflist";
+import { remove } from "unist-util-remove";
 import { visit } from "unist-util-visit";
 
 /**
@@ -66,29 +68,12 @@ import { visit } from "unist-util-visit";
 const deflistWithLists = () => {
   const base = deflist();
   return (tree, file) => {
+    prepareMarkdown(tree, file);
     base(tree, file, () => {});
+    prerenderMarkdown(tree);
     visit(tree, "descriptiondetails", (dd) => {
       const ulItems = [];
       const newChildren = [];
-      const createListNode = (children) => ({
-        type: "list",
-        ordered: false,
-        spread: false,
-        children: children,
-      });
-      const patchListItem = (textNode) => {
-        const value = textNode.value.replace(/^\*\s/, "");
-        const paragraph = {
-          type: "paragraph",
-          children: [{ type: "text", value }],
-        };
-        return {
-          type: "listItem",
-          spread: false,
-          checked: null,
-          children: [paragraph],
-        };
-      };
       for (const child of dd.children) {
         if (child.type === "listItem") {
           const firstChild = child.children?.[0];
@@ -101,11 +86,9 @@ const deflistWithLists = () => {
             if (lines.length > 1) {
               const listItems = [];
               textNode.value = lines.shift();
-              for (const line of lines) {
-                if (/^\d+\.\s/.test(line)) {
-                  listItems.push(patchListItem({ type: "text", value: line }));
-                } else {
-                  textNode.value += " " + line;
+              for (const value of lines) {
+                if (/^\s*[-*+]\s/.test(value) || /^\d+\.\s/.test(value)) {
+                  listItems.push($.patchListItem({ type: "text", value }));
                 }
               }
               ulItems.push(child, ...listItems);
@@ -117,13 +100,13 @@ const deflistWithLists = () => {
           child.type === "text"
           && child.value.startsWith("* ")
         ) {
-          ulItems.push(patchListItem(child));
+          ulItems.push($.patchListItem(child));
         } else {
           newChildren.push(child);
         }
       }
       if (ulItems.length) {
-        newChildren.push(createListNode(ulItems));
+        newChildren.push($.createListNode(ulItems));
       }
       dd.children = newChildren;
     });
@@ -156,41 +139,183 @@ const deflistWithLists = () => {
         }
         return null;
       };
-      list.ordered = list.children
+      list.ordered = list.ordered || list.children
         .map(getFirstTextNode)
         .filter((n) => n !== null)
         .some(node => /^\d+\.\s/.test(node.value));
       for (const item of list.children) {
         const textNode = getFirstTextNode(item);
         if (textNode) {
-          textNode.value = textNode.value.replace(/^\s*\d+\.\s/, "");
+          textNode.value = textNode.value
+            .replace(/^(\s*[-*+]\s|\s*\d+\.\s)/, "");
         }
+      }
+    });
+    cleanMarkdown(tree);
+    visit(tree, "descriptionlist", (dl, index, parent) => {
+      const siblings = parent.children;
+      const elements = [];
+      let currentIndex = index + 1;
+      while (
+        currentIndex < siblings.length
+        && (siblings[currentIndex].type === "list"
+          || siblings[currentIndex].type === "paragraph")
+      ) {
+        elements.push(siblings[currentIndex]);
+        currentIndex++;
+      }
+      if (elements.length) {
+        parent.children.splice(index + 1, elements.length);
+        if (!dl.children) {
+          dl.children = [];
+        }
+        dl.children.push($.createListDetails(elements));
       }
     });
     visit(tree, "root", (root) => {
       const newChildren = [];
       let allDlChildren = [];
-      const createList = (children) => ({
-        type: "descriptionlist",
-        data: { hName: "dl" },
-        children: children,
-      });
       for (const child of root.children) {
         if (child.type === "descriptionlist") {
           allDlChildren.push(...child.children);
         } else {
           if (allDlChildren.length) {
-            newChildren.push(createList(allDlChildren));
+            newChildren.push($.createList(allDlChildren));
             allDlChildren = [];
           }
           newChildren.push(child);
         }
       }
       if (allDlChildren.length) {
-        newChildren.push(createList(allDlChildren));
+        newChildren.push($.createList(allDlChildren));
       }
       root.children = newChildren;
     });
   };
+};
+const $ = {
+  createListNode: (children) => {
+    return {
+      type: "list",
+      ordered: false,
+      spread: false,
+      children: children,
+    };
+  },
+  patchListItem: (text) => {
+    const value = text.value.replace(/^\s*[-*+]\s/, "");
+    const paragraph = {
+      type: "paragraph",
+      children: [{ type: "text", value }],
+    };
+    return {
+      type: "listItem",
+      spread: false,
+      checked: null,
+      children: [paragraph],
+    };
+  },
+  createList: (children) => {
+    return {
+      type: "descriptionlist",
+      data: { hName: "dl" },
+      children: children,
+    };
+  },
+  createListDetails: (children) => {
+    return {
+      type: "descriptiondetails",
+      data: { hName: "dd" },
+      children: children,
+    };
+  },
+};
+const prepareMarkdown = (tree, file) => {
+  const processMarkdown = (markdown) => {
+    markdown = markdown.replace(/^\s*[-*+]\s/g, "+");
+    const lines = markdown.split("\n");
+    let inCodeBlock = false;
+    const result = [];
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      if (line.trim().startsWith("```") || line.trim().startsWith("~~~")) {
+        inCodeBlock = !inCodeBlock;
+        result.push(line);
+        continue;
+      }
+      if (inCodeBlock) {
+        result.push(line);
+        continue;
+      }
+      if (/^[ \t]*:[ \t]*(?:[-+*]|\d+\.)[ \t]+/.test(line)) {
+        const content = line.replace(/^[ \t]*:[ \t]?/, "");
+        result.push(line);
+        if (/^[ \t]*:\s+\d+\.\s/.test(line)) {
+          result.push(`    ${content}`);
+        } else {
+          result.push(`  ${content}`);
+        }
+      } else if (/^: .*/.test(line)) {
+        result.push("\n" + line);
+      } else {
+        result.push(line);
+      }
+    }
+    return result.join("\n");
+  };
+  const originalMarkdown = file.value.toString();
+  const modifiedMarkdown = processMarkdown(originalMarkdown);
+  const newTree = remark().parse(modifiedMarkdown);
+  tree.children = newTree.children;
+  tree.position = newTree.position;
+};
+const prerenderMarkdown = (tree) => {
+  visit(tree, "paragraph", (p, index, parent) => {
+    if (
+      p.children[0].type === "text"
+      && /^: [-*+].*/g.test(p.children[0].value)
+    ) {
+      parent.children.splice(index, 1);
+    }
+    if (
+      p.children[0].type === "text"
+      && /^: [^-*+].*/g.test(p.children[0].value)
+    ) {
+      p.children[0].value = p.children[0].value
+        .replace(/^: /, "\n ");
+    }
+  });
+};
+const cleanMarkdown = (tree) => {
+  visit(tree, "list", (list, index, parent) => {
+    if (parent?.type !== "descriptiondetails") {
+      return;
+    }
+    const getFirstTextNode = (item) => {
+      const para = item.children[0];
+      if (para?.type === "paragraph") {
+        const text = para.children[0];
+        if (text?.type === "text") {
+          return text;
+        }
+      }
+      return null;
+    };
+    for (const item of list.children) {
+      const textNode = getFirstTextNode(item);
+      if (textNode) {
+        textNode.value = textNode.value
+          .replace(/(: [-*+][^:\n]*)$/gm, "");
+      }
+    }
+    if (parent.children[0].type === "list") {
+      remove(tree, list.children[0]);
+    }
+  });
+  visit(tree, "listItem", (listItem) => {
+    if (!listItem.children.length) {
+      remove(tree, listItem);
+    }
+  });
 };
 export default deflistWithLists;

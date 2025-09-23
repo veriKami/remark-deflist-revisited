@@ -1,5 +1,4 @@
 import type { DescriptionList } from "./index";
-
 /**
  * Type Augmentation
  */
