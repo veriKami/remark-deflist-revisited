@@ -252,7 +252,8 @@ function createWorkerExample(targetDir) {
               "X-Powered-By": "Cloudflare Workers + Remark Deflist Revisited"
             }
           });
-        } catch (error) {
+        }
+        catch (error) {
           return new Response(
             JSON.stringify({
               error: "Failed to process markdown",
