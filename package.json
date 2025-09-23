@@ -51,6 +51,7 @@
     "make:bundle": "esbuild src/index.ts --bundle --platform=node --packages=external --format=esm --outfile=dist/index.js",
     "make:types": "tsc src/index.ts --lib es2022 --declaration --emitDeclarationOnly --outDir dist",
     "lint": "eslint",
+    "fix": "eslint --fix",
     "test": "vitest run",
     "test:-": "vitest",
     "test:u": "vitest -u",
@@ -81,7 +82,9 @@
   },
   "packageManager": "pnpm@10.17.0",
   "dependencies": {
+    "remark": "^15.0.1",
     "remark-deflist": "^1.0.0",
+    "unist-util-remove": "^4.0.0",
     "unist-util-visit": "^5.0.0"
   },
   "peerDependencies": {
@@ -101,12 +104,11 @@
     "eslint": "^9.36.0",
     "fast-glob": "^3.3.3",
     "globals": "^16.4.0",
-    "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.44.0",
+    "typescript-eslint": "^8.44.1",
     "unified": "^11.0.5",
     "vfile": "^6.0.3",
     "vitest": "^3.2.4"
