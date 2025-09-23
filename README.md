@@ -76,9 +76,12 @@ Term
 
 ### Notes
 
-1. Using `: *` as a list marker (especially for the first item) is resolved in v0.4.0.
-2. Using `: - *x*` or `: - **x**` is not problematic.
-3. See [generated examples][generated] for real life test.
+1. Using `: *` as a list marker (especially for the first item) is resolved in v0.4.0
+2. Using `: - *x*` or `: - **x**` is not problematic
+3. Coverage 100% via [Codecov][CC] from version v0.4.1
+4. Cloudflare Worker demo via `npx` from version v0.5.22
+5. Score 100/100 via [Socket] from version v0.5.23
+6. See [generated examples][generated] for real life test
 
 ### Usage in Node.js
 
