@@ -15,6 +15,10 @@ deno
 
 *.command
 
+demo/doc
+scripts/make.html.readme.js
+scripts/sample.src.js
+
 #: --------------------------------
 
 # Logs
