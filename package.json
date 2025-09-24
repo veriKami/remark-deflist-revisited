@@ -1,18 +1,38 @@
 {
   "name": "remark-deflist-revisited-worker",
   "version": "0.1.0",
+  "description": "Cloudflare Worker example for @verikami/remark-deflist-revisited",
+  "keywords": [
+    "remark",
+    "remark-plugin",
+    "remark-deflist",
+    "markdown",
+    "markdown-plugin",
+    "definition-list",
+    "deflist",
+    "parser",
+    "veriKami"
+  ],
+  "author": "veriKami <verikami@gmail.com> (https://verikami.com/)",
+  "license": "MIT",
+  "repository": "github:veriKami/remark-deflist-revisited-worker",
+  "homepage": "https://github.com/veriKami/remark-deflist-revisited-worker#readme",
   "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy"
   },
   "dependencies": {
     "@verikami/remark-deflist-revisited": "^0.5.23",
+    "dedent": "^1.7.0",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "dedent": "^1.7.0"
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
-    "wrangler": "^4.37.0"
+    "wrangler": "^4.40.0"
   }
 }
