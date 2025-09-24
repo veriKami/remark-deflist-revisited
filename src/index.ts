@@ -104,7 +104,7 @@ export interface DescriptionDetails extends Parent {
  */
 const deflistWithLists: Plugin<[], Root> = () => {
   //: ------------------------------------------------------
-  //: Inject the original plugin
+  //: Inject the original plugin ///////////////////////////
 
   const base = deflist();
 
@@ -114,9 +114,7 @@ const deflistWithLists: Plugin<[], Root> = () => {
     //: PREPROCESSING //////////////////////////////////////
 
     prepareMarkdown(tree, file);
-
     base(tree, file, () => {});
-
     prerenderMarkdown(tree);
 
     //: ----------------------------------------------------
