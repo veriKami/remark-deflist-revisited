@@ -207,7 +207,7 @@ export default {
 
 <!-- See live example @ **[script.esm.sh.html][inline]** -->
 
-## Samples
+## Examples
 
 Sample implementations are available in the `./samples` directory.  
 They are also published as standalone repositories (templates):
