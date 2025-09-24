@@ -207,9 +207,18 @@ export default {
 
 <!-- See live example @ **[script.esm.sh.html][inline]** -->
 
+## Samples
+
+Sample implementations are available in the `./samples` directory.  
+They are also published as standalone repositories (templates):
+
+- **Simple** → [veriKami/remark-deflist-revisited-simple][simple]
+- **Express.js** → [veriKami/remark-deflist-revisited-express][express]
+- **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][worker]
+
 ## Development
 
-Automatic installation of Cloudflare Worker Demo is available from version v0.5.20
+Automatic installation of Cloudflare Worker Demo is available from version v0.5.22
     
 ```bash
 # installer
@@ -235,7 +244,7 @@ To see sample html output in terminal run
 ツ pnpm sample:deno
 ```
 
-To regenerate `demo/generated/*` html files run 
+To regenerate `./demo/generated/*` html files run 
 
 ```bash
 # (node): dist/index.js
@@ -286,6 +295,22 @@ Original work — MIT © Alex Shaw
 
 MIT © [veriKami](https://verikami.com) °// Weronika Kami
 
+[page]: https://verikami.github.io/remark-deflist-revisited
+[inline]: https://verikami.github.io/remark-deflist-revisited/script.esm.sh.html
+[generated]: https://verikami.github.io/remark-deflist-revisited/generated
+
+[module]: https://github.com/veriKami/remark-deflist-revisited
+[simple]: https://github.com/veriKami/remark-deflist-revisited-simple
+[express]: https://github.com/veriKami/remark-deflist-revisited-express
+[worker]: https://github.com/veriKami/remark-deflist-revisited-worker
+
+[Remark]: https://github.com/remarkjs/remark
+[remark-deflist]: https://www.npmjs.com/package/remark-deflist
+[Bun]: https://bun.sh
+[Deno]: https://deno.com
+[Cloudflare Workers]: https://workers.cloudflare.com
+[Astro]: https://astro.build
+
 [GH]: https://github.com/veriKami/remark-deflist-revisited
 [GH Badge]: https://img.shields.io/badge/GitHub-Repository-blue?logo=github
 
@@ -306,17 +331,6 @@ MIT © [veriKami](https://verikami.com) °// Weronika Kami
 
 [Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
 [Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23
-
-[Remark]: https://github.com/remarkjs/remark
-[remark-deflist]: https://www.npmjs.com/package/remark-deflist
-[Bun]: https://bun.sh
-[Deno]: https://deno.com
-[Cloudflare Workers]: https://workers.cloudflare.com
-[Astro]: https://astro.build
-
-[page]: https://verikami.github.io/remark-deflist-revisited
-[inline]: https://verikami.github.io/remark-deflist-revisited/script.esm.sh.html
-[generated]: https://verikami.github.io/remark-deflist-revisited/generated
 
 <!--
 [![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https://raw.githubusercontent.com/verikami/remark-deflist-revisited/master/package.json)](https://github.com/verikami/remark-deflist-revisited)
