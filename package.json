@@ -1,0 +1,36 @@
+{
+  "name": "remark-deflist-revisited-express",
+  "version": "0.1.0",
+  "description": "Express.js example for @verikami/remark-deflist-revisited",
+  "keywords": [
+    "remark",
+    "remark-plugin",
+    "remark-deflist",
+    "markdown",
+    "markdown-plugin",
+    "definition-list",
+    "deflist",
+    "parser",
+    "veriKami"
+  ],
+  "author": "veriKami <verikami@gmail.com> (https://verikami.com/)",
+  "license": "MIT",
+  "repository": "github:veriKami/remark-deflist-revisited-express",
+  "homepage": "https://github.com/veriKami/remark-deflist-revisited-express#readme",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@verikami/remark-deflist-revisited": "^0.5.23",
+    "dedent": "^1.5.3",
+    "express": "^4.18.2",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.0"
+  }
+}
