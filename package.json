@@ -29,7 +29,7 @@
     "test": "node test.js"
   },
   "dependencies": {
-    "@verikami/remark-deflist-revisited": "^0.5.23",
+    "@verikami/remark-deflist-revisited": "^0.6.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.0"
   }
