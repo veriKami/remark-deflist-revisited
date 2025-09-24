@@ -6,7 +6,7 @@
 [![Downloads][Downloads Badge]][Downloads]
 [![Socket][Socket Badge]][Socket]
 
-Node.js implementation of the **`remark-deflist-revisited`** module, demonstrating enhanced definition lists processing in markdown with full HTML output.
+Node.js implementation of the **`@verikami/remark-deflist-revisited`** module, demonstrating enhanced definition lists processing in markdown with full HTML output.
 
 **[Remark Deflist Revisited][module]** is a **[Remark]** plugin. A wrapper around **`remark-deflist`** with improved support for nested definition lists. It preserves all the original functionality and performs additional processing. 
 
