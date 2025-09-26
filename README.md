@@ -216,9 +216,11 @@ They are also published as standalone repositories (templates):
 - **Express.js** → [veriKami/remark-deflist-revisited-express][express]
 - **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][worker]
 
-|<small>Simple Example</small>|<small>Express Example</small>|<small>Worker Example</small>|
-|:----------------------------|:-----------------------------|:----------------------------|
-|[![SB][SB Badge]][SB_s]      |[![SB][SB Badge]][SB_e]       |[![SB][SB Badge]][SB_w]      |
+You can check out these examples via StackBlitz:
+
+| Simple Example        | Express Example       | Worker Example        |
+|:----------------------|:----------------------|:----------------------|
+|[![SB][SB Badge]][SB_s]|[![SB][SB Badge]][SB_e]|[![SB][SB Badge]][SB_w]|
 
 ## Development
 
