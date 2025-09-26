@@ -13,6 +13,12 @@ They are also published as standalone repositories (templates):
 - **Express.js** → [veriKami/remark-deflist-revisited-express][express]
 - **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][worker]
 
+You can check out these examples via StackBlitz:
+
+| Simple Example        | Express Example       | Worker Example        |
+|:----------------------|:----------------------|:----------------------|
+|[![SB][SB Badge]][SB_s]|[![SB][SB Badge]][SB_e]|[![SB][SB Badge]][SB_w]|
+
 ## Installation
 
 ```bash
@@ -35,8 +41,7 @@ Cloudflare Worker demo (via module itself)
 
 ## License
 
-This project is Open Source and available under the MIT License.
-
+This project is Open Source and available under the MIT License.  
 2025 © MIT °// [veriKami] °// [Weronika Kami]
 
 [veriKami]: https://verikami.com
@@ -51,17 +56,35 @@ This project is Open Source and available under the MIT License.
 [express]: https://github.com/veriKami/remark-deflist-revisited-express
 [worker]: https://github.com/veriKami/remark-deflist-revisited-worker
 
-[GH]: https://github.com/veriKami/remark-deflist-revisited
+[Remark]: https://github.com/remarkjs/remark
+[remark-deflist]: https://www.npmjs.com/package/remark-deflist
+[Bun]: https://bun.sh
+[Deno]: https://deno.com
+[Cloudflare Workers]: https://workers.cloudflare.com
+[Astro]: https://astro.build
+
 [GH Badge]: https://img.shields.io/badge/GitHub-Repository-blue?logo=github
+[GH]: https://github.com/veriKami/remark-deflist-revisited
 
-[NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
+[CC Badge]: https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI
+[CC]: https://codecov.io/github/veriKami/remark-deflist-revisited
+
+[CI Badge]: https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg
+[CI]: https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml
+
 [NPM Badge]: https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=red&color=black
+[NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 
-[JSR]: https://jsr.io/@verikami/remark-deflist-revisited
 [JSR Badge]: https://jsr.io/badges/@verikami/remark-deflist-revisited
+[JSR]: https://jsr.io/@verikami/remark-deflist-revisited
 
 [Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 [Downloads Badge]: https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg
 
 [Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
-[Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23
+[Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited
+
+[SB Badge]: https://developer.stackblitz.com/img/open_in_stackblitz_small.svg
+[SB_s]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/simple?startScript=example
+[SB_e]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/express?startScript=start
+[SB_w]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/worker?startScript=dev
