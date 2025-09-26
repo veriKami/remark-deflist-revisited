@@ -103,7 +103,6 @@ const output = await remark()
   .process(markdown);
 
 console.log(String(output));
-
 ```
 
 ### Usage in Deno
@@ -114,12 +113,12 @@ import html from "npm:remark-html@^16";
 import deflist from "npm:@verikami/remark-deflist-revisited";
 
 // (...) same code as above
-
 ```
 
 ### Usage in Astro
 
 ```js
+import { defineConfig } from "astro/config";
 import remarkDeflist from "@verikami/remark-deflist-revisited";
 
 export default defineConfig({
@@ -129,7 +128,6 @@ export default defineConfig({
     ]
   }
 });
-
 ```
 
 ### Usage in Cloudflare Worker
@@ -160,7 +158,6 @@ export default {
     });
   }
 };
-
 ```
 
 ### Usage in html
@@ -202,10 +199,7 @@ export default {
     <div id="markdown"></div>
   </body>
 </html>
-
 ```
-
-<!-- See live example @ **[script.esm.sh.html][inline]** -->
 
 ## Examples
 
