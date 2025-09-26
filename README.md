@@ -212,16 +212,10 @@ export default {
 [Sample implementations][samples] are available in the `./samples` directory.  
 They are also published as standalone repositories (templates):
 
-- **Simple** → [veriKami/remark-deflist-revisited-simple][s:simple]
-- **Express.js** → [veriKami/remark-deflist-revisited-express][s:express]
-- **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][s:worker]
-<!-- - **Astro** → [veriKami/remark-deflist-revisited-astro][s:astro] -->
-
-You can check out these examples via StackBlitz:
-
-| Simple Example        | Express Example       | Worker Example        |
-|:----------------------|:----------------------|:----------------------|
-|[![SB][SB Badge]][SB_s]|[![SB][SB Badge]][SB_e]|[![SB][SB Badge]][SB_w]|
+- **Simple** → [veriKami/remark-deflist-revisited-simple][+:simple]
+- **Express.js** → [veriKami/remark-deflist-revisited-express][+:express]
+- **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][+:worker]
+- **Astro** → [veriKami/remark-deflist-revisited-astro][+:astro]
 
 ## Development
 
@@ -325,10 +319,10 @@ MIT © [veriKami] °// [Weronika Kami]
 
 [module]: https://github.com/veriKami/remark-deflist-revisited
 [samples]: https://github.com/veriKami/remark-deflist-revisited/tree/main/samples
-[s:simple]: https://github.com/veriKami/remark-deflist-revisited-simple
-[s:express]: https://github.com/veriKami/remark-deflist-revisited-express
-[s:worker]: https://github.com/veriKami/remark-deflist-revisited-worker
-[s:astro]: https://github.com/veriKami/remark-deflist-revisited-astro
+[+:simple]: https://github.com/veriKami/remark-deflist-revisited-simple
+[+:express]: https://github.com/veriKami/remark-deflist-revisited-express
+[+:worker]: https://github.com/veriKami/remark-deflist-revisited-worker
+[+:astro]: https://github.com/veriKami/remark-deflist-revisited-astro
 
 [Remark]: https://github.com/remarkjs/remark
 [remark-deflist]: https://www.npmjs.com/package/remark-deflist
