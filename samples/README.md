@@ -14,6 +14,8 @@ They are also published as standalone repositories (templates):
 - **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][+:worker]
 - **Astro** → [veriKami/remark-deflist-revisited-astro][+:astro]
 
+## Sample Revisited
+
 You can play with these examples via **[StackBlitz]** web IDE:
 
 | Simple Example        | Express Example       | Worker Example        | Astro Example         |
