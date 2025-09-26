@@ -17,6 +17,12 @@ It preserves all the original functionality and performs additional processing.
 ツ npm i @verikami/remark-deflist-revisited
 ```
 
+The interactive Sample Installer
+
+```bash
+ツ npm create remark-deflist-revisited@latest
+```
+
 Cloudflare Worker demo
 
 ```bash
@@ -203,12 +209,13 @@ export default {
 
 ## Examples
 
-Sample implementations are available in the `./samples` directory.  
+[Sample implementations][samples] are available in the `./samples` directory.  
 They are also published as standalone repositories (templates):
 
-- **Simple** → [veriKami/remark-deflist-revisited-simple][simple]
-- **Express.js** → [veriKami/remark-deflist-revisited-express][express]
-- **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][worker]
+- **Simple** → [veriKami/remark-deflist-revisited-simple][s:simple]
+- **Express.js** → [veriKami/remark-deflist-revisited-express][s:express]
+- **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][s:worker]
+<!-- - **Astro** → [veriKami/remark-deflist-revisited-astro][s:astro] -->
 
 You can check out these examples via StackBlitz:
 
@@ -218,7 +225,20 @@ You can check out these examples via StackBlitz:
 
 ## Development
 
-Automatic installation of Cloudflare Worker Demo is available from version v0.5.22
+The interactive Sample Installer is available from version v6.0.0.
+
+```bash
+# npm
+ツ npm create remark-deflist-revisited@latest
+
+# pnpm
+ツ pnpm create remark-deflist-revisited
+
+# yarn
+ツ yarn create remark-deflist-revisited
+```
+
+Automatic installation of Cloudflare Worker demo is available from version v0.5.22
     
 ```bash
 # installer
@@ -304,9 +324,11 @@ MIT © [veriKami] °// [Weronika Kami]
 [generated]: https://verikami.github.io/remark-deflist-revisited/generated
 
 [module]: https://github.com/veriKami/remark-deflist-revisited
-[simple]: https://github.com/veriKami/remark-deflist-revisited-simple
-[express]: https://github.com/veriKami/remark-deflist-revisited-express
-[worker]: https://github.com/veriKami/remark-deflist-revisited-worker
+[samples]: https://github.com/veriKami/remark-deflist-revisited/tree/main/samples
+[s:simple]: https://github.com/veriKami/remark-deflist-revisited-simple
+[s:express]: https://github.com/veriKami/remark-deflist-revisited-express
+[s:worker]: https://github.com/veriKami/remark-deflist-revisited-worker
+[s:astro]: https://github.com/veriKami/remark-deflist-revisited-astro
 
 [Remark]: https://github.com/remarkjs/remark
 [remark-deflist]: https://www.npmjs.com/package/remark-deflist
