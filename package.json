@@ -92,7 +92,6 @@
   },
   "peerDependencies": {
     "remark": "^15",
-    "remark-parse": "^11",
     "unified": "^11"
   },
   "devDependencies": {
