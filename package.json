@@ -23,7 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/veriKami/remark-deflist-revisited.git"
   },
-  "homepage": "https://github.com/veriKami/remark-deflist-revisited#readme",
+  "homepage": "https://verikami.com",
   "publishConfig": {
     "access": "public"
   },
@@ -74,6 +74,7 @@
     "sample:deno": "deno run --allow-read scripts/sample.deno.js",
     "demo": "node scripts/make.html.js && pnpm fmt:demo",
     "demo:ts": "tsx scripts/make.html.ts && pnpm fmt:demo",
+    "demo:docs": "npx typedoc",
     "deno": "deno run --allow-read",
     "p:jsr:dry": "jsr publish --allow-dirty --dry-run",
     "p:jsr": "jsr publish --allow-dirty",

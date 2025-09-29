@@ -308,7 +308,7 @@ Original work — MIT © Alex Shaw
 * [npm: remark-deflist](https://www.npmjs.com/package/remark-deflist)
 
 This project is Open Source and available under the MIT License.  
-MIT © [veriKami] °// [Weronika Kami]
+2025 © MIT °// [veriKami] °// [Weronika Kami]
 
 [veriKami]: https://verikami.com
 [Weronika Kami]: https://linkedin.com/in/verikami

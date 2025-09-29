@@ -16,6 +16,7 @@ deno
 *.command
 
 demo/doc
+demo/docs
 scripts/make.html.readme.js
 scripts/sample.src.js
 
