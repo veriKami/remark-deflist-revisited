@@ -19,7 +19,10 @@
   ],
   "author": "veriKami <verikami@gmail.com> (https://verikami.com/)",
   "license": "MIT",
-  "repository": "github:veriKami/remark-deflist-revisited",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veriKami/remark-deflist-revisited.git"
+  },
   "homepage": "https://github.com/veriKami/remark-deflist-revisited#readme",
   "publishConfig": {
     "access": "public"
@@ -38,7 +41,7 @@
     "bin"
   ],
   "bin": {
-    "remark-deflist-revisited": "./bin/cli.worker.js"
+    "remark-deflist-revisited": "bin/cli.worker.js"
   },
   "scripts": {
     "_:npm": "node scripts/build.npm.js",
