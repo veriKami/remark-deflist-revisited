@@ -1,6 +1,6 @@
 /**
  * @module deflistWithLists
- * @description
+ *
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
  * description details. It elegantly solves issues where lists are direct
  * children of `<dd>` tags by performing post-processing transformations.
@@ -103,12 +103,12 @@ export interface DescriptionDetails extends Parent {
  * ```
  */
 const deflistWithLists: Plugin<[], Root> = () => {
-  //: ------------------------------------------------------
-  //: Inject the original plugin ///////////////////////////
+  ////: ----------------------------------------------------
+  ////: INJECT THE ORIGINAL PLUGIN /////////////////////////
 
   const base = deflist();
 
-  //: ------------------------------------------------------
+  ////: ----------------------------------------------------
   return (tree: Root, file: VFile) => {
     //: ----------------------------------------------------
     //: PREPROCESSING //////////////////////////////////////
@@ -210,13 +210,12 @@ const deflistWithLists: Plugin<[], Root> = () => {
         .some(node => /^\d+\.\s/.test(node.value));
 
       //: 1'st element (ol) cleanup
-      //: +++++++++++++++++++++++++++++++++++
+      //: -----------------------------------
       for (const item of list.children) {
         const textNode = getFirstTextNode(item);
         if (textNode) {
           textNode.value = textNode.value
-            .replace(/^(\s*[-*+]\s|\s*\d+\.\s)/, "") //: digit
-            //.replace(/(: [-*+][^:\n]*)$/gm, ""); //: end of line
+            .replace(/^(\s*[-*+]\s|\s*\d+\.\s)/, "");
         }
       }
     });
@@ -235,7 +234,7 @@ const deflistWithLists: Plugin<[], Root> = () => {
       const elements: Node[] = [];
       let currentIndex = index + 1;
 
-      // Collect subsequent orphan elements
+      //: Collect subsequent orphan elements
       while (
         currentIndex < siblings.length &&
         (siblings[currentIndex].type === "list" ||
@@ -246,13 +245,13 @@ const deflistWithLists: Plugin<[], Root> = () => {
       }
 
       if (elements.length) {
-        // Remove collected elements from their original position
+        //: Remove collected elements from their original position
         parent.children.splice(index + 1, elements.length);
 
         /* c8 ignore next */
         if (!dl.children) dl.children = [];
 
-        // Wrap orphans in a new <dd> and append to the <dl>
+        //: Wrap orphans in a new <dd> and append to the <dl>
         dl.children.push($.createListDetails(elements));
       }
     });
@@ -362,7 +361,6 @@ const $ = {
  */
 const prepareMarkdown = (tree: Root, file: VFile) => {
   const processMarkdown = (markdown: string) => {
-    markdown = markdown.replace(/^\s*[-*+]\s/g, "+");
     const lines = markdown.split("\n");
     let inCodeBlock = false;
     const result = [];
@@ -379,8 +377,8 @@ const prepareMarkdown = (tree: Root, file: VFile) => {
         continue;
       }
 
-      //: Main Line -> Replicate without : marker
-      //: --------------------------------------------------
+      //: Main Line -> Replicate without :
+      //: -----------------------------------
       if (/^[ \t]*:[ \t]*(?:[-+*]|\d+\.)[ \t]+/.test(line)) {
         const content = line.replace(/^[ \t]*:[ \t]?/, "");
         result.push(line);
@@ -403,17 +401,17 @@ const prepareMarkdown = (tree: Root, file: VFile) => {
     return result.join("\n");
   }
 
-  //: STEP 1: Get and modify existing markdown
-  //: ------------------------------------------------------
+  //: (1) Get and modify existing markdown
+  //: ---------------------------------------
   const originalMarkdown = file.value.toString();
   const modifiedMarkdown = processMarkdown(originalMarkdown);
 
-  //: STEP 2: Parse the markdown
-  //: ------------------------------------------------------
+  //: (2) Parse the markdown
+  //: ---------------------------------------
   const newTree = remark().parse(modifiedMarkdown);
 
-  //: STEP 3: Replace the old tree with new one
-  //: ------------------------------------------------------
+  //: (3) Replace the old tree with new one
+  //: ---------------------------------------
   tree.children = newTree.children;
   tree.position = newTree.position;
 }
@@ -425,22 +423,19 @@ const prepareMarkdown = (tree: Root, file: VFile) => {
  * @param {Root} tree - The MDAST tree.
  */
 const prerenderMarkdown = (tree: Root) => {
-  visit(tree, "paragraph", (p: Paragraph, index: number, parent: Parent | undefined) => {
+  visit(tree, "paragraph", (p: Paragraph) => {
 
     //: list item @ : * Item
-    //: ----------------------------------------------------
+    //: -------------------------------------
     if (p.children[0].type === "text"
       && /^: [-*+].*/g.test(p.children[0].value)) {
-      parent.children.splice(index, 1);
-      // remove(tree, p);
-      // console.log(p)
+      remove(tree, p);
     }
 
     //: dd items outside dl
-    //: ----------------------------------------------------
+    //: -------------------------------------
     if (p.children[0].type === "text"
       && /^: [^-*+].*/g.test(p.children[0].value)) {
-      // remove(tree, p) // console.log(p)
       p.children[0].value = p.children[0].value
         .replace(/^: /, "\n ");
     }
@@ -454,17 +449,7 @@ const prerenderMarkdown = (tree: Root) => {
  */
 const cleanMarkdown = (tree: Root) => {
   //: ------------------------------------------------------
-  //: (1) Remove duplicated p (: *) 1'st element
-  //: ------------------------------------------------------
-  // visit(tree, "paragraph", (p: Paragraph) => {
-  //   if (p.children[0].type === "text"
-  //     && /^: [-*+].*/g.test(p.children[0].value)) {
-  //     remove(tree, p);
-  //   }
-  // });
-
-  //: ------------------------------------------------------
-  //: (2) Remove duplicated p (: *) inside list
+  //: (1) 1'st element (: *) cleanup
   //: ------------------------------------------------------
   visit(tree, "list", (list: List, index: number, parent: Parent | undefined) => {
     if (parent?.type !== "descriptiondetails") return;
@@ -481,27 +466,24 @@ const cleanMarkdown = (tree: Root) => {
     };
 
     //: 1'st element (: *) cleanup
-    //: +++++++++++++++++++++++++++++++++++++
+    //: -------------------------------------
     for (const item of list.children) {
       const textNode = getFirstTextNode(item);
       if (textNode) {
         textNode.value = textNode.value
-          // .replace(/^(\s*[-*+]\s|\s*\d+\.\s)/, "") //: digit
           .replace(/(: [-*+][^:\n]*)$/gm, "");
-          //: + definition TODO
-          // .replace(/(: [^:\n]*)|(: [-*+][^:\n]*)$/gm, "");
       }
     }
 
     //: Final Cleanup – remove 1'st element
-    //: +++++++++++++++++++++++++++++++++++++
+    //: -------------------------------------
     if (parent.children[0].type === "list") {
       remove(tree, list.children[0]);
     }
   });
 
   //: ------------------------------------------------------
-  //: misc: Remove empty <li> inside list
+  //: (2) Remove empty <li> inside list
   //: ------------------------------------------------------
   visit(tree, "listItem", (listItem: ListItem) => {
     if (!listItem.children.length) {
@@ -511,101 +493,3 @@ const cleanMarkdown = (tree: Root) => {
 }
 
 export default deflistWithLists;
-
-//: --------------------------------------------------------
-//: NOTES
-//: --------------------------------------------------------
-////////////////////////////////////////////////////////////
-//: --------------------------------------------------------
-//: PRECONDITIONS:
-//:
-//: 1'st paragraph case (no leading spaces):
-// ---------------------------------------------------------
-// Term 2 (nested) with: -
-// : - Definition 1 with: -
-//     - Sub 1 with: -
-//       - Pub 1 with: -
-//   - Definition 2 with: -
-//     - Sub 1 with: -
-//       - Pub 1 with: -
-//   - Definition 3 with: -
-//     - Sub 1 with: -
-//       - Pub 1 with: -
-// ------------------------------------------
-// {
-//   type: 'paragraph',
-//   children: [
-//     {
-//       type: 'text',
-//       value: 'Term 2 (nested) with: -\n' +
-//         ': - Definition 1 with: -\n' +
-//         '- Sub 1 with: -\n' +
-//         '- Pub 1 with: -',
-//       position: [Object]
-//     }
-//   ],
-//   position: {
-//     start: { line: 38, column: 1, offset: 721 },
-//     end: { line: 41, column: 22, offset: 811 }
-//   }
-// }
-// {
-//   type: 'paragraph',
-//   children: [
-//     { type: 'text', value: 'Definition 2 with: -', position: [Object] }
-//   ],
-//   position: {
-//     start: { line: 42, column: 5, offset: 816 },
-//     end: { line: 42, column: 25, offset: 836 }
-//   }
-// }
-// {
-//   type: 'paragraph',
-//   children: [ { type: 'text', value: 'Sub 1 with: -', position: [Object] } ],
-//   position: {
-//     start: { line: 43, column: 7, offset: 843 },
-//     end: { line: 43, column: 20, offset: 856 }
-//   }
-// }
-// {
-//   type: 'paragraph',
-//   children: [ { type: 'text', value: 'Pub 1 with: -', position: [Object] } ],
-//   position: {
-//     start: { line: 44, column: 9, offset: 865 },
-//     end: { line: 44, column: 22, offset: 878 }
-//   }
-// }
-//: --------------------------------------------------------
-//: CONCLUSIONS:
-//:
-//: 1'st paragraph case cannot be resolved using tree
-//:
-//: --------------------------------------------------------
-//: TASK: Implement strategy of copying the definition
-//: line to preserve nesting context.
-//: --------------------------------------------------------
-// console.log(originalMarkdown)
-// Term 4 (basic) with: 1.
-// : 1. Definition 1 with: 1.
-//   2. Definition 2 with: 2.
-//   3. Definition 3 with: 3.
-// console.log(modifiedMarkdown)
-// Term 4 (basic) with: 1.
-// : 1. Definition 1 with: 1.
-//   1. Definition 1 with: 1.
-//   2. Definition 2 with: 2.
-//   3. Definition 3 with: 3.
-//: --------------------------------------------------------
-// const originalMarkdown = file.value.toString();
-// const modifiedMarkdown = originalMarkdown.replace(
-//   /^([ \t]*:[^\r\n]+)/gm, // Find every definition line
-//   (match) => {
-//     const content = match.replace(/^[ \t]*:[ \t]?/, "");
-//     const newLine = `  ${content}`;
-//     return `${match}\n${newLine}`;
-//   }
-// );
-//: --------------------------------------------------------
-////////////////////////////////////////////////////////////
-//: --------------------------------------------------------
-//: EOF

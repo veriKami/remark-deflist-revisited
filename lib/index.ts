@@ -1,6 +1,6 @@
 /**
  * @module deflistWithLists
- * @description
+ *
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
  * description details. It elegantly solves issues where lists are direct
  * children of `<dd>` tags by performing post-processing transformations.
@@ -291,7 +291,6 @@ const $ = {
  */
 const prepareMarkdown = (tree: Root, file: VFile) => {
   const processMarkdown = (markdown: string) => {
-    markdown = markdown.replace(/^\s*[-*+]\s/g, "+");
     const lines = markdown.split("\n");
     let inCodeBlock = false;
     const result = [];
@@ -335,12 +334,12 @@ const prepareMarkdown = (tree: Root, file: VFile) => {
  * @param {Root} tree - The MDAST tree.
  */
 const prerenderMarkdown = (tree: Root) => {
-  visit(tree, "paragraph", (p: Paragraph, index: number, parent: Parent | undefined) => {
+  visit(tree, "paragraph", (p: Paragraph) => {
     if (
       p.children[0].type === "text"
       && /^: [-*+].*/g.test(p.children[0].value)
     ) {
-      parent.children.splice(index, 1);
+      remove(tree, p);
     }
     if (
       p.children[0].type === "text"

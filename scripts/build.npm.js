@@ -11,7 +11,7 @@ let file;
 const docModule = `
 /**
  * @module deflistWithLists
- * @description
+ *
  * Remark plugin that extends \`remark-deflist\` to handle nested lists inside
  * description details. It elegantly solves issues where lists are direct
  * children of \`<dd>\` tags by performing post-processing transformations.
