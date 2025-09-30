@@ -5,7 +5,7 @@ import { remark } from "remark";
 import html from "remark-html";
 import deflist from "@verikami/remark-deflist-revisited";
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 //: Simple markdown to process
 //: -----------------------------------------
