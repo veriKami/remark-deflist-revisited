@@ -6,7 +6,7 @@
     "commentLine.forceSpaceAfterSlashes": false
   },
   "markup": {
-    "printWidth": 99,
+    "printWidth": 555,
     "scriptIndent": true,
     "styleIndent": true
   },

@@ -1,6 +1,31 @@
 {
-  "name": "veriKami °// Remark Deflist Revisited",
+  // "name": "veriKami °// Remark Deflist Revisited",
+  "name": "Remark Deflist Revisited °// Documentation",
   "out": "demo/docs",
   "customFooterHtml": "2025 © MIT °// <a href='https://verikami.com' target='_blank'>veriKami</a> °// Weronika Kami",
-  "ignoredHighlightLanguages": ["markdown"]
+  "hideGenerator": true,
+  "ignoredHighlightLanguages": ["markdown"],
+  // "hostedBaseUrl": "https://verikami.github.io/remark-deflist-revisited/docs",
+  // "useHostedBaseUrlForAbsoluteLinks": true,
+  // "projectDocuments": ["samples/README.md"],
+  "navigationLinks": {
+    "GitHub (examples)": "https://github.com/veriKami/create-remark-deflist-revisited#readme",
+    "NPM": "https://www.npmjs.com/package/@verikami/remark-deflist-revisited",
+    "JSR": "https://jsr.io/@verikami/remark-deflist-revisited",
+    // "Socket": "https://socket.dev/npm/package/@verikami/remark-deflist-revisited",
+    // "GitHub": "https://github.com/veriKami/remark-deflist-revisited",
+    "veriKami": "http://verikami.com",
+  },
+  "sidebarLinks": {
+    "Project Homepage": "../index.html",
+    "Generated Samples": "../generated/index.html",
+  },
+  // "navigation": {
+  //   "includeCategories": true,
+  //   "includeGroups": false,
+  //   "includeFolders": true,
+  //   "compactFolders": false,
+  //   "excludeReferences": true
+  // },
+  // "categorizeByGroup": false
 }

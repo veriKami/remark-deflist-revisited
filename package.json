@@ -1,4 +1,4 @@
-{
+ {
   "name": "@verikami/remark-deflist-revisited",
   "version": "0.6.2",
   "description": "Remark plugin. A wrapper around `remark-deflist` with improved support for nested definition lists. Bun, Deno and Cloudflare Workers compatibility.",
@@ -74,7 +74,7 @@
     "sample:deno": "deno run --allow-read scripts/sample.deno.js",
     "demo": "node scripts/make.html.js && pnpm fmt:demo",
     "demo:ts": "tsx scripts/make.html.ts && pnpm fmt:demo",
-    "demo:docs": "npx typedoc",
+    "demo:docs": "npx typedoc && dprint fmt demo/docs/**/* demo/docs/*",
     "deno": "deno run --allow-read",
     "p:jsr:dry": "jsr publish --allow-dirty --dry-run",
     "p:jsr": "jsr publish --allow-dirty",
