@@ -109,7 +109,7 @@ This project is Open Source and available under the MIT License.
 [Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
 
 [SB Badge]: https://developer.stackblitz.com/img/open_in_stackblitz_small.svg
-[SB_s]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/simple?startScript=example
+[SB_s]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/simple?startScript=start
 [SB_e]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/express?startScript=start
 [SB_w]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/worker?startScript=dev
 [SB_a]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/astro?startScript=dev
