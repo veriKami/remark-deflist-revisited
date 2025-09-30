@@ -69,6 +69,7 @@
     "fmt:demo": "dprint fmt demo/**/* demo/*",
     "fmt:dist": "dprint fmt dist/*",
     "fmt:lib": "dprint fmt lib/*",
+    "start": "node scripts/sample.server.js",
     "sample": "node scripts/sample.node.js",
     "sample:bun": "bun scripts/sample.node.js",
     "sample:deno": "deno run --allow-read scripts/sample.deno.js",
