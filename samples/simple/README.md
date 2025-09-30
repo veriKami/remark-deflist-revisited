@@ -31,11 +31,14 @@ See also examples of **[Express.js]** and **[Cloudflare Worker]** implementation
 ## Install dependencies
 ツ npm install
 
-## Run the main example
+## Run server with main example
 ツ npm start
 
-## Run with file watching
+## Run the main generation example
 ツ npm run dev
+
+## Run with file watching
+ツ npm run watch
 
 ## See example html output
 ツ npm run example
