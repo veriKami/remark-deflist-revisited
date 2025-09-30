@@ -1,51 +1,320 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>DEMO</title>
+    <title>veriKami °// Remark Deflist Revisited</title>
     <style>
       body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
       hr { margin: 0 -2rem 1rem; height: 1px; border-width: 0; background-color: #ccc; }
-      li { margin-left: 2rem; padding: .5rem; color: red; }
-      li p, li code { color: black; }
-      li code { padding: .3rem .5rem; background: #f5f5f5; border:1px solid #ddd; }
+      pre, dl { border: 1px solid #ccc; margin: 1rem 0; padding: 1rem; background: #fff; }
+      pre { background: #f8f8f8; font-size: .85rem; }
+      dt { font-weight: bold; margin-bottom: .5rem; }
+      dd { margin: 0 1rem .5rem; color: gray; }
+      dd ul, dd ol { margin-left: 0; color: darkblue; }
+      ul, ol { margin-left: 2rem; __color: red; }
+      ul li ul, ol li ol { margin-left: 0; }
+      table { border-collapse: collapse; background: #fff; }
+      tr:nth-child(2) td:first-child { color: #aaa; font-weight: normal; }
+      tr:nth-child(2) a { color: darkTurquoise; }
+      td { padding: .3rem .5rem; border: 1px solid #ddd; }
+      td:first-child { text-align: right; font-weight: bold; }
       a, a:visited { color: blue; text-decoration: none; }
-      a:hover { color: blue; text-decoration: underline; }
-      h1 a, h1 a:hover { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      h1 a, h1 a:visited, h1 a:hover { text-decoration: none; color: inherit; }
+      h1 { padding: 0 4.5rem; }
+      navigate ul { margin: 2.5rem 5rem; color: red; }
+      navigate li p,
+      navigate li code { color: black; }
+      navigate li code { padding: .3rem .5rem; background: #f5f5f5; border:1px solid #ddd; }
+      main { padding: .5rem 4.5rem; }
+      main ul, main ol { padding: 0 1rem; }
     </style>
   </head>
   <body>
     <h1>
-      <a href="https://github.com/veriKami/remark-deflist-revisited" target="_blank">🔘</a>
-      veriKami/remark-deflist-revisited
+      <a href="https://github.com/veriKami/remark-deflist-revisited" target="_blank">
+        veriKami °// Remark Deflist Revisited</a>
     </h1>
     <hr>
-    <ul>
-      <li>
-        <p>
-          html generated from markdown @
-          <a href="generated/revisited.list.basic.html">generated/revisited.list.basic.html</a>
-        </p>
-        <p>source markdown test files @ tests/fixtures</p>
-        <p>
-          to regenerate run
-          <code>
-            ツ pnpm demo
-          </code>
-        </p>
-      </li>
-      <li>
-        <p>
-          test inline script from https://esm.sh @
-          <a href="script.esm.sh.html">script.esm.sh.html</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          documentation available @
-          <a href="docs/index.html">docs/index.html</a>
-        </p>
-      </li>
-    </ul>
+    <navigate>
+      <ul>
+        <li>
+          <p>
+            html generated from markdown @
+            <a href="generated/revisited.list.basic.html">generated/index.html</a>
+          </p>
+        </li>
+        <li>
+          <p>
+            test inline script from https://esm.sh @
+            <a href="script.esm.sh.html">script.esm.sh.html</a>
+          </p>
+        </li>
+        <li>
+          <p>
+            documentation available @
+            <a href="docs/index.html">docs/index.html</a>
+          </p>
+        </li>
+      </ul>
+    </navigate>
+
+    <hr>
+    <main>
+      <p>
+        <a href="https://github.com/veriKami/remark-deflist-revisited"><img src="https://img.shields.io/badge/GitHub-Repository-blue?logo=github" alt="GH"></a>
+        <a href="https://codecov.io/github/veriKami/remark-deflist-revisited"><img src="https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI" alt="CC"></a>
+        <a href="https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml"><img src="https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg" alt="CI"></a>
+        <a href="https://www.npmjs.com/package/@verikami/remark-deflist-revisited"><img src="https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&#x26;logoColor=white&#x26;labelColor=red&#x26;color=black" alt="NPM"></a>
+        <a href="https://jsr.io/@verikami/remark-deflist-revisited"><img src="https://jsr.io/badges/@verikami/remark-deflist-revisited" alt="JSR"></a>
+      </p>
+      <p>
+        <strong><a href="https://github.com/remarkjs/remark">Remark</a></strong> plugin. A wrapper around <strong><a href="https://www.npmjs.com/package/remark-deflist">remark-deflist</a></strong> with improved support for nested definition lists. It preserves all the original functionality and performs additional processing.
+        <strong><a href="https://bun.sh">Bun</a></strong>, <strong><a href="https://deno.com">Deno</a></strong> and <strong><a href="https://workers.cloudflare.com">Cloudflare Workers</a></strong> compatibility. Also works in <strong><a href="https://astro.build">Astro</a></strong> and web browser.
+      </p>
+      <h2>Installation</h2>
+      <pre><code class="language-bash">ツ pnpm add @verikami/remark-deflist-revisited
+ツ npm i @verikami/remark-deflist-revisited
+</code></pre>
+      <p>The interactive Sample Installer</p>
+      <pre><code class="language-bash">ツ npm create remark-deflist-revisited@latest
+</code></pre>
+      <p>Cloudflare Worker demo</p>
+      <pre><code class="language-bash">ツ npx @verikami/remark-deflist-revisited@latest
+ツ npx @verikami/remark-deflist-revisited --help
+</code></pre>
+      <p>TypeScript version</p>
+      <pre><code class="language-bash">ツ pnpm add jsr:@verikami/remark-deflist-revisited
+ツ npx jsr add @verikami/remark-deflist-revisited
+</code></pre>
+      <h2>Usage</h2>
+      <p><strong>The problem</strong> with <strong><code>remark-deflist</code></strong> is that the plugin renders nested list items inside <code>&#x3C;dd></code> incorrectly.</p>
+      <p><strong>Markdown</strong></p>
+      <pre><code class="language-markdown">Term
+: - item A
+  - item B
+  - item C
+</code></pre>
+      <p><strong>With <code>remark-deflist</code></strong></p>
+      <pre><code class="language-html">&#x3C;dl>
+&#x3C;dt> Term &#x3C;/dt>
+&#x3C;dd>
+  &#x3C;ul>
+    &#x3C;li> item A &#x3C;/li>
+  &#x3C;/ul>
+&#x3C;/dl>
+&#x3C;ul>
+  &#x3C;li> item B &#x3C;/li>
+  &#x3C;li> item C &#x3C;/li>
+&#x3C;/ul>
+</code></pre>
+      <p><strong>With <code>@verikami/remark-deflist-revisited</code></strong></p>
+      <pre><code class="language-html">&#x3C;dl>
+&#x3C;dt>Term&#x3C;/dt>
+&#x3C;dd>
+  &#x3C;ul>
+    &#x3C;li> item A &#x3C;/li>
+    &#x3C;li> item B &#x3C;/li>
+    &#x3C;li> item C &#x3C;/li>
+  &#x3C;/ul>
+&#x3C;/dl>
+</code></pre>
+      <h3>Notes</h3>
+      <ol>
+        <li>Using <code>: *</code> as a list marker (especially for the first item) is resolved in v0.4.0</li>
+        <li>Using <code>: - *x*</code> or <code>: - **x**</code> is not problematic</li>
+        <li>Coverage 100% via <a href="https://codecov.io/github/veriKami/remark-deflist-revisited">Codecov</a> from version v0.4.1</li>
+        <li>Cloudflare Worker demo via <code>npx</code> from version v0.5.22</li>
+        <li>Score 100/100 via <a href="https://socket.dev/npm/package/@verikami/remark-deflist-revisited">Socket</a> from version v0.5.23</li>
+        <li>See <a href="https://verikami.github.io/remark-deflist-revisited/generated">generated examples</a> for real life test</li>
+      </ol>
+      <h3>Usage in Node.js</h3>
+      <pre><code class="language-js">import { remark } from "remark";
+import html from "remark-html";
+import deflist from "@verikami/remark-deflist-revisited";
+
+const markdown = `
+Term
+: - item A
+  - item B
+  - item C
+`;
+
+const output = await remark()
+  .use(deflist)
+  .use(html)
+  .process(markdown);
+
+console.log(String(output));
+</code></pre>
+      <h3>Usage in Deno</h3>
+      <pre><code class="language-js">import { remark } from "npm:remark@^15";
+import html from "npm:remark-html@^16";
+import deflist from "npm:@verikami/remark-deflist-revisited";
+
+// (...) same code as above
+</code></pre>
+      <h3>Usage in Astro</h3>
+      <pre><code class="language-js">import { defineConfig } from "astro/config";
+import remarkDeflist from "@verikami/remark-deflist-revisited";
+
+export default defineConfig({
+  markdown: {
+    remarkPlugins: [
+      remarkDeflist
+    ]
+  }
+});
+</code></pre>
+      <h3>Usage in Cloudflare Worker</h3>
+      <pre><code class="language-js">import { remark } from "remark";
+import html from "remark-html";
+import dedent from "dedent";
+import deflist from "@verikami/remark-deflist-revisited";
+
+export default {
+  async fetch(request, env, ctx) {
+
+    const markdown = dedent`
+      Term
+      :  - item A
+         - item B
+         - item C
+    `;
+
+    const output = await remark()
+      .use(deflist)
+      .use(html)
+      .process(markdown);
+
+    return new Response(String(output), {
+      headers: { "Content-Type": "text/html; charset=utf-8" }
+    });
+  }
+};
+</code></pre>
+      <h3>Usage in html</h3>
+      <pre><code class="language-html">&#x3C;html>
+  &#x3C;head>
+    &#x3C;script type="module">
+      import { remark } from "https://esm.sh/remark@15";
+      import html from "https://esm.sh/remark-html@16";
+      import dedent from "https://esm.sh/dedent@1";
+      import deflist from "https://esm.sh/@verikami/remark-deflist-revisited";
+
+      const render = async (markdown) => (
+        await remark()
+          .use(deflist)
+          .use(html)
+          .process(markdown)
+      );
+
+      const append = async (markdown) => {
+        const output = await render(markdown);
+        const el = document.getElementById("markdown");
+        el.innerHTML += String(output);
+      };
+
+      const markdown = dedent`
+        Term
+        : - item A
+          - item B
+          - item C
+      `;
+
+      document.body.onload = append(markdown);
+
+    &#x3C;/script>
+  &#x3C;/head>
+  &#x3C;body>
+    &#x3C;div id="markdown">&#x3C;/div>
+  &#x3C;/body>
+&#x3C;/html>
+</code></pre>
+      <h2>Examples</h2>
+      <p>
+        <a href="https://github.com/veriKami/remark-deflist-revisited/tree/main/samples">Sample implementations</a> are available in the <code>./samples</code> directory.<br>
+        They are also published as standalone repositories (templates):
+      </p>
+      <ul>
+        <li><strong>Simple</strong> → <a href="https://github.com/veriKami/remark-deflist-revisited-simple">veriKami/remark-deflist-revisited-simple</a></li>
+        <li><strong>Express.js</strong> → <a href="https://github.com/veriKami/remark-deflist-revisited-express">veriKami/remark-deflist-revisited-express</a></li>
+        <li><strong>Cloudflare Worker</strong> → <a href="https://github.com/veriKami/remark-deflist-revisited-worker">veriKami/remark-deflist-revisited-worker</a></li>
+        <li><strong>Astro</strong> → <a href="https://github.com/veriKami/remark-deflist-revisited-astro">veriKami/remark-deflist-revisited-astro</a></li>
+      </ul>
+      <h2>Development</h2>
+      <p>The interactive Sample Installer is available from version v6.0.0.</p>
+      <pre><code class="language-bash"># npm
+ツ npm create remark-deflist-revisited@latest
+
+# pnpm
+ツ pnpm create remark-deflist-revisited
+
+# yarn
+ツ yarn create remark-deflist-revisited
+</code></pre>
+      <p>Automatic installation of Cloudflare Worker demo is available from version v0.5.22</p>
+      <pre><code class="language-bash"># installer
+ツ npx @verikami/remark-deflist-revisited
+
+# latest version
+ツ npx @verikami/remark-deflist-revisited@latest
+
+# how to use 
+ツ npx @verikami/remark-deflist-revisited --help
+</code></pre>
+      <p>To see sample html output in terminal run</p>
+      <pre><code class="language-bash"># (node): scripts/sample.node.js
+ツ pnpm sample
+
+# (bun): scripts/sample.node.js
+ツ pnpm sample:bun
+
+# (deno): scripts/sample.deno.js
+ツ pnpm sample:deno
+</code></pre>
+      <p>To regenerate <code>./demo/generated/*</code> html files run</p>
+      <pre><code class="language-bash"># (node): dist/index.js
+ツ pnpm demo
+
+# (tsx): src/index.ts
+ツ pnpm demo:ts
+</code></pre>
+      <h2>Processing Flow</h2>
+      <p>
+        <a href="https://codecov.io/github/veriKami/remark-deflist-revisited"><img src="https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI" alt="CC"></a>
+        <a href="https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml"><img src="https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg" alt="CI"></a>
+        <a href="https://www.npmjs.com/package/@verikami/remark-deflist-revisited"><img src="https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&#x26;logoColor=white&#x26;labelColor=red&#x26;color=black" alt="NPM"></a>
+        <a href="https://jsr.io/@verikami/remark-deflist-revisited"><img src="https://jsr.io/badges/@verikami/remark-deflist-revisited" alt="JSR"></a>
+        <a href="https://socket.dev/npm/package/@verikami/remark-deflist-revisited"><img src="https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23" alt="Socket"></a>
+      </p>
+      <pre><code>Markdown
+   │
+Plugin (wrapped remark-deflist)
+   │
+AST // HTML
+   │
+Snapshots (vitest)
+   │
+Build (npm) ./dist + (jsr) ./lib
+   │
+CI/CD (GitHub Actions)
+   │
+┌──────────┬─────────┬─────────┐
+│ GitHub   │   NPM   │   JSR   │
+│ Packages │         │         │
+└──────────┴─────────┴─────────┘
+</code></pre>
+      <h2>License</h2>
+      <p>Original work — MIT © Alex Shaw</p>
+      <ul>
+        <li><a href="https://github.com/Symbitic/remark-plugins">gh: Symbitic/remark-plugins</a></li>
+        <li><a href="https://www.npmjs.com/package/remark-deflist">npm: remark-deflist</a></li>
+      </ul>
+      <p>
+        This project is Open Source and available under the MIT License.<br>
+        2025 © MIT °// <a href="https://verikami.com">veriKami</a> °// <a href="https://linkedin.com/in/verikami">Weronika Kami</a>
+      </p>
+    </main>
   </body>
 </html>
