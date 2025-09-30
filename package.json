@@ -23,13 +23,14 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js",
+    "start": "node server.js",
+    "dev": "node index.js",
+    "watch": "node --watch index.js",
     "example": "node example.js",
     "test": "node test.js"
   },
   "dependencies": {
-    "@verikami/remark-deflist-revisited": "^0.6.0",
+    "@verikami/remark-deflist-revisited": "^0.6.3",
     "remark": "^15.0.1",
     "remark-html": "^16.0.0"
   }
