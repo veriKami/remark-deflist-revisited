@@ -18,13 +18,14 @@
   "repository": "github:veriKami/remark-deflist-revisited-simple",
   "homepage": "https://github.com/veriKami/remark-deflist-revisited-simple#readme",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": ">=20.0.0"
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "node index.js",
+    "dev": "node --watch server.js",
+    "gen": "node index.js",
     "watch": "node --watch index.js",
     "example": "node example.js",
     "test": "node test.js"
