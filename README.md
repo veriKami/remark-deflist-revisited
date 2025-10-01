@@ -34,8 +34,11 @@ See also examples of **[Express.js]** and **[Cloudflare Worker]** implementation
 ## Run server with main example
 ツ npm start
 
-## Run the main generation example
+## Run server with file watching
 ツ npm run dev
+
+## Run the main generation example
+ツ npm run gen
 
 ## Run with file watching
 ツ npm run watch
