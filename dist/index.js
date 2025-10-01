@@ -30,8 +30,8 @@ import { visit } from "unist-util-visit";
 
 /**
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
- * descriptiondetails. It first runs the original `remark-deflist` plugin and
- * then performs additional processing.
+ * descriptiondetails. It first runs the original `remark-deflist` plugin
+ * and then performs additional processing.
  *
  * Features:
  * - merges paragraph children containing list items into proper lists
@@ -43,7 +43,8 @@ import { visit } from "unist-util-visit";
  * - `descriptionterm` (`<dt>`)
  * - `descriptiondetails` (`<dd>`)
  *
- * @returns A remark plugin transformer that post-processes `remark-deflist`.
+ * @returns {import("unified").Transformer} A remark plugin transformer
+ * that post-processes `remark-deflist`.
  *
  * @example
  * ```ts

@@ -67,8 +67,8 @@ export interface DescriptionDetails extends Parent {
 //: --------------------------------------------------------
 /**
  * Remark plugin that extends `remark-deflist` to handle nested lists inside
- * descriptiondetails. It first runs the original `remark-deflist` plugin and
- * then performs additional processing.
+ * descriptiondetails. It first runs the original `remark-deflist` plugin
+ * and then performs additional processing.
  *
  * Features:
  * - merges paragraph children containing list items into proper lists
@@ -80,7 +80,8 @@ export interface DescriptionDetails extends Parent {
  * - `descriptionterm` (`<dt>`)
  * - `descriptiondetails` (`<dd>`)
  *
- * @returns {import('unified').Transformer} A remark plugin transformer that post-processes `remark-deflist`.
+ * @returns {import("unified").Transformer} A remark plugin transformer
+ * that post-processes `remark-deflist`.
  *
  * @example
  * ```ts
@@ -235,6 +236,7 @@ const deflistWithLists: Plugin<[], Root> = () => {
       let currentIndex = index + 1;
 
       //: Collect subsequent orphan elements
+      //: -----------------------------------
       while (
         currentIndex < siblings.length &&
         (siblings[currentIndex].type === "list" ||
@@ -367,6 +369,9 @@ const prepareMarkdown = (tree: Root, file: VFile) => {
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
+
+      //: Skip code blocks
+      //: -----------------------------------
       if (line.trim().startsWith("```") || line.trim().startsWith("~~~")) {
         inCodeBlock = !inCodeBlock;
         result.push(line);
