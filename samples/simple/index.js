@@ -8,7 +8,7 @@ import deflist from "@verikami/remark-deflist-revisited";
 //: Simple markdown to process
 //: -----------------------------------------
 const markdown = `
-# Remark Deflist Revisited Simple Example
+# Remark Deflist Revisited °// Simple Example
 
 Node.js
 : JavaScript runtime

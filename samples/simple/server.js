@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 //: Simple markdown to process
 //: -----------------------------------------
 const markdown = `
-# Remark Deflist Revisited Simple Example
+# Remark Deflist Revisited °// Simple Example
 
 Node.js
 : JavaScript runtime
