@@ -346,11 +346,11 @@ This project is Open Source and available under the MIT License.
 [JSR Badge]: https://jsr.io/badges/@verikami/remark-deflist-revisited
 [JSR]: https://jsr.io/@verikami/remark-deflist-revisited
 
-[Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 [Downloads Badge]: https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg
+[Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 
-[Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
 [Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23
+[Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
 
 [SB Badge]: https://developer.stackblitz.com/img/open_in_stackblitz_small.svg
 [SB_s]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/simple?startScript=example
