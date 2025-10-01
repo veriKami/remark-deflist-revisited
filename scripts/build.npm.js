@@ -40,8 +40,8 @@ const docModule = `
 const docFunction = `
 /**
  * Remark plugin that extends \`remark-deflist\` to handle nested lists inside
- * descriptiondetails. It first runs the original \`remark-deflist\` plugin and
- * then performs additional processing.
+ * descriptiondetails. It first runs the original \`remark-deflist\` plugin
+ * and then performs additional processing.
  *
  * Features:
  * - merges paragraph children containing list items into proper lists
@@ -53,7 +53,8 @@ const docFunction = `
  * - \`descriptionterm\` (\`<dt>\`)
  * - \`descriptiondetails\` (\`<dd>\`)
  *
- * @returns A remark plugin transformer that post-processes \`remark-deflist\`.
+ * @returns {import("unified").Transformer} A remark plugin transformer
+ * that post-processes \`remark-deflist\`.
  *
  * @example
  * \`\`\`ts
@@ -109,32 +110,3 @@ writeFileSync("dist/index.d.ts", file);
 //: DONE
 
 console.log("⛺️ Build complete:", 2, "files processed.");
-
-//: --------------------------------------------------------
-//: TYPES (deprecated) -> using the original file
-//: --------------------------------------------------------
-//: @ TS version
-// const docTypes = `
-// /**
-//  * Type definitions for deflistWithLists
-//  *
-//  * Provides full TypeScript support for AST nodes:
-//  * - descriptionlist
-//  * - descriptionterm
-//  * - descriptiondetails
-//  *
-//  * Usage:
-//  * import deflistWithLists from './deflistWithLists';
-//  * import type { DescriptionList } from './deflistWithLists';
-//  */
-// `.trim();
-//: -------------------------------
-// const docTypes = `
-// /**
-//  * Type definitions for deflistWithLists
-//  */
-// `.trim();
-
-// file = readFileSync("dist/index.d.ts", "utf8");
-// file = `${docTypes}\n\n${file}`;
-// writeFileSync("dist/index.d.ts", file);

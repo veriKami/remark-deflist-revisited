@@ -6,12 +6,12 @@ import fs from "node:fs";
 import path from "node:path";
 import fg from "fast-glob";
 
-//: katalogi
+//: Directories
 //: --------------------------------------------------------
 const srcDir = path.resolve("src");
 const libDir = path.resolve("lib");
 
-//: tablica wzorców do kopiowania
+//: Patterns
 //: --------------------------------------------------------
 const patterns = ["index.*ts", "mdast*.*ts"];
 
