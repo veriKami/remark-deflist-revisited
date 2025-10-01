@@ -75,7 +75,7 @@
     "sample:deno": "deno run --allow-read scripts/sample.deno.js",
     "demo": "scripts/make.html.js && pnpm fmt:demo",
     "demo:index": "scripts/make.html.index.js",
-    "demo:docs": "npx typedoc && dprint fmt demo/docs/**/* demo/docs/*",
+    "demo:docs": "typedoc && dprint fmt demo/docs/**/* demo/docs/*",
     "demo:ts": "tsx scripts/make.html.ts && pnpm fmt:demo",
     "deno": "deno run --allow-read",
     "p:jsr:dry": "jsr publish --allow-dirty --dry-run",
@@ -86,7 +86,7 @@
     "bump": "node scripts/bump.js",
     "release": "pnpm bump"
   },
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "pnpm@10.17.1",
   "dependencies": {
     "remark": "^15.0.1",
     "remark-deflist": "^1.0.0",
@@ -112,6 +112,8 @@
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
     "tsx": "^4.20.5",
+    "typedoc": "^0.28.13",
+    "typedoc-github-theme": "^0.3.1",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.1",
     "unified": "^11.0.5",
