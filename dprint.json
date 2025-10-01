@@ -12,6 +12,6 @@
   },
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.95.11.wasm",
-    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.23.4.wasm"
+    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.24.0.wasm"
   ]
 }
