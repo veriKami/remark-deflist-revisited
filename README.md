@@ -5,6 +5,7 @@
 [![CI][CI Badge]][CI]
 [![NPM][NPM Badge]][NPM]
 [![JSR][JSR Badge]][JSR]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FveriKami%2Fremark-deflist-revisited.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FveriKami%2Fremark-deflist-revisited?ref=badge_shield)
 
 **[Remark]** plugin. A wrapper around **[remark-deflist]** with improved support for nested definition lists.
 It preserves all the original functionality and performs additional processing.
@@ -356,3 +357,6 @@ This project is Open Source and available under the MIT License.
 [SB_s]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/simple?startScript=example
 [SB_e]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/express?startScript=start
 [SB_w]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/worker?startScript=dev
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FveriKami%2Fremark-deflist-revisited.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FveriKami%2Fremark-deflist-revisited?ref=badge_large)
