@@ -1,129 +1,50 @@
-# @verikami/remark-deflist-revisited
+# Remark Deflist Revisited °// Astro Example
 
 [![GH][GH Badge]][GH]
-[![CC][CC Badge]][CC]
-[![CI][CI Badge]][CI]
 [![NPM][NPM Badge]][NPM]
 [![JSR][JSR Badge]][JSR]
+[![Downloads][Downloads Badge]][Downloads]
+[![Socket][Socket Badge]][Socket]
 
-**[Remark]** plugin. A wrapper around **[remark-deflist]** with improved support for nested definition lists.
-It preserves all the original functionality and performs additional processing.
-**[Bun]**, **[Deno]** and **[Cloudflare Workers]** compatibility. Also works in **[Astro]** and web browser.
+**[Astro]** integration of the **`@verikami/remark-deflist-revisited`** module, demonstrating enhanced definition lists processing in markdown within Astro projects with full SSR/SSG capabilities.
 
-## Installation
+**[Remark Deflist Revisited][module]** is a **[Remark]** plugin. A wrapper around **`remark-deflist`** with improved support for nested definition lists. It preserves all the original functionality and performs additional processing. 
+
+## Overview
+
+This project provides an Astro integration example showcasing how to use **`remark-deflist-revisited`** in modern static site generation and server-side rendering environments. **[Simple][+:simple]**, **[Express.js][+:express]** and **[Cloudflare Worker][+:worker]** examples are also available.
+
+## Features
+
+- **Astro Integration** → Seamless integration with Astro's markdown pipeline
+- **Enhanced Definition Lists** → Support for complex nested structures
+- **SSG/SSR Support** → Works with both static and server rendering
+- **Beautiful Styling** → Professional CSS styling with gradient background
+- **Zero Config** → Easy setup with minimal configuration
+- **TypeScript Ready** → Full TypeScript support
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 20 or higher
+- npm, pnpm or yarn
+
+### Installation
 
 ```bash
-ツ pnpm add @verikami/remark-deflist-revisited
-ツ npm i @verikami/remark-deflist-revisited
+## Create a new Astro project
+ツ npm create astro@latest
+
+## Install the remark-deflist-revisited plugin
+ツ npm install @verikami/remark-deflist-revisited
 ```
 
-The interactive Sample Installer
+### Configuration
 
-```bash
-ツ npm create remark-deflist-revisited@latest
-```
+Add the plugin to your `astro.config.mjs`
 
-Cloudflare Worker demo
-
-```bash
-ツ npx @verikami/remark-deflist-revisited@latest
-ツ npx @verikami/remark-deflist-revisited --help
-```
-
-TypeScript version
-
-```bash
-ツ pnpm add jsr:@verikami/remark-deflist-revisited
-ツ npx jsr add @verikami/remark-deflist-revisited
-```
-
-## Usage
-
-**The problem** with **`remark-deflist`** is that the plugin renders nested list items inside `<dd>` incorrectly.
-
-**Markdown**
-
-```markdown
-Term
-: - item A
-  - item B
-  - item C
-```
-
-**With `remark-deflist`**
-
-```html
-<dl>
-<dt> Term </dt>
-<dd>
-  <ul>
-    <li> item A </li>
-  </ul>
-</dl>
-<ul>
-  <li> item B </li>
-  <li> item C </li>
-</ul>
-```
-
-**With `@verikami/remark-deflist-revisited`**
-
-```html
-<dl>
-<dt>Term</dt>
-<dd>
-  <ul>
-    <li> item A </li>
-    <li> item B </li>
-    <li> item C </li>
-  </ul>
-</dl>
-```
-
-### Notes
-
-1. Using `: *` as a list marker (especially for the first item) is resolved in v0.4.0
-2. Using `: - *x*` or `: - **x**` is not problematic
-3. Coverage 100% via [Codecov][CC] from version v0.4.1
-4. Cloudflare Worker demo via `npx` from version v0.5.22
-5. Score 100/100 via [Socket] from version v0.5.23
-6. See [generated examples][generated] for real life test
-
-### Usage in Node.js
-
-```js
-import { remark } from "remark";
-import html from "remark-html";
-import deflist from "@verikami/remark-deflist-revisited";
-
-const markdown = `
-Term
-: - item A
-  - item B
-  - item C
-`;
-
-const output = await remark()
-  .use(deflist)
-  .use(html)
-  .process(markdown);
-
-console.log(String(output));
-```
-
-### Usage in Deno
-
-```js
-import { remark } from "npm:remark@^15";
-import html from "npm:remark-html@^16";
-import deflist from "npm:@verikami/remark-deflist-revisited";
-
-// (...) same code as above
-```
-
-### Usage in Astro
-
-```js
+```javascript
 import { defineConfig } from "astro/config";
 import remarkDeflist from "@verikami/remark-deflist-revisited";
 
@@ -136,171 +57,185 @@ export default defineConfig({
 });
 ```
 
-### Usage in Cloudflare Worker
+### Usage in Markdown Files
 
-```js
-import { remark } from "remark";
-import html from "remark-html";
-import dedent from "dedent";
-import deflist from "@verikami/remark-deflist-revisited";
+Create `.md` or `.mdx` files in your `src/pages` directory:
 
-export default {
-  async fetch(request, env, ctx) {
+```markdown
+---
+title: "Sample Page with Definition Lists"
+layout: "../layouts/Layout.astro"
+---
 
-    const markdown = dedent`
-      Term
-      :  - item A
-         - item B
-         - item C
-    `;
+# Advanced Definition Lists
 
-    const output = await remark()
-      .use(deflist)
-      .use(html)
-      .process(markdown);
+Main Term
+: This is the definition of the main term
+: This is another definition paragraph
 
-    return new Response(String(output), {
-      headers: { "Content-Type": "text/html; charset=utf-8" }
-    });
-  }
-};
+Nested Term
+: Primary definition
+  - Nested list item 1
+  - Nested list item 2
+: Secondary definition with **bold text**
 ```
 
-### Usage in html
+## Advanced Usage
 
-```html
-<html>
+### Custom Markdown Processing
+
+For advanced use cases, you can process markdown programmatically:
+
+```javascript
+//: src/utils/markdown.js
+import { remark } from "remark";
+import html from "remark-html";
+import deflist from "@verikami/remark-deflist-revisited";
+
+export async function processMarkdown(content) {
+  const result = await remark()
+    .use(deflist)
+    .use(html)
+    .process(content);
+  
+  return result.toString();
+}
+```
+
+### Using in Astro Components
+
+```astro
+---
+//: src/components/MarkdownContent.astro
+import { processMarkdown } from "../utils/markdown.js";
+
+const markdownContent = `
+# Dynamic Content
+
+Dynamic Term
+: This content is processed at build time
+: Supports **formatting** and nested lists
+`;
+
+const htmlContent = await processMarkdown(markdownContent);
+---
+
+<div set:html={htmlContent} />
+```
+
+## Development
+
+### Local Development
+
+```bash
+## Start development server
+ツ npm run dev
+
+## Build for production
+ツ npm run build
+
+## Preview production build
+ツ npm run preview
+```
+
+### Custom Styling
+
+Add custom styles to your layout component:
+
+```astro
+---
+//: src/layouts/Layout.astro
+---
+<html lang="en">
   <head>
-    <script type="module">
-      import { remark } from "https://esm.sh/remark@15";
-      import html from "https://esm.sh/remark-html@16";
-      import dedent from "https://esm.sh/dedent@1";
-      import deflist from "https://esm.sh/@verikami/remark-deflist-revisited";
-
-      const render = async (markdown) => (
-        await remark()
-          .use(deflist)
-          .use(html)
-          .process(markdown)
-      );
-
-      const append = async (markdown) => {
-        const output = await render(markdown);
-        const el = document.getElementById("markdown");
-        el.innerHTML += String(output);
-      };
-
-      const markdown = dedent`
-        Term
-        : - item A
-          - item B
-          - item C
-      `;
-
-      document.body.onload = append(markdown);
-
-    </script>
+    <style>
+      /* Custom definition list styles */
+      dl {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+      }
+      dt {
+        font-weight: bold;
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+      dd {
+        margin-left: 2rem;
+        color: #f0f0f0;
+        margin-bottom: 0.5rem;
+      }
+    </style>
   </head>
   <body>
-    <div id="markdown"></div>
+    <slot />
   </body>
 </html>
 ```
 
-## Examples
+### TypeScript Support
 
-[Sample implementations][samples] are available in the `./samples` directory.  
-They are also published as standalone repositories (templates):
+For TypeScript projects, add type definitions:
 
-- **Simple** → [veriKami/remark-deflist-revisited-simple][+:simple]
-- **Express.js** → [veriKami/remark-deflist-revisited-express][+:express]
-- **Cloudflare Worker** → [veriKami/remark-deflist-revisited-worker][+:worker]
-- **Astro** → [veriKami/remark-deflist-revisited-astro][+:astro]
-
-## Development
-
-The interactive Sample Installer is available from version v6.0.0.
-
-```bash
-## npm
-ツ npm create remark-deflist-revisited@latest
-
-## pnpm
-ツ pnpm create remark-deflist-revisited
-
-## yarn
-ツ yarn create remark-deflist-revisited
+```typescript
+//: src/types/remark-deflist-revisited.d.ts
+declare module "@verikami/remark-deflist-revisited" {
+  import { Plugin } from "unified";
+  const deflist: Plugin;
+  export default deflist;
+}
 ```
 
-Automatic installation of Cloudflare Worker demo is available from version v0.5.22
-    
-```bash
-## installer
-ツ npx @verikami/remark-deflist-revisited
+## Comparison with Other Implementations
 
-## latest version
-ツ npx @verikami/remark-deflist-revisited@latest
+| Feature         | Express.js   | Astro Integration   | Cloudflare Worker |
+|-----------------|--------------|---------------------|-------------------|
+| **Rendering**   | Server-side  | SSG/SSR             | Edge              |
+| **Build Time**  | Runtime      | Pre-built at deploy | Runtime           |
+| **Performance** | Good         | Excellent (static)  | Excellent (edge)  |
+| **Complexity**  | Medium       | Low                 | Low               |
+| **Use Case**    | Dynamic apps | Documentation sites | API endpoints     |
 
-## how to use 
-ツ npx @verikami/remark-deflist-revisited --help
-``` 
-
-To see sample html output in terminal run
-
-```bash
-## (node): scripts/sample.node.js
-ツ pnpm sample
-
-## (bun): scripts/sample.node.js
-ツ pnpm sample:bun
-
-## (deno): scripts/sample.deno.js
-ツ pnpm sample:deno
-```
-
-To regenerate `./demo/generated/*` html files run 
-
-```bash
-## (node): dist/index.js
-ツ pnpm demo
-
-## (tsx): src/index.ts
-ツ pnpm demo:ts
-```
-
-## Processing Flow
-
-[![CC][CC Badge]][CC]
-[![CI][CI Badge]][CI]
-[![NPM][NPM Badge]][NPM]
-[![JSR][JSR Badge]][JSR]
-[![Socket][Socket Badge]][Socket]
+## Project Structure
 
 ```
-Markdown
-   │
-Plugin (wrapped remark-deflist)
-   │
-AST // HTML
-   │
-Snapshots (vitest)
-   │
-Build (npm) ./dist + (jsr) ./lib
-   │
-CI/CD (GitHub Actions)
-   │
-┌──────────┬─────────┬─────────┐
-│ GitHub   │   NPM   │   JSR   │
-│ Packages │         │         │
-└──────────┴─────────┴─────────┘
+.
+├── src/
+│   ├── components/          # Astro/React/Vue components
+│   ├── layouts/             # Layout components
+│   │   └── Layout.astro     # Main layout
+│   └── pages/               # Markdown/MDX pages
+│       ├── index.astro      # Home page
+│       └── demo.md          # Demo page with definition lists
+├── public/                  # Static assets
+├── astro.config.mjs         # Astro configuration
+├── package.json             # Dependencies and scripts
+└── README.md                # This file
 ```
+
+## Dependencies
+
+### Core Dependencies
+
+- `astro` → Modern static site generator
+- `@verikami/remark-deflist-revisited` → Enhanced definition lists
+
+### Optional Dependencies
+
+- `@astrojs/mdx` → MDX support
+- `@astrojs/react` → React component support
+- `@astrojs/vue` → Vue component support
+
+## Benefits for Astro Projects
+
+- **Performance**: Leverages Astro's island architecture
+- **SEO Friendly**: Pre-rendered content for better search visibility
+- **Developer Experience**: Hot reload and excellent tooling
+- **Flexibility**: Combine with React, Vue, Svelte components
+- **Zero JS**: Outputs minimal JavaScript by default
 
 ## License
-
-Original work — MIT © Alex Shaw
-
-* [gh: Symbitic/remark-plugins](https://github.com/Symbitic/remark-plugins)
-* [npm: remark-deflist](https://www.npmjs.com/package/remark-deflist)
 
 This project is Open Source and available under the MIT License  
 2025 © MIT °// [veriKami] °// [Weronika Kami]
@@ -308,32 +243,17 @@ This project is Open Source and available under the MIT License
 [veriKami]: https://verikami.com
 [Weronika Kami]: https://linkedin.com/in/verikami
 
-[page]: https://verikami.github.io/remark-deflist-revisited
-[inline]: https://verikami.github.io/remark-deflist-revisited/script.esm.sh.html
-[generated]: https://verikami.github.io/remark-deflist-revisited/generated
-
 [module]: https://github.com/veriKami/remark-deflist-revisited
-[samples]: https://github.com/veriKami/remark-deflist-revisited/tree/main/samples
 [+:simple]: https://github.com/veriKami/remark-deflist-revisited-simple
 [+:express]: https://github.com/veriKami/remark-deflist-revisited-express
 [+:worker]: https://github.com/veriKami/remark-deflist-revisited-worker
 [+:astro]: https://github.com/veriKami/remark-deflist-revisited-astro
 
-[Remark]: https://github.com/remarkjs/remark
-[remark-deflist]: https://www.npmjs.com/package/remark-deflist
-[Bun]: https://bun.sh
-[Deno]: https://deno.com
-[Cloudflare Workers]: https://workers.cloudflare.com
+[Remark]: https://remark.js.org
 [Astro]: https://astro.build
 
 [GH Badge]: https://img.shields.io/badge/GitHub-Repository-blue?logo=github
 [GH]: https://github.com/veriKami/remark-deflist-revisited
-
-[CC Badge]: https://codecov.io/github/veriKami/remark-deflist-revisited/graph/badge.svg?token=0EWE7CIAVI
-[CC]: https://codecov.io/github/veriKami/remark-deflist-revisited
-
-[CI Badge]: https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg
-[CI]: https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml
 
 [NPM Badge]: https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=red&color=black
 [NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
@@ -344,10 +264,5 @@ This project is Open Source and available under the MIT License
 [Downloads Badge]: https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg
 [Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 
-[Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited/0.5.23
+[Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited
 [Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
-
-[SB Badge]: https://developer.stackblitz.com/img/open_in_stackblitz_small.svg
-[SB_s]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/simple?startScript=example
-[SB_e]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/express?startScript=start
-[SB_w]: https://stackblitz.com/github/veriKami/remark-deflist-revisited/tree/main/samples/worker?startScript=dev
