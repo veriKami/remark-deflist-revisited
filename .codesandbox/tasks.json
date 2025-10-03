@@ -1,18 +1,37 @@
 {
   // These tasks will run in order when initializing your CodeSandbox project.
   "setupTasks": [
-    {
-      "command": "corepack enable && corepack prepare pnpm@10.15.1 --activate",
-      "name": "corepack enable && corepack prepare pnpm@10.15.1 --activate"
-    },
+    // {
+    //   "command": "corepack enable && corepack prepare pnpm@10.15.1 --activate",
+    //   "name": "corepack enable && corepack prepare pnpm@10.15.1 --activate"
+    // },
     {
       "command": "pnpm install",
-      "name": "pnpm install"
+      "name": "Installing Dependencies"
     }
   ],
 
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
+    // "start": {
+    //   "name": "start",
+    //   "command": "pnpm start",
+    //   "preview": {
+    //     "port": 3000
+    //   }
+    // },
+    // "dev": {
+    //   "name": "dev",
+    //   "command": "pnpm dev",
+    //   "runAtStart": true,
+    //   "preview": {
+    //     "port": 3000
+    //   }
+    // },
+    // "test": {
+    //   "name": "test",
+    //   "command": "pnpm test"
+    // },
     "test": {
       "name": "Run Tests",
       "command": "pnpm test"
