@@ -1,0 +1,24 @@
+{
+  "name": "veriKami °// Remark Deflist Revisited",
+  "out": "demo/docs",
+  "customFooterHtml": "2025 © <a href='https://verikami.com' target='_blank'>veriKami</a> °// <a href='https://linkedin.com/in/verikami' target='_blank'>Weronika Kami</a>",
+  "hideGenerator": true,
+  "customCss": "./demo/assets/docs.css",
+  "ignoredHighlightLanguages": ["markdown"],
+  "hostedBaseUrl": "https://verikami.github.io/remark-deflist-revisited/docs",
+  "useHostedBaseUrlForAbsoluteLinks": true,
+  "readme": "samples/README.md",
+  "markdownLinkExternal": true,
+  "navigationLinks": {
+    "GitHub (examples)": "https://github.com/veriKami/create-remark-deflist-revisited#readme",
+    "NPM": "https://www.npmjs.com/package/@verikami/remark-deflist-revisited",
+    "JSR": "https://jsr.io/@verikami/remark-deflist-revisited",
+    "veriKami": "http://verikami.com"
+  },
+  "sidebarLinks": {
+    "Project Homepage": "https://verikami.github.io/remark-deflist-revisited",
+    "Generated Samples": "https://verikami.github.io/remark-deflist-revisited/generated"
+  },
+  "plugin":["./scripts/typedoc.analytics.js", "typedoc-github-theme"],
+  "gaID": "G-3TQT133E82"
+}

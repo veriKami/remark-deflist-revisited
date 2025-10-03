@@ -1,5 +1,70 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  // Visit https://aka.ms/tsconfig to read more about this file
+  /*/// :><: toggle :>
+  "include": ["src/index.js"], /*/
+  // "include": ["src/index.ts", "src/index.d.ts"],
+  // "include": ["src"],
+  "include": ["src/index.ts", "src/mdast.d.ts"],
+  //*/// :><: toggle :>
+  "exclude": ["node_modules"],
+  // "files": ["src/**/*"],
+  "compilerOptions": {
+    //: ---------------------------
+    "rootDir": "./src",
+    "outDir": "./dist",
+    //: ---------------------------
+    "removeComments": true,
+    // "allowJs": true,
+    // "checkJs": true,
+    // "tsBuildInfoFile": "./dist/index.tsbuildinfo",
+    //: ---------------------------
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "nodenext",
+    // "target": "esnext",
+    "target": "es2022",
+
+    //:
+    //: "types": [],
+    // For nodejs:
+    // "lib": ["esnext"],
+    "lib": ["es2022"],
+    "types": ["node", "vitest/importMeta", "vitest/globals"],
+    // "types": ["node", "vitest/importMeta"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    // "sourceMap": true,
+    "declaration": true,
+    // "declarationMap": true,
+
+    // Stricter Typechecking Options
+    // "noUncheckedIndexedAccess": true,
+    // "exactOptionalPropertyTypes": true,
+    //: Option 'exactOptionalPropertyTypes' cannot be specified
+    //: without specifying option 'strictNullChecks'
+    //: ---------------------------
+    // "strictNullChecks": false,
+    // "noImplicitAny": false,
+    //: ---------------------------
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    // ----------------------------
+    // "strict": true,
+    // "jsx": "react-jsx",
+    // "verbatimModuleSyntax": true,
+    // "isolatedModules": true,
+    // "noUncheckedSideEffectImports": true,
+    // "moduleDetection": "force",
+    // ----------------------------
+    "skipLibCheck": true
+  }
 }

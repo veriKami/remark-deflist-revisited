@@ -1,0 +1,5 @@
+name = "remark-deflist-revisited-worker"
+compatibility_date = "2025-09-23"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+main = "src/index.js"

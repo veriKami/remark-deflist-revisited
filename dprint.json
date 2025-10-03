@@ -1,0 +1,17 @@
+{
+  "includes": ["dist/*.{js,ts}", "lib/*.{js,ts}", "demo/**/*"],
+  "excludes": ["!dist", "scripts/**", "**/node_modules"],
+  "typescript": {
+    "lineWidth": 99,
+    "commentLine.forceSpaceAfterSlashes": false
+  },
+  "markup": {
+    "printWidth": 555,
+    "scriptIndent": true,
+    "styleIndent": true
+  },
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.95.11.wasm",
+    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.24.0.wasm"
+  ]
+}

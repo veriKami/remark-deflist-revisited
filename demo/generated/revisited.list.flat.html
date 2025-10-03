@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Remark Deflist Revisited °// TEST °// list.flat.md (revisited)</title>
+    <meta name="description" content="Remark plugin. A wrapper around remark-deflist with improved
+  support for nested definition lists. It preserves all the original functionality and performs
+  additional processing. Bun, Deno and Cloudflare Workers compatibility. Also works in Astro
+  and web browser.">
+    <meta name="keywords" content="remark, remark-plugin, remark-deflist, markdown, markdown-plugin,
+  definition-list, nested-lists, deflist, unist, astro, parser, wrapper, veriKami, Weronika Kami">
+    <meta name="author" content="veriKami °// Weronika Kami">
+    <meta name="pubdate" content="2025/09/30">
+    <meta name="google-site-verification" content="qGe3Iz5C890mQVRy9dgEO5r5uALAa1kY_w-0GtLsAd8">
+    <style>
+      body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
+      hr { margin: 0 -2rem 1rem; height: 1px; border-width: 0; background-color: #ccc; }
+      pre, dl { border: 1px solid #ccc; margin: 1rem 0; padding: 1rem; background: #fff; }
+      pre { background: #f8f8f8; font-size: .85rem; }
+      dt { font-weight: bold; margin-bottom: .5rem; }
+      dd { margin: 0 1rem .5rem; color: gray; }
+      dd ul, dd ol { margin-left: 0; color: darkblue; }
+      ul, ol { margin-left: 2rem; color: red; }
+      ul li ul, ol li ol { margin-left: 0; }
+      table { border-collapse: collapse; background: #fff; }
+      tr:nth-child(2) td:first-child { color: #aaa; font-weight: normal; }
+      tr:nth-child(2) a { color: darkTurquoise; }
+      td { padding: .3rem .5rem; border: 1px solid #ddd; }
+      td:first-child { text-align: right; font-weight: bold; }
+      a, a:visited { color: blue; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      h1 a, h1 a:hover { text-decoration: none; }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TQT133E82"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-3TQT133E82");
+    </script>
+  </head>
+  <body>
+    <h1><a href="../index.html">🔘</a> list.flat.md (revisited)</h1>
+    <hr>
+    <table>
+      <tr>
+        <td>revisited</td>
+        <td><a href="revisited.list.basic.html">list.basic</a></td>
+        <td><a href="revisited.list.flat.html">list.flat</a></td>
+        <td><a href="revisited.list.multi.html">list.multi</a></td>
+        <td><a href="revisited.list.nested.html">list.nested</a></td>
+        <td><a href="revisited.list.strange.html">list.strange</a></td>
+        <td><a href="revisited._basic.html">_basic</a></td>
+        <td><a href="revisited._original_module.html">_original_module</a></td>
+      </tr>
+      <tr>
+        <td>original module</td>
+        <td><a href="original.list.basic.html">list.basic</a></td>
+        <td><a href="original.list.flat.html">list.flat</a></td>
+        <td><a href="original.list.multi.html">list.multi</a></td>
+        <td><a href="original.list.nested.html">list.nested</a></td>
+        <td><a href="original.list.strange.html">list.strange</a></td>
+        <td><a href="original._basic.html">_basic</a></td>
+        <td><a href="original._original_module.html">_original_module</a></td>
+      </tr>
+    </table>
+    <!-- ## list.flat.md -------------------- -->
+    <pre><code class="language-markdown">Term 1 (flat)
+: - Definition 1
+  Text 1
+  Text 2
+
+Term 2 (flat)
+: - Definition 1
+  **Text 1** plain
+  **Text 2** plain
+
+Term 3 (flat)
+: - **Definition** 1
+  Text 1
+  Text 2
+
+Term 4 (flat)
+: - **Definition** 1
+  **Text 1** plain
+  **Text 2** plain
+</code></pre>
+    <dl>
+      <dt>Term 1 (flat)</dt>
+      <dd>
+        <ul>
+          <li>
+            Definition 1 Text 1 Text 2
+          </li>
+        </ul>
+      </dd>
+      <dt>Term 2 (flat)</dt>
+      <dd>
+        <ul>
+          <li>
+            Definition 1
+            <strong>Text 1</strong> plain
+            <strong>Text 2</strong> plain
+          </li>
+        </ul>
+      </dd>
+      <dt>Term 3 (flat)</dt>
+      <dd>
+        <ul>
+          <li>
+            <strong>Definition</strong> 1 Text 1 Text 2
+          </li>
+        </ul>
+      </dd>
+      <dt>Term 4 (flat)</dt>
+      <dd>
+        <ul>
+          <li>
+            <strong>Definition</strong> 1
+            <strong>Text 1</strong> plain
+            <strong>Text 2</strong> plain
+          </li>
+        </ul>
+      </dd>
+    </dl>
+  </body>
+</html>

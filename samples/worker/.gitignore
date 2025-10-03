@@ -1,0 +1,11 @@
+#: --------------------------------
+#: veriKami
+
+node_modules
+
+**/•*
+*~
+Icon*
+
+package-lock.json
+

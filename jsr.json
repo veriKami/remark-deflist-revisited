@@ -1,0 +1,23 @@
+{
+  "name": "@verikami/remark-deflist-revisited",
+  "version": "0.6.3",
+  "license": "MIT",
+  "exports": "./lib/index.ts",
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "lib/*"
+    ],
+    "exclude": [
+      "!dist"
+    ]
+  },
+  "compatibilityDate": "2025-09-11",
+  "environment": "browser",
+  "compilerOptions": {
+    "lib": [
+      "ES2022"
+    ]
+  }
+}
