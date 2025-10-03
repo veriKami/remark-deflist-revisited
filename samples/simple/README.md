@@ -10,9 +10,9 @@ Minimalist example of using **`@verikami/remark-deflist-revisited`** in Node.js.
 
 **[Remark Deflist Revisited][module]** is a **[Remark]** plugin. A wrapper around **`remark-deflist`** with improved support for nested definition lists. It preserves all the original functionality and performs additional processing.
 
-See also examples of **[Express.js]** and **[Cloudflare Worker]** implementations.
+See also examples of **[Express.js][+:express]**, **[Astro][+:astro]** and **[Cloudflare Worker][+:worker]** implementations.
 
-## ✨ Features
+## Features
 
 - Pure Node.js with minimal dependencies
 - Exportable functions for reuse
@@ -20,12 +20,12 @@ See also examples of **[Express.js]** and **[Cloudflare Worker]** implementation
 - Basic HTML styling
 - Error handling
 
-## 🔧 Requirements
+## Requirements
 
 - Node.js 20 or higher
-- npm or yarn
+- npm, pnpm or yarn
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 ## Install dependencies
@@ -50,7 +50,7 @@ See also examples of **[Express.js]** and **[Cloudflare Worker]** implementation
 ツ npm test
 ```
 
-## 💻 Usage Examples
+## Usage Examples
 
 ### As a Script
 
@@ -67,13 +67,13 @@ const html = await processMarkdown('Your **markdown** content');
 const page = createHTMLPage(html, 'Page Title');
 ```
 
-## 📁 Files
+## Files
 
 - `index.js` → Main processor with exportable functions
 - `example.js` → How to use as a module
 - `test.js` → Basic functionality tests
 
-## 📦 Output
+## Output
 
 Running `npm start` generates `output.html` file with:
 
@@ -81,34 +81,37 @@ Running `npm start` generates `output.html` file with:
 - Definition lists support
 - Basic CSS styling
 
-## 📄 License
+## License
 
-This project is Open Source and available under the MIT License.
-
+This project is Open Source and available under the MIT License  
 2025 © MIT °// [veriKami] °// [Weronika Kami]
 
 [veriKami]: https://verikami.com
 [Weronika Kami]: https://linkedin.com/in/verikami
 
 [module]: https://github.com/veriKami/remark-deflist-revisited
-[Simple]: https://github.com/veriKami/remark-deflist-revisited-simple
-[Express.js]: https://github.com/veriKami/remark-deflist-revisited-express
-[Cloudflare Worker]: https://github.com/veriKami/remark-deflist-revisited-worker
+[+:simple]: https://github.com/veriKami/remark-deflist-revisited-simple
+[+:express]: https://github.com/veriKami/remark-deflist-revisited-express
+[+:worker]: https://github.com/veriKami/remark-deflist-revisited-worker
+[+:astro]: https://github.com/veriKami/remark-deflist-revisited-astro
 
 [GH]: https://github.com/veriKami/remark-deflist-revisited
 [GH Badge]: https://img.shields.io/badge/GitHub-Repository-blue?logo=github
 
 [Remark]: https://remark.js.org
+[Express.js]: https://expressjs.com
 
-[NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
+[GH Badge]: https://img.shields.io/badge/GitHub-Repository-blue?logo=github
+[GH]: https://github.com/veriKami/remark-deflist-revisited
+
 [NPM Badge]: https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=red&color=black
+[NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 
-[JSR]: https://jsr.io/@verikami/remark-deflist-revisited
 [JSR Badge]: https://jsr.io/badges/@verikami/remark-deflist-revisited
+[JSR]: https://jsr.io/@verikami/remark-deflist-revisited
 
-[Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 [Downloads Badge]: https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg
+[Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 
-[Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
 [Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited
-
+[Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
