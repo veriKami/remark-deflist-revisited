@@ -1,7 +1,26 @@
 {
   "name": "remark-deflist-revisited-astro",
-  "type": "module",
   "version": "0.1.0",
+  "description": "Astro example for @verikami/remark-deflist-revisited",
+  "keywords": [
+    "remark",
+    "remark-plugin",
+    "remark-deflist",
+    "markdown",
+    "markdown-plugin",
+    "definition-list",
+    "deflist",
+    "parser",
+    "veriKami"
+  ],
+  "author": "veriKami <verikami@gmail.com> (https://verikami.com/)",
+  "license": "MIT",
+  "repository": "github:veriKami/remark-deflist-revisited-astro",
+  "homepage": "https://github.com/veriKami/remark-deflist-revisited-astro#readme",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,7 +28,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@verikami/remark-deflist-revisited": "^0.6.2",
+    "@verikami/remark-deflist-revisited": "^0.6.4",
     "astro": "^5.14.1"
   }
 }
