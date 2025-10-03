@@ -10,11 +10,11 @@ Cloudflare Worker implementation of the **`@verikami/remark-deflist-revisited`**
 
 **[Remark Deflist Revisited][module]** is a **[Remark]** plugin. A wrapper around **`remark-deflist`** with improved support for nested definition lists. It preserves all the original functionality and performs additional processing. 
 
-## 📄 Overview
+## Overview
 
-This project provides a Cloudflare Worker example showcasing how to use **`remark-deflist-revisited`** in serverless edge environment. **[Express.js]** and **[Simple]** examples are also available.
+This project provides a Cloudflare Worker example showcasing how to use **`remark-deflist-revisited`** in serverless edge environment. **[Express.js][+:express]**, **[Astro][+:astro]** and **[Simple][+:simple]** examples are also available.
 
-## ✨ Features
+## Features
 
 - **Enhanced Definition Lists**: Support for complex nested structures
 - **Serverless Architecture**: No server management, automatic scaling
@@ -22,7 +22,7 @@ This project provides a Cloudflare Worker example showcasing how to use **`remar
 - **Beautiful Styling**: Professional CSS styling with gradient background
 - **Error Handling**: Comprehensive error handling and validation
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -53,7 +53,7 @@ This project provides a Cloudflare Worker example showcasing how to use **`remar
 
 The worker will be available at your Cloudflare Workers URL.
 
-## 📖 API Endpoint
+## API Endpoint
 
 ### GET `/`
 
@@ -61,7 +61,7 @@ The worker will be available at your Cloudflare Workers URL.
 - **Description**: Returns a demo page with pre-processed markdown
 - **Response**: HTML page with styled content
 
-## 💻 Usage Examples
+## Usage Examples
 
 ### Accessing the Worker
 
@@ -98,7 +98,7 @@ export default {
 }
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .
@@ -109,7 +109,7 @@ export default {
 └── README.md             # This file
 ```
 
-## 📦 Dependencies
+## Dependencies
 
 ### Production Dependencies
 
@@ -122,18 +122,17 @@ export default {
 
 - `wrangler` → Cloudflare Workers CLI
 
-## 🎯 Comparison with Express.js version
+## Comparison with Other Implementations
 
-| Feature | Cloudflare Worker | Express.js Version |
-|---------|-------------------|-------------------|
-| **Environment** | Edge runtime | Server runtime |
-| **Deployment** | Cloudflare Workers | Any Node.js host |
-| **Scalability** | Automatic scaling | Manual scaling |
-| **Cold Start** | ~5ms | Standard Node.js startup |
-| **Global Distribution** | 300+ locations | Single region |
-| **Cost** | Pay-per-request | Fixed server cost |
+| Feature         | Express.js   | Astro Integration   | Cloudflare Worker |
+|-----------------|--------------|---------------------|-------------------|
+| **Rendering**   | Server-side  | SSG/SSR             | Edge              |
+| **Build Time**  | Runtime      | Pre-built at deploy | Runtime           |
+| **Performance** | Good         | Excellent (static)  | Excellent (edge)  |
+| **Complexity**  | Medium       | Low                 | Low               |
+| **Use Case**    | Dynamic apps | Documentation sites | API endpoints     |
 
-## 🛠️ Development
+## Development
 
 ### Local Testing
 
@@ -177,40 +176,41 @@ const htmlResponse = `
 `;
 ```
 
-## 🌍 Edge Computing Benefits
+## Edge Computing Benefits
 
 - **Reduced Latency**: Process markdown closer to users
 - **High Availability**: Automatic failover between locations
 - **Zero Maintenance**: No server management required
 - **Cost Effective**: Pay only for what you use
 
-## 📄 License
+## License
 
-This project is Open Source and available under the MIT License.
-
-2025 © MIT °// [veriKami] °// [Weronika Kami] °// [remark-deflist-revisited](https://github.com/verikami/remark-deflist-revisited)
+This project is Open Source and available under the MIT License  
+2025 © MIT °// [veriKami] °// [Weronika Kami]
 
 [veriKami]: https://verikami.com
 [Weronika Kami]: https://linkedin.com/in/verikami
 
 [module]: https://github.com/veriKami/remark-deflist-revisited
-[Simple]: https://github.com/veriKami/remark-deflist-revisited-simple
-[Express.js]: https://github.com/veriKami/remark-deflist-revisited-express
-
-[GH]: https://github.com/veriKami/remark-deflist-revisited
-[GH Badge]: https://img.shields.io/badge/GitHub-Repository-blue?logo=github
+[+:simple]: https://github.com/veriKami/remark-deflist-revisited-simple
+[+:express]: https://github.com/veriKami/remark-deflist-revisited-express
+[+:worker]: https://github.com/veriKami/remark-deflist-revisited-worker
+[+:astro]: https://github.com/veriKami/remark-deflist-revisited-astro
 
 [Remark]: https://remark.js.org
-[Cloudflare Workers]: https://workers.cloudflare.com
+[Astro]: https://astro.build
 
-[NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
+[GH Badge]: https://img.shields.io/badge/GitHub-Repository-blue?logo=github
+[GH]: https://github.com/veriKami/remark-deflist-revisited
+
 [NPM Badge]: https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=red&color=black
+[NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 
-[JSR]: https://jsr.io/@verikami/remark-deflist-revisited
 [JSR Badge]: https://jsr.io/badges/@verikami/remark-deflist-revisited
+[JSR]: https://jsr.io/@verikami/remark-deflist-revisited
 
-[Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 [Downloads Badge]: https://img.shields.io/npm/dm/@verikami/remark-deflist-revisited.svg
+[Downloads]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 
-[Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
 [Socket Badge]: https://badge.socket.dev/npm/package/@verikami/remark-deflist-revisited
+[Socket]: https://socket.dev/npm/package/@verikami/remark-deflist-revisited
