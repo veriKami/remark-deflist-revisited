@@ -222,49 +222,49 @@ They are also published as standalone repositories (templates):
 The interactive Sample Installer is available from version v6.0.0.
 
 ```bash
-# npm
+## npm
 ツ npm create remark-deflist-revisited@latest
 
-# pnpm
+## pnpm
 ツ pnpm create remark-deflist-revisited
 
-# yarn
+## yarn
 ツ yarn create remark-deflist-revisited
 ```
 
 Automatic installation of Cloudflare Worker demo is available from version v0.5.22
     
 ```bash
-# installer
+## installer
 ツ npx @verikami/remark-deflist-revisited
 
-# latest version
+## latest version
 ツ npx @verikami/remark-deflist-revisited@latest
 
-# how to use 
+## how to use 
 ツ npx @verikami/remark-deflist-revisited --help
 ``` 
 
 To see sample html output in terminal run
 
 ```bash
-# (node): scripts/sample.node.js
+## (node): scripts/sample.node.js
 ツ pnpm sample
 
-# (bun): scripts/sample.node.js
+## (bun): scripts/sample.node.js
 ツ pnpm sample:bun
 
-# (deno): scripts/sample.deno.js
+## (deno): scripts/sample.deno.js
 ツ pnpm sample:deno
 ```
 
 To regenerate `./demo/generated/*` html files run 
 
 ```bash
-# (node): dist/index.js
+## (node): dist/index.js
 ツ pnpm demo
 
-# (tsx): src/index.ts
+## (tsx): src/index.ts
 ツ pnpm demo:ts
 ```
 
@@ -295,11 +295,6 @@ CI/CD (GitHub Actions)
 └──────────┴─────────┴─────────┘
 ```
 
-<!--
-[![Downloads][Downloads Badge]][Downloads]
-[![Socket][Socket Badge]][Socket]
--->
-
 ## License
 
 Original work — MIT © Alex Shaw
@@ -307,7 +302,7 @@ Original work — MIT © Alex Shaw
 * [gh: Symbitic/remark-plugins](https://github.com/Symbitic/remark-plugins)
 * [npm: remark-deflist](https://www.npmjs.com/package/remark-deflist)
 
-This project is Open Source and available under the MIT License.  
+This project is Open Source and available under the MIT License  
 2025 © MIT °// [veriKami] °// [Weronika Kami]
 
 [veriKami]: https://verikami.com

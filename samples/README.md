@@ -43,27 +43,9 @@ You can play with these examples via **[StackBlitz]** web IDE:
 ツ npx @verikami/remark-deflist-revisited --help
 ```
 
-<!--
-## Repositories (templates)
-
-```bash
-## Simple Node.js example
-ツ git clone git@github.com:veriKami/remark-deflist-revisited-simple.git
-
-## Express.js example
-ツ git clone git@github.com:veriKami/remark-deflist-revisited-express.git
-
-## Cloudflare Worker example
-ツ git clone git@github.com:veriKami/remark-deflist-revisited-worker.git
-
-## Astro example
-ツ git clone git@github.com:veriKami/remark-deflist-revisited-astro.git
-```
--->
-
 ## License
 
-This project is Open Source and available under the MIT License.  
+This project is Open Source and available under the MIT License  
 2025 © MIT °// [veriKami] °// [Weronika Kami]
 
 [veriKami]: https://verikami.com
