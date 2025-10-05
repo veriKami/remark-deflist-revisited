@@ -287,7 +287,9 @@ const deflistWithLists: Plugin<[], Root> = () => {
   };
 };
 
-//////////////////////////////////////////////////////////////////////
+//: --------------------------------------------------------
+//: INTERNAL
+//: --------------------------------------------------------
 /**
  * A collection of helper functions for creating and manipulating MDAST nodes.
  * @namespace $

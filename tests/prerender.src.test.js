@@ -57,7 +57,7 @@ const leaf = {
 //: -----------------------------------------
 
 test("Function: prerenderMarkdown()", () => {
-  expect(leaf[1]).toBe("\n&#x20;Definition\n");
   expect(leaf[0]).toBe("Definition\n");
+  expect(leaf[1]).toBe("\n&#x20;Definition\n");
   expect(leaf[2]).toBe("* Definition\n");
 });
