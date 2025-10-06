@@ -40,7 +40,7 @@ async function processMarkdown(markdown) {
           .container {
             background: white;
             border-radius: 12px;
-            padding: 30px;
+            padding: 20px 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
           }
           h1, h2 { color: hotpink; margin-top: 0; }
@@ -61,7 +61,7 @@ async function processMarkdown(markdown) {
           li { margin: 0; }
           a, a:visited { color: silver; text-decoration: none; }
           a:hover { text-decoration: underline; }
-          hr { margin: 40px 0 20px; border: none; border-top: 1px solid #ddd; }
+          hr { margin: 30px 0 15px; border: none; border-top: 1px solid #ddd; }
           footer { text-align: center; color: #888; font-size: 0.9em; }
         </style>
       </head>
