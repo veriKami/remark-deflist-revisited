@@ -98,11 +98,6 @@ const markdown = dedent`
     - Bun
 `;
 
-// const output = await remark()
-//   .use(deflist)
-//   .use(html)
-//   .process(markdown);
-
 const output = await processMarkdown(markdown);
 
 const server = createServer((req, res) => {
