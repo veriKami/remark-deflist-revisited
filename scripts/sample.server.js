@@ -40,7 +40,7 @@ async function processMarkdown(markdown) {
           .container {
             background: white;
             border-radius: 12px;
-            padding: 20px 30px;
+            padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
           }
           h1, h2 { color: hotpink; margin-top: 0; }
