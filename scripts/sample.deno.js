@@ -3,7 +3,7 @@
 //: --------------------------------------------------------
 import { remark } from "npm:remark@^15";
 import html from "npm:remark-html@^16";
-// import deflist from "npm:@verikami/remark-deflist-revisited";
+//: -----------------------------------------
 import deflist from "../lib/index.ts";
 
 let markdown;

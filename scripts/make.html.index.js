@@ -8,7 +8,7 @@ import dedent from "dedent";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
 import { execSync } from "node:child_process";
-//: --------------------------------------------------------
+//: -----------------------------------------
 import deflist from "../dist/index.js";
 
 //: SETUP

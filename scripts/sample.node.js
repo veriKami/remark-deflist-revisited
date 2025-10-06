@@ -3,7 +3,7 @@
 //: --------------------------------------------------------
 import { remark } from "remark";
 import html from "remark-html";
-// import deflist from "@verikami/remark-deflist-revisited";
+//: -----------------------------------------
 import deflist from "../dist/index.js";
 
 let markdown;

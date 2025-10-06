@@ -4,12 +4,14 @@
 import { createServer } from "http";
 import { remark } from "remark";
 import html from "remark-html";
-// import deflist from "@verikami/remark-deflist-revisited";
+//: -----------------------------------------
 import deflist from "../dist/index.js";
 
 const PORT = process.env.PORT || 3000;
 
 const markdown = `
+# Remark Deflist Revisited
+
 Term
 : Definition
   - item A

@@ -5,7 +5,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { execSync } from "node:child_process";
 
-//*/// :><: toggle :>
 //: --------------------------------------------------------
 //: FULL (major|minor|patch) + dry run
 //: --------------------------------------------------------
