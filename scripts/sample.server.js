@@ -27,7 +27,7 @@ async function processMarkdown(markdown) {
         <title>Remark Deflist Revisited °// Server Example</title>
         <meta name="author" content="veriKami °// Weronika Kami">
         <style>
-          html { height: 100%; }
+          html { min-height: 100%; }
           body {
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             max-width: 800px;
