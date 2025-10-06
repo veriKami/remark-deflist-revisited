@@ -27,6 +27,7 @@ async function processMarkdown(markdown) {
         <title>Remark Deflist Revisited °// Server Example</title>
         <meta name="author" content="veriKami °// Weronika Kami">
         <style>
+          html { height: 100%; }
           body {
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             max-width: 800px;
@@ -42,7 +43,7 @@ async function processMarkdown(markdown) {
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
           }
-          h1, h2 { color: #667eea; margin-top: 0; }
+          h1, h2 { color: hotpink; margin-top: 0; }
           dl { margin: 10px 0; }
           dt {
             font-weight: bold;
@@ -52,22 +53,28 @@ async function processMarkdown(markdown) {
           }
           dd {
             margin: 5px 0 0 40px;
+            padding: 0;
             color: #666;
           }
+          p { margin: 5px 0 0; padding: 0;}
           ul { margin: 0 10px; }
           li { margin: 0; }
+          a, a:visited { color: silver; text-decoration: none; }
+          a:hover { text-decoration: underline; }
+          hr { margin: 40px 0 20px; border: none; border-top: 1px solid #ddd; }
+          footer { text-align: center; color: #888; font-size: 0.9em; }
         </style>
       </head>
       <body>
         <div class="container">
           ${String(output)}
-          <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
-          <p style="text-align: center; color: #888; font-size: 0.9em;">
+          <hr>
+          <footer>
             Created by <a href="https://verikami.com" target="_blank">veriKami</a> °//
             <a href="https://linkedin.com/in/verikami" target="_blank">Weronika Kami</a> °//
             <a href="https://www.npmjs.com/package/@verikami/remark-deflist-revisited"
               target="_blank">remark-deflist-revisited</a>
-          </p>
+          </footer>
         </div>
       </body>
     </html>
