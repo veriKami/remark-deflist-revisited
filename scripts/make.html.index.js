@@ -37,6 +37,7 @@ const makeHtml = ($ = {}) => {
     <meta name="author" content="veriKami °// Weronika Kami">
     <meta name="pubdate" content="2025/09/30">
     <meta name="google-site-verification" content="qGe3Iz5C890mQVRy9dgEO5r5uALAa1kY_w-0GtLsAd8">
+    <link rel="canonical" href="https://verikami.github.io/remark-deflist-revisited/" hreflang="en">
     <style>
     body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
     hr { margin: 0 -2rem 1rem; height: 1px; border-width: 0; background-color: #ccc; }
