@@ -17,6 +17,7 @@
   },
   "sidebarLinks": {
     "Project Homepage": "https://verikami.github.io/remark-deflist-revisited",
+    "CodeSandbox Devbox": "https://verikami.github.io/remark-deflist-revisited/codesandbox",
     "Generated Samples": "https://verikami.github.io/remark-deflist-revisited/generated"
   },
   "plugin":["./scripts/typedoc.analytics.js", "typedoc-github-theme"],

@@ -88,26 +88,32 @@ const htmlHeader = `
   </h1>
   <hr>
   <navigate>
-  <ul>
-  <li>
-    <p>
-      html generated from markdown @
-      <a href="generated/revisited.list.basic.html">generated/index.html</a>
-    </p>
-  </li>
-  <li>
-    <p>
-      test inline script from https://esm.sh @
-      <a href="script.esm.sh.html">script.esm.sh.html</a>
-    </p>
-  </li>
-  <li>
-    <p>
-      documentation available @
-      <a href="docs/index.html">docs/index.html</a>
-    </p>
-  </li>
-  </ul>
+    <ul>
+      <li>
+        <p>
+          CodeSandbox Devbox @
+          <a href="codesandbox/index.html">codesandbox/index.html</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          Module Documentation @
+          <a href="docs/index.html">docs/index.html</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          HTML with inline script via https://esm.sh @
+          <a href="html/index.html">html/index.html</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          HTML (tests) generated from markdown @
+          <a href="generated/revisited.list.basic.html">generated/index.html</a>
+        </p>
+      </li>
+    </ul>
   </navigate>
 `;
 
