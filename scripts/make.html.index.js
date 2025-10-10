@@ -91,14 +91,14 @@ const htmlHeader = `
     <ul>
       <li>
         <p>
-          CodeSandbox Devbox @
-          <a href="codesandbox/index.html">codesandbox/index.html</a>
+          Module Documentation @
+          <a href="docs/index.html">docs/index.html</a>
         </p>
       </li>
       <li>
         <p>
-          Module Documentation @
-          <a href="docs/index.html">docs/index.html</a>
+          CodeSandbox Devbox @
+          <a href="codesandbox/index.html">codesandbox/index.html</a>
         </p>
       </li>
       <li>
