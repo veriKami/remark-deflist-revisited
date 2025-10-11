@@ -82,7 +82,7 @@ Term 2 (nested) with: -
     - Sub 1 with: -
       - Pub 1 with: -
 
-### 🔘 <span style="color:maroon">Unresolved</span> (by design)
+### <span style="color:maroon">Unresolved</span> (by design)
 ```markdown
 Term 2 (nested) with: -
 : Definition @ 1
