@@ -21,7 +21,7 @@ const files = fs.readdirSync(fixturesDir).filter(f => f.endsWith(".md"));
 
 //: HTML
 //: --------------------------------------------------------
-const htmlHeader = `
+const htmlHeader = dedent`
   <header>
     <h1>
     <a href="https://github.com/veriKami/remark-deflist-revisited" target="_blank">
@@ -31,31 +31,24 @@ const htmlHeader = `
   <hr>
   <navigate>
     <ul class="first">
-      <li>
-        <p>
-          Module Documentation @
-          <a href="docs/index.html">docs/index.html</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          CodeSandbox Devbox @
-          <a href="codesandbox/index.html">codesandbox/index.html</a>
-        </p>
-      </li>
-    </ul><ul class="last">
-      <li>
-        <p>
-          HTML with inline script via https://esm.sh @
-          <a href="html/index.html">html/index.html</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          HTML (tests) generated from markdown @
-          <a href="generated/revisited.list.basic.html">generated/index.html</a>
-        </p>
-      </li>
+    <li><p>
+      Module Documentation @
+      <a href="docs/index.html">docs/index.html</a>
+    </p></li>
+    <li><p>
+      CodeSandbox Devbox @
+      <a href="codesandbox/index.html">codesandbox/index.html</a>
+    </p></li>
+    </ul>
+    <ul class="last">
+    <li><p>
+      HTML with inline script via https://esm.sh @
+      <a href="html/index.html">html/index.html</a>
+    </p></li>
+    <li><p>
+      HTML (tests) generated from markdown @
+      <a href="generated/revisited.list.basic.html">generated/index.html</a>
+    </p></li>
     </ul>
   </navigate>
 `;
@@ -74,7 +67,7 @@ const makeHtml = ($ = {}) => {
     <meta name="keywords" content="remark, remark-plugin, remark-deflist, markdown, markdown-plugin,
       definition-list, nested-lists, deflist, unist, astro, parser, wrapper, veriKami, Weronika Kami">
     <meta name="author" content="veriKami °// Weronika Kami">
-    <meta name="pubdate" content="2025/09/30">
+    <meta name="pubdate" content="2025/10/08">
     <meta name="google-site-verification" content="qGe3Iz5C890mQVRy9dgEO5r5uALAa1kY_w-0GtLsAd8">
     <link rel="canonical" href="https://verikami.github.io/remark-deflist-revisited/" hreflang="en">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css">
