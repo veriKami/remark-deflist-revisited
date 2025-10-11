@@ -2,16 +2,16 @@
 /* MAIN ************************ */
 html { min-height: 100%; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  max-width: 650px;
   margin: 0 auto;
   padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.2;
+  max-width: 650px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #333;
 }
 .container {
-  margin-top: 75px;
+  margin-top: 85px;
   padding: 25px;
   background: white;
   border-radius: 12px;
