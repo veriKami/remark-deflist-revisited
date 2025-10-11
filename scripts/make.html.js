@@ -102,6 +102,7 @@ const makeFiles = (mode = "revisited") => {
   files.forEach(file => {
     try {
       const input = fs.readFileSync(path.join(fixturesDir, file), "utf8");
+
       const html = remark()
         .use(deflist)
         .use(remarkHtml, { sanitize: false })

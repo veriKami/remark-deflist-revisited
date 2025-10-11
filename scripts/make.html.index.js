@@ -21,6 +21,45 @@ const files = fs.readdirSync(fixturesDir).filter(f => f.endsWith(".md"));
 
 //: HTML
 //: --------------------------------------------------------
+const htmlHeader = `
+  <header>
+    <h1>
+    <a href="https://github.com/veriKami/remark-deflist-revisited" target="_blank">
+      veriKami °// Remark Deflist Revisited</a>
+    </h1>
+  </header>
+  <hr>
+  <navigate>
+    <ul class="first">
+      <li>
+        <p>
+          Module Documentation @
+          <a href="docs/index.html">docs/index.html</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          CodeSandbox Devbox @
+          <a href="codesandbox/index.html">codesandbox/index.html</a>
+        </p>
+      </li>
+    </ul><ul class="last">
+      <li>
+        <p>
+          HTML with inline script via https://esm.sh @
+          <a href="html/index.html">html/index.html</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          HTML (tests) generated from markdown @
+          <a href="generated/revisited.list.basic.html">generated/index.html</a>
+        </p>
+      </li>
+    </ul>
+  </navigate>
+`;
+
 const makeHtml = ($ = {}) => {
   return dedent.withOptions({ alignValues: true })`
     <!DOCTYPE html>
@@ -38,37 +77,18 @@ const makeHtml = ($ = {}) => {
     <meta name="pubdate" content="2025/09/30">
     <meta name="google-site-verification" content="qGe3Iz5C890mQVRy9dgEO5r5uALAa1kY_w-0GtLsAd8">
     <link rel="canonical" href="https://verikami.github.io/remark-deflist-revisited/" hreflang="en">
-    <style>
-    body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
-    hr { margin: 0 -2rem 1rem; height: 1px; border-width: 0; background-color: #ccc; }
-    pre, dl { border: 1px solid #ccc; margin: 1rem 0; padding: 1rem; background: #fff; }
-    pre { background: #f8f8f8; font-size: .85rem; }
-    dt { font-weight: bold; margin-bottom: .5rem; }
-    dd { margin: 0 1rem .5rem; color: gray; }
-    dd ul, dd ol { margin-left: 0; color: darkblue; }
-    ul, ol { margin-left: 2rem; __color: red; }
-    ul li ul, ol li ol { margin-left: 0; }
-    table { border-collapse: collapse; background: #fff; }
-    tr:nth-child(2) td:first-child { color: #aaa; font-weight: normal; }
-    tr:nth-child(2) a { color: darkTurquoise; }
-    td { padding: .3rem .5rem; border: 1px solid #ddd; }
-    td:first-child { text-align: right; font-weight: bold; }
-    a, a:visited { color: blue; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    h1 a, h1 a:visited, h1 a:hover { text-decoration: none; color: inherit; }
-    h1 { padding: 0 4.5rem; }
-    navigate ul { margin: 2.5rem 5rem; color: red; }
-    navigate li p,
-    navigate li code { color: black; }
-    navigate li code { padding: .3rem .5rem; background: #f5f5f5; border:1px solid #ddd; }
-    main { padding: .5rem 4.5rem; }
-    main ul, main ol { padding: 0 1rem; }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css">
+    <link rel="stylesheet" href="assets/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TQT133E82"></script>
+    <script>hljs.highlightAll();</script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date()); gtag("config", "G-3TQT133E82");
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-3TQT133E82");
     </script>
     </head>
     <body>
@@ -81,42 +101,6 @@ const makeHtml = ($ = {}) => {
     </html>`;
 };
 
-const htmlHeader = `
-  <h1>
-    <a href="https://github.com/veriKami/remark-deflist-revisited" target="_blank">
-    veriKami °// Remark Deflist Revisited</a>
-  </h1>
-  <hr>
-  <navigate>
-    <ul>
-      <li>
-        <p>
-          Module Documentation @
-          <a href="docs/index.html">docs/index.html</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          CodeSandbox Devbox @
-          <a href="codesandbox/index.html">codesandbox/index.html</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          HTML with inline script via https://esm.sh @
-          <a href="html/index.html">html/index.html</a>
-        </p>
-      </li>
-      <li>
-        <p>
-          HTML (tests) generated from markdown @
-          <a href="generated/revisited.list.basic.html">generated/index.html</a>
-        </p>
-      </li>
-    </ul>
-  </navigate>
-`;
-
 //: FILES
 //: --------------------------------------------------------
 const makeFiles = (mode) => {
@@ -125,6 +109,7 @@ const makeFiles = (mode) => {
   files.forEach(file => {
     try {
       const input = fs.readFileSync(path.join(fixturesDir, file), "utf8");
+
       const html = remark()
         .use(deflist)
         .use(remarkHtml)
