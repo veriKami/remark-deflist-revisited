@@ -42,12 +42,12 @@ const htmlHeader = dedent`
     </ul>
     <ul class="last">
     <li><p>
-      HTML with inline script via https://esm.sh @
-      <a href="html/index.html">html/index.html</a>
+      HTML (real life test) generated from markdown @
+      <a href="generated/index.html">generated/index.html</a>
     </p></li>
     <li><p>
-      HTML (tests) generated from markdown @
-      <a href="generated/revisited.list.basic.html">generated/index.html</a>
+      HTML with inline script via https://esm.sh @
+      <a href="html/index.html">html/index.html</a>
     </p></li>
     </ul>
   </navigate>
@@ -73,8 +73,8 @@ const makeHtml = ($ = {}) => {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css">
     <link rel="stylesheet" href="assets/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TQT133E82"></script>
     <script>hljs.highlightAll();</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TQT133E82"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {

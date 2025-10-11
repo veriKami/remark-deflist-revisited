@@ -62,10 +62,10 @@ if (noPush) {
   console.log(`✓ Release v${v} pushed`);
 }
 
-/*/// :><: toggle :>
 //: --------------------------------------------------------
 //: BASIC (patch)
 //: --------------------------------------------------------
+/*/// :><: toggle :>
 
 execSync("pnpm version patch --no-git-tag-version", { stdio: "inherit" });
 

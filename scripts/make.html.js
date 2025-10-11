@@ -28,7 +28,7 @@ const makeHtml = ($ = {}) => {
     <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <title>Remark Deflist Revisited °// TEST °// ${$?.file} (${$?.mode})</title>
+    <title>Remark Deflist Revisited °// TEST \\° ${$?.file} (${$?.mode})</title>
     <meta name="description" content="Remark plugin. A wrapper around remark-deflist with improved
       support for nested definition lists. It preserves all the original functionality and performs
       additional processing. Bun, Deno and Cloudflare Workers compatibility. Also works in Astro
@@ -36,27 +36,13 @@ const makeHtml = ($ = {}) => {
     <meta name="keywords" content="remark, remark-plugin, remark-deflist, markdown, markdown-plugin,
       definition-list, nested-lists, deflist, unist, astro, parser, wrapper, veriKami, Weronika Kami">
     <meta name="author" content="veriKami °// Weronika Kami">
-    <meta name="pubdate" content="2025/09/30">
+    <meta name="pubdate" content="2025/10/08">
     <meta name="google-site-verification" content="qGe3Iz5C890mQVRy9dgEO5r5uALAa1kY_w-0GtLsAd8">
-    <style>
-    body { font-family: sans-serif; font-size: 1rem; padding: 0 2rem 2rem; background: #fff; }
-    hr { margin: 0 -2rem 1rem; height: 1px; border-width: 0; background-color: #ccc; }
-    pre, dl { border: 1px solid #ccc; margin: 1rem 0; padding: 1rem; background: #fff; }
-    pre { background: #f8f8f8; font-size: .85rem; }
-    dt { font-weight: bold; margin-bottom: .5rem; }
-    dd { margin: 0 1rem .5rem; color: gray; }
-    dd ul, dd ol { margin-left: 0; color: darkblue; }
-    ul, ol { margin-left: 2rem; color: red; }
-    ul li ul, ol li ol { margin-left: 0; }
-    table { border-collapse: collapse; background: #fff; }
-    tr:nth-child(2) td:first-child { color: #aaa; font-weight: normal; }
-    tr:nth-child(2) a { color: darkTurquoise; }
-    td { padding: .3rem .5rem; border: 1px solid #ddd; }
-    td:first-child { text-align: right; font-weight: bold; }
-    a, a:visited { color: blue; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    h1 a, h1 a:hover { text-decoration: none; }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css">
+    <link rel="stylesheet" _href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css">
+    <link rel="stylesheet" href="../assets/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TQT133E82"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -65,13 +51,22 @@ const makeHtml = ($ = {}) => {
     </script>
     </head>
     <body>
-    <h1><a href="../index.html">🔘</a> ${$?.file} (${$?.mode})</h1>
+    <header>
+      <h1><a href="../index.html">Remark Deflist Revisited</a> °// TEST \\° ${$?.file} (${$?.mode})</h1>
+    </header>
     <hr>
-    <table>
-    <tr><td>revisited</td><td>${$?.menuRevisited}</td></tr>
-    <tr><td>original module</td><td>${$?.menuOriginal}</td></tr>
-    </table>
+    <navigate>
+      <table>
+      <tr><td>revisited</td><td>${$?.menuRevisited}</td></tr>
+      <tr><td>original module</td><td>${$?.menuOriginal}</td></tr>
+      </table>
+    </navigate>
+    <hr>
+    <main>
+      <article>
     ${$?.html}
+      </article>
+    </main>
     </body>
     </html>`;
 };

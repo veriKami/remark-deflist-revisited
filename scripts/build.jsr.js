@@ -50,7 +50,7 @@ const multiSpace = new RegExp("^\\s*$\\r?\\n", "gm");
 for (const file of libFiles) {
   const code = fs.readFileSync(file, "utf8");
   const cleaned = code
-    .replace("/* c8 ignore next */", "")
+    .replaceAll("/* c8 ignore next */", "")
     // .replace(multiLineComment, "")
     .replace(singleLineComment, "")
     .replace(multiSpace, "");
