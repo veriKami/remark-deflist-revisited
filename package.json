@@ -23,7 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/veriKami/remark-deflist-revisited.git"
   },
-  "homepage": "https://verikami.com",
+  "homepage": "https://verikami.github.io",
   "publishConfig": {
     "access": "public"
   },
@@ -100,7 +100,7 @@
   "devDependencies": {
     "@eslint/js": "^9.37.0",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^24.7.1",
+    "@types/node": "^24.7.2",
     "@types/unist": "^3.0.3",
     "@vitest/coverage-v8": "^3.2.4",
     "dedent": "^1.7.0",
@@ -112,7 +112,7 @@
     "remark-html": "^16.0.1",
     "remark-parse": "^11.0.0",
     "tsx": "^4.20.6",
-    "typedoc": "^0.28.13",
+    "typedoc": "^0.28.14",
     "typedoc-github-theme": "^0.3.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0",
