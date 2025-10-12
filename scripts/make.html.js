@@ -28,7 +28,7 @@ const makeHtml = ($ = {}) => {
     <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <title>Remark Deflist Revisited °// TEST \\° ${$?.file} (${$?.mode})</title>
+    <title>Remark Deflist Revisited \\° TEST °// ${$?.file} (${$?.mode})</title>
     <meta name="description" content="Remark plugin. A wrapper around remark-deflist with improved
       support for nested definition lists. It preserves all the original functionality and performs
       additional processing. Bun, Deno and Cloudflare Workers compatibility. Also works in Astro
@@ -52,7 +52,7 @@ const makeHtml = ($ = {}) => {
     </head>
     <body>
     <header>
-      <h1><a href="../index.html">Remark Deflist Revisited</a> °// TEST \\° ${$?.file} (${$?.mode})</h1>
+      <h1><a href="../index.html">Remark Deflist Revisited</a> \\° TEST °// ${$?.file} (${$?.mode})</h1>
     </header>
     <hr>
     <navigate>
