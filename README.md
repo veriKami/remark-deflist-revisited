@@ -303,7 +303,7 @@ Original work — MIT © Alex Shaw
 * [npm: remark-deflist](https://www.npmjs.com/package/remark-deflist)
 
 This project is Open Source and available under the MIT License  
-2025 © MIT °// [veriKami] °// [Weronika Kami]
+2025 © MIT \\\° [veriKami] °// [Weronika Kami]
 
 [veriKami]: https://verikami.com
 [Weronika Kami]: https://linkedin.com/in/verikami
@@ -335,7 +335,7 @@ This project is Open Source and available under the MIT License
 [CI Badge]: https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml/badge.svg
 [CI]: https://github.com/veriKami/remark-deflist-revisited/actions/workflows/publish.yml
 
-[NPM Badge]: https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=red&color=black
+[NPM Badge]: https://img.shields.io/npm/v/@verikami/remark-deflist-revisited?logo=npm&logoColor=white&labelColor=crimson&color=black
 [NPM]: https://www.npmjs.com/package/@verikami/remark-deflist-revisited
 
 [JSR Badge]: https://jsr.io/badges/@verikami/remark-deflist-revisited
