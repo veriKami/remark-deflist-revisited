@@ -6,7 +6,7 @@
   "customCss": "./demo/assets/docs.css",
   "ignoredHighlightLanguages": ["markdown"],
   "hostedBaseUrl": "https://verikami.github.io/remark-deflist-revisited/docs",
-  "useHostedBaseUrlForAbsoluteLinks": true,
+  "useHostedBaseUrlForAbsoluteLinks": false,
   "readme": "samples/README.md",
   "markdownLinkExternal": true,
   "navigationLinks": {
