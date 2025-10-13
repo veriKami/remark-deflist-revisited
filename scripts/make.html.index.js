@@ -24,8 +24,9 @@ const files = fs.readdirSync(fixturesDir).filter(f => f.endsWith(".md"));
 const htmlHeader = dedent`
   <header>
     <h1>
-    <a href="https://github.com/veriKami/remark-deflist-revisited" target="_blank">
-      veriKami °// Remark Deflist Revisited</a>
+    <a href="https://verikami.github.io">veriKami</a> °//
+    <a href="https://github.com/veriKami/remark-deflist-revisited">
+      Remark Deflist Revisited</a>
     </h1>
   </header>
   <hr>
