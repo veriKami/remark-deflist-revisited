@@ -55,13 +55,13 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: "Build"
+      - name: "Build (npm)"
         run: pnpm build
 
       - name: "Build (jsr)"
         run: pnpm build:jsr
 
-      - name: "Upload CLEAN artifact for npm/gpr"
+      - name: "Upload artifact for npm/gpr"
         uses: actions/upload-artifact@v4
         with:
           name: npm-artifact
@@ -69,24 +69,22 @@ jobs:
             dist
             bin/cli.worker.js
             package.json
-            LICENSE
             README.md
-            jsr.json
-            lib
+            LICENSE
 
-      - name: "Upload DIRTY artifact for jsr"
+      - name: "Upload artifact for jsr"
         uses: actions/upload-artifact@v4
         with:
           name: jsr-artifact
           path: |
+            node_modules
             dist
+            lib
             bin/cli.worker.js
             package.json
-            LICENSE
-            README.md
             jsr.json
-            lib
-            node_modules
+            README.md
+            LICENSE
 
   deploy:
     if: ${{ inputs.publish_target == 'page' || github.event_name == 'push' }}
@@ -95,9 +93,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     permissions:
+      id-token: write #: OIDC
       contents: read
       pages: write
-      id-token: write
     steps:
       - name: "Checkout"
         uses: actions/checkout@v4
@@ -164,7 +162,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      id-token: write #: OIDC (not working)
+      id-token: write #: OIDC (not working without NPM_TOKEN)
       contents: read
     steps:
       - name: "Download artifact"
