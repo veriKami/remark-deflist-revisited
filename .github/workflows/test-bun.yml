@@ -1,4 +1,6 @@
 name: "Test Bun"
+permissions:
+  contents: read
 
 on:
   workflow_dispatch:
