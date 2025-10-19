@@ -73,7 +73,9 @@ const makeHtml = ($ = {}) => {
     <link rel="canonical" href="https://verikami.github.io/remark-deflist-revisited/" hreflang="en">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-dark.min.css">
     <link rel="stylesheet" href="assets/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
+      integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>hljs.highlightAll();</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3TQT133E82"></script>
     <script>
